@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/style.css
+    </head>
+    <body>
+        <div class="scPAw">
+            <table cellpadding="0" cellspacing="0" style="border:none!important;">
+                <tr cellpadding="0" cellspacing="0" style="border:none!important;">
+                    <td cellpadding="0" cellspacing="0" style="border:none!important;">
+                        <div id="adminRL">
+                            <iframe src="/h2-admins" title="Admins" allowtransparency="true"></iframe>
+                            <a href="#">CONTACTER<br/>
+                            L'ADMINSITRATION</a>
+                        </div>
+                    </td>
+                    <td cellpadding="0" cellspacing="0" style="border:none!important;">
+                        <div class="neCTNsc">
+                            <div class="nTitlesSc">Nouvelles</div>
+                            <div class="ctnND">
+                                 <iframe src="/h1-annonces" title="Nouvelles" allowtransparency="true"></iframe>
+                            </div>
+                        </div>
+                    </td>
+                    <td cellpadding="0" cellspacing="0" style="border:none!important;">
+                        <div id="dhCTNsc">
+                            <div class="nTitlesSc">Dernière Heure</div>
+                            <div class="ctnND">
+                                <div id="derniers_sujets"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td cellpadding="0" cellspacing="0" style="border:none!important;">
+                        <!-- BEGIN switch_user_logged_in -->
+                        <div id="moduleProfilIn">
+                            <table cellpadding="0" cellspacing="0" style="border:none!important;">
+                                <tr cellpadding="0" cellspacing="0" style="border:none!important;">
+                                    <td cellpadding="0" cellspacing="0" style="border:none!important;">
+                                        <div id="lginAva"></div>
+                                        <script type="text/javascript">$(function(){$('#lginAva').html(_userdata.avatar);});</script>
+                                    </td>
+                                    <td cellpadding="0" cellspacing="0" style="border:none!important;">
+                                        <div>
+                                            <a href="#"><div class="lginMen">FICHE DE PERSONNAGE</div></a>
+                                            <table cellpadding="0" cellspacing="0" style="border:none!important;">
+                                                <tr cellpadding="0" cellspacing="0" style="border:none!important;">
+                                                    <td cellpadding="0" cellspacing="0" style="border:none!important;">
+                                                        <a href="#"><div class="lginMen" style="width:100px;">MESSAGES</div></a>
+                                                    </td>
+                                                    <td cellpadding="0" cellspacing="0" style="border:none!important;">
+                                                        <a href="#"><div class="lginMen" style="width:100px;">SUJETS</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <a href="#"><div class="lginMen">CARNET DE ROUTE</div></a>
+                                            <a href="#"><div class="lginMen">PROFIL</div></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- END switch_user_logged_in -->
+                        
+                        <!-- BEGIN switch_user_logged_out -->
+                        <div id="moduleProfilOut">
 
+
+                        </div>
+                        <!-- END switch_user_logged_out -->
+                    </td>
+                </tr>
+            </table>            
+        </div>
+
+    </body>
+</html>
