@@ -1,0 +1,43 @@
+:root {
+    --cd3: #D31141;
+    --c3a: #3a72e2;
+    --cbl: #000;
+    --cff: #fff;
+    --cfe: #fecb60;
+    --ce8: #e8e8e8;
+    --c98: #989898;
+    --c50: #505050;
+    --c3b: #3B3B3B;
+    --c32: #323232;
+    --bsbd: 8px solid #3a72e2; /*COUNTOUR CERCLE*/
+    --hsbd: 8px solid #e8e8e8; /*COUNTOUR CERCLE SURVOLÉ*/
+    --ssbd: 8px solid #fecb60; /*COUNTOUR CERCLE SÉLECTIONNÉ*/
+    --bd: 1px solid #fff;
+    --gap-size: 16px;
+    --ease: cubic-bezier(0.4, 0.0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.43, 0.09, 0.38, 2.56);
+}
+
+body{
+    background-color:var(--c3b);
+}
+
+#scPAw{
+    width:1200px;
+    height:280px;
+    padding:10px 30px;
+    background-color:var(--ce8);
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    overflow:hidden;
+    opacity:1;
+    transition: 0,7s;
+    animation-timing-function:ease-in-out;
+}
+
+#scPAw .scinactive{
+    width:1200px;
+    height:0px;
+    opacity:0;
+}
