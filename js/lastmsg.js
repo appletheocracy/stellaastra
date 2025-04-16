@@ -5,7 +5,9 @@ function lastMSG(){
 
     if(content, left, conteneur){
         left.style.overflow = "hidden";
-        left.style.height = "0px"
+        left.style.height = "0px";
+
+        conteneur.innerHTML = content;
     }
     
 }
