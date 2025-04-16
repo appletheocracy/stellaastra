@@ -8,6 +8,5 @@ function lastMSG(){
         content.style.overflow = "hidden";
         dsdepla.innerHTML = content.innerHTML;
     } else {
-        content.style.opacity = "0";
     }
 }
