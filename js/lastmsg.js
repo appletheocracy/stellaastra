@@ -1,12 +1,11 @@
 function lastMSG(){
-    var content = document.getElementById("left");
-    var scpaw = document.getElementById("scPAw");
-    var dsdepla = document.getElementById("derniers_sujets");
+    var content = document.getElementById("left").innerHTML;
+    var left = document.getElementById("left");
+    var conteneur = document.getElementById("derniers_sujets");
 
-    if(scpaw.style.width == "1200px"){
-        content.style.height = "0px";
-        content.style.overflow = "hidden";
-        dsdepla.innerHTML = content.innerHTML;
-    } else {
+    if(content, left, conteneur){
+        left.style.overflow = "hidden";
+        left.style.height = "0px"
     }
+    
 }
