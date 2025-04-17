@@ -1,14 +1,10 @@
-function lastMSG(){
-    var content = document.getElementById("left").innerHTML;
-    var left = document.getElementById("left");
-    var conteneur = document.getElementById("derniers_sujets");
 
-    if(content, left, conteneur){
-        left.style.overflow = "hidden";
-        left.style.height = "0px";
+  window.addEventListener('DOMContentLoaded', lastMSG () {
+    var leftDiv = document.getElementById('left');
+    var targetDiv = document.getElementById('derniers_sujets');
 
-        conteneur.innerHTML = content;
+    if (leftDiv && targetDiv) {
+      targetDiv.innerHTML = leftDiv.innerHTML;
+      leftDiv.style.display = 'none';
     }
-    
-}
- 
+  });
