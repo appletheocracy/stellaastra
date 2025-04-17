@@ -1,10 +1,5 @@
-
-  window.addEventListener('DOMContentLoaded', lastMSG () {
-    var leftDiv = document.getElementById('left');
-    var targetDiv = document.getElementById('derniers_sujets');
-
-    if (leftDiv && targetDiv) {
-      targetDiv.innerHTML = leftDiv.innerHTML;
-      leftDiv.style.display = 'none';
-    }
-  });
+$(document).ready(lastMSG(){
+    var $moveshit = $('.module').html()
+    $('#contenPA)'.html(moveshit);
+    $('#left').height(0);
+});
