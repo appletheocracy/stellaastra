@@ -1,0 +1,377 @@
+/*** ------------------------------- ***/
+/*** SWITCHEROO - Par Monomer ------ ***/
+/*** Gestionnaire de multicompte --- ***/
+
+
+/* BARRE SWITCHEROO --- */
+.switcheroo {}
+
+.switcheroo[position="static"] {
+    position: relative;
+}
+
+/* si barre EN HAUT */
+.switcheroo[position="top"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+/* si barre A LA VERTICAL */
+.switcheroo[direction="vertical"] {
+    height: 100%;
+}
+
+/* Positionnement des ronds */
+.switcheroo__squircles {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding: var(--gap-size);
+    gap: var(--gap-size);
+}
+
+.switcheroo[direction="vertical"] .switcheroo__squircles {
+    flex-direction: column;
+}
+
+/* BARRE --- */
+.switcheroo {
+    color: var(--c3b);
+    background-color:transparent;
+    font-size: 16px;
+    transform 128ms var(--ease), opacity 64ms var(--ease);
+}
+
+
+/* AFFICHAGE DES COMPTES ---*/
+/* Rond */
+.switcheroo__squircle {
+    position: relative;
+    display: grid;
+    place-items: center;
+    background-color: var(--ce8);
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    cursor: pointer;
+    border:var(--bsbd);
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
+}
+
+/* Rond au survol */
+.switcheroo__squircle:hover {
+    border:var(--hsbd);
+}
+
+/* Contenenur de l'avatar */
+.switcheroo__avatar {
+}
+
+
+.switcheroo__squircle.active{
+    border:var(--ssbd);
+}
+
+.switcheroo__squircle.active:hover{
+    border:var(--hsbd);
+}
+
+/* Avatar du compte connecté */
+.switcheroo__squircle.active{
+    cursor: default;
+}
+
+/* Indicateur de l'avatar survolé */
+.switcheroo__squircle:before {
+    content: "";
+    display: block;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: -5px;
+    bottom: 0;
+    right: 0;
+    left: -5px;
+    z-index: -1;
+    transform 128ms var(--ease), opacity 64ms var(--ease);
+}
+
+
+/* Indicateur du compte sélectionné/actif */
+.switcheroo__squircle.active:before {
+    opacity: 1;
+}
+
+.switcheroo__squircle:hover:before {
+    opacity: 1;
+    transform 128ms var(--ease), opacity 64ms var(--ease);
+}
+
+/* Bouton de suppression */
+.switcheroo__delete {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top:38px;
+    font-size:12px;
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding:0px 5px 0px 5px;
+    border-radius: 4px;
+    background-color: var(--cd3);
+    transform: scale(0);
+    opacity: 1;
+    transition: transform 0.5s var(--ease), opacity 0.8s var(--ease);
+    cursor: pointer;
+    color: var(--cff);
+    border:1px solid var(--ce8);
+}
+
+.switcheroo__squircle:hover .switcheroo__delete {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* TOOLTIP - INFOBULLE DU PSEUDO ---*/
+/* Conteneur du pseudo */
+.switcheroo__popper {
+    background-color: var(--ce8);
+    padding: 0.68rem 1rem;
+    position: absolute;
+    width: -webkit-max-content;
+    width: max-content;
+    border-radius: 4px;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 64ms var(--ease), transform 128ms var(--ease-bounce);
+    pointer-events: none;
+    color: var(--c3b);
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Conteneur du pseudo: si vertical */
+.switcheroo[direction="vertical"] .switcheroo__popper {
+    left: 155%;
+    top: 50%;
+    transform-origin: left;
+    transform: translateY(-50%) scale(0.98);
+}
+
+/* Flèche tooltip */
+.switcheroo__popper:before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: var(--ce8);
+    z-index: -1;
+}
+
+/* Flèche tooltip : si vertical */
+.switcheroo[direction="vertical"] .switcheroo__popper:before {
+    left: -2px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+/* Positionnement tooltip au survol */
+.switcheroo[direction="vertical"] .switcheroo__squircle:hover .switcheroo__popper {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+
+/* DIVIDER : barre de séparation --- */
+.switcheroo__divider {
+    background-color: var(--ce8);
+    border-radius: 3px;
+    transform: scale(0.5);
+}
+
+/* Divider : si vertical */
+.switcheroo[direction="vertical"] .switcheroo__divider {
+    width: 100%;
+    height: 2px;
+}
+
+/* AJOUTER UN COMPTE ---*/
+/* button : ajouter un compte */
+.switcheroo__squircle--button {
+    color: var(--cff);
+    background-color:var(--c3b);
+    border:8px solid #505050;
+}
+.switcheroo__squircle--button:hover {
+    font-weight: bold;
+    border:var(--bsbd);
+}
+
+/* MODAL : FENETRE DE CONNEXION --- */
+/* Fond de l'afficage connexion */
+
+
+/* Boîte de connexion */
+.monomer-modal {
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    width: 94%;
+    padding: 24px 20px;
+    transition: 0.2s opacity ease;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    background:rgba(254, 203, 96, 0.5);
+    color: var(--cff);
+}
+
+/* Formulaire */
+.switcheroo__form {
+    padding: 48px;
+    border-radius: 5px;
+    border:1px solid var(--cfe);
+    background-color:var(--c3b);
+}
+
+/* Champs à remplir */
+.switcheroo__form-row {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    background-color:var(--c3b);
+    color: var(--cff);
+}
+
+/* Nom du champs */
+.switcheroo__form-label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color:var(--c3b);
+    color: var(--cff);
+}
+
+/* Zone de texte */
+.switcheroo__form-input {
+    padding: 6px!important;
+    font-size: 16px;
+    border-radius: 4px;
+    width: 100%;
+    background-color:#505050!important;
+    border:1px solid var(--cfe)!important;
+    border-bottom: 3px solid var(--cfe)!important;
+    color: var(--cff)!important;
+    cursor: text;
+}
+
+/* Bouton de connexion */
+.switcheroo__form-button {
+    border-radius: 8px;
+    padding: 4px 6px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 18px;
+    align-self: flex-end;
+    background-color:var(--cfe);
+    border: 1px solid var(--ce8);
+    cursor: pointer;
+    color: var(--c3b);
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.switcheroo__form-button:hover {
+    border: 1px solid transparent;
+    background: var(--cff);
+    color: var(--cff);
+}
+
+.monomer-modal.monomer-open{
+    opacity: 1;
+}
+
+
+/* Fermer la boîte de connexion */
+.monomer-close {
+    font-size: 20px;
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    padding: 0px 5px 5px 5px!important;
+    cursor: pointer;
+    color: #fff;
+    border: 0;
+    outline: none;
+    background: var(--cd3);
+    border-radius: 50%;
+    padding: 0;
+    font-weight: 700;
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
+}
+
+.monomer-close:hover {
+    background:var(--c3a);
+}
+
+.switcheroo__avatar img {
+    width: 40px!important;
+    height: 40px!important;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    position: relative;
+    filter: grayscale(100%);
+}
+
+/* Image de l'avatar au survol */
+.switcheroo__squircle:hover img{
+    filter: grayscale(30%);
+}
+
+.switcheroo__avatar img:hover {
+    filter: grayscale(30%);
+}
+
+
+.switcheroo__squircle.active,
+.switcheroo__squircle.active img {
+    filter: grayscale(0);
+}
+
+.monomer-overlay{
+    background-image:url('https://i.imgur.com/hr5Oxfq.jpg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.2s opacity ease;
+    width: 100%;
+    height: 100%;
+}
+
+.monomer-overlay.monomer-open {
+    opacity: 0.5;
+}
