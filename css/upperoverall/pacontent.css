@@ -1,0 +1,127 @@
+/**----------- ROOT ------------------------**/
+:root {
+    --cd3: #D31141;
+    --c3a: #3a72e2;
+    --cbl: #000;
+    --cff: #fff;
+    --cfe: #fecb60;
+    --ce8: #e8e8e8;
+    --c98: #989898;
+    --c50: #505050;
+    --c3b: #3B3B3B;
+    --c32: #323232;
+    --chum: #6D9C72;
+    --cvam: #D31141;
+    --chyb: #C083CF;
+    --bsbd: 8px solid #3a72e2; /*COUNTOUR CERCLE*/
+    --hsbd: 8px solid #e8e8e8; /*COUNTOUR CERCLE SURVOLÉ*/
+    --ssbd: 8px solid #fecb60; /*COUNTOUR CERCLE SÉLECTIONNÉ*/
+    --bd: 1px solid #fff;
+    --gap-size: 16px;
+    --ease: cubic-bezier(0.4, 0.0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.43, 0.09, 0.38, 2.56);
+}
+
+/**----------- PAGE D'ACCUEIL PLIABLE -------**/
+
+#scPAw{
+    width:1200px;
+    height:280px;
+    padding:10px 30px;
+    background-color:var(--ce8);
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    overflow:hidden;
+    opacity:1;
+    transition: 0,7s;
+    animation-timing-function:ease-in-out;
+}
+
+#scPAw .scinactive{
+    width:1200px;
+    height:0px;
+    opacity:0;
+}
+
+/*--- Zone Admin --*/
+#adminRL{
+    height:260px;
+    width:102px;
+    text-align:center;
+}
+/*--- Nouvelles et dernière heure --*/
+.ndCTNsc{
+    width:270px;
+    height:260px;
+    border-radius: 4px;
+    background-color:var(--cff);
+    padding:10px;
+}
+.nTitlesSc{
+    font-size:28px;
+}
+.ctnND{
+    overflow-y:auto;
+    overflow-x: hidden;
+    border:2px solid var(--c98);
+}
+#neCTNsc.nTitlesSc{
+    color:var(--c3a);
+}
+
+#neCTNsc.ctnND{
+    border-color:var(--c3a)!important;
+}
+#neCTNsc.ctnND::-webkit-scrollbar {
+	width:8px;
+}
+#neCTNsc.ctnND::-webkit-scrollbar-track {
+	background:var(--c98);
+}
+#neCTNsc.ctnND::-webkit-scrollbar-thumb {
+	background-color:var(--c3a);
+}
+#neCTNsc.ctnND::-webkit-scrollbar-thumb:hover {
+	background-color:#2b4493;
+}
+
+#dhCTNsc.nTitlesSc{
+    color:var(--cfe);
+}
+#dhCTNsc.ctnND{
+    border-color:var(--cfe)!important;
+}
+#dhCTNsc.ctnND::-webkit-scrollbar {
+	width:8px;
+}
+#dhCTNsc.ctnND::-webkit-scrollbar-track {
+	background:var(--c98);
+}
+#dhCTNsc.ctnND::-webkit-scrollbar-thumb {
+	background-color:var(--cfe);
+}
+#dhCTNsc.ctnND::-webkit-scrollbar-thumb:hover {
+	background-color:#f3b127;
+}
+
+#lginAva{
+    width:166px;
+    height:256px;
+    background-color:var(--c98);
+    border-radius:4px;
+}
+#lginAva img{
+    width:150px;
+    height:240px;
+}
+
+.lginMen{
+    font-size:16px;
+    color:var(--c32);
+    border:1px solid var(--cff);
+    height:54px;
+    padding:15px 8px;
+    text-align:center;
+    margin:7px;
+}
