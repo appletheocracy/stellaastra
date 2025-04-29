@@ -125,3 +125,20 @@
     text-align:center;
     margin:7px;
 }
+
+#inviteIMGpa{
+    width:394px;
+    height:256px;
+    position:relative;
+    padding:8px;   
+    border-radius:4px;
+    background-color:var(--cff);
+}
+
+#inviteIMGpa .insc{
+    width:378px;
+    height:240px;
+    border:1px solid var(--ce8);
+    background-repeat:no-repeat;
+    background-image:url('https://imgur.com/qcIJh8p.jpg');
+}
