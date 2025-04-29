@@ -1,1 +1,118 @@
+/**----------- ROOT ------------------------**/
+:root {
+    --cd3: #D31141;
+    --c3a: #3a72e2;
+    --cbl: #000;
+    --cff: #fff;
+    --cfe: #fecb60;
+    --ce8: #e8e8e8;
+    --c98: #989898;
+    --c50: #505050;
+    --c3b: #3B3B3B;
+    --c32: #323232;
+    --chum: #6D9C72;
+    --cvam: #D31141;
+    --chyb: #C083CF;
+    --bsbd: 8px solid #3a72e2; /*COUNTOUR CERCLE*/
+    --hsbd: 8px solid #e8e8e8; /*COUNTOUR CERCLE SURVOLÉ*/
+    --ssbd: 8px solid #fecb60; /*COUNTOUR CERCLE SÉLECTIONNÉ*/
+    --bd: 1px solid #fff;
+    --gap-size: 16px;
+    --ease: cubic-bezier(0.4, 0.0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.43, 0.09, 0.38, 2.56);
+}
 
+/**----------- CODAGES DE MENU TOP -----------**/
+#topMenu.hSClass, #botMenu.hSClass, #scban.hSClass{
+      width:1200px;
+      position:relative;
+      left:-36px;
+      margin-right:-36px;
+}
+
+#topMenu{
+      background-color:var(--c32);
+      border-bottom:6px solid var(--c98);
+      height:75px;
+      font-family: "Staatliches", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size:20px;
+      text-align:left;
+      overflow:hidden;
+}
+
+#userLeftsc{
+    max-width:300px;
+    height:69px;
+    background-color:#272727;
+    color:#cccccc;
+    padding:17px 15px 30px 30px!important;
+    position:relative;
+    left:-12px;
+    margin:0px -12px 0px 12px;
+    color:var(--cff);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 90%;
+}
+
+#userLeftsc a{
+    color:#cccccc;
+    transition: .5s;
+    animation-timing-function:ease-in-out;
+  
+}
+
+#userLeftsc #cdsc a{
+    color:var(--cfe);
+}
+
+#userLeftsc a:hover{
+    color:var(--cd3)!important;
+}
+
+#scUserName{
+    font-size:26px;  
+    line-height: 80%;
+    max-width:300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#sctriangle-topleft {
+    width: 0;
+    height: 0;
+    border-top:69px solid #272727;
+    border-right: 50px solid transparent;
+}
+   
+#scNavDr{
+    width:100%;
+    text-align:right;
+    font-size:24px;
+    color:var(--cff);
+    height:25px;
+    position:relative;
+    top:-5px;
+    margin-bottom:-5px;
+    padding-right:30px;
+}
+
+#scNavDr ul li{
+    display:inline-block;
+}
+
+#scNavDr a{
+    margin:0px 20px 0px 20px;
+    color:var(--cff)!important;
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
+}
+
+#scNavDr a:hover{
+    margin:0px 20px 0px 20px;
+    color:var(--c3a)!important;
+}
