@@ -27,7 +27,6 @@
 #scPAw{
     width:1200px;
     height:280px;
-    padding:10px 30px;
     margin:0px -36px 0px 0px;
     background-color:var(--ce8);
     font-family: "Staatliches", sans-serif;
@@ -37,6 +36,18 @@
     opacity:1;
     transition: 0,7s;
     animation-timing-function:ease-in-out;
+}
+
+#scPAw .ctnppw{
+    position:relative;
+    top:-5px;
+    margin:8px 30px;
+}
+
+#scPAw a{  
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
+    text-decoration:none;
 }
 
 #scPAw .scinactive{
