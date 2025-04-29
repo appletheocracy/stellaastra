@@ -105,6 +105,18 @@
 	background-color:#f3b127;
 }
 
+.module .h3{
+    display:none;
+}
+.module {
+    text-align:left;
+    box-shadow:none;
+    padding:2px!important;
+    margin:0px;
+}
+
+/*INFO CONNECTÉ*/
+
 #lginAva{
     width:166px;
     height:256px;
