@@ -58,10 +58,160 @@
 
 /*--- Zone Admin --*/
 #adminRL{
-    height:260px;
-    width:102px;
+    height:256px;
+    width:196px;
     text-align:center;
+    margin:10px 10px 10px 0px;
+    border-radius:10px 10px 4px 4px;
+    background-color:var(--cff);
 }
+
+#adminRL .scspacer{
+    margin-top:6px;
+    line-height:80%;
+}
+
+#adminRL a{
+    text-decoration:none;
+    font-size:20px;
+    color:var(--c3b);
+    line-height:85%;
+}
+#adminRL a:hover{
+    color:var(--cd3);
+    letter-spacing: 1px;
+}
+
+.scLBAdmin{
+    height:65px;
+    width:196px;
+    border-radius:4px;
+    color:var(--cff);
+    background-color:var(--c3b);
+    overflow:hidden;
+    border:2px solid var(--c3a);
+    margin-bottom:5px;
+
+}
+.scLBAdmin:hover .blltrs,.scLBAdmin:hover .adminDeftx{
+    opacity:1;
+}
+.blltrs{
+    background-color:rgba(58, 114, 226, 0.5);
+    position:relative;
+    top:-52px;
+    left:-45px;
+    margin:0px -35px -42px 0px;
+    height:140px;
+    width:140px;
+    border-radius:50%;
+    opacity:0.7;
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
+}
+.adminPARight .blltrs{
+    top:-52px;
+    left:-5px;
+    margin:0px 0px -42px 0px;
+}
+
+.bllntr{
+    background-color:var(--c3a);
+    height:140px;
+    width:140px;
+    position:relative;
+    left:-12px;
+    margin:0px -12px 0px 0px;
+    border-radius:50%;
+    
+}
+.adminPARight .bllntr{
+    left:14px;
+    margin:0px 12px 0px 0px;
+    
+}
+.bllavantr{
+    background-color:var(--c3a);
+    height:140px;
+    width:140px;
+    position:relative;
+    left:-15px;
+    margin:0px -43px -15px 0px;
+    border-radius:50%;
+    overflow:hidden;
+}
+.adminPARight .bllavantr{
+    background-color:red;
+    left:12px;
+    margin:0px -43px -15px 0px;
+}
+.bllavantr img{
+    height:65px;
+    width:68px;
+    margin:52px 0px 0px 71px;
+}
+.adminPARight .bllavantr img{
+    margin:52px 0px 0px 0px;
+    position:relative;
+    left:-37px;
+    
+}
+.adminDeftx{
+    font-size:20px;
+    line-height:90%;
+    position:relative;
+    opacity:0.7;
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
+    width:100px;
+}
+
+.adminPARight .adminDeftx{
+    margin-left:8px;
+    top:-17px;
+    text-align:left;
+}
+.adminPALeft .adminDeftx{
+    left:-15px;
+    top:-17px;
+    text-align:right;
+}
+
+#pagrpvam .scLBAdmin{
+    border:2px solid var(--cvam);
+}
+
+#pagrpvam .blltrs{
+    background-color:rgba(211, 17, 65, 0.5);
+}
+
+#pagrpvam .bllntr{
+    background-color:var(--cvam);
+}
+#pagrphyb .scLBAdmin{
+    border:2px solid var(--chyb);
+}
+
+#pagrphyb .blltrs{
+    background-color:rgba(192, 131, 207, 0.5);
+}
+
+#pagrphyb .bllntr{
+    background-color:var(--chyb);
+}
+
+#pagrphum .scLBAdmin{
+    border:2px solid var(--chum);
+}
+
+#pagrphum .blltrs{
+    background-color:rgba(109, 156, 114, 0.5);
+}
+
+#pagrphum .bllntr{
+    background-color:var(--chum);
+}
+/*--- Nouvelles et dernière heure --*/
 /*--- Nouvelles et dernière heure --*/
 .ndCTNsc{
     width:270px;
@@ -72,49 +222,137 @@
 }
 .nTitlesSc{
     font-size:28px;
+    
 }
 .ctnND{
     overflow-y:auto;
     overflow-x: hidden;
     border:2px solid var(--c98);
+    padding:5px;
 }
-#neCTNsc.nTitlesSc{
+.wctne8{
+    margin-right:10px;
+    width:256px;
+    border-radius:4px;
+    background-color:var(--cff);
+    height:256px;
+    text-align:center;
+}
+.ctnND{
+    position:relative;
+    top:-16px;
+    margin:8px 8px -7px 8px;
+    height:216px;
+    background-color: var(--ce8);
+}
+
+
+#neCTNsc .nTitlesSc{
     color:var(--c3a);
 }
 
-#neCTNsc.ctnND{
+#neCTNsc .ctnND{
     border-color:var(--c3a)!important;
-}
-#neCTNsc.ctnND::-webkit-scrollbar {
-	width:8px;
-}
-#neCTNsc.ctnND::-webkit-scrollbar-track {
-	background:var(--c98);
-}
-#neCTNsc.ctnND::-webkit-scrollbar-thumb {
-	background-color:var(--c3a);
-}
-#neCTNsc.ctnND::-webkit-scrollbar-thumb:hover {
-	background-color:#2b4493;
+    scrollbar-color: var(--c3a) #f1f1f1;
+    scrollbar-width: thin;
 }
 
-#dhCTNsc.nTitlesSc{
+
+#neCTNsc .ctnND::-webkit-scrollbar {
+	width:8px!important;
+}
+#neCTNsc .ctnND::-webkit-scrollbar-track {
+	background:var(--c98)!important;
+}
+#neCTNsc .ctnND::-webkit-scrollbar-thumb {
+	background-color:var(--c3a)!important;
+}
+#neCTNsc .ctnND::-webkit-scrollbar-thumb:hover {
+	background-color:#2b4493!important;
+}
+.newsPAs{
+    padding:5px;
+    background-color:var(--cff);
+    margin:5px;
+    width:200px;
+    border-radius:4px;
+}
+.newsLin{
+    width:60px;
+    margin:5px;
+}
+.newsDate{
+    font-size:16px;
+    color:var(--cff);   
+    width:60px;
+    height:20px;
+    border-radius:4px;
+    text-align:center;
+    background-color:var(--c3a); 
+    margin-bottom:10px;
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
+}
+.newsDate:hover{
+    background-color:var(--c3b);
+}
+
+.newsAcc{
+    font-size:16px;
+    color:var(--cff);   
+    width:60px;
+    height:20px;
+    border-radius:4px;
+    text-align:center;
+    background-color:var(--c3b);
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
+}
+
+.newsAcc:hover{
+    background-color:var(--cd3);
+}
+.newsInfo{
+    font-family: "Source Serif 4", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    text-align:left;
+    font-size:14px;
+    line-height:135%;
+    height:60px;
+    overflow:hidden;
+    margin:2px;
+    text-overflow:ellipsis;
+}
+
+#dhCTNsc .nTitlesSc{
     color:var(--cfe);
 }
-#dhCTNsc.ctnND{
+#dhCTNsc .ctnND{
     border-color:var(--cfe)!important;
+    scrollbar-color: var(--cfe) #f1f1f1;
+    scrollbar-width: thin;
 }
-#dhCTNsc.ctnND::-webkit-scrollbar {
-	width:8px;
+#dhCTNsc .ctnND::-webkit-scrollbar {
+	width:8px!important;
 }
-#dhCTNsc.ctnND::-webkit-scrollbar-track {
-	background:var(--c98);
+#dhCTNsc .ctnND::-webkit-scrollbar-track {
+	background:var(--c98)!important;
 }
-#dhCTNsc.ctnND::-webkit-scrollbar-thumb {
-	background-color:var(--cfe);
+#dhCTNsc .ctnND::-webkit-scrollbar-thumb {
+	background-color:var(--cfe)!important;
 }
-#dhCTNsc.ctnND::-webkit-scrollbar-thumb:hover {
-	background-color:#f3b127;
+#dhCTNsc .ctnND::-webkit-scrollbar-thumb:hover {
+	background-color:#f3b127!important;
+}
+
+.newsPAs{
+    padding:5px;
+    background-color:var(--cff);
+    margin:5px;
+    width:210px;
+    border-radius:4px;
 }
 
 .module .h3{
@@ -129,40 +367,74 @@
 
 /*INFO CONNECTÉ*/
 
-#lginAva{
-    width:166px;
+#moduleProfilIn table{
+    margin:0px;
+    border-spacing: 0px!important;
+}
+
+#lginPaAva{
+    width:168px;
     height:256px;
     background-color:var(--c98);
     border-radius:4px;
 }
-#lginAva img{
+#lginPaAva img{
     width:150px;
     height:240px;
+    border:1px solid var(--c32);
+    margin:8px 0px 0px 8px;
 }
+
+#lginLink a{
+    margin:0px;
+}
+
+#lginLink a:hover{
+    color:var(--c3a)!important;
+
+}
+
+#lginLink{
+    width:216px;
+    height:256px;
+    background-color:var(--c98);
+    border-radius:4px;
+    padding:8px 0px 0px 8px;
+    margin-left:10px;
+    overflow:hidden;
+}
+
 
 .lginMen{
-    font-size:16px;
+    font-size:20px;
     color:var(--c32);
-    border:1px solid var(--cff);
+    border:2px solid var(--cff);
+    background-color:var(--ce8);
     height:54px;
+    padding:12px 4px;
+    text-align:center;
+    margin:3px;
+    text-decoration:none;
+    width:195px;
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
+}
+
+.lginMen2{
+    font-size:20px;
+    color:var(--c32);
+    border:2px solid var(--cff);
+    background-color:var(--ce8);
+    height:56px;
     padding:15px 8px;
     text-align:center;
-    margin:7px;
+    margin:6px 3px;
+    text-decoration:none;
+    width:195px;
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
 }
 
-#inviteIMGpa{
-    width:394px;
-    height:256px;
-    position:relative;
-    padding:8px;   
-    border-radius:4px;
-    background-color:var(--cff);
-}
-
-#inviteIMGpa .insc{
-    width:378px;
-    height:240px;
-    border:1px solid var(--ce8);
-    background-repeat:no-repeat;
-    background-image:url('https://imgur.com/qcIJh8p.jpg');
+.lginMen:hover,.lginMen2:hover{
+    letter-spacing: 1px;
 }
