@@ -25,17 +25,19 @@
 /**----------- PAGE D'ACCUEIL PLIABLE -------**/
 
 #scPAw{
-    width:1200px;
-    height:280px;
-    margin:0px -36px 0px 0px;
-    background-color:var(--ce8);
-    font-family: "Staatliches", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    overflow:hidden;
-    opacity:1;
-    transition: 0,7s;
-    animation-timing-function:ease-in-out;
+	width:1200px;
+	height:280px;
+	margin:0px -36px 0px 0px;
+	background-color:var(--ce8);
+	font-family: "Staatliches", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	overflow:hidden;
+	opacity:1;
+	transition: 0,7s;
+	animation-timing-function:ease-in-out;
+	position:relative;
+	left:-36px;
 }
 
 #scPAw .ctnppw{
