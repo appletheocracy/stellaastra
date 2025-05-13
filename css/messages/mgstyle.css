@@ -493,3 +493,11 @@ li.mvamp{
 .sujTree a:visited.nav{
   color:var(--cff)!important;
 }
+
+/* --- Enlever les :: --- */
+a.nav:before {
+         content:" > ";
+ }
+.nav > a.nav:empty:before, .nav > a.nav:first-child:before {
+     content:"";
+}
