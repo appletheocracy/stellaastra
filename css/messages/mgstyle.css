@@ -438,7 +438,8 @@ li.mvamp{
   font-weight: 400;
   font-style: normal;
   position:relative;
-  left:-36px;
+  left:-30px;
+  top:-3px;
 }
 
 .sujTitleTxt{
@@ -469,12 +470,12 @@ li.mvamp{
   width:100px;
 }
 
-.sujTree .nav{
+.sujTree a.nav{
   font-size: 22px;
   color:var(--cff);
 }
 
-.sujTree a .nav{
+.sujTree a.nav{
   color:var(--cff)!important;
   text-decoration:underline;
   text-decoration-color:rgba(254, 203, 96, 0);
@@ -484,11 +485,11 @@ li.mvamp{
   padding:0px 10px;
 }
 
-.sujTree a:hover .nav{
+.sujTree a:hover.nav{
   letter-spacing:1px;
   text-decoration-color:rgba(254, 203, 96, 1);
 }
 
-.sujTree a:visited .nav{
-  color:var(--cff);
+.sujTree a:visited.nav{
+  color:var(--cff)!important;
 }
