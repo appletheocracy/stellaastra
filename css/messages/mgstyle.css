@@ -1,4 +1,4 @@
-
+Tree
 *, *::before, *::after {
   /*margin: 0;
   /padding: 0;*/
@@ -30,7 +30,7 @@
 .msgavanfo{
   width:284px;
   min-height:500px;
-  background-image:url('../img/messages/01_gen/FondAvatar.png');
+  background-image:url('../../img/messages/01_gen/FondAvatar.png');
   background-repeat:no-repeat;
   padding:15px;
   -webkit-border-top-right-radius: 4px;
@@ -115,7 +115,7 @@
   width:220px;
   background-color:var(--c32);
   clip-path: polygon(50% 100%, 100% 75%, 100% 0%, 0% 0%, 0% 75%);
-  background-image:url('../img/avatars/ficheImgvide/vide220_base.png');
+  background-image:url('../../img/avatars/ficheImgvide/vide220_base.png');
 }
 .featTitle, .factsTitle{
   color:var(--cff);
@@ -229,7 +229,7 @@ li.mvamp{
 .msguserinfo{
   width:854px;
   height:110px;
-  background-image:url('../img/messages/groupes/FondGen_01.png');
+  background-image:url('../../img/messages/groupes/FondGen_01.png');
   background-repeat:no-repeat;
   padding:15px 0px 15px 20px;
   -webkit-border-top-left-radius: 4px;
@@ -431,7 +431,7 @@ li.mvamp{
 #sujTitle{
   width:1200px;
   height:170px;
-  background-image:url('../img/messages/01_gen/titreForum.png');
+  background-image:url('../../img/messages/01_gen/titreForum.png');
   background-repeat:no-repeat;
   padding:40px 30px 0px 30px;
   font-family: "Staatliches", sans-serif;
@@ -496,7 +496,7 @@ li.mvamp{
 
 /**----------- PAGE DE BASE ----------------**/
 body{
-  background-image:url('../img/01_Base/fond.jpg');
+  background-image:url('../../img/01_Base/fond.jpg');
   background-repeat:no-repeat;
   background-position: center top;
   background-attachment: fixed!important;
@@ -536,6 +536,39 @@ body{
 }
 
 .wrapMsgsc li{
+  list-style-position: inside!important;
+  padding-left:0;
+  list-style-type: none;
+}
+
+#content-main{
+  margin:0 auto;
+  font-family: "Staatliches", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#content-main table tr td{
+  vertical-align:top;
+}
+
+#content-main div, #content-main a, #content-main input{
+  transition: 0.5s;
+  animation-timing-function:ease-in-out;
+}
+
+#content-main a{
+  text-decoration:none;
+  color:var(--c3a);
+}
+
+#content-main ul{
+  list-style-position: inside!important;
+  padding-left:0;
+  list-style-type: none;
+}
+
+#content-main li{
   list-style-position: inside!important;
   padding-left:0;
   list-style-type: none;
