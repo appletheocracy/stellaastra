@@ -1,5 +1,11 @@
 $(document).ready(function(){
-    $(".sujTree").html(function(i, t){
-        return t.replace('::',' > ');
+    $(".sujTree").each(function(){
+        console.log($(this).text());
+        var ddot = $(this).text().replace('::', '>');
+        $(this).text(ddot);
+    });    
+
+    $(".sujTree").html(function(i, h){
+        return h.replace(/&nbsp;/g,'');
     });
 });
