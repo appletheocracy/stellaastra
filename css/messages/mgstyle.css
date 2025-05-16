@@ -513,14 +513,13 @@ li.mvamp{
 }
 
 .pagination span strong{
-  border-bottom:1px solid var(--cff)!important;
-  background: #323232!important;
+  border-bottom:1px solid var(--c32)!important;
+  background: var(--c32)!important;
   background: linear-gradient(0deg,rgba(50, 50, 50, 1) 0%, rgba(50, 50, 50, 0) 100%)!important;
 }
 
 .pagination span strong, .pagination span a:link, .pagination span a:visited, .pagination span a:active {
   color:var(--cff)!important;
-  background-color:rgba(255,255,255,0)!important;
   font-size:18px!important;
   width:30px;
   height:28px;
@@ -528,10 +527,11 @@ li.mvamp{
 
 .pagination span a:link, .pagination span a:visited, .pagination span a:active {
   border-bottom:1px solid rgba(255,255,255,0)!important;
+  background-color:rgba(255,255,255,0)!important;
 }
 
 .pagination span a:hover{
   color:var(--c32)!important;
-  background: #FFFFFF!important;
+  background: var(--cff)!important;
   background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)!important;
 }
