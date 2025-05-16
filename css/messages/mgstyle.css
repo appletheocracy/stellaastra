@@ -459,7 +459,7 @@ li.mvamp{
 .sujTree, .pagTree{
   color:var(--cff); 
   position:relative;
-  top:23px;
+  top:19px;
   left:-16px;
   margin-right:-10px;
 }
@@ -488,8 +488,7 @@ li.mvamp{
 }
 
 .sujTree a:hover.nav{
-  letter-spacing:1px;
-  text-decoration-color:rgba(254, 203, 96, 1);
+  text-decoration-color:rgba(255, 255, 255, 1);
 }
 
 .sujTree a:visited.nav{
@@ -502,19 +501,23 @@ li.mvamp{
   position:relative;
   top:23px;
 }
+.pagination .thHead{
+  color:var(--cff)!important;
+}
 .pagination span{
   display:inline-block;
 }
 .pagination span strong{
   color:var(--c32)!important;
   background-color:var(--ce8)!important;
-  height:30px!important;
+  height:24px!important;
   font-size:16px!important;
   border:1px solid var(--cff)!important;
+  padding:3px;
 }
 
 .pagination span a:link, .pagination span a:visited, .pagination span a:active {
-  height:30px!important;
+  height:24px!important;
   font-size:16px!important;
   background-color:var(--c3a)!important;
   border:1px solid rgba(255,255,255,0);
