@@ -501,36 +501,31 @@ li.mvamp{
   position:relative;
   top:23px;
 }
+
 .pagination .thHead{
   color:var(--cff)!important;
+  font-size:20px!important;
+  background-color:var(--cff)!important;
 }
+
 .pagination span{
   display:inline-block;
 }
+
 .pagination span strong{
-  color:var(--c32)!important;
-  background-color:var(--ce8)!important;
-  height:24px!important;
-  font-size:16px!important;
-  border:1px solid var(--cff)!important;
-  padding:3px!important;
+  border-bottom:1px solid var(--cff)!important;
+}
+
+.pagination span strong, .pagination span a:link, .pagination span a:visited, .pagination span a:active {
+  color:var(--cff)!important;
+  background-color:rgba(255,255,255,0)!important;
+  font-size:20px!important;
 }
 
 .pagination span a:link, .pagination span a:visited, .pagination span a:active {
-  height:24px!important;
-  font-size:16px!important;
-  background-color:var(--c3a)!important;
-  border:1px solid rgba(255,255,255,0)!important;
-  padding:3px!important;
-}
-.pagination span a:link{
-  color:var(--cff)!important;
-  border-color:var(--c32)!important;
-  background-color:var(--c3a)!important;
+  border-bottom:1px solid rgba(255,255,255,0)!important;
 }
 
 .pagination span a:hover{
-  color:var(--cff)!important;
-  background-color:var(--c8a)!important;
-  border-color:var(--cff)!important;
+  font-weight:500!important;
 }
