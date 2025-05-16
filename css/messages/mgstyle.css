@@ -504,7 +504,7 @@ li.mvamp{
 
 .pagination .thHead{
   color:var(--cff)!important;
-  font-size:20px!important;
+  font-size:18px!important;
   background-color:var(--cff)!important;
 }
 
@@ -519,7 +519,9 @@ li.mvamp{
 .pagination span strong, .pagination span a:link, .pagination span a:visited, .pagination span a:active {
   color:var(--cff)!important;
   background-color:rgba(255,255,255,0)!important;
-  font-size:20px!important;
+  font-size:18px!important;
+  width:30px;
+  height:28px;
 }
 
 .pagination span a:link, .pagination span a:visited, .pagination span a:active {
