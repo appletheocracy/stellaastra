@@ -6,6 +6,6 @@ $(document).ready(function(){
     });*/    
 
     $(".sujTree").html(function(i, h){
-        return h.replace(/::/g,'>');
+        return h.replace(/&nbsp;::&nbsp;/g,' > ');
     });
 });
