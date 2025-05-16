@@ -514,6 +514,8 @@ li.mvamp{
 
 .pagination span strong{
   border-bottom:1px solid var(--cff)!important;
+  background: #323232!important;
+  background: linear-gradient(0deg,rgba(50, 50, 50, 1) 0%, rgba(50, 50, 50, 0) 100%)!important;
 }
 
 .pagination span strong, .pagination span a:link, .pagination span a:visited, .pagination span a:active {
@@ -529,5 +531,7 @@ li.mvamp{
 }
 
 .pagination span a:hover{
-  font-weight:500!important;
+  color:var(--c32)!important;
+  background: #FFFFFF!important;
+  background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)!important;
 }
