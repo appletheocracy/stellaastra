@@ -516,6 +516,8 @@ li.mvamp{
   border-bottom:1px solid var(--c32)!important;
   background: var(--c32)!important;
   background: linear-gradient(0deg,rgba(50, 50, 50, 1) 0%, rgba(50, 50, 50, 0) 100%)!important;
+  transition: 0.5s;
+  animation-timing-function:ease-in-out;
 }
 
 .pagination span strong, .pagination span a:link, .pagination span a:visited, .pagination span a:active {
@@ -523,6 +525,8 @@ li.mvamp{
   font-size:18px!important;
   width:30px;
   height:28px;
+  transition: 0.5s;
+  animation-timing-function:ease-in-out;
 }
 
 .pagination span a:link, .pagination span a:visited, .pagination span a:active {
