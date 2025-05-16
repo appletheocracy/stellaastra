@@ -502,7 +502,7 @@ li.mvamp{
   top:23px;
 }
 
-.pagination .thHead{
+.pagination td.thHead{
   color:var(--cff)!important;
   font-size:18px!important;
   background-color:var(--cff)!important;
