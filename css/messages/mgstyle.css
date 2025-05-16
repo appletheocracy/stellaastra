@@ -513,14 +513,15 @@ li.mvamp{
   height:24px!important;
   font-size:16px!important;
   border:1px solid var(--cff)!important;
-  padding:3px;
+  padding:3px!important;
 }
 
 .pagination span a:link, .pagination span a:visited, .pagination span a:active {
   height:24px!important;
   font-size:16px!important;
   background-color:var(--c3a)!important;
-  border:1px solid rgba(255,255,255,0);
+  border:1px solid rgba(255,255,255,0)!important;
+  padding:3px!important;
 }
 .pagination span a:link{
   color:var(--cff)!important;
