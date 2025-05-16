@@ -464,10 +464,11 @@ li.mvamp{
   margin-right:-10px;
 }
 .sujTree{
-  width:1040px;
+  width:940px;
 }
-.pagTree{
-  width:100px;
+
+.sujTreeGlob td {
+  vertical-align: top;
 }
 
 .sujTree a.nav{
@@ -492,4 +493,37 @@ li.mvamp{
 
 .sujTree a:visited.nav{
   color:var(--cff)!important;
+}
+
+.pagination{
+  display:inline-block;
+  width:200px!important;
+}
+.pagination span{
+  display:inline-block;
+}
+.pagination span strong{
+  color:var(--c32)!important;
+  background-color:var(--ce8)!important;
+  height:30px!important;
+  font-size:16px!important;
+  border:1px solid var(--cff)!important;
+}
+
+.pagination span a:link, .pagination span a:visited, .pagination span a:active {
+  height:30px!important;
+  font-size:16px!important;
+  background-color:var(--c3a)!important;
+  border:1px solid rgba(255,255,255,0);
+}
+.pagination span a:link{
+  color:var(--cff)!important;
+  border-color:var(--c32)!important;
+  background-color:var(--c3a)!important;
+}
+
+.pagination span a:hover{
+  color:var(--cff)!important;
+  background-color:var(--c8a)!important;
+  border-color:var(--cff)!important;
 }
