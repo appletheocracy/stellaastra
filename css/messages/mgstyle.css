@@ -460,11 +460,12 @@ li.mvamp{
   color:var(--cff); 
   position:relative;
   top:23px;
-  left:-10px;
+  left:-16px;
   margin-right:-10px;
 }
 .sujTree{
   width:940px;
+  font-size:25px;
 }
 
 .sujTreeGlob td {
@@ -498,6 +499,8 @@ li.mvamp{
 .pagination{
   display:inline-block;
   width:200px!important;
+  position:relative;
+  top:23px;
 }
 .pagination span{
   display:inline-block;
