@@ -1,0 +1,39 @@
+.post.message_pnj .factcheck_title{
+	text-shadow: 0px 6px 2px var(--cpnj)!important;
+}
+.post.message_pnj .sliderinfobase .field_facts,
+.post.message_pnj .sliderinfobase .sliderinfo,
+.post.message_pnj .sliderinfobase .field_feat__002e-origines-__0026-artiste,
+.post.message_pnj .sliderinfobase .field_feat,
+.post.message_pnj .sliderinfobase .field_image-profil,
+.post.message_pnj .sliderinfobase .factcheck_info_btn,
+.post.message_pnj .postprofile-contact a.fiche_perso,
+.post.message_pnj .postprofile-contact a.profile-icon,
+.post.message_pnj,
+.post.message_pnj .avaBorder{
+	border-color:var(--cpnj)!important;
+}
+
+.post.message_pnj .sliderinfobase .degrade_profil{
+    background: var(--cfond);
+    background: linear-gradient(0deg, rgba(50, 50, 50, 0.6) 0%, rgba(192, 131, 207, 1) 100%)!important;
+
+}
+.post.message_pnj .sliderinfobase .sliderinfo .factcheck_title{
+    background: var(--cfond);
+    background: linear-gradient(0deg,rgba(50, 50, 50, 0) 0%, rgba(192, 131, 207, 1) 100%)!important;
+}
+
+
+.post.message_pnj .sliderinfobase .field_image-profil,
+.post.message_pnj .post-head div.field_groupe-pnj{
+	background-color:var(--cpnj)!important;
+}
+
+.post.message_pnj .sliderinfobase .field_facts::-webkit-scrollbar-thumb:vertical{
+    background-color:var(--cpnj)!important;
+}
+
+.post.message_pnj .post-head{
+    background-image:url('https://appletheocracy.github.io/stellaastra/img/messages/groupes/FondPNJ_01.png')!important;
+}
