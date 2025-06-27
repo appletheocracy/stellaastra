@@ -23,7 +23,7 @@
 }
 
 /**----------- CORRECTIF DE BASE -----------**/
-.wrap,#page-header, #headerbar-top, .edited-message, .scSIT, a.mainmenu img, a.mainmenu[href="/faq"], a.mainmenu[href="/groups"], a.mainmenu[href="/search"], a.mainmenu[href="/"], a.mainmenu[href="/login"], a.mainmenu[href="/register"], a#logout {
+#page-header, #headerbar-top, .edited-message, .scSIT, a.mainmenu img, a.mainmenu[href="/faq"], a.mainmenu[href="/groups"], a.mainmenu[href="/search"], a.mainmenu[href="/login"], a.mainmenu[href="/register"], a#logout {
     display:none;
 }
 
