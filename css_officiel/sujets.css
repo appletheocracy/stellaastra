@@ -552,20 +552,20 @@ a.btn-ip:hover{
 }
 
 
-.pagination_boutons_top .pagination{
-    width:284px;
-    float:right;
-    margin-left:10px;
-    text-align:right;
+.pagination_boutons_top .pagination a{
+    margin:0px 0px 0px 5px!important;
 }
 
 .pagination_boutons_top .pagination strong{
-	margin:0px 0px 0px 5px!important;
+    margin:0px 0px 0px 5px!important;
 }
 
 .pagination_boutons_top .sub-header-buttons{
     width:846px;
     text-align:left!important;
+}
+.pagination_boutons_top a{
+    margin:0px 0px 0px 5px!important;
 }
 
 a.ion-edit.button1{
