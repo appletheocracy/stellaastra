@@ -1,24 +1,21 @@
-$(function() {
-    $('.postprofile-name a[href^="/u"] span').each(function() {
-        var colgrp = $(this).css('color');
-
-        if (colgrp === 'rgb(50, 109, 224)') {
-            $(this).css('color', 'white');
-            $(this).closest('div.post').addClass('message_deus');
-        } else if (colgrp === 'rgb(255, 205, 97)') {
-            $(this).css('color', 'white');
-            $(this).closest('div.post').addClass('message_pnj');
-        } else if (colgrp === 'rgb(192, 131, 207)') {
-            $(this).css('color', 'white');
-            $(this).closest('div.post').addClass('message_hybride');
-        } else if (colgrp === 'rgb(212, 17, 62)') {
-            $(this).css('color', 'white');
-            $(this).closest('div.post').addClass('message_vampire');
-        } else if (colgrp === 'rgb(109, 156, 114)') {
-            $(this).css('color', 'white');
-            $(this).closest('div.post').addClass('message_humain');
-        } else{
-            $(this).css('color', 'white');
-  	}
+document.addEventListener("DOMContentLoaded", function() {
+    // La liste des groupes
+    const listeGroupes = {
+        '#326DE0': 'message_deus',
+        '#FFCD61': 'message_pnj',
+        '#D4113E': 'message_vampire',
+        '#C083CF': 'message_hybride',
+        '#6D9C72': 'message_humain'
+    };
+    const selecteurPost = '.post';
+    const selecteurPseudo = '.posterName'
+    
+    // Pour chaque message d'un sujet
+    document.querySelectorAll(selecteurPost).forEach(message => {
+      const pseudoColore = message.querySelector(selecteurPseudo + ' [style^="color"]');
+      if(pseudoColore) { // Si on trouve un pseudo coloré
+          let couleurPseudo = pseudoColore.getAttribute('style').match(/#(?:[0-9a-f]{3}){1,2}/i)[0];
+          message.classList.add(listeGroupes[couleurPseudo]); 
+        }
     });
 });
