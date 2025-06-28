@@ -10,7 +10,8 @@
 .post.message_humain .postprofile-contact a.fiche_perso,
 .post.message_humain .postprofile-contact a.profile-icon,
 .post.message_humain,
-.post.message_humain .avaBorder{
+.post.message_humain .avaBorder,
+.post.message_humain blockquote{
 	border-color:var(--chum)!important;
 }
 
