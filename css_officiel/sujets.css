@@ -1,0 +1,715 @@
+#page-footer{
+	width:1200px!important;
+  	background-color:var(--cfondpale)!important;
+  	margin:0 auto!important;
+  	color:var(--cdeu)!important;  
+}
+
+#page-footer a:link,
+#page-footer a.icon-home:link,
+.footerbar-system a,
+.footerbar-user a,
+.footerbar-system,
+.footerbar-user{
+	color:var(--cdeu)!important;  
+  	transition: .3s;
+  	animation-timing-function:ease-in-out;
+  	font-family: "Staatliches", sans-serif!important;
+    	font-weight: 400!important;
+    	font-style: normal!important;
+  	font-size:16px;
+}
+
+#page-footer a:hover{
+	color:var(--cvam)!important;  
+}
+
+
+#page-footer .wrap{
+	width:1140px!important;
+  	padding:20px 30px!important;
+}
+
+.footerbar-system{
+  	padding:0px!important;
+}
+
+/**----------- POSTROW MESSAGES ------------**
+/**----------- POSTROW MESSAGES droite -----**/
+
+.factcheck_title{
+    color:var(--cff)!important;
+    font-family: "Staatliches", sans-serif;
+    font-weight:400;
+    font-style: normal;
+    font-size:50px;
+    text-shadow: 0px 4px 2px #A1A1A1;
+    width:220px;
+    text-align:center;
+    position:relative;
+    top:-19px;
+    margin-bottom:-40px;
+}
+
+.sliderinfobase .field_feat__002e-origines-__0026-artiste,
+.sliderinfobase .field_feat{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sliderinfobase .infos-posteur{
+    font-size:14px;
+    width:200px;
+    height:25px;
+    margin:2px 10px;
+    text-align:center;
+    border:1px solid var(--cff);
+    padding:2px 2px;
+    background-color:rgba(50,50,50,.8);    
+}
+
+.sliderinfobase .field_facts{
+    height:75px!important;
+    text-align:left;
+    overflow:auto;
+    padding:5px;
+}
+
+.sliderinfobase .field_facts::-webkit-scrollbar{
+    width:5px;
+}
+
+.sliderinfobase .field_facts::-webkit-scrollbar-track{
+    background-color:var(--cfond);
+}
+
+.sliderinfobase .field_facts::-webkit-scrollbar-thumb:vertical{
+    background-color:#696969;
+    border-left:1px solid (--cfond);
+    border-right:1px solid (--cfond);
+}
+
+.sliderinfobase .field_image-profil{
+    overflow:hidden;
+    width:220px;
+    background-color:var(--cff);
+    clip-path: polygon(50% 100%, 100% 75%, 100% 0%, 0% 0%, 0% 75%);
+    height:102px;
+    margin:0px!important;
+    border-top:2px solid var(--cff);
+    padding:0px!important;
+    border-left:0px solid!important;
+}
+
+.sliderinfobase .field_image-profil img{
+    width:220px!important;
+    height:100px!important;
+    position:relative;
+    top:-2px;
+    clip-path: polygon(50% 100%, 100% 75%, 100% 0%, 0% 0%, 0% 75%);
+}
+
+.slider_subtitle{
+    overflow:hidden;
+    height:25px;
+    color:var(--cff)!important;
+    font-family: "Staatliches", sans-serif;
+    font-weight:400;
+    font-style: normal;
+    font-size:20px;
+    width:200px;
+    margin:0px 10px;
+    text-align:center;
+}
+
+.contact_avatar{
+    display: grid; 
+    grid-template-columns: 215px 1fr; 
+    grid-template-rows: max-content; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    ". ."; 
+    margin:10px 0px;
+}
+/**SHIT**/
+.contact_avatar .postprofile-contact a{
+
+    margin:0px!important;
+}
+
+.contact_avatar .postprofile-contact a.fiche_perso{
+    width:200px;
+    color:var(--cff)!important;
+    font-family: "Staatliches", sans-serif;
+    font-weight:400;
+    font-style: normal;
+    font-size:16px;
+    text-align:center;
+    padding:6px 10px;
+    border-radius:4px;
+    border:1px solid var(--cff);
+    height:38px!important;
+}
+
+.contact_avatar div a.profile-icon{
+    color:var(--cff)!important;
+    font-family: "Staatliches", sans-serif;
+    font-weight:400;
+    font-style: normal;
+    font-size:16px;
+    text-align:center;
+    padding:7px 10px 0px;
+    border-radius:4px;
+    border:1px solid var(--cff);
+    height:38px!important;
+    width:39px;
+    display:block;
+}
+
+.quick-nav-topics.bottom {
+    margin: 0px 0px 10px 0px!important;
+}
+
+.post-head .infos-posteur,
+.post-head .infos-posteur span.label span{
+    color:var(--cff)!important;
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:16px;
+}
+
+.post-head .infos-posteur_globale{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:370px;
+    overflow:hidden!important;
+}
+
+.post-head .infos-posteur{
+    min-height:30px;
+    background-color:var(--cfond);
+    border-radius:4px;
+    padding:5px 10px;
+    margin:5px 10px 5px 0px;
+}
+
+.post-head div.field_rps,
+.post-head div.field_ans,
+.post-head div.field_groupe,
+.post-head div.field_emploi{
+    width: fit-content!important;
+    white-space: nowrap;
+}
+
+.post-head div.field_ans span.label,
+.post-head div.field_rps span.label{
+    float:right;
+    margin-left:7px;
+}
+
+.post.message_hybride .post-head div.field_groupe-hybride,
+.post.message_vampire .post-head div.field_groupe-vampire,
+.post.message_humain .post-head div.field_groupe-humain,
+.post.message_deus .post-head div.field_groupe-staff,
+.post.message_pnj .post-head div.field_groupe-pnj{
+    display:inline-block!important;
+}
+
+.infos-posteur_globale{
+    color:white;
+}
+
+.post-head .posterName{
+    width:470px;
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position:relative;
+    left:-12px;
+}
+
+.postprofile-name{
+    text-align: right!important;
+    font-size:35px;
+}
+
+.postprofile-name a span strong,
+.postprofile-name span strong{
+    font-weight:400!important;
+    color: white !important;
+}
+
+.sliderinfobase{
+    height:380px;
+    width:220px;
+    margin:0 auto;
+    position:relative;
+    top:-390px;
+    margin-bottom:-340px;
+    transition: 0s;
+    animation-timing-function:ease-in-out;
+    position:relative;
+    z-index:901;
+    overflow:hidden;
+}
+
+.sliderinfo{
+    height:330px;
+    width:220px;
+    border-radius:4px;
+    border:1px solid var(--cfondpale);
+    background-color:rgba(50, 50, 50, 0.8);
+    border-radius:4px;
+    overflow:hidden;
+    display:none;
+}
+
+.factcheck_info_btn{
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width:45px;
+    margin:10px 0px 0px 0px;
+    color:var(--cff);
+    border:1px solid var(--cff);
+    background-color:var(--cfond);
+    padding:5px 0px 4px;
+    font-size:18px;
+    text-align:center;
+    border-radius:4px;
+}
+
+
+
+/**----------- POSTROW MESSAGES ------------**/
+/**----------- POSTROW MESSAGES gauche -----**/
+.post{
+    display: grid; 
+    grid-template-columns: 854px 1fr; 
+    grid-template-rows: max-content; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    ". ."; 
+    width:1140px;
+    border:1px solid var(--c98);
+    background-color:#f6f6f6;
+    margin:30px 0px 30px;
+    border-radius: 4px;
+  
+}
+
+
+.post-head{
+    display: grid; 
+    grid-template-columns: 370px 1fr;
+    grid-template-rows: max-content; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    ". ."; 
+    width:854px;
+    height:110px;
+    background-image:url('https://appletheocracy.github.io/stellaastra/img/messages/groupes/FondGen_01.png');
+    background-repeat:no-repeat;
+    padding:15px 0px 15px 20px;
+    border-radius:0px!important;
+    border:none!important;
+    border-top-left-radius: 4px!important;
+}
+
+.postbody{
+    width:854px!important;
+    margin-right:-211px;
+}
+
+.postbody .content blockquote{
+    background-color:var(--cff)!important;
+}
+
+.postbody .content blockquote cite{
+    font-size:16px;
+    margin-bottom:10px;
+}
+
+.postbody .content blockquote div{
+   font-size:14px;
+   font-style: italic;
+}
+
+.postprofile{
+    width:284px!important;
+    height:100%;
+    background-image:url('https://appletheocracy.github.io/stellaastra/img/messages/01_gen/FondAvatar.png')!important;
+    background-color:var(--cfond);
+    background-repeat:no-repeat;
+    padding:15px!important;
+    float:right;
+}
+
+/**stickyhere**/
+.avatar_sticky{
+  position: sticky;
+  position: -webkit-sticky;
+  top: 16; /* required */
+}
+
+.profil_contenu{
+	height:451px;
+}
+
+
+.avaBorder{
+    background-color:var(--cff);
+    border:2px solid var(--c98);
+    width:254px;
+    height:404px;
+}
+
+.avaBorder img{
+    width:250px;
+    height:400px;
+}
+
+.postprofile-avatar{
+    width:250px!important;
+    height:400px!important;
+}
+
+.postprofile-avatar a{
+    position:relative;
+    z-index:900;
+}
+
+.msgdatebtn{
+    display: grid;
+    grid-template-columns: 230px 1fr 276px;
+    grid-template-rows: 30px;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    ". . .";    
+    background-color:var(--cfond);
+    color:var(--cff);
+    font-size:18px;
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.profile-icons,
+.profile-icons:before,
+.profile-icons:after{
+    box-sizing:content-box!important;
+    margin:0px;
+    padding:0px!important;
+    text-align:right;
+}
+
+.profile-icons.bouton_modif a:link{
+    transition: .5s;
+    animation-timing-function:ease-in-out;
+    height:30px;
+    padding:5px 10px 2px 10px;
+    color:white;
+    border:none!important;
+    border-radius:0px!important;
+    box-shadow: none!important;
+}
+
+.bouton_modif a:visited{
+    color:white!important;
+}
+
+a.btn-quote:hover{
+    background-color:var(--chum)!important;
+}
+
+
+a.btn-edit:hover{
+    background-color:var(--cdeu)!important;
+}
+
+a.btn-delete:hover{
+    background-color:var(--cvam)!important;
+}
+
+a.btn-ip:hover{
+    color:var(--cvam)!important;
+    background-color:var(--cfond)!important;
+}
+
+.bouton_modif{
+    width:259px;
+    text-align:right;
+    grid-column: 3 / 4;
+    padding:3px 10px 0px 10px;
+}
+
+.msgddate{
+    width:230px;
+    padding:3px 20px;
+}
+
+
+/**----------- POSTROW MESSAGES TITLE ------**/
+#sujTitle{
+    width:1200px;
+    height:170px;
+    background-image:url('https://appletheocracy.github.io/stellaastra/img/messages/01_gen/titreForum.png');
+    background-repeat:no-repeat;
+    padding:40px 30px 0px 30px;
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    position:relative;
+    left:-30px;
+    top:-3px;
+}
+
+.sujTitleTxt{
+    width:1140px;
+    text-shadow: 0px 6px 2px #3A72E2;
+    color:var(--cff);
+    font-size: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sujTree{
+    color:var(--cff); 
+    position:relative;
+    left:-10px;
+    top:15px;
+    width:1000px;
+    font-size: 30px;
+}
+
+.sujTree .nav{
+    font-size: 22px;
+    color:var(--cff);
+    position:relative;
+    top:-3px;
+}
+
+.sujTree a.nav{
+    color:var(--cff)!important;
+    text-decoration:underline!important;
+    text-decoration-color:rgba(255, 255, 255, 0)!important;
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
+    padding:0px 10px;
+}
+
+.sujTree a:hover.nav{
+    text-decoration-color:rgba(255, 255, 255, 1)!important;
+}
+
+.sujTree a:visited .nav{
+    color:var(--cff);
+}
+
+.topic-actions{
+    margin:0px!important;
+}
+
+.pagination_boutons_bottom{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: max-content; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    ". ."; 
+    width:1140px;
+  	
+}
+
+.pagination_boutons_bottom .pagination{
+    width:284px;
+    float:right;
+    margin-right:10px;
+    text-align:left;
+}
+
+.pagination_boutons_bottom .sub-header-buttons{
+    width:846px;
+    text-align:right!important;
+}
+
+.pagination_boutons_bottom{
+    width:1140px;
+    margin:13px 0px -15px 0px;
+    color:var(--cfondpale);
+}
+
+.pagination_boutons_top{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: max-content; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    ". ."; 
+    width:1140px;
+    margin:13px 0px -15px 0px;
+    color:var(--cfondpale);
+}
+
+
+.pagination_boutons_top .pagination{
+    width:284px;
+    float:right;
+    margin-left:10px;
+    text-align:right;
+}
+
+.pagination_boutons_top .pagination strong{
+	margin-right:0px!important;
+}
+
+.pagination_boutons_top .sub-header-buttons{
+    width:846px;
+    text-align:left!important;
+}
+
+a.ion-edit.button1{
+    background-color:var(--cdeu)!important;
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
+}
+
+a.ion-reply.button1{
+    background-color:var(--cfond)!important;
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
+}
+
+input.button,
+input.button1,
+input.button2{
+    background-color:var(--cdeu)!important;
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
+    font-family: "Staatliches", sans-serif!important;
+    font-weight: 400!important;
+    font-style: normal!important;
+    font-size:16px!important;
+    height:35px!important;
+    padding:7px 15px!important;
+}
+
+input[type="submit"]:link,
+input[type="submit"]:visited,
+input[type="submit"]:active,
+input[type="submit"]:hover,
+.button:link,
+.button:visited,
+.button:active,
+.button:hover,
+.button1:link,
+.button1:visited,
+.button1:active,
+.button1:hover,
+.button2:link,
+.button2:visited,
+.button2:active,
+.button2:hover{
+    font-family: "Staatliches", sans-serif!important;
+    font-weight: 400!important;
+    font-style: normal!important;
+    font-size:16px!important;
+    height:35px!important;
+    padding:7px 15px!important;
+}
+
+.pagination_boutons .pagination,
+.pagination_boutons .pagination span strong,
+.pagination_boutons .pagination span a:link{
+    font-family: "Staatliches", sans-serif!important;
+    font-weight: 400!important;
+    font-style: normal!important;
+    font-size:20px!important;
+}
+
+.pagination span strong{
+    background-color:var(--cdeu)!important;
+    border:1px solid var(--cdeu)!important;
+    color:var(--cff)!important;
+    font-size:20px;
+    height:35px!important;
+    padding-top:2px;
+}
+
+.pagination span a:link{
+    border:1px solid var(--cfond)!important;
+    background-color:var(--cff)!important;
+    color:var(--cfond)!important;
+    font-size:20px;
+    height:35px!important;
+    padding-top:2px;
+    transition: .5s;
+    animation-timing-function:ease-in-out;
+}
+
+.pagination span a:visited{
+	border-color:var(--cfond)!important;
+}
+
+.pagination span a:hover{
+    border-color:var(--cvam)!important;
+}
+
+.pagination span a.pag-img:link{
+    border-color:var(--cfond)!important;
+    background-color:var(--cfond)!important;
+    transition: .5s;
+    animation-timing-function:ease-in-out;
+}
+
+.pagination span a.pag-img:hover{
+    border-color:var(--cvam)!important;
+}
+
+form#quick_reply{
+    border:1px solid var(--cfond);
+    padding:40px 15px 15px;
+    border-radius:4px;
+}
+
+.quickReplyWrap .h3{
+    background-color:var(--cfondpale);
+    border:none;
+    font-family: "Staatliches", sans-serif!important;
+    font-weight: 400!important;
+    font-style: normal!important;
+    font-size:40px!important;
+    padding:5px 3px;
+    width:237px;
+    height:71px!important;
+    margin:0 auto;
+    margin-bottom:-20px;
+    text-align:center;
+    position:relative;
+    top:35px;
+    white-space: nowrap;
+    overflow-x:hidden;
+}
+
+textarea:focus{
+  outline: none!important;
+  border: none!important;
+}
+
+textarea#text_editor_textarea{
+    border-radius:4px!important;
+    border:1px solid rgba(58, 114, 226,.5)!important;
+    background-color:#f6f6f6;
+}
+
+textarea#text_editor_textarea:focus{
+    border:1px solid rgba(58, 114, 226,1)!important;
+}
