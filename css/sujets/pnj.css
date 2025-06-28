@@ -10,7 +10,8 @@
 .post.message_pnj .postprofile-contact a.fiche_perso,
 .post.message_pnj .postprofile-contact a.profile-icon,
 .post.message_pnj,
-.post.message_pnj .avaBorder{
+.post.message_pnj .avaBorder,
+.post.message_pnj blockquote{
 	border-color:var(--cpnj)!important;
 }
 
