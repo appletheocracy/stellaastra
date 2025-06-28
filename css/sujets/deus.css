@@ -10,7 +10,8 @@
 .post.message_deus .postprofile-contact a.fiche_perso,
 .post.message_deus .postprofile-contact a.profile-icon,
 .post.message_deus,
-.post.message_deus .avaBorder{
+.post.message_deus .avaBorder,
+.post.message_deus blockquote{
 	border-color:var(--cdeu)!important;
 }
 
