@@ -10,7 +10,8 @@
 .post.message_hybride .postprofile-contact a.fiche_perso,
 .post.message_hybride .postprofile-contact a.profile-icon,
 .post.message_hybride,
-.post.message_hybride .avaBorder{
+.post.message_hybride .avaBorder,
+.post.message_hybride blockquote{
 	border-color:var(--chyb)!important;
 }
 
