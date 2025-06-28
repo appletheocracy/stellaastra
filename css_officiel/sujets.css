@@ -407,7 +407,7 @@
     box-sizing:content-box!important;
     margin:0px;
     padding:0px!important;
-    text-align:right;
+    text-align:right!important;
 }
 
 .profile-icons.bouton_modif a:link{
