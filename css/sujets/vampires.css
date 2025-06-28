@@ -10,7 +10,8 @@
 .post.message_vampire .postprofile-contact a.fiche_perso,
 .post.message_vampire .postprofile-contact a.profile-icon,
 .post.message_vampire,
-.post.message_vampire .avaBorder{
+.post.message_vampire .avaBorder,
+.post.message_vampire blockquote{
 	border-color:var(--cvam)!important;
 }
 
