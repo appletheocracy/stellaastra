@@ -351,17 +351,9 @@
     float:right;
 }
 
-/**stickyhere**/
-.avatar_sticky{
-  position: sticky;
-  position: -webkit-sticky;
-  top: 16; /* required */
-}
-
 .profil_contenu{
-	height:451px;
+    height:451px;
 }
-
 
 .avaBorder{
     background-color:var(--cff);
