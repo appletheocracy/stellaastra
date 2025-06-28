@@ -560,7 +560,7 @@ a.btn-ip:hover{
 }
 
 .pagination_boutons_top .pagination strong{
-	margin-right:0px!important;
+	margin:0px 0px 0px 5px!important;
 }
 
 .pagination_boutons_top .sub-header-buttons{
