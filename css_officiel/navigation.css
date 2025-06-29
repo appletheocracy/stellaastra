@@ -56,7 +56,7 @@
     border-top:80px solid #272727;
     border-right: 60px solid transparent;
 }
-   
+
 #navigation_droite{
     text-align:right;
     font-size:24px;
@@ -69,6 +69,21 @@
 
 #navigation_droite ul li{
     display:inline-block;
+}
+#navigation_droite ul a{
+    margin_right:20px;
+}
+
+#navigation_droite ul a[href="/h3-lorebook"]{
+    color:var(--cpnj)!important;
+}
+
+#navigation_droite ul a[href="/h3-lorebook"]:hover{
+    color:var(--cvam)!important;
+}
+
+#navigation_droite ul li a{
+    margin-left:20px;
 }
 
 #navigation_droite a{
