@@ -2,6 +2,7 @@
 
 /*MENU DU HAUT*/
 #pa_menu_haut{
+    margin:0px 30px;
     background-color:var(--cff);
     height:75px;
     display: grid; 
