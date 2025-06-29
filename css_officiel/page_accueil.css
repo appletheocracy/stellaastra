@@ -10,10 +10,6 @@
     white-space: pre-line;
 }
 
-#wrapper_page_accueil{
-    padding:0px 30px;
-    background-color:var(--cff);
-}
 #pa_menu_haut ul li a,
 #espace_co_deco a,
 button#bouton_plier_pa,
@@ -30,7 +26,9 @@ button#bouton_plier_pa,
 }
 
 /*MENU DU HAUT*/
-#pa_menu_haut{    
+#pa_menu_haut{
+    background-color:var(--cff);
+    margin:0px 30px;
     height:75px;
     display: grid; 
     grid-template-columns:1fr 82px; 
@@ -133,6 +131,7 @@ a.pa_credits:hover{
     font-weight: 400;
     font-style: normal;
     opacity:1;
+    margin:0px 30px;
 }
 
 /*PA_ADMIN*/
