@@ -11,25 +11,9 @@
     white-space: pre-line;
 }
 
-#pa_menu_haut ul li a,
-#espace_co_deco a,
-button#bouton_plier_pa,
-#wrapper_page_accueil div,
-#wrapper_page_accueil div a,
-#wrapper_page_accueil button,
-#wrapper_page_accueil li,
-#page_accueil div,
-#page_accueil a,
-#page_accueil li{
-    transition: 0.5s;
-	animation-timing-function:ease-in-out;
-    text-decoration:none;
-}
-
 /*MENU DU HAUT*/
 #pa_menu_haut{
     background-color:var(--cff);
-    margin:0px 30px;
     height:75px;
     display: grid; 
     grid-template-columns:1fr 82px; 
@@ -110,29 +94,11 @@ a.pa_credits:hover{
     grid-template-areas: 
     ". ."; 
     width:1140px;
-	background-color:var(--cfondpale);
-	font-family: "Staatliches", sans-serif;
-	font-weight: 400;
-	font-style: normal;
-	opacity:1;
-}
-
-/*PA_ADMIN*/
-/*PAGE ACCUEIL*/
-#page_accueil{
-    display: grid!important; 
-    grid-template-columns:1fr 256px 240px 370px; 
-    grid-template-rows: max-content; 
-    gap: 10px 0px; 
-    grid-template-areas: 
-    ". ."; 
-    width:1140px;
     background-color:var(--cfondpale);
     font-family: "Staatliches", sans-serif;
     font-weight: 400;
     font-style: normal;
     opacity:1;
-    margin:0px 30px;
 }
 
 /*PA_ADMIN*/
