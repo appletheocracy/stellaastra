@@ -1,15 +1,4 @@
-/**PAGE ACCUEIL----------------------------------------------------**/
-/*GÉNÉRAL*/
-#navigation_stella,
-#banniere_forum,
-#wrapper_page_accueil,
-#pa_menu_haut{
-    width:1200px;
-    position:relative;
-    left:-36px;
-    margin-right:-36px;
-    white-space: pre-line;
-}
+
 
 /*MENU DU HAUT*/
 #pa_menu_haut{
@@ -85,21 +74,10 @@ a.pa_credits:hover{
     color:var(--cfond)!important;
 }
 
-/*PAGE ACCUEIL*/
-#page_accueil{
-    display: grid!important; 
-    grid-template-columns:1fr 256px 240px 370px; 
-    grid-template-rows: max-content; 
-    gap: 10px 0px; 
-    grid-template-areas: 
-    ". ."; 
-    width:1140px;
-    background-color:var(--cfondpale);
-    font-family: "Staatliches", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    opacity:1;
-}
+/*PAGE ACCUEIL
+ID ICI
+*/
+
 
 /*PA_ADMIN*/
 .pa_bloc_admin{
