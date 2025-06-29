@@ -2,7 +2,8 @@
 /*GÉNÉRAL*/
 #navigation_stella,
 #banniere_forum,
-#wrapper_page_accueil{
+#wrapper_page_accueil
+#page_accueil{
     width:1200px;
     position:relative;
     left:-36px;
@@ -21,7 +22,7 @@ button#bouton_plier_pa,
 #page_accueil a,
 #page_accueil li{
     transition: 0.5s;
-	animation-timing-function:ease-in-out;
+    animation-timing-function:ease-in-out;
     text-decoration:none;
 }
 
@@ -98,40 +99,6 @@ a.pa_credits{
 a.pa_credits:hover{
     border-color:var(--cfond)!important;
     color:var(--cfond)!important;
-}
-
-/*PAGE ACCUEIL*/
-#page_accueil{
-    display: grid!important; 
-    grid-template-columns:1fr 256px 240px 370px; 
-    grid-template-rows: max-content; 
-    gap: 10px 0px; 
-    grid-template-areas: 
-    ". ."; 
-    width:1140px;
-	background-color:var(--cfondpale);
-	font-family: "Staatliches", sans-serif;
-	font-weight: 400;
-	font-style: normal;
-	opacity:1;
-}
-
-/*PA_ADMIN*/
-/*PAGE ACCUEIL*/
-#page_accueil{
-    display: grid!important; 
-    grid-template-columns:1fr 256px 240px 370px; 
-    grid-template-rows: max-content; 
-    gap: 10px 0px; 
-    grid-template-areas: 
-    ". ."; 
-    width:1140px;
-    background-color:var(--cfondpale);
-    font-family: "Staatliches", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    opacity:1;
-    margin:0px 30px;
 }
 
 /*PA_ADMIN*/
