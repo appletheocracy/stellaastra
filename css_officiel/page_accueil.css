@@ -2,7 +2,8 @@
 /*GÉNÉRAL*/
 #navigation_stella,
 #banniere_forum,
-#wrapper_page_accueil{
+#wrapper_page_accueil,
+#pa_menu_haut{
     width:1200px;
     position:relative;
     left:-36px;
