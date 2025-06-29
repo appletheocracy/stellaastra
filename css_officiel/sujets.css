@@ -515,6 +515,9 @@ a.btn-ip:hover{
     color:var(--cfondpale);
 }
 
+.pagination_boutons_top .pagination{
+    float:right!important;
+}
 
 .pagination_boutons_top .pagination a{
     margin:0px 0px 0px 5px!important;
