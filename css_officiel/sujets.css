@@ -144,7 +144,7 @@
 
 .post-head .infos-posteur_globale{
     display: flex;
-    height:285px;
+    height:80px;
     flex-direction: row;
     flex-wrap: wrap;
     width:370px;
