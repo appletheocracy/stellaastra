@@ -12,7 +12,7 @@
     text-align:center;
     position:relative;
     top:-19px;
-    margin-bottom:-40px;
+    height:36px;
 }
 
 .sliderinfobase .field_feat__002e-origines-__0026-artiste,
@@ -146,6 +146,7 @@
 
 .post-head .infos-posteur_globale{
     display: flex;
+    height:285px;
     flex-direction: row;
     flex-wrap: wrap;
     width:370px;
@@ -230,7 +231,6 @@
     border:1px solid var(--cfondpale);
     background-color:rgba(50, 50, 50, 0.8);
     border-radius:4px;
-    overflow:hidden;
     display:none;
 }
 
