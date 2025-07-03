@@ -10,19 +10,17 @@
     text-shadow: 0px 4px 2px #A1A1A1;
     width:220px;
     text-align:center;
-    position:relative;
-    top:-19px;
     height:36px;
 }
 
-.sliderinfobase .field_feat__002e-origines-__0026-artiste,
-.sliderinfobase .field_feat{
+.sliderinfo .field_feat__002e-origines-__0026-artiste,
+.sliderinfo .field_feat{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.sliderinfobase .infos-posteur{
+.sliderinfo .infos-posteur{
     font-size:14px;
     width:200px;
     height:25px;
@@ -57,9 +55,9 @@
 .sliderinfobase .field_image-profil{
     overflow:hidden;
     width:220px;
+    height:102px;
     background-color:var(--cff);
     clip-path: polygon(50% 100%, 100% 75%, 100% 0%, 0% 0%, 0% 75%);
-    height:102px;
     margin:0px!important;
     border-top:2px solid var(--cff);
     padding:0px!important;
@@ -232,6 +230,8 @@
     background-color:rgba(50, 50, 50, 0.8);
     border-radius:4px;
     display:none;
+    overflow: hidden; 
+    transition: all 0.3s ease;
 }
 
 .factcheck_info_btn{
