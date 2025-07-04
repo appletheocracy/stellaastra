@@ -1,7 +1,4 @@
 /*MENU DU HAUT*/
-.pa_navig_haut{
-	padding:10px 30px;
-}
 #pa_menu_haut {
 	display: grid; 
         grid-auto-columns: 1fr; 
@@ -17,7 +14,6 @@
         font-weight: 400;
         font-style: normal;
 }
-
 
 #pa_menu_haut a.pa_general_nav{
   	border: 1px solid var(--cfondpale);
