@@ -308,7 +308,7 @@
     width:854px!important;
     display: grid; 
     grid-auto-columns: 1fr; 
-    grid-template-columns: 230px 1fr 259fr; 
+    grid-template-columns: 230px 1fr 259px; 
     grid-template-rows: 30px; 
     gap: 0px 0px; 
     grid-template-areas: 
