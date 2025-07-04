@@ -263,11 +263,12 @@
       display: grid; 
   grid-auto-columns: 1fr; 
   grid-template-columns: 854px 284px; 
-  grid-template-rows: 110px 30px 1fr; 
+  grid-template-rows: 110px 30px auto 0px; 
   gap: 0px 0px; 
   grid-template-areas: 
     "a d"
     "b d"
+    "c d"
     "c d"; 
     justify-items: start; 
     align-items: start; 
@@ -314,6 +315,7 @@
 }
 
 .sujet_droite{
+    
     grid-area: d;
 }
 .postbody .content blockquote{
