@@ -189,15 +189,19 @@
 }
 
 .post-head .posterName{
-    width:470px;
-    font-family: "Staatliches", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    width:430px;    
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     position:relative;
     left:-12px;
+}
+
+.post-head div,
+.post-head a{
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .postprofile-name{
