@@ -339,26 +339,11 @@ SHIT**/
     float:right;
 }
 
-.profil_contenu{
-  display: grid; 
-  grid-auto-columns: 1fr; 
-  grid-template-columns: 254px; 
-  grid-template-rows: 404px 81px; 
-  gap: 5px 0px; 
-  grid-template-areas: 
-    "."
-    "."; 
-  justify-items: center; 
-  align-items: start; 
-  width: 254px; 
-    height:490px;
-}
+
 
 .avaBorder{
     background-color:var(--cff);
     border:2px solid var(--c98);
-    width:254px;
-    height:404px;
 }
 
 .avaBorder img{
