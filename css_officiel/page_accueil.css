@@ -519,16 +519,6 @@ a:hover .bouton_acces_nouvelle {
 	background-color: var(--cpnj) !important;
 }
 
-.module .h3 {
-	display: none;
-}
-
-.module {
-	text-align: left;
-	box-shadow: none;
-	padding: 2px !important;
-	margin: 0px;
-}
 
 /*ZONE PROFIL*/
 .pa_zone_profil_connecte,
