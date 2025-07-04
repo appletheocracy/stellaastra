@@ -124,8 +124,7 @@
     background-color:var(--cfond);
     border-radius:4px;
     padding:5px 10px;
-    margin:5px 10px 5px 0px;
-    height:30px;
+    height:32px;
 }
 
 .post-head div.field_rps,
@@ -135,11 +134,35 @@
     width: fit-content!important;
     white-space: nowrap;
 }
+.post-head .infos-posteur_globale .field_emploi{
+    grid-area:b;
+}
+
+.post-head .infos-posteur_globale .field_ans{
+    grid-area:c;
+}
+
+.post-head .infos-posteur_globale .field_mesure{
+    grid-area:d;
+}
+
+.post-head .infos-posteur_globale .field_rps{
+    grid-area:e;
+}
 
 .post-head div.field_ans span.label,
 .post-head div.field_rps span.label{
     float:right;
     margin-left:7px;
+}
+
+.post-head .infos-posteur_globale .field_groupe-hybride,
+.post-head .infos-posteur_globale .field_groupe-humain,
+.post-head .infos-posteur_globale .field_groupe-vampire,
+.post-head .infos-posteur_globale .field_groupe-staff.
+.post-head .infos-posteur_globale .field_groupe-pnj,
+.post-head .infos-posteur_globale .field_groupe-membre{
+    grid-area:a;
 }
 
 .post.message_hybride .post-head div.field_groupe-hybride,
@@ -150,8 +173,19 @@
     display:inline-block!important;
 }
 
-.infos-posteur_globale{
-    color:white;
+.post-head .infos-posteur_globale{
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: 75px 100px 75px 1fr;  
+  grid-template-rows: 35px 35px; 
+  gap: 10px 10px; 
+  grid-template-areas: 
+    "a b b b b"
+    "c d d e f"; 
+  justify-items: center; 
+  align-items: center; 
+  width: 424px; 
+  height: 80px; 
 }
 
 .post-head .posterName{
