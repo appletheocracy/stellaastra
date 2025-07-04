@@ -305,6 +305,8 @@
 	margin: 0px 5px;
 	scrollbar-width: thin;
 	border: 1px solid;
+	overflow-y:auto;
+	overflow-x:hidden;
 }
 
 .contenu_info.pa_nouvelles {
