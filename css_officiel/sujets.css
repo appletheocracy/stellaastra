@@ -390,12 +390,12 @@
 .profile-icons.bouton_modif a:link{
     transition: .5s;
     animation-timing-function:ease-in-out;
-    height:30px;
-    padding:5px 10px 2px 10px;
+    height:32px;
     color:white;
     border:none!important;
     border-radius:0px!important;
     box-shadow: none!important;
+    margin-top:-2px;
 }
 
 .bouton_modif a:visited{
