@@ -182,7 +182,7 @@
   grid-template-areas: 
     "a b b b b"
     "c d d e f"; 
-  justify-items: center; 
+  justify-items: start; 
   align-items: center; 
   width: 424px; 
   height: 80px; 
