@@ -510,12 +510,12 @@ a:hover .bouton_acces_nouvelle {
 	width: 181px;
 	padding: 5px;
 	border-radius: 4px;
-	margin-left: 5px;
+	margin-left: 5px;	
 }
 
 .cut_avatar {
 	width: 171px;
-	height: 255;
+	height: 255px;
 	overflow: hidden;
 	border: 2px solid var(--cff);
 }
