@@ -312,7 +312,7 @@
     grid-template-rows: 30px; 
     gap: 0px 0px; 
     grid-template-areas: 
-    ". . ."; 
+    "a b c"; 
     justify-items: start; 
     align-items: start; 
 }
@@ -380,6 +380,7 @@
 .profile-icons,
 .profile-icons:before,
 .profile-icons:after{
+    grid-area:c;
     box-sizing:content-box!important;
     margin:0px;
     padding:0px!important;
