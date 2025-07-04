@@ -1,17 +1,6 @@
 /**----------- POSTROW MESSAGES ------------**
 /**----------- POSTROW MESSAGES droite -----**/
 
-.factcheck_title{
-    color:var(--cff)!important;
-    font-family: "Staatliches", sans-serif;
-    font-weight:400;
-    font-style: normal;
-    font-size:50px;
-    text-shadow: 0px 4px 2px #A1A1A1;
-    width:220px;
-    text-align:center;
-    height:36px;
-}
 
 .sliderinfo .field_feat__002e-origines-__0026-artiste,
 .sliderinfo .field_feat{
@@ -31,28 +20,28 @@
     background-color:rgba(50,50,50,.8);    
 }
 
-.sliderinfobase .field_facts{
+.field_facts{
     height:75px!important;
     text-align:left;
     overflow:auto;
     padding:5px;
 }
 
-.sliderinfobase .field_facts::-webkit-scrollbar{
+.field_facts::-webkit-scrollbar{
     width:5px;
 }
 
-.sliderinfobase .field_facts::-webkit-scrollbar-track{
+.field_facts::-webkit-scrollbar-track{
     background-color:var(--cfond);
 }
 
-.sliderinfobase .field_facts::-webkit-scrollbar-thumb:vertical{
+.field_facts::-webkit-scrollbar-thumb:vertical{
     background-color:#696969;
     border-left:1px solid (--cfond);
     border-right:1px solid (--cfond);
 }
 
-.sliderinfobase .field_image-profil{
+.field_image-profil{
     overflow:hidden;
     width:220px;
     height:102px;
@@ -64,7 +53,7 @@
     border-left:0px solid!important;
 }
 
-.sliderinfobase .field_image-profil img{
+.field_image-profil img{
     width:220px!important;
     height:100px!important;
     position:relative;
@@ -75,9 +64,6 @@
 .slider_subtitle{
     overflow:hidden;
     height:25px;
-    color:var(--cff)!important;
-    font-family: "Staatliches", sans-serif;
-    font-weight:400;
     font-style: normal;
     font-size:20px;
     width:200px;
@@ -96,16 +82,12 @@
 }
 /**SHIT**/
 .contact_avatar .postprofile-contact a{
-
     margin:0px!important;
 }
 
 .contact_avatar .postprofile-contact a.fiche_perso{
     width:200px;
     color:var(--cff)!important;
-    font-family: "Staatliches", sans-serif;
-    font-weight:400;
-    font-style: normal;
     font-size:16px;
     text-align:center;
     padding:6px 10px;
@@ -116,9 +98,6 @@
 
 .contact_avatar div a.profile-icon{
     color:var(--cff)!important;
-    font-family: "Staatliches", sans-serif;
-    font-weight:400;
-    font-style: normal;
     font-size:16px;
     text-align:center;
     padding:7px 10px 0px;
@@ -135,21 +114,11 @@
 
 .post-head .infos-posteur,
 .post-head .infos-posteur span.label span{
-    color:var(--cff)!important;
-    font-family: "Staatliches", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    color:var(--cff)!important;    
     font-size:16px;
 }
 
-.post-head .infos-posteur_globale{
-    display: flex;
-    height:80px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width:370px;
-    overflow:hidden!important;
-}
+
 
 .post-head .infos-posteur{
     background-color:var(--cfond);
@@ -219,7 +188,10 @@
     animation-timing-function:ease-in-out;
     position:relative;
     z-index:901;
-    overflow:hidden;
+    overflow:hidden;    
+    font-family: "Staatliches", sans-serif;
+    font-weight:400;
+    font-style: normal;
 }
 
 .sliderinfo{
@@ -235,9 +207,6 @@
 }
 
 .factcheck_info_btn{
-    font-family: "Staatliches", sans-serif;
-    font-weight: 400;
-    font-style: normal;
     width:45px;
     margin:10px 0px 0px 0px;
     color:var(--cff);
@@ -265,6 +234,7 @@
     background-color:#f6f6f6;
     margin:30px 0px 30px;
     border-radius: 4px;
+    font
   
 }
 
