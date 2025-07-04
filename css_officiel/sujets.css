@@ -569,22 +569,22 @@ input.button2{
     padding:7px 15px!important;
 }
 
-input[type="submit"]:link,
-input[type="submit"]:visited,
-input[type="submit"]:active,
-input[type="submit"]:hover,
-.button:link,
-.button:visited,
-.button:active,
-.button:hover,
-.button1:link,
-.button1:visited,
-.button1:active,
-.button1:hover,
-.button2:link,
-.button2:visited,
-.button2:active,
-.button2:hover{
+#wrap input[type="submit"]:link,
+#wrap input[type="submit"]:visited,
+#wrap input[type="submit"]:active,
+#wrap input[type="submit"]:hover,
+#wrap .button:link,
+#wrap .button:visited,
+#wrap .button:active,
+#wrap .button:hover,
+#wrap .button1:link,
+#wrap .button1:visited,
+#wrap .button1:active,
+#wrap .button1:hover,
+#wrap .button2:link,
+#wrap .button2:visited,
+#wrap .button2:active,
+#wrap .button2:hover{
     font-family: "Staatliches", sans-serif!important;
     font-weight: 400!important;
     font-style: normal!important;
