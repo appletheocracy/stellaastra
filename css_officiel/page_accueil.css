@@ -1,4 +1,81 @@
+/*MENU DU HAUT*/
+.pa_navig_haut{
+	padding:10px 30px;
+}
+#pa_menu_haut {
+	display: grid; 
+        grid-auto-columns: 1fr; 
+        grid-template-columns: 118px 87px 146px 76px 91px 94px 142px 1fr 80px; 
+        grid-template-rows: 58px; 
+        gap: 0px 10px; 
+        grid-template-areas: 
+          ". . . . . . . . ."; 
+        align-items: end; 
+        width: 1140px; 
+        height: 58px;  
+  	font-family: "Staatliches", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+}
 
+
+#pa_menu_haut a.pa_general_nav{
+  	border: 1px solid var(--cfondpale);
+  	height:58px;
+	text-decoration: none;
+	border-radius: 4px;
+	border: 1px solid var(--cfondpale);
+	background-color: var(--cfondpale);
+	padding: 17px 10px;
+	font-size: 18px;
+}
+
+#pa_menu_haut a.pa_general_nav:hover {
+	color: var(--cdeu);
+  	border-color:var(--cdeu);
+}
+
+button#bouton_plier_pa {
+	height: 58px;
+	border-radius: 4px;
+	border-color: var(--cfond);
+	background-color: var(--cfond);
+	font-family: "Staatliches", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	color: var(--cff);
+	line-height: 83%;
+	text-align: center;
+	padding: 13px 10px !important;
+	font-size: 18px;
+	border: 1px solid var(--cpnj);
+}
+
+button#bouton_plier_pa:hover {
+	border: 1px solid var(--cfond);
+	color: var(--cpnj);
+}
+a.bouton_discord {
+  	grid-area: 1 / 9;
+}
+
+a.bouton_discord img {
+	width: 80px;
+	height: 58px;
+}
+
+a.pa_general_nav.pa_credits {
+	color: var(--cfond);
+	border-color: var(--cpnj)!important;
+	background-color: var(--cpnj)!important;
+	background-image: url('https://i.imgur.com/yyJkQcb.png');
+	background-position: center;
+}
+
+a.pa_general_nav.pa_credits:hover {
+	border-color: var(--cfond) !important;
+	color: var(--cfond)!important;
+}
 
 /**PAGE ACCUEIL----------------------------------------------------**/
 /*GÉNÉRAL*/
