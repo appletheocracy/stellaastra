@@ -248,7 +248,7 @@
 }
 
 /*--- Nouvelles et dernière heure --*/
-.contenu_info.pa_nouvelles,
+..pa_nouvelles,
 .bloc_d_heure {
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -288,7 +288,7 @@
 	color: var(--cdeu);
 }
 
-.contenu_info::-webkit-scrollbar-track {
+.::-webkit-scrollbar-track {
 	background: var(--c98) !important;
 }
 
@@ -301,7 +301,7 @@
 }
 
 .contenu_info {
-	height: 265;
+	height: 265px;
 	margin: 0px 5px;
 	scrollbar-width: thin;
 	border: 1px solid;
