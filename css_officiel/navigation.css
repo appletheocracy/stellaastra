@@ -70,9 +70,6 @@
 #navigation_droite ul li{
     display:inline-block;
 }
-#navigation_droite ul a{
-    margin_right:20px;
-}
 
 #navigation_droite ul a[href="/h3-lorebook"]{
     color:var(--cpnj)!important;
