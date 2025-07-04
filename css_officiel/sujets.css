@@ -71,7 +71,7 @@
     text-align:center;
 }
 
-.contact_avatar{
+/**.contact_avatar{
     display: grid; 
     grid-template-columns: 215px 1fr; 
     grid-template-rows: max-content; 
@@ -80,7 +80,7 @@
     ". ."; 
     margin:10px 0px;
 }
-/**SHIT**/
+SHIT**/
 .contact_avatar .postprofile-contact a{
     margin:0px!important;
 }
