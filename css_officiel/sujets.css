@@ -305,10 +305,12 @@
     font-family: "Staatliches", sans-serif;
     font-weight: 400;
     font-style: normal;
+    width:854px!important;
 }
 .postbody{
     grid-area: c;
     width:854px!important;
+    margin-right:0px!important;
 }
 
 .sujet_droite{
