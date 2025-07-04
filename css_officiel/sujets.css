@@ -240,12 +240,11 @@
 .profile-icons.bouton_modif a:link{
     transition: .5s;
     animation-timing-function:ease-in-out;
-    height:32px;
+    height:30px;
     color:white;
     border:none!important;
     border-radius:0px!important;
     box-shadow: none!important;
-    margin-top:-2px;
 }
 
 .bouton_modif a:visited{
