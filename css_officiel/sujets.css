@@ -306,6 +306,15 @@
     font-weight: 400;
     font-style: normal;
     width:854px!important;
+    display: grid; 
+    grid-auto-columns: 1fr; 
+    grid-template-columns: 230px 1fr 259fr; 
+    grid-template-rows: 30px; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    ". . ."; 
+    justify-items: start; 
+    align-items: start; 
 }
 .postbody{
     grid-area: c;
