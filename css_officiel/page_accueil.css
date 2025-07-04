@@ -708,6 +708,6 @@ a.parto_devenir {
 }
 
 a.parto_devenir:hover {
-	color: var(--cpnj);
+	color: var(--cpnj)!important;
 	letter-spacing: 1px;
 }
