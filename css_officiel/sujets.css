@@ -205,15 +205,8 @@ SHIT**/
 }
 
 .sliderinfobase{
-    height:380px;
-    width:220px;
-    margin:0 auto;
     position:relative;
-    transition: 0s;
-    animation-timing-function:ease-in-out;
-    position:relative;
-    z-index:901;
-    overflow:hidden;    
+    z-index:901;   
     font-family: "Staatliches", sans-serif;
     font-weight:400;
     font-style: normal;
@@ -349,6 +342,8 @@ SHIT**/
 .avaBorder img{
     width:250px;
     height:400px;
+    position:relative;
+    z-index:900;
 }
 
 .postprofile-avatar{
@@ -357,8 +352,6 @@ SHIT**/
 }
 
 .postprofile-avatar a{
-    position:relative;
-    z-index:900;
 }
 
 .profile-icons,
