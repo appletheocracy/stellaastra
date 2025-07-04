@@ -176,12 +176,12 @@
 .post-head .infos-posteur_globale{
   display: grid; 
   grid-auto-columns: 1fr; 
-  grid-template-columns: 75px 100px 75px 1fr;  
-  grid-template-rows: 35px 35px; 
+  grid-template-columns: 75px 93px 75px 1fr;  
+  grid-template-rows: 32px 32px; 
   gap: 10px 10px; 
   grid-template-areas: 
     "a b b b b"
-    "c d d e f"; 
+    "c d e f g"; 
   justify-items: start; 
   align-items: center; 
   width: 424px; 
