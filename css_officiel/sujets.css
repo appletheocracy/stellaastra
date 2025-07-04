@@ -188,7 +188,7 @@
 }
 
 .post-head .posterName{
-    width:430px;    
+    width:425px;    
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -263,7 +263,7 @@
       display: grid; 
   grid-auto-columns: 1fr; 
   grid-template-columns: 854px 284px; 
-  grid-template-rows: 110px 30px auto; 
+  grid-template-rows: 110px 30px 1fr; 
   gap: 0px 0px; 
   grid-template-areas: 
     "a d"
@@ -282,7 +282,7 @@
 .post-head{
     grid-area: a;
     display: grid; 
-    grid-template-columns: 424px 430px;
+    grid-template-columns: 424px 425px;
     grid-template-rows: max-content; 
     gap: 0px 0px; 
     grid-template-areas: 
