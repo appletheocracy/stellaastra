@@ -209,8 +209,6 @@ SHIT**/
     width:220px;
     margin:0 auto;
     position:relative;
-    top:-390px;
-    margin-bottom:-340px;
     transition: 0s;
     animation-timing-function:ease-in-out;
     position:relative;
@@ -342,7 +340,18 @@ SHIT**/
 }
 
 .profil_contenu{
-    height:493px;
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: 254px; 
+  grid-template-rows: 404px 81px; 
+  gap: 5px 0px; 
+  grid-template-areas: 
+    "."
+    "."; 
+  justify-items: center; 
+  align-items: start; 
+  width: 254px; 
+    height:490px;
 }
 
 .avaBorder{
