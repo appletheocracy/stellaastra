@@ -263,7 +263,7 @@
       display: grid; 
   grid-auto-columns: 1fr; 
   grid-template-columns: 854px 284px; 
-  grid-template-rows: 110px 30px 1fr 1px; 
+  grid-template-rows:  110px 30px 1fr;
   gap: 0px 0px; 
   grid-template-areas: 
     "a d"
@@ -316,6 +316,7 @@
 
 .sujet_droite{
     background-color:var(--cfond);
+    height:100%;
     grid-area: d;
 }
 .postbody .content blockquote{
