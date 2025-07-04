@@ -268,7 +268,6 @@
   grid-template-areas: 
     "a d"
     "b d"
-    "c d"
     "c d"; 
     justify-items: start; 
     align-items: start; 
