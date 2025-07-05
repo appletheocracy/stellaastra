@@ -45,8 +45,8 @@
 
 .post-head div.field_ans span.label,
 .post-head div.field_rps span.label{
-    float:right;
-    margin-left:7px;
+    /**float:right;
+    margin-left:7px;**/
 }
 
 .post-head .infos-posteur_globale .field_groupe-hybride,
