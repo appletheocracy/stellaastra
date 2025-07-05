@@ -307,15 +307,13 @@ a.btn-ip:hover{
 }
 
 .sujTree{
-    color:var(--cff); 
     position:relative;
-    left:-30px;
+    color:var(--cff);    
     width:1200px;
     font-size: 30px;
     background-image:url('https://i.imgur.com/EQcWl58.png');
-    height:35px;    
-    position:sticky;
-    top:0px;
+    height:35px;
+    left:-30px;
 }
 
 .sujTree .nav{
