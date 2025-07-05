@@ -305,42 +305,7 @@ a.btn-ip:hover{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.sujet_nav_wrap{
-    position:relative;
-    left:-30px;
-    background-image:url('https://i.imgur.com/EQcWl58.png');
-    padding:0px 30px;	
-}
 
-.sujTree{    
-    color:var(--cff);    
-    width:1140px;
-    font-size: 30px;  
-    height:35px;
-}
-
-.sujTree .nav{
-    font-size: 22px;
-    color:var(--cff);
-    padding:0px;    
-    font-family: "Staatliches", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.sujTree a.nav{
-    color:var(--cff)!important;
-    text-decoration:underline!important;
-    text-decoration-color:rgba(255, 255, 255, 0)!important;
-}
-
-.sujTree a:hover.nav{
-    text-decoration-color:rgba(255, 255, 255, 1)!important;
-}
-
-.sujTree a:visited .nav{
-    color:var(--cff);
-}
 
 .topic-actions{
     margin:0px!important;
