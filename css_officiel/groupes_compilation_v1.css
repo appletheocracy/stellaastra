@@ -3,6 +3,8 @@
 .post.message_deus .factcheck_title{
 	text-shadow: 0px 6px 2px var(--cdeu)!important;
 }
+
+.post.message_deus .contact_avatar .infos-posteur a,
 .post.message_deus .sliderinfobase .field_facts,
 .post.message_deus .sliderinfobase .sliderinfo,
 .post.message_deus .sliderinfobase .field_feat__002e-origines-__0026-artiste,
@@ -45,6 +47,7 @@
 .post.message_pnj .factcheck_title{
 	text-shadow: 0px 6px 2px var(--cpnj)!important;
 }
+.post.message_pnj .contact_avatar .infos-posteur a,
 .post.message_pnj .sliderinfobase .field_facts,
 .post.message_pnj .sliderinfobase .sliderinfo,
 .post.message_pnj .sliderinfobase .field_feat__002e-origines-__0026-artiste,
@@ -87,6 +90,8 @@
 .post.message_vampire .factcheck_title{
 	text-shadow: 0px 6px 2px var(--cvam)!important;
 }
+
+.post.message_vampire .contact_avatar .infos-posteur a,
 .post.message_vampire .sliderinfobase .field_facts,
 .post.message_vampire .sliderinfobase .sliderinfo,
 .post.message_vampire .sliderinfobase .field_feat__002e-origines-__0026-artiste,
@@ -129,6 +134,8 @@
 .post.message_hybride .factcheck_title{
 	text-shadow: 0px 6px 2px var(--chyb)!important;
 }
+
+.post.message_hybride .contact_avatar .infos-posteur a,
 .post.message_hybride .sliderinfobase .field_facts,
 .post.message_hybride .sliderinfobase .sliderinfo,
 .post.message_hybride .sliderinfobase .field_feat__002e-origines-__0026-artiste,
@@ -171,6 +178,8 @@
 .post.message_humain .factcheck_title{
 	text-shadow: 0px 6px 2px var(--chum)!important;
 }
+
+.post.message_humain .contact_avatar .infos-posteur a,
 .post.message_humain .sliderinfobase .field_facts,
 .post.message_humain .sliderinfobase .sliderinfo,
 .post.message_humain .sliderinfobase .field_feat__002e-origines-__0026-artiste,
