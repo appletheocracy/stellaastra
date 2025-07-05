@@ -288,7 +288,7 @@ a.btn-ip:hover{
     height:125px;
     background-repeat:no-repeat;
     padding:30px 30px 0px 30px;
-    background-imge:url('https://i.imgur.com/GxflonE.png');
+    background-image:url('https://i.imgur.com/GxflonE.png');
     font-family: "Staatliches", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -314,7 +314,7 @@ a.btn-ip:hover{
     top:15px;
     width:1200px;
     font-size: 30px;
-    background-imge:url('https://i.imgur.com/EQcWl58.png');
+    background-image:url('https://i.imgur.com/EQcWl58.png');
     height:35px;
 }
 
