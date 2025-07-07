@@ -116,7 +116,7 @@
 .post{
       display: grid; 
   grid-auto-columns: 1fr; 
-  grid-template-columns: 854px 284px; 
+  grid-template-columns: 856px 284px; 
   grid-template-rows:  110px 30px 1fr;
   gap: 0px 0px; 
   grid-template-areas: 
@@ -130,6 +130,7 @@
     background-color:#f6f6f6;
     margin:30px 0px 30px;
     border-radius: 4px;  
+    overflow-x:hidden!important;
 }
 
 
@@ -141,7 +142,7 @@
     gap: 0px 0px; 
     grid-template-areas: 
     ". ."; 
-    width:854px;
+    width:856px;
     height:110px;
     background-image:url('https://i.imgur.com/fEIRceg.png');
     background-repeat:no-repeat;
@@ -159,7 +160,7 @@
     font-family: "Staatliches", sans-serif;
     font-weight: 400;
     font-style: normal;
-    width:854px!important;
+    width:856px!important;
     display: grid; 
     grid-auto-columns: 1fr; 
     grid-template-columns: 230px 1fr 259px; 
@@ -172,7 +173,7 @@
 }
 .postbody{
     grid-area: c;
-    width:854px!important;
+    width:856px!important;
     margin-right:0px!important;
 }
 
