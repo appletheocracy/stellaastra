@@ -129,8 +129,7 @@
     border:1px solid var(--c98);
     background-color:#f6f6f6;
     margin:30px 0px 30px;
-    border-radius: 4px;  
-    overflow-x:hidden!important;
+    border-radius: 4px; 
 }
 
 
