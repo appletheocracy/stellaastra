@@ -70,12 +70,12 @@
 
 .post.message_pnj .sliderinfobase .degrade_profil{
     background: var(--cfond);
-    background: linear-gradient(0deg, rgba(50, 50, 50, 0.6) 0%, rgba(192, 131, 207, 1) 100%)!important;
+    background: linear-gradient(0deg,rgba(50, 50, 50, 0.6) 0%, rgba(145, 182, 255, 1) 100%)!important;
 
 }
 .post.message_pnj .sliderinfobase .sliderinfo .factcheck_title{
     background: var(--cfond);
-    background: linear-gradient(0deg,rgba(50, 50, 50, 0) 0%, rgba(192, 131, 207, 1) 100%)!important;
+    background: linear-gradient(0deg,rgba(50, 50, 50, 0) 0%, rgba(145, 182, 255, 1) 100%);
 }
 
 
