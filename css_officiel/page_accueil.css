@@ -44,12 +44,12 @@ button#bouton_plier_pa {
 	text-align: center;
 	padding: 13px 10px !important;
 	font-size: 18px;
-	border: 1px solid var(--cpnj);
+	border: 1px solid var(--chim);
 }
 
 button#bouton_plier_pa:hover {
 	border: 1px solid var(--cfond);
-	color: var(--cpnj);
+	color: var(--chim);
 }
 a.bouton_discord {
   	grid-area: 1 / 9;
@@ -62,8 +62,8 @@ a.bouton_discord img {
 
 a.pa_general_nav.pa_credits {
 	color: var(--cfond);
-	border-color: var(--cpnj)!important;
-	background-color: var(--cpnj)!important;
+	border-color: var(--chim)!important;
+	background-color: var(--chim)!important;
 	background-image: url('https://i.imgur.com/yyJkQcb.png');
 	background-position: center;
 }
@@ -174,7 +174,7 @@ a.pa_general_nav.pa_credits:hover {
 .pa_admin_droite .pa_admin_c_groupe {
 	right: -19px;
 	padding-left: 10px;
-	background-color: var(--cpnj);
+	background-color: var(--chim);
 }
 
 .pa_admin_gauche .pa_admin_c_groupe {
@@ -305,7 +305,7 @@ a.pa_general_nav.pa_credits:hover {
 
 .pa_admin_droite {
 	grid-template-columns: 121px 1fr;
-	border-color: var(--cpnj);
+	border-color: var(--chim);
 }
 
 .pa_ctn_avatar {
@@ -342,7 +342,7 @@ a.pa_general_nav.pa_credits:hover {
 }
 
 .conteneur_info.pa_derniere_heure {
-	scrollbar-color: var(--cpnj) #f1f1f1;
+	scrollbar-color: var(--chim) #f1f1f1;
 	width: 260px;
 }
 
@@ -354,7 +354,7 @@ a.pa_general_nav.pa_credits:hover {
 }
 
 .titre_bloc.d_heure {
-	color: var(--cpnj);
+	color: var(--chim);
 }
 
 .titre_bloc.nouvelles {
@@ -370,7 +370,7 @@ a.pa_general_nav.pa_credits:hover {
 }
 
 .bloc_d_heure::-webkit-scrollbar-thumb {
-	background-color: var(--cpnj) !important;
+	background-color: var(--chim) !important;
 }
 
 .contenu_info {
@@ -400,8 +400,8 @@ a.pa_general_nav.pa_credits:hover {
 
 .contenu_info.bloc_d_heure {
 	background-color: var(--cfondpale);
-	border-color: var(--cpnj);
-	border-color: var(--cpnj);
+	border-color: var(--chim);
+	border-color: var(--chim);
 }
 
 .mod-recent-author strong {
@@ -506,8 +506,8 @@ a:hover .bouton_acces_nouvelle {
 }
 
 .conteneur_info .pa_derniere_heure {
-	border-color: var(--cpnj) !important;
-	scrollbar-color: var(--cpnj) #f1f1f1;
+	border-color: var(--chim) !important;
+	scrollbar-color: var(--chim) #f1f1f1;
 	scrollbar-width: thin;
 }
 
@@ -516,7 +516,7 @@ a:hover .bouton_acces_nouvelle {
 }
 
 .conteneur_info .pa_derniere_heure::-webkit-scrollbar-thumb {
-	background-color: var(--cpnj) !important;
+	background-color: var(--chim) !important;
 }
 
 
@@ -712,7 +712,7 @@ a:hover .bouton_acces_nouvelle {
 }
 
 .conteneur_navig_bas a.parto_120:hover {
-	border: 1px solid var(--cpnj);
+	border: 1px solid var(--chim);
 }
 
 .conteneur_navig_bas a.parto_50:hover {
@@ -720,7 +720,7 @@ a:hover .bouton_acces_nouvelle {
 }
 
 .conteneur_navig_bas a.parto_50 {
-	border: 1px solid var(--cpnj);
+	border: 1px solid var(--chim);
 	margin-right: 5px;
 }
 
@@ -771,6 +771,6 @@ a.parto_devenir {
 }
 
 a.parto_devenir:hover {
-	color: var(--cpnj)!important;
+	color: var(--chim)!important;
 	letter-spacing: 1px;
 }
