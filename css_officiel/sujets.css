@@ -50,6 +50,7 @@
 .post-head .infos-posteur_globale .field_groupe-hybride,
 .post-head .infos-posteur_globale .field_groupe-humain,
 .post-head .infos-posteur_globale .field_groupe-vampire,
+.post-head .infos-posteur_globale .field_groupe-chimere,
 .post-head .infos-posteur_globale .field_groupe-staff.
 .post-head .infos-posteur_globale .field_groupe-pnj,
 .post-head .infos-posteur_globale .field_groupe-membre{
@@ -59,6 +60,7 @@
 .post.message_hybride .post-head div.field_groupe-hybride,
 .post.message_vampire .post-head div.field_groupe-vampire,
 .post.message_humain .post-head div.field_groupe-humain,
+.post.message_chimere .post-head div.field_groupe-chimere,
 .post.message_deus .post-head div.field_groupe-staff,
 .post.message_pnj .post-head div.field_groupe-pnj{
     display:inline-block!important;
