@@ -66,7 +66,7 @@
 }
 
 .switcheroo__squircle.active{
-    border:8px solid var(--cpnj);
+    border:8px solid var(--chim);
 }
 
 .switcheroo__squircle.active:hover{
@@ -233,7 +233,7 @@
 .switcheroo__form {
     padding: 48px;
     border-radius: 5px;
-    border:1px solid var(--cpnj);
+    border:1px solid var(--chim);
     background-color:var(--c3b);
 }
 
@@ -264,8 +264,8 @@
     border-radius: 4px;
     width: 100%;
     background-color:#505050!important;
-    border:1px solid var(--cpnj)!important;
-    border-bottom: 3px solid var(--cpnj)!important;
+    border:1px solid var(--chim)!important;
+    border-bottom: 3px solid var(--chim)!important;
     color: var(--cff)!important;
     cursor: text;
 }
@@ -279,7 +279,7 @@
     box-shadow: none;
     font-size: 18px;
     align-self: flex-end;
-    background-color:var(--cpnj);
+    background-color:var(--chim);
     border: 1px solid var(--cfondpale);
     cursor: pointer;
     color: var(--c3b);
@@ -290,7 +290,7 @@
 
 .switcheroo__form-button:hover {
     border: 1px solid transparent;
-    background: var(--cff);
+    background: var(--cfond);
     color: var(--cff);
 }
 
