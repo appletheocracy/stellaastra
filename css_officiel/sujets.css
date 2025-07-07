@@ -8,8 +8,22 @@
 
 .post-head .infos-posteur,
 .post-head .infos-posteur span.label span{
-    color:var(--cff)!important;    
     font-size:16px;
+}
+
+.message-hybride .infos-posteur.field_groupe-hybride,
+.message-membre .infos-posteur.field_groupe-membre,
+.message-vampire .infos-posteur.field_groupe-vampire,
+.message-humain .infos-posteur.field_groupe-humain,
+.message-deus .infos-posteur.field_groupe-staff,
+.message-pnj .infos-posteur.field_groupe-pnj,
+.message-hybride .infos-posteur.field_groupe-hybride span.label span,
+.message-membre .infos-posteur.field_groupe-membre span.label span,
+.message-vampire .infos-posteur.field_groupe-vampire span.label span,
+.message-humain .infos-posteur.field_groupe-humain span.label span,
+.message-deus .infos-posteur.field_groupe-staff span.label span,
+.message-pnj .infos-posteur.field_groupe-pnj span.label span{
+    color:var(--cff)!important;    
 }
 
 .post-head .infos-posteur{
