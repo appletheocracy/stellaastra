@@ -1,0 +1,96 @@
+/* Créer une petite animation de chargement avant que le Persona apparaisse */
+.persona:not(.loaded) {
+  --gradient: var(--neutralDarker);
+
+  word-break: break-word;
+  min-height: 800px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  color: transparent!important;
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    opacity: .3;
+    transform: translateX(-100%);
+    background-image: linear-gradient(90deg, rgba(255,255,255,0) 0%, var(--gradient) 25%, rgba(255,255,255,0) 50%);
+    animation: shimmer 2s infinite;
+    content: '';
+  }
+}
+@keyframes shimmer {100% { ransform: translateX(100%);}}
+
+
+.ficheBloc {
+  border-radius: 10px;
+  background: var(--neutralDark);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.ficheBloc_head {
+  margin: 15px 0 20px;
+  text-align: center;
+  line-height: 15px;
+}
+
+.ficheBloc_head_title {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ficheBloc_head_subtitle {
+  font-style: italic;
+  font-size: 12px;
+  opacity: .8;
+}
+
+.fiche_presentation {
+  display: grid;
+  grid-template-columns: auto max-content;
+  gap: 5px;
+}
+
+.fiche_presentation_content {
+  background: var(--neutral);
+  padding: 15px;
+  border-radius: 5px;
+  text-align: justify;
+  height: 320px;
+  overflow: auto;
+}
+
+.fiche_presentation_content br:nth-child(n+2) {display: initial;}
+
+.fiche_avatar img {
+  width: 200px;
+  height: 320px;
+  object-fit: cover;
+}
+
+.fiche_anecdotes {
+  background: var(--neutral);
+  padding: 15px;
+  text-align: justify;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.fiche label {
+  display: inline;
+  margin-right: 5px;
+  font-size: 11px;
+  color: var(--accentClr);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: .5px;
+}
+
+.fiche_joueur {
+  border-radius: 10px;
+  border: var(--border);
+  padding: 15px;
+}
