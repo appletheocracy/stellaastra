@@ -14,7 +14,7 @@
 .msgdatebtn,
 .sujTree .nav,
 .sliderinfo,
-factcheck_title,
+.factcheck_title,
 .factcheck_info_btn,
 #sujTitle,
 input.button,
@@ -116,7 +116,7 @@ a.d_bouton_profil.ava_carnet{
 .post-head .field_groupe-humain,
 .post-head .field_groupe-vampire,
 .post-head .field_groupe-chimere,
-.post-head .field_groupe-staff.
+.post-head .field_groupe-staff,
 .post-head .field_groupe-pnj,
 .post-head .field_groupe-membre{
     grid-area:a;
@@ -134,7 +134,7 @@ a.d_bouton_profil.ava_carnet{
 
 .message_chimere .infos-posteur.field_groupe-chimere{
 	color:var(--cfond)!important;
-	isplay:inline-block!important;
+	display:inline-block!important;
 }
 
 .post-head .infos-posteur_globale{
