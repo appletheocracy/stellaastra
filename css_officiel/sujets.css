@@ -1,5 +1,56 @@
 /**----------- POSTROW MESSAGES ------------**
 /**----------- POSTROW MESSAGES droite -----**/
+.sliderinfo .field_feat__002e-origines-__0026-artiste,
+.sliderinfo .field_feat,
+.post-head .posterName,
+.sujTitleTxt{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.post-head div,
+.post-head a,
+.msgdatebtn,
+.sujTree .nav,
+.sliderinfo,
+factcheck_title,
+.factcheck_info_btn,
+#sujTitle,
+input.button,
+input.button1,
+input.button2,
+#wrap input[type="submit"]:link,
+#wrap input[type="submit"]:visited,
+#wrap input[type="submit"]:active,
+#wrap input[type="submit"]:hover,
+#wrap .button:link,
+#wrap .button:visited,
+#wrap .button:active,
+#wrap .button:hover,
+#wrap .button1:link,
+#wrap .button1:visited,
+#wrap .button1:active,
+#wrap .button1:hover,
+#wrap .button2:link,
+#wrap .button2:visited,
+#wrap .button2:active,
+#wrap .button2:hove,
+.pagination_boutons .pagination,
+.pagination_boutons .pagination span strong,
+.pagination_boutons .pagination span a:link,
+.quickReplyWrap .h3,
+hide.show .hide_info{
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+infos-posteur field_feat,
+infos-posteur field_feat__002e-origines-__0026-artiste,
+.sliderinfo .field_facts{
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 
 .quick-nav-topics.bottom {
@@ -25,45 +76,65 @@
     width: fit-content!important;
     white-space: nowrap;
 }
-.post-head .infos-posteur_globale .field_emploi{
+
+a.d_bouton_profil.ava_fiche{
+    width:204px;
+    grid-area:b!important;
+}
+
+a.d_bouton_profil.ava_carnet{
+    width:254px;
+    grid-area:c!important;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.post-head .field_emploi{
     grid-area:b;
 }
-
-.post-head .infos-posteur_globale .field_ans{
-    grid-area:c;
+.post-head .field_ans span.label{
+    display:none;
 }
 
-.post-head .infos-posteur_globale .field_mesure{
+.post-head .field_ans{
+    text-align:center!important;
+    width:75px!important;
+}
+
+.post-head .field_mesure{
     grid-area:d;
 }
 
-.post-head .infos-posteur_globale .field_rps{
+.post-head .field_rps{
     grid-area:e;
+    display:none;
+    transition: none!important;
 }
 
-.post-head div.field_ans span.label,
-.post-head div.field_rps span.label{
-    /**float:right;
-    margin-left:7px;**/
-}
 
-.post-head .infos-posteur_globale .field_groupe-hybride,
-.post-head .infos-posteur_globale .field_groupe-humain,
-.post-head .infos-posteur_globale .field_groupe-vampire,
-.post-head .infos-posteur_globale .field_groupe-chimere,
-.post-head .infos-posteur_globale .field_groupe-staff.
-.post-head .infos-posteur_globale .field_groupe-pnj,
-.post-head .infos-posteur_globale .field_groupe-membre{
+.post-head .field_groupe-hybride,
+.post-head .field_groupe-humain,
+.post-head .field_groupe-vampire,
+.post-head .field_groupe-chimere,
+.post-head .field_groupe-staff.
+.post-head .field_groupe-pnj,
+.post-head .field_groupe-membre{
     grid-area:a;
+    text-align:center;
+    width:75px!important;
 }
 
 .post.message_hybride .post-head div.field_groupe-hybride,
 .post.message_vampire .post-head div.field_groupe-vampire,
 .post.message_humain .post-head div.field_groupe-humain,
-.post.message_chimere .post-head div.field_groupe-chimere,
 .post.message_deus .post-head div.field_groupe-staff,
 .post.message_pnj .post-head div.field_groupe-pnj{
     display:inline-block!important;
+}
+
+.message_chimere .infos-posteur.field_groupe-chimere{
+	color:var(--cfond)!important;
+	isplay:inline-block!important;
 }
 
 .post-head .infos-posteur_globale{
@@ -82,19 +153,9 @@
 }
 
 .post-head .posterName{
-    width:422px;    
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    width:422px;
     position:relative;
     left:-12px;
-}
-
-.post-head div,
-.post-head a{
-    font-family: "Staatliches", sans-serif;
-    font-weight: 400;
-    font-style: normal;
 }
 
 .postprofile-name{
@@ -156,9 +217,6 @@
     background-color:var(--cfond);
     color:var(--cff);
     font-size:18px;
-    font-family: "Staatliches", sans-serif;
-    font-weight: 400;
-    font-style: normal;
     width:856px!important;
     display: grid; 
     grid-auto-columns: 1fr; 
@@ -174,6 +232,15 @@
     grid-area: c;
     width:856px!important;
     margin-right:0px!important;
+}
+
+.sujet_nav_wrap{
+    width:1200px;
+    height:35px;
+    position:relative;
+    left:-30px;
+    background-image:url('https://i.imgur.com/EQcWl58.png');
+    padding:0px 30px 0px 25px;
 }
 
 .sujet_droite{
@@ -208,11 +275,61 @@
     border-bottom-right-radius: 4px;
 }
 
+.sujTree{    
+    color:var(--cff);    
+    width:1140px;
+    font-size: 30px;  
+    height:40px;
+    display: flex;
+    flex-direction: row;
+    position:relative;
+    top:-9px;
+    padding-top:3px;
+}
 
+
+.sujTree .nav{
+    font-size: 20px;
+    color:var(--cff);
+    padding:3px 5px 0px 5px;    
+    margin:6px 5px 0px 5px;
+    color:var(--cff)!important;
+    height:35px;
+    transition: .5s;
+    animation-timing-function:ease-in-out;
+    backdrop-filter: none;
+}
+
+.sujTree a:hover.nav{
+    backdrop-filter: saturate(80%) brightness(60%);
+}
+
+.sujTree a:visited .nav{
+    color:var(--cff);
+}
+
+.message_deus .profil_contenu{
+    height:448px!important;
+}
+
+.post_id_number_anchor{
+	position:absolute;
+        top:1px;
+}
+
+.avaborder a img,
+.avaborder img{
+    position:absolute;
+    top:0px;
+    left:0px;
+    z-index:920;
+}
 
 .avaBorder{
-    background-color:var(--cff);
-    border:2px solid var(--c98);
+    background-color:transparent;
+    border-color:var(--c3b);
+    width: 254px; 
+    height:404px;
 }
 
 .avaBorder img{
@@ -222,9 +339,202 @@
     z-index:900;
 }
 
+.post.message_membre .avaBorder{
+    border-color:white!important;
+}
+
+.post.message_membre .avaBorder,
+.post.message_hybride .avaBorder,
+.post.message_humain .avaBorder,
+.post.message_chimere .avaBorder,
+.post.message_hybride .avaBorder,
+.post.message_deus .avaBorder,
+.post.message_pnj  .avaBorder{
+	background-color:var(--cfond);
+}
+
+
 .postprofile-avatar{
     width:250px!important;
     height:400px!important;
+}
+
+
+.post.message_deus .sliderinfobase,
+.post.message_pnj .sliderinfobase,
+.post.message_membre .sliderinfobase,
+.post.message_hybride .sliderinfobase,
+.post.message_chimere .sliderinfobase,
+.post.message_humain .sliderinfobase,
+.post.message_vampire .sliderinfobase{
+    opacity:1!important;
+}
+
+div.sliderinfobase{
+    display: grid; 
+    grid-auto-columns: 1fr; 
+    grid-template-columns: 250px; 
+    grid-template-rows: 351.5px 38.5px; 
+    gap: 5px 15px; 
+    grid-template-areas: 
+     "."
+     "."; 
+    justify-content: center; 
+    align-content: start; 
+    justify-items: start; 
+    align-items: center; 
+    width: 250px; 
+    height: 400px; 
+    position:absolute;
+    top:2px;
+    left:2px;
+    z-index:921;
+    opacity:0;
+}
+
+.spacer_slider_info{
+    height:343.5px;
+    width:240px;
+}
+
+.sliderinfo{
+    opacity:0;
+    visibility:hidden;
+    height:0px;
+    width:240px;
+    border-radius:4px;
+    border:1px solid var(--cfondpale);
+    border-bottom:1.5px solid!important;
+    background-color:rgba(50, 50, 50, 0.8);
+    border-radius:4px;
+    margin:5px 5px 0px 5px;
+    overflow:hidden;
+}
+
+.sliderinfo.display_slider{
+    height:342px!important;
+    opacity: 1!important;
+    visibility: visible!important;
+}
+
+.sliderinfo .infos-posteur{
+    font-size:14px;
+    width:220px;
+    height:25px;
+    margin:2px 10px;
+    text-align:center;
+    border:1px solid var(--cff);
+    color:var(--cff);
+    padding:2px 2px;
+    background-color:rgba(50,50,50,.8);    
+}
+
+.sliderinfo .field_facts{
+    overflow-y: auto;
+    scrollbar-color: var(--cfond) var(--cfondpale);
+    scrollbar-width: thin;
+    height:85px!important;
+    text-align:left;
+    overflow:auto;
+    padding:5px;
+    font-size:13px;
+}
+
+.factcheck_title span{
+    position:relative;
+    top:-19px;
+}
+.factcheck_title{
+    color:var(--cff)!important;
+    font-size:50px;
+    text-shadow: 0px 4px 2px #A1A1A1;
+    width:240px;
+    text-align:center;
+    position:relative;
+    height:36px;
+    overflow:hidden;
+}
+
+.field_image-profil{
+    position:relative;
+    overflow:hidden;
+    width:238px!important;
+    height:100px!important;
+    background-color:var(--cff);
+    clip-path: polygon(50% 100%, 100% 75%, 100% 0%, 0% 0%, 0% 75%);
+    margin:0px!important;
+    border-top:2px solid var(--cff);
+    padding:0px!important;
+    border-left:0px solid!important;
+}
+
+.field_image-profil img{
+    width:240px!important;
+    height:96px!important;
+    clip-path: polygon(50% 100%, 100% 75%, 100% 0%, 0% 0%, 0% 75%);
+}
+
+.slider_subtitle{
+    overflow:hidden;
+    height:25px;
+    font-style: normal;
+    font-size:20px;
+    width:220px;
+    margin:0px 10px;
+    text-align:center;
+    color:var(--cff);
+}
+
+.contact_avatar{
+    margin-top:5px!important;
+}
+.contact_avatar .infos-posteur_globale{
+    display: grid;
+    grid-template-columns: 45px 204px;
+    grid-template-rows: 38px 38px;
+    gap: 5px 5px;
+    grid-auto-flow: row;
+    justify-items: start;
+    align-items: start;
+    grid-template-areas:
+      "a b"
+      "c c";
+    width: 254px;
+    height: auto;
+}
+
+.contact_avatar a.profile-icon{
+    border-radius:4px!important;
+    color:var(--cff)!important;
+    font-size:16px;
+    text-align:center;
+    padding:7px 5px 0px!important;
+    border:2px solid var(--cff)!important;
+    height:38px!important;
+    width:45px!important;
+}
+.contact_avatar .infos-posteur a{
+    color:var(--cff)!important;
+    font-size:16px;
+    text-align:center;
+    padding:7px 5px 0px!important;
+    border:2px solid var(--cff);
+    height:38px!important;
+    display:inline-block;
+    border-radius:4px;
+    
+}
+
+.factcheck_info_btn{
+    width:45px;
+    margin:0px 5px 5px 5px;
+    color:var(--cff);
+    border:1px solid var(--cff);
+    background-color:var(--cfond);
+    padding:5px 0px 4px;
+    font-size:18px;
+    text-align:center;
+    border-radius:4px;
 }
 
 .profile-icons,
@@ -289,9 +599,6 @@ a.btn-ip:hover{
     background-repeat:no-repeat;
     padding:30px 30px 0px 30px;
     background-image:url('https://i.imgur.com/GxflonE.png');
-    font-family: "Staatliches", sans-serif;
-    font-weight: 400;
-    font-style: normal;
     position:relative;
     left:-30px;
     top:-7px;
@@ -303,9 +610,6 @@ a.btn-ip:hover{
     text-shadow: 0px 6px 2px #3A72E2;
     color:var(--cff);
     font-size: 50px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 
@@ -352,6 +656,7 @@ a.btn-ip:hover{
     width:1140px;
     margin:13px 0px -15px 0px;
     color:var(--cfondpale);
+    float:right!important;
 }
 
 .pagination_boutons_top .pagination{
@@ -374,7 +679,18 @@ a.btn-ip:hover{
     margin:0px 0px 0px 5px!important;
 }
 
+select{
+    background-color:var(--cff);
+    border-radius:4px;
+    height:32px;
+}
+
+.ion-edit.button1{
+    margin-left:0px!important;
+}
+
 a.ion-edit.button1{
+    margin-left:0px!important;
     background-color:var(--cdeu)!important;
     transition: 0.5s;
     animation-timing-function:ease-in-out;
@@ -392,9 +708,6 @@ input.button2{
     background-color:var(--cdeu)!important;
     transition: 0.5s;
     animation-timing-function:ease-in-out;
-    font-family: "Staatliches", sans-serif!important;
-    font-weight: 400!important;
-    font-style: normal!important;
     font-size:16px!important;
     height:35px!important;
     padding:7px 15px!important;
@@ -416,9 +729,6 @@ input.button2{
 #wrap .button2:visited,
 #wrap .button2:active,
 #wrap .button2:hover{
-    font-family: "Staatliches", sans-serif!important;
-    font-weight: 400!important;
-    font-style: normal!important;
     font-size:16px!important;
     height:35px!important;
     padding:7px 15px!important;
@@ -427,9 +737,6 @@ input.button2{
 .pagination_boutons .pagination,
 .pagination_boutons .pagination span strong,
 .pagination_boutons .pagination span a:link{
-    font-family: "Staatliches", sans-serif!important;
-    font-weight: 400!important;
-    font-style: normal!important;
     font-size:20px!important;
 }
 
@@ -481,9 +788,6 @@ form#quick_reply{
 .quickReplyWrap .h3{
     background-color:var(--cfondpale);
     border:none;
-    font-family: "Staatliches", sans-serif!important;
-    font-weight: 400!important;
-    font-style: normal!important;
     font-size:40px!important;
     padding:5px 3px;
     width:237px;
