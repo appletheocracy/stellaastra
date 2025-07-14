@@ -47,15 +47,15 @@ input.button2,
 #wrap .button2:link,
 #wrap .button2:visited,
 #wrap .button2:active,
-#wrap .button2:hove,
+#wrap .button2:hover,
 .pagination_boutons .pagination,
 .pagination_boutons .pagination span strong,
 .pagination_boutons .pagination span a:link,
 .quickReplyWrap .h3,
 hide.show .hide_info{
-    font-family: "Staatliches", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    font-family: "Staatliches", sans-serif!important;
+    font-weight: 400!important;
+    font-style: normal!important;
 }
 
 infos-posteur field_feat,
