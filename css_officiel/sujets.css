@@ -9,11 +9,16 @@
     text-overflow: ellipsis;
 }
 
+.postprofile-name,
+.postprofile-name a{
+    font-family: "Staatliches", sans-serif!important;
+    font-weight: 400!important;
+    font-style: normal!important;
+}
+
 .post-head div,
 .post-head a,
 .post-head .infos-posteur,
-.postprofile-name,
-.postprofile-name a,
 .post-head. .infos-posteur,
 .post-head .msgddate,
 .post-head .profile-icons{
