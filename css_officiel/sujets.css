@@ -376,9 +376,10 @@ font-style: normal;
 
 .avaBorder{
     background-color:transparent;
-    border-color:var(--c3b);
+    border:2px solid var(--c3b);
     width: 254px; 
     height:404px;
+   
 }
 
 .avaBorder img{
