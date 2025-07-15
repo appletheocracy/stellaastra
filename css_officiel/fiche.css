@@ -34,7 +34,6 @@
     height:76px;
     position:relative;
     z-index:800;
-    margin-top:41px;
     line-height:normal;
 }
 
@@ -70,7 +69,7 @@
 .fond_entete{
     display: grid; 
     grid-auto-columns: 1fr; 
-    grid-template-columns: 401px 405px; 
+    grid-template-columns: 407px 405px; 
     grid-template-rows: 100%; 
     gap: 0px 0px; 
     grid-template-areas: 
@@ -79,7 +78,7 @@
     align-content: start; 
     justify-items: start; 
     align-items: start; 
-    width: 806px; 
+    width: 812px; 
     height: 180px;
     position:relative;
     z-index:960;
@@ -190,6 +189,7 @@
     border-top-right-radius: 4px;
     font-size:22px;
     padding-top:3px;
+    line-height:normal;
 }
 
 .entete_info1 .bloc_rep_fiche,
@@ -774,10 +774,11 @@
     width:176px;
     height:30px;
     font-size:14px;
-    padding:8px 5px;
+    padding:6px 5px;
     text-align:left;
     background-color:var(--cofwhite);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    border:2px solid var(--cfond);
 }
