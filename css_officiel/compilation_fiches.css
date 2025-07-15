@@ -38,7 +38,8 @@
 .fiche_vampire .fiche_politique,
 .fiche_vampire .qd_reply,
 .fiche_vampire .f-timeline_contour,
-.fiche_vampire .bloc_titre_fiche{
+.fiche_vampire .bloc_titre_fiche,
+.fiche_vampire .fiche_featuring_ca{
 	border-color:var(--cvam)!important;
 }
 
@@ -109,7 +110,8 @@
 .fiche_hybride .fiche_politique,
 .fiche_hybride .qd_reply,
 .fiche_hybride .f-timeline_contour,
-.fiche_hybride .bloc_titre_fiche{
+.fiche_hybride .bloc_titre_fiche,
+.fiche_hybride .fiche_featuring_ca{
 	border-color:var(--chyb)!important;
 }
 
@@ -180,7 +182,8 @@
 .fiche_chimere .fiche_politique,
 .fiche_chimere .qd_reply,
 .fiche_chimere .f-timeline_contour,
-.fiche_chimere .bloc_titre_fiche{
+.fiche_chimere .bloc_titre_fiche,
+.fiche_chimere .fiche_featuring_ca{
 	border-color:var(--chim)!important;
 }
 
@@ -251,7 +254,8 @@
 .fiche_humain .fiche_politique,
 .fiche_humain .qd_reply,
 .fiche_humain .f-timeline_contour,
-.fiche_humain .bloc_titre_fiche{
+.fiche_humain .bloc_titre_fiche,
+.fiche_humain .fiche_featuring_ca{
 	border-color:var(--chum)!important;
 }
 .fiche_humain .f-pol_info:before{
