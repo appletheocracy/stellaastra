@@ -1,3 +1,38 @@
+.fiche_featuring_ca{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    width:500px;
+    border-top:1px solid var(--cdeu);
+    border-right:1px solid var(--cdeu);
+    border-bottom:1px solid var(--cdeu);
+    color:var(--cofwhite);
+    font-size:16px;
+    margin:10px 0px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color:rgba(50, 50, 50, 0.5);
+}
+
+.f-char{
+    margin:13px 0px 0px 15px ;
+}
+
+.f-author{
+    margin:13px 15px 0px 4px;
+}
+
+.f-char, .f-author{
+    height:27px;
+}
+
+.f-char span{
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:18px;
+}
+
 .titre_groupe,
 .soustitre_fiche,
 .fiche_prenom_nom1,
