@@ -457,6 +457,7 @@
     text-shadow: 0px 4px 2px var(--cdeu);
     position:relative;
     z-index:802;
+    line-height:normal;
 }
 
 .bloc_sub_ftitre.droite{
