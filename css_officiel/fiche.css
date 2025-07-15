@@ -45,7 +45,7 @@
     height:62px;
     font-size:65px;
     color:var(--cdeu);
-    padding-top:30px;
+    line-height:normal;
 }
 
 .soustitre_fiche.gauche{
@@ -474,6 +474,7 @@
     height:33px;
     margin-bottom:-7px;
     top:-7px;
+    line-height:normal;
 }
 
 .bloc_sub_ftitre.qd_titre{
