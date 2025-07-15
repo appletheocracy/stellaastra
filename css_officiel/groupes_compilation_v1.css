@@ -93,7 +93,8 @@
 }
 
 /**---------------------------- VAMPIRES **/
-.post.message_vampire .factcheck_title{
+.post.message_vampire .factcheck_title,
+.vampire .titre_de_fiche{
 	text-shadow: 0px 6px 2px var(--cvam)!important;
 }
 
@@ -110,8 +111,15 @@
 .post.message_vampire .contact_avatar a.profile-icon,
 .post.message_vampire,
 .post.message_vampire .avaBorder,
-.post.message_vampire blockquote{
+.post.message_vampire blockquote,
+.form_wrapper_contour input.fiche_btn_vampire.selected,
+.vampire .form_wrap,
+.vampire .entete_groupe{
 	border-color:var(--cvam)!important;
+}
+
+.form_wrapper_contour.vampire{
+    border-color:var(--vam5);
 }
 
 .post.message_vampire .sliderinfobase .degrade_profil{
@@ -126,7 +134,8 @@
 
 
 .post.message_vampire .sliderinfobase .field_image-profil,
-.post.message_vampire .post-head div.field_groupe-vampire{
+.post.message_vampire .post-head div.field_groupe-vampire,
+.form_wrapper_contour.vampire .separator{
 	background-color:var(--cvam)!important;
 }
 
@@ -138,8 +147,14 @@
 	background-image:url('https://i.imgur.com/7JthE5C.png')!important;
 }
 
+.form_wrapper_contour.vampire .separator2{
+    background: #D31141;
+    background: linear-gradient(90deg, rgba(211, 17, 65, 1) 0%, rgba(211, 17, 65, 0.5) 50%, rgba(211, 17, 65, 1) 100%);
+}
+
 /**---------------------------- HYBRIDES **/
-.post.message_hybride .factcheck_title{
+.post.message_hybride .factcheck_title,
+.hybride .titre_de_fiche{
 	text-shadow: 0px 6px 2px var(--chyb)!important;
 }
 
@@ -156,8 +171,15 @@
 .post.message_hybride .contact_avatar a.profile-icon,
 .post.message_hybride,
 .post.message_hybride .avaBorder,
-.post.message_hybride blockquote{
+.post.message_hybride blockquote,
+.form_wrapper_contour input.fiche_btn_hybride.selected,
+.hybride .form_wrap,
+.hybride .entete_groupe{
 	border-color:var(--chyb)!important;
+}
+
+.form_wrapper_contour.hybride{
+    border-color:var(--hyb5);
 }
 
 .post.message_hybride .sliderinfobase .degrade_profil{
@@ -171,9 +193,15 @@
 }
 
 
+
 .post.message_hybride .sliderinfobase .field_image-profil,
-.post.message_hybride .post-head div.field_groupe-hybride{
+.post.message_hybride .post-head div.field_groupe-hybride,
+.form_wrapper_contour.hybride .separator{
 	background-color:var(--chyb)!important;
+}
+
+.fiche_hybride .img_color1f{
+	background-color:var(--hyb5)!important;
 }
 
 .post.message_hybride .sliderinfobase .field_facts::-webkit-scrollbar-thumb:vertical{
@@ -184,7 +212,13 @@
     background-image:url('https://i.imgur.com/1rHLgKX.png')!important;
 }
 
+.form_wrapper_contour.hybride  .separator2{
+    background: #C083CF;
+    background: linear-gradient(90deg, rgba(192, 131, 207, 1) 0%, rgba(192, 131, 207, 0.5) 50%, rgba(192, 131, 207, 1) 100%);
+}
+
 /**---------------------------- HUMAINS **/
+
 .post.message_humain .factcheck_title{
 	text-shadow: 0px 6px 2px var(--chum)!important;
 }
@@ -202,8 +236,15 @@
 .post.message_humain .contact_avatar a.profile-icon,
 .post.message_humain,
 .post.message_humain .avaBorder,
-.post.message_humain blockquote{
+.post.message_humain blockquote,
+.form_wrapper_contour input.fiche_btn_humain.selected,
+.humain .form_wrap,
+.humain .entete_groupe{
 	border-color:var(--chum)!important;
+}
+
+.form_wrapper_contour.humain{
+    border-color:var(--hum5);
 }
 
 .post.message_humain .sliderinfobase .degrade_profil{
@@ -216,9 +257,9 @@
     background: linear-gradient(0deg, rgba(50, 50, 50, 0) 0%, rgba(109, 156, 114, 1) 100%)!important;
 }
 
-
 .post.message_humain .sliderinfobase .field_image-profil,
-.post.message_humain .post-head div.field_groupe-humain{
+.post.message_humain .post-head div.field_groupe-humain,
+.form_wrapper_contour.humain .separator{
 	background-color:var(--chum)!important;
 }
 
@@ -230,9 +271,14 @@
     background-image:url('https://i.imgur.com/pMg5vOW.png')!important;
 }
 
+.form_wrapper_contour.humain .separator2{
+    background: #6D9C72;
+    background: linear-gradient(90deg, rgba(109, 156, 114, 1) 0%, rgba(109, 156, 114, 0.3) 50%, rgba(109, 156, 114, 1) 100%);
+}
 
 /**---------------------------- CHIMÈRES **/
-.post.message_chimere .factcheck_title{
+.post.message_chimere .factcheck_title,
+.chimere .titre_de_fiche{
 	text-shadow: 0px 6px 2px var(--chim)!important;
 }
 
@@ -249,8 +295,15 @@
 .post.message_chimere .contact_avatar a.profile-icon,
 .post.message_chimere,
 .post.message_chimere .avaBorder,
-.post.message_chimere blockquote{
+.post.message_chimere blockquote,
+.form_wrapper_contour input.fiche_btn_chimere.selected,
+.chimere .form_wrap,
+.chimere .entete_groupe{
 	border-color:var(--chim)!important;
+}
+
+.form_wrapper_contour.chimere{
+    border-color:var(--chi5);
 }
 
 .post.message_chimere .sliderinfobase .degrade_profil{
@@ -265,7 +318,8 @@
 
 
 .post.message_chimere .sliderinfobase .field_image-profil,
-.post.message_chimere .post-head div.field_groupe-chimere{
+.post.message_chimere .post-head div.field_groupe-chimere,
+.form_wrapper_contour.chimere .separator{
 	background-color:var(--chim)!important;
 }
 
@@ -275,4 +329,9 @@
 
 .post.message_chimere .post-head{
     background-image:url('https://i.imgur.com/enyF4Mk.png')!important;
+}
+
+.form_wrapper_contour.chimere .separator2{
+    background: #FFCD61;
+    background: linear-gradient(90deg, rgba(255, 205, 97, 1) 0%, rgba(255, 205, 97, 0.5) 50%, rgba(255, 205, 97, 1) 100%);
 }
