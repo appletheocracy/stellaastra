@@ -35,7 +35,7 @@
     position:relative;
     z-index:800;
     margin-top:41px;
-    vertical-align: baseline;
+    line-height:normal;
 }
 
 
