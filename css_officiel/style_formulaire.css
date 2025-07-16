@@ -190,6 +190,7 @@ body{
 .facts .label_title_desc,
 .signes .label_title_desc,
 .caractere .label_title_desc,
+.chrono_end .label_title_desc,
 .chrono .label_title_desc,
 .histoire .label_title_desc,
 .irl_mot .label_title_desc{
@@ -434,7 +435,7 @@ textarea.size{
 .quali_def input[type="text"]{
     width:441px;
 }
-
+.chrono_end input[type="number"],
 .chrono input[type="number"]{
     width:150px;
 }
@@ -465,6 +466,7 @@ textarea.size{
     margin-top:5px;
 }
 
+.chrono_end,
 .chrono{
     display: grid; 
     grid-template-columns: 150px 825px 30px 30px; 
@@ -492,6 +494,7 @@ textarea.chrono_size{
     grid-area:b;
 }
 
+.chrono .label_italique,
 .chrono .label_italique{
     width:150px;
     text-align:center;
