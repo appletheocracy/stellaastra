@@ -118,32 +118,36 @@ $(document).ready(function () {
 
     // --- CHRONO LOGIC (unlimited) ---
     $(document).on('click', '.chrono .add_chrono', function () {
-        const $currentBlock = $(this).closest('.chrono');
-        const $newBlock = $currentBlock.clone();
+    const $currentBlock = $(this).closest('.chrono');
+    const $newBlock = $currentBlock.clone();
 
-        $newBlock.find('input').val('');
-        $newBlock.find('textarea').val('');
-        $newBlock.find('.remove_chrono').show();
+    $newBlock.find('input').val('');
+    $newBlock.find('textarea').val('');
+    $newBlock.find('.remove_chrono').show();
 
-        $newBlock.insertAfter($currentBlock);
-        updateChronoButtons();
+    // Insert before the final chrono block
+    $('.chrono_final').before($newBlock);
+    updateChronoButtons();
     });
-
+    
     $(document).on('click', '.chrono .remove_chrono', function () {
-        $(this).closest('.chrono').remove();
-        updateChronoButtons();
+        const $block = $(this).closest('.chrono');
+        if (!$block.hasClass('chrono_final')) {
+            $block.remove();
+            updateChronoButtons();
+        }
     });
-
+    
     function updateChronoButtons() {
-        const $blocks = $('.chrono');
-
+        const $blocks = $('.chrono').not('.chrono_final');
+    
         $blocks.each(function (index) {
             const $this = $(this);
-            $this.find('input#date_annee').attr({
+            $this.find('input[name^="date_annee"]').attr({
                 id: 'date_annee_' + index,
                 name: 'date_annee_' + index
             });
-            $this.find('input#date_mois').attr({
+            $this.find('input[name^="date_mois"]').attr({
                 id: 'date_mois_' + index,
                 name: 'date_mois_' + index
             });
@@ -152,13 +156,21 @@ $(document).ready(function () {
                 name: 'chrono_' + index
             });
         });
-
+    
+        // Show all remove buttons, hide on first
         $blocks.find('.remove_chrono').show();
         $blocks.first().find('.remove_chrono').hide();
+    
+        // Always hide buttons in the final block
+        $('.chrono_final .add_chrono, .chrono_final .remove_chrono').hide();
     }
+    
+    // Initial hide for first block's remove button
+    $('.chrono').not('.chrono_final').first().find('.remove_chrono').hide();
+    
+    // Initial setup
+    updateChronoButtons();
 
-
-    $('.chrono').first().find('.remove_chrono').hide();
 
     // --- COMPILATION_FACTS LOGIC (unlimited) ---
     $(document).on('click', '.compilation_facts .add_fact', function () {
