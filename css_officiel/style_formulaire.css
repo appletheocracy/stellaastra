@@ -1,0 +1,591 @@
+/**----------- ROOT ------------------------**/
+:root {
+    --cbl: #000;
+    --cff: #fff;
+
+    --c98: #989898;
+    --c69: #696969;
+    --c50: #505050;
+    --c3b: #3B3B3B;
+
+    --cofwhite: #f6f6f6;
+    --cfondpale: #e8e8e8;
+    --cfond: #323232;
+
+
+    --cdeu: #3a72e2;
+    --deu5: rgba(58, 114, 226, 0.5);
+    --cpnj: #91B6FF;
+    --pnj5: rgba(145, 182, 255, 0.5);
+    --chum: #6D9C72;
+    --hum5: rgba(109, 156, 114, 0.5);
+    --cvam: #D31141;
+    --vam5: rgba(211, 17, 65, 0.5);
+    --chyb: #C083CF;
+    --hyb5: rgba(192, 131, 207, 0.5);
+    --chim: #FFCD61;
+    --chi5: rgba(255, 205, 97, 0.5);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background: none;
+    scroll-behavior: smooth;
+}
+
+div,
+a,
+input[type="button"],
+input[type="text"],
+input[type="number"],
+input[type="reset"],
+input[type="submit"],
+textarea, select {
+    transition: 0.5s;
+    animation-timing-function:ease-in-out;
+    text-decoration:none;
+}
+
+input[type="text"],
+input[type="number"]{
+    padding:0px 10px;
+    font-size:14px;
+}
+
+textarea{
+    padding:10px 10px;
+    font-size:14px;
+}
+
+/*Corps*/
+body{
+    background-image:url('https://appletheocracy.github.io/stellaastra/img/01_Base/fond.jpg');
+    background-repeat:no-repeat;
+    background-position: center top;
+    background-attachment: fixed!important;
+    background-color:var(--cfond);
+    font-family: Arial, Helvetica, sans-serif;
+    color:var(--cff);
+}
+
+.titre_de_fiche,
+.label_title,
+.entete_groupe input[type="button"],
+.boutons_bas input[type="submit"],
+.boutons_bas input[type="reset"],
+.label_title_desc,
+.sous-titre{
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.titre_de_fiche{
+    width:610px;
+    font-size:80px;
+    text-shadow: 0px 6px 2px var(--cdeu)!important;
+    grid-area:a;
+    position:relative;
+    top:19px;
+}
+
+.sous-titre{
+    font-size:60px;
+    text-align:center;
+}
+
+.entete_groupe{
+    border-bottom:30px solid var(--cdeu);
+    display: grid; 
+    grid-template-columns: 610px 225px 215px; 
+    grid-template-rows: 56px 56px; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+    "a b c"
+    "a d e"; 
+    justify-content: start; 
+    align-content: start; 
+    justify-items: center; 
+    align-items: end; 
+    width: 1080px;
+}
+
+.separator{
+    width:1080px;
+    height:40px;
+    background-color:var(--cdeu);
+    margin-bottom:15px;
+}
+
+.separator2{    
+    background-color:var(--cdeu);
+    background: linear-gradient(90deg, rgba(58, 114, 226, 1) 0%, rgba(58, 114, 226, 0.3) 50%, rgba(58, 114, 226, 1) 100%);
+    width:1080px;
+    height:15px;
+    margin-bottom:15px;
+}
+
+.entete_groupe input[type="button"]{
+    width:200px;
+    height:41px;
+    background-color:var(--cfond);
+    border:3px solid;
+    color:var(--cff);
+    font-size:24px;
+    padding-top:3px;
+    border-radius:7px;
+}
+
+.entete_groupe input[type="button"]#g_vampires{
+    border-color:rgba(211, 17, 65, 0.5);
+    grid-area:b;
+}
+
+.entete_groupe input[type="button"]#g_vampires:hover{
+    border-color:var(--cvam);
+}
+
+.entete_groupe input[type="button"]#g_chimeres{
+    border-color:rgba(255, 205, 97, 0.5);
+    grid-area:c;
+}
+
+.entete_groupe input[type="button"]#g_chimeres:hover{
+    border-color:var(--chim);
+}
+
+.entete_groupe input[type="button"]#g_humains{
+    border-color:rgba(109, 156, 114, 0.5);
+    grid-area:d;
+    margin-bottom:15px;
+}
+
+.entete_groupe input[type="button"]#g_humains:hover{
+    border-color:var(--chum);
+}
+
+.entete_groupe input[type="button"]#g_hybrides{
+    border-color:rgba(192, 131, 207, 0.5);
+    grid-area:e;
+    margin-bottom:15px;
+}
+.entete_groupe input[type="button"]#g_hybrides:hover{
+    border-color:var(--chyb);
+}
+
+.label_title_desc{
+    font-size:25px;
+    margin-left:6px;
+}
+
+.image_id_politique .label_title_desc{
+    font-size:25px!important;
+}
+
+.facts .label_title_desc,
+.signes .label_title_desc,
+.caractere .label_title_desc,
+.chrono .label_title_desc,
+.histoire .label_title_desc,
+.irl_mot .label_title_desc{
+    width:1050px;
+    font-size:35px;
+    text-align:left;
+}
+
+.label_title{
+    font-size:25px;
+    margin:0px 0px -4px 6px;
+}
+
+.label_italique{
+    font-size:14px;
+    font-style:italic;
+    margin:0px 0px 4px 6px;
+    color:#b5b5b5;
+}
+
+.form_wrapper_contour{
+    width:1200px;
+    margin:0 auto;
+    border-left:30px solid var(--deu5);
+    border-right:30px solid var(--deu5);
+    margin-bottom:-10px;      
+}
+
+.form_wrap{
+    width:1140px;
+    margin:0 auto;
+    border-left:30px solid var(--cdeu);
+    border-right:30px solid var(--cdeu);
+}
+
+.entete_info{
+    margin:15px;
+    display: grid; 
+    grid-template-columns: 510px 510px; 
+    grid-template-rows: 68px 92px 68px 68px;
+    gap: 3px 30px; 
+    grid-template-areas: 
+    "a b"
+    "c d"
+    "e f"
+    "g h";
+    justify-content: start; 
+    align-content: start; 
+    justify-items: start; 
+    align-items: center; 
+    width: 1050px; 
+    height: 305px; 
+}
+
+.chimere .hybridation,
+.chimere .date_transfo,
+.chimere .age_apparent,
+.hybride .hybridation,
+.vampire .age_apparent{
+    display:block;    
+}
+
+.hybridation,
+.date_transfo,
+.age_apparent,
+.vampire .groupe_sanguin,
+.chimere .groupe_sanguin{
+    display:none;    
+}
+
+.entete_contenu{
+    margin:15px;
+    display: grid; 
+    grid-template-columns: 510px 510px; 
+    grid-template-rows: 68px 68px 92px 68px;
+    gap: 3px 30px; 
+    grid-template-areas: 
+    "a b"
+    "c d"
+    "e f";
+    justify-content: start; 
+    align-content: start; 
+    justify-items: start; 
+    align-items: start; 
+    width: 1050px; 
+    height: 305px; 
+}
+
+.titrefiche{
+    grid-area:c;
+}
+
+.prenom{
+    grid-area:e;
+}
+
+.nom{
+    grid-area:g;
+}
+
+.imgentete{
+    grid-area:d;
+}
+
+.featartiste{
+    grid-area:h;
+}
+
+.artfeat{
+    grid-area:f;
+}
+
+.date_de_naissance{
+    grid-area:e;
+}
+
+.age{
+    grid-area:f;
+}
+
+
+.groupe{
+    opacity:0;
+}
+
+input[type="text"],
+input[type="number"]{
+    border-radius:7px;
+    border:3px solid var(--cfond);
+    background-color:var(--cofwhite);
+    height:40px;
+}
+
+.vampire .faits_entete,
+.hybride .faits_entete,
+.chimere .faits_entete{
+    grid-template-rows: 92px 92px 92px!important; 
+    gap: 3px 30px; 
+    grid-template-areas: 
+    "a b"
+    "c d"
+    "e f"!important;
+    height:282!important;
+}
+
+.groupe_sanguin{
+    margin-top:24px;
+}
+.faits_entete{
+    display: grid; 
+    grid-template-columns: 510px 510px; 
+    grid-template-rows: 92px 92px 68px; 
+    gap: 3px 30px; 
+    grid-template-areas: 
+    "a b"
+    "c d"
+    "e f";
+    justify-content: start; 
+    align-content: start; 
+    justify-items: start; 
+    align-items: center; 
+    width: 1050px; 
+    height: 273px; 
+    margin:15px;
+}
+
+.facts, .signes,
+.caractere .qualites_defauts, 
+.caractere .description_mentale, 
+.caractere .ideaux_politiques,
+.chronologie, .histoire_details,
+.irl_mot, .info_irl{
+    width: 1050px;
+    margin:15px;
+}
+
+
+
+.btn{
+    padding:6px 10px;
+    font-size:20px;
+    font-weight:bold;
+    border-radius:50%;
+    background-color:var(--cdeu);
+    width:30px;
+    height:30px;
+}
+.compilation_facts input[type="text"],
+.compilation_signes input[type="text"]{
+    width:974px!important;
+}
+.compilation_facts,
+.compilation_signes{
+    display: grid; 
+    grid-template-columns: 974px 30px 30px; 
+    grid-template-rows: 41px; 
+    gap: 0px 5px; 
+    grid-template-areas: 
+    ". . ."; 
+    justify-content: end; 
+    align-content: start; 
+    justify-items: end; 
+    align-items: center; 
+    width: 1050px; 
+    height: 41px; 
+}
+
+
+.remove_fact, .remove_signe, .remove_quali_def,
+.remove_chrono{
+    padding:3px 11px!important;
+    background-color:var(--cvam);
+}
+
+
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea{
+    border-color:#b5b5b5!important;
+    outline: none;
+}
+
+textarea{
+    border-radius:7px;
+}
+
+
+textarea.size{
+    width:1050px!important;
+    min-height:150px;
+}
+
+.entete_info input[type="text"],
+.entete_contenu input[type="text"],
+.fait_et_gestes input[type="text"],
+.ideaux_politiques input[type="text"],
+.joueur input[type="text"]{
+    width:507px;
+}
+
+.quali_def input[type="text"]{
+    width:441px;
+}
+
+.chrono input[type="number"]{
+    width:150px;
+}
+
+.compilation_qual_def{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    width:1050px;
+}
+
+.quali_def{
+    display: grid; 
+    grid-template-columns: 441px 30px 30px; 
+    grid-template-rows: 41px; 
+    gap: 0px 5px; 
+    grid-template-areas: 
+        ". . ."; 
+    justify-content: start; 
+    align-content: center; 
+    justify-items: start; 
+    align-items: center; 
+    width: 525px; 
+    
+}
+
+.image_id_politique{
+    margin-top:5px;
+}
+
+.chrono{
+    display: grid; 
+    grid-template-columns: 150px 825px 30px 30px; 
+    grid-template-rows: 90px 30px; 
+    gap: 0px 5px; 
+    grid-template-areas: 
+        "a b c d"
+        "e b f g"; 
+    justify-content: start; 
+    align-content: start;
+    justify-items: start; 
+    align-items: start; 
+    width: 1050px; 
+    height: 120px;
+    margin-bottom:10px;
+}
+
+input[type="text"].date_size{
+    width:150px!important;
+}
+
+textarea.chrono_size{
+    width:825px!important;
+    height:120px!important;
+    grid-area:b;
+}
+
+.chrono .label_italique{
+    width:150px;
+    text-align:center;
+}
+
+.btn.add_chrono{
+    grid-area:f;
+}
+.btn.remove_chrono{
+    grid-area:g;
+}
+
+.info_irl{
+    margin:15px;
+    display: grid; 
+    grid-template-columns: 510px 510px; 
+    grid-template-rows: 92px 68px 92px; 
+    gap: 3px 30px; 
+    grid-template-areas: 
+    "a b"
+    "c d"; 
+    justify-content: start; 
+    align-content: start; 
+    justify-items: start; 
+    align-items: start; 
+    width: 1050px; 
+    height: 257px; 
+}
+
+.image_irl{
+    grid-area:b;
+}
+
+/*Formulaire*/
+#formulaire_fiche{
+    background-color: var(--cfond);
+    width: 1080px;
+}
+
+.boutons_bas{
+    margin:15px;
+    width:1050px;
+    text-align:center;
+}
+
+.boutons_bas input[type="submit"],
+.boutons_bas input[type="reset"]{
+    height:41px;
+    border-radius:4px;
+    font-size:20px;
+    padding:5px 10px!important;
+    color:var(--cff);
+    outline: none;
+    border:3px solid var(--cdeu);
+}
+
+.boutons_bas input[type="reset"]:hover,
+.boutons_bas input[type="submit"]:hover{
+     color:var(--cfond);
+}
+.boutons_bas input[type="reset"]{
+    background-color:var(--chyb);
+    border-color:var(--chyb);
+}
+.boutons_bas input[type="submit"].previ{
+    background-color:var(--cdeu);
+    margin:0px 10px;
+}
+
+.boutons_bas input[type="submit"].send{
+    background-color:var(--chum);
+    border-color:var(--chum);
+}
+
+/*Champs submit et reset au survol*/
+
+input[type="button"]:hover,
+.btn:hover {
+    cursor: pointer;
+    background-color: var(--cff);
+    color: #656565;
+}
+
+
+/*Crédits*/
+.credits {
+    padding:10px;
+    font-size: 14px;
+    text-align: center;
+}
+.credits a {
+    color: var(--chim);
+    text-decoration: none;
+}
+.credits a:hover {
+    color: var(--cvam);
+}
