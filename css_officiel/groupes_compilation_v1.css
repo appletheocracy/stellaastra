@@ -220,7 +220,7 @@
 /**---------------------------- S **/
 
 .post.message_humain .factcheck_title,
-.fiche_humain .titre_de_fiche{
+.humain .titre_de_fiche{
 	text-shadow: 0px 6px 2px var(--chum)!important;
 }
 
