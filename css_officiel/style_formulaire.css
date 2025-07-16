@@ -436,7 +436,7 @@ textarea.size{
     width:441px;
 }
 .chrono_ending input[type="number"],
-.chrono_ending input[type="text"]
+.chrono_ending input[type="text"],
 .chrono input[type="number"]{
     width:150px;
     text-align:center;
