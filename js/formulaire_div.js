@@ -1,6 +1,7 @@
 $(document).ready(function () {
     const $formWrapper = $('.form_wrapper_contour');
     const $groupeInput = $('#groupe');
+    const $groupe2Input = $('#groupe2');
     const maxQuali = 10;
     let qualiCounter = 1;
 
@@ -23,15 +24,19 @@ $(document).ready(function () {
         if ($(this).hasClass('fiche_btn_vampire')) {
             $formWrapper.addClass('vampire');
             $groupeInput.val('vampire');
+            $groupe2Input.val('vampire');
         } else if ($(this).hasClass('fiche_btn_chimere')) {
             $formWrapper.addClass('groupe_large chimere');
             $groupeInput.val('chimère');
+            $groupe2Input.val('chimere');
         } else if ($(this).hasClass('fiche_btn_hybride')) {
             $formWrapper.addClass('hybride');
             $groupeInput.val('hybride');
+            $groupe2Input.val('hybride');
         } else if ($(this).hasClass('fiche_btn_humain')) {
             $formWrapper.addClass('humain');
             $groupeInput.val('humain');
+            $groupe2Input.val('humain');
         }
     });
 
