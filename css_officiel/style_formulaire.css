@@ -435,9 +435,11 @@ textarea.size{
 .quali_def input[type="text"]{
     width:441px;
 }
-.chrono_end input[type="number"],
+.chrono_ending input[type="number"],
+.chrono_ending input[type="text"]
 .chrono input[type="number"]{
     width:150px;
+    text-align:center;
 }
 
 .compilation_qual_def{
