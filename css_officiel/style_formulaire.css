@@ -466,7 +466,7 @@ textarea.size{
     margin-top:5px;
 }
 
-.chrono_end,
+.chrono_ending,
 .chrono{
     display: grid; 
     grid-template-columns: 150px 825px 30px 30px; 
