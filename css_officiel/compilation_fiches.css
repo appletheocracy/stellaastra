@@ -218,8 +218,7 @@
 
 /*Humains*/
 .fiche_humain .titre_de_fiche,
-.fiche_humain .bloc_sub_ftitre,
-.fiche_humain .entete_groupe .titre_de_fiche{
+.fiche_humain .bloc_sub_ftitre{
     text-shadow: 0px 4px 2px var(--chum)!important;
 }
 
