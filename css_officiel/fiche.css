@@ -404,6 +404,7 @@
     width:325px;
     height:197px;
     grid-area:e;
+    background-color:var(--cfondpale);
 }
 .fiche_facts .bloc_rep_fiche{
     height:164px;
@@ -451,6 +452,7 @@
     width:281px;
     height:270px;
     grid-area:d;
+    background-color:var(--cfondpale);
 }
 
 .fiche_signes .bloc_rep_fiche{
