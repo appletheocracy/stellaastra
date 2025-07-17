@@ -616,10 +616,11 @@ div.sliderinfobase{
 	
 }
 
+a.btn-edit-fiche:link,
 .profile-icons.bouton_modif a:link{
     transition: .5s;
     animation-timing-function:ease-in-out;
-    height:30px;
+    height:30px!important;
     color:white;
     border:none!important;
     border-radius:0px!important;
@@ -634,7 +635,7 @@ a.btn-quote:hover{
     background-color:var(--chum)!important;
 }
 
-
+a.btn-edit-fiche:hover,
 a.btn-edit:hover{
     background-color:var(--cdeu)!important;
 }
