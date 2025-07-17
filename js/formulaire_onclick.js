@@ -3,6 +3,7 @@ $(document).ready(function () {
     const ficheTitre = localStorage.getItem('fiche_titre');
     const ficheGroupe = localStorage.getItem('fiche_groupe');
 
+    
     if (!ficheHTML) return;
 
     const $fiche = $('<div>').html(ficheHTML);
