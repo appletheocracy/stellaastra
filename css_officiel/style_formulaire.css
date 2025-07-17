@@ -409,7 +409,7 @@ input[type="number"]{
 
 input[type="text"]:focus,
 input[type="number"]:focus,
-textarea{
+textarea:focus{
     border-color:#b5b5b5!important;
     outline: none;
 }
@@ -426,6 +426,8 @@ textarea.size{
 
 .entete_info input[type="text"],
 .entete_contenu input[type="text"],
+.entete_contenu input[type="number"],
+.faits_entete input[type="number"],
 .fait_et_gestes input[type="text"],
 .ideaux_politiques input[type="text"],
 .joueur input[type="text"]{
