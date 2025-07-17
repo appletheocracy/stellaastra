@@ -55,7 +55,7 @@
     background: var(--cfond);
 }
 
-.f-timeline .f-anne-mois.last-timeline-block{
+.f-timeline .f-anne-mois.last-timeline-block:before{
     background-color:rgba(50, 50, 50, 0)!important;
 }
 
