@@ -44,7 +44,8 @@
 
 }
 
-.f-timeline .f-anne-mois:not(:last-of-type):before {
+
+.f-timeline .f-anne-mois:not(:.last-timeline-block)::before {
     content: "";
     position: absolute;
     right: -31px; /* Positionne la ligne au centre de l'espace entre les colonnes. L'espace était 60px, on divise par deux pour être au centre */
