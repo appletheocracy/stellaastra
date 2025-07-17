@@ -118,66 +118,83 @@ $(document).ready(function () {
 
     // --- CHRONO LOGIC (unlimited) ---
     $(document).on('click', '.chrono .add_chrono', function () {
-    const $currentBlock = $(this).closest('.chrono');
-    const $newBlock = $currentBlock.clone();
-
-    // Clean values
-    $newBlock.find('input').val('');
-    $newBlock.find('textarea').val('');
-    $newBlock.find('.remove_chrono').show();
-
-    // Insert just before the final block
-    $('.chrono_final').before($newBlock);
-    updateChronoButtons();
-});
-
-$(document).on('click', '.chrono .remove_chrono', function () {
-    const $block = $(this).closest('.chrono');
-
-    // Do not allow removing the first block
-    const isFirst = $('.chrono').not('.chrono_final').first().is($block);
-    if (!isFirst) {
-        $block.remove();
+        const $currentBlock = $(this).closest('.chrono');
+        const $newBlock = $currentBlock.clone();
+    
+        // Clear input/textarea values
+        $newBlock.find('input').val('');
+        $newBlock.find('textarea').val('');
+    
+        // Ensure "+" and "-" buttons are present
+        if ($newBlock.find('.add_chrono').length === 0) {
+            $newBlock.append('<div class="btn add_chrono"> + </div>');
+        }
+        if ($newBlock.find('.remove_chrono').length === 0) {
+            $newBlock.append('<div class="btn remove_chrono"> - </div>');
+        }
+    
+        // Show "-" for new block
+        $newBlock.find('.remove_chrono').show();
+    
+        // Insert before the final chrono block
+        $('.chrono_final').before($newBlock);
+    
         updateChronoButtons();
+    });
+    
+    $(document).on('click', '.chrono .remove_chrono', function () {
+        const $block = $(this).closest('.chrono');
+    
+        const isFirst = $('.chrono').not('.chrono_final').first().is($block);
+        if (!isFirst) {
+            $block.remove();
+            updateChronoButtons();
+        }
+    });
+    
+    function updateChronoButtons() {
+        const $blocks = $('.chrono').not('.chrono_final');
+    
+        $blocks.each(function (index) {
+            const $this = $(this);
+    
+            $this.find('input[name^="date_annee"]').attr({
+                id: 'date_annee_' + index,
+                name: 'date_annee_' + index
+            });
+    
+            $this.find('input[name^="date_mois"]').attr({
+                id: 'date_mois_' + index,
+                name: 'date_mois_' + index
+            });
+    
+            $this.find('textarea').attr({
+                id: 'chrono_' + index,
+                name: 'chrono_' + index
+            });
+    
+            // Ensure buttons exist (safety check)
+            if ($this.find('.add_chrono').length === 0) {
+                $this.append('<div class="btn add_chrono"> + </div>');
+            }
+            if ($this.find('.remove_chrono').length === 0) {
+                $this.append('<div class="btn remove_chrono"> - </div>');
+            }
+        });
+    
+        // First block: no remove
+        $blocks.first().find('.remove_chrono').hide();
+    
+        // chrono_final: always without buttons
+        $('.chrono_final .add_chrono, .chrono_final .remove_chrono').hide();
     }
-});
-
-function updateChronoButtons() {
-    const $blocks = $('.chrono').not('.chrono_final');
-
-    $blocks.each(function (index) {
-        const $this = $(this);
-        $this.find('input[name^="date_annee"]').attr({
-            id: 'date_annee_' + index,
-            name: 'date_annee_' + index
-        });
-        $this.find('input[name^="date_mois"]').attr({
-            id: 'date_mois_' + index,
-            name: 'date_mois_' + index
-        });
-        $this.find('textarea').attr({
-            id: 'chrono_' + index,
-            name: 'chrono_' + index
-        });
+    
+    $(document).ready(function () {
+        // Initial setup
+        $('.chrono').not('.chrono_final').first().find('.remove_chrono').hide();
+        updateChronoButtons();
     });
 
-    // Hide all remove buttons, show only from second onward
-    $blocks.find('.remove_chrono').show();
-    $blocks.first().find('.remove_chrono').hide();
-
-    // Only last dynamic block has the "+" button
-    $blocks.find('.add_chrono').hide();
-    $blocks.last().find('.add_chrono').show();
-
-    // Final block: no buttons, readonly inputs
-    $('.chrono_final .add_chrono, .chrono_final .remove_chrono').hide();
-}
-
-// Initial setup on page load
-$(document).ready(function () {
-    $('.chrono').not('.chrono_final').first().find('.remove_chrono').hide();
-    updateChronoButtons();
-});
 
 
 
