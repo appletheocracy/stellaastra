@@ -56,7 +56,7 @@
 }
 
 .f-timeline .f-anne-mois.last-timeline-block{
-    background-color:transparent!important;
+    background-color:rgba(50, 50, 50, 0)!important;
 }
 
 .f-timeline .f-anne-mois:after {
