@@ -550,7 +550,8 @@
 .fiche_signes .bloc_rep_fiche,
 .f-pol_reponse,
 .f-timeline_ctn,
-.mot_doux .bloc_rep_fiche{
+.mot_doux .bloc_rep_fiche,
+.histoire_texte{
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: thin;
