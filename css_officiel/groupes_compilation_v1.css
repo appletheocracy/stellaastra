@@ -351,8 +351,27 @@
 
 /**---------------------------- MEMBRES **/
 
-
-.post.message_chimere .content .ink_wrap,
-.post.message_chimere .content hide{
+.post.message_membre .content .ink_wrap,
+.post.message_membre .content hide{
 	border-color:var(--cfond);
+}
+
+.fiche_hybride .ink_wrap,
+.fiche_hybride .content hide{
+	border-color:var(--chyb)!important;
+}
+
+.fiche_vampire .ink_wrap,
+.fiche_vampire .content hide{
+	border-color:var(--cvam)!important;
+}
+
+.fiche_humain .ink_wrap,
+.fiche_humain .content hide{
+	border-color:var(--chum)!important;
+}
+
+.fiche_chimere .ink_wrap,
+.fiche_chimere .content hide{
+	border-color:var(--chim)!important;
 }
