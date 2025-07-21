@@ -96,8 +96,9 @@ body{
 
 .titre_de_fiche .label_italique{
     color:var(--cff)!important;
+    font-style:normal!important;
     position:relative;
-    top:5px;
+    top:10px;
 }
 
 .sous-titre{
