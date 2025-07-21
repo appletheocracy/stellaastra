@@ -357,21 +357,21 @@
 }
 
 .fiche_hybride .ink_wrap,
-.fiche_hybride .content hide{
+.fiche_hybride hide{
 	border-color:var(--chyb)!important;
 }
 
 .fiche_vampire .ink_wrap,
-.fiche_vampire .content hide{
+.fiche_vampire hide{
 	border-color:var(--cvam)!important;
 }
 
 .fiche_humain .ink_wrap,
-.fiche_humain .content hide{
+.fiche_humain hide{
 	border-color:var(--chum)!important;
 }
 
 .fiche_chimere .ink_wrap,
-.fiche_chimere .content hide{
+.fiche_chimere hide{
 	border-color:var(--chim)!important;
 }
