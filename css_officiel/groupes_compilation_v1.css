@@ -6,7 +6,9 @@
 
 
 .post.message_deus .content .ink_wrap,
-.post.message_deus .content hide,
+.post.message_deus .content hide{
+	border-color:var(--cdeu);
+}
 .post.message_deus .contact_avatar .infos-posteur a,
 .post.message_deus .sliderinfobase .field_facts,
 .post.message_deus .sliderinfobase .sliderinfo,
@@ -52,7 +54,9 @@
 }
 
 .post.message_pnj .content .ink_wrap,
-.post.message_pnj .content hide,
+.post.message_pnj .content hide{
+	border-color:var(--cpnj);
+}
 .post.message_pnj .contact_avatar .infos-posteur a,
 .post.message_pnj .sliderinfobase .field_facts,
 .post.message_pnj .sliderinfobase .sliderinfo,
@@ -99,7 +103,9 @@
 }
 
 .post.message_vampire .content .ink_wrap,
-.post.message_vampire .content hide,
+.post.message_vampire .content hide{
+	border-color:var(--cvam);
+}
 .post.message_vampire .contact_avatar .infos-posteur a,
 .post.message_vampire .sliderinfobase .field_facts,
 .post.message_vampire .sliderinfobase .sliderinfo,
@@ -159,7 +165,9 @@
 }
 
 .post.message_hybride .content .ink_wrap,
-.post.message_hybride .content hide,
+.post.message_hybride .content hide{
+	border-color:var(--chyb);
+}
 .post.message_hybride .contact_avatar .infos-posteur a,
 .post.message_hybride .sliderinfobase .field_facts,
 .post.message_hybride .sliderinfobase .sliderinfo,
@@ -225,7 +233,9 @@
 }
 
 .post.message_humain .content .ink_wrap,
-.post.message_humain .content hide,
+.post.message_humain .content hide{
+	border-color:var(--chum);	
+}
 .post.message_humain .contact_avatar .infos-posteur a,
 .post.message_humain .sliderinfobase .field_facts,
 .post.message_humain .sliderinfobase .sliderinfo,
@@ -284,7 +294,9 @@
 }
 
 .post.message_chimere .content .ink_wrap,
-.post.message_chimere .content hide,
+.post.message_chimere .content hide{
+	border-color:var(--chim);
+}
 .post.message_chimere .contact_avatar .infos-posteur a,
 .post.message_chimere .sliderinfobase .field_facts,
 .post.message_chimere .sliderinfobase .sliderinfo,
@@ -335,4 +347,12 @@
 .form_wrapper_contour.chimere .separator2{
     background: #FFCD61;
     background: linear-gradient(90deg, rgba(255, 205, 97, 1) 0%, rgba(255, 205, 97, 0.5) 50%, rgba(255, 205, 97, 1) 100%);
+}
+
+/**---------------------------- MEMBRES **/
+
+
+.post.message_chimere .content .ink_wrap,
+.post.message_chimere .content hide{
+	border-color:var(--cfond);
 }
