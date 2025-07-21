@@ -98,7 +98,12 @@ body{
     color:var(--cff)!important;
     font-style:normal!important;
     position:relative;
-    top:10px;
+    top:8px;
+    font-size:16px!important;
+}
+
+.chimere .titre_de_fiche .label_italique{
+    color:var(--cfond)!important;
 }
 
 .sous-titre{
