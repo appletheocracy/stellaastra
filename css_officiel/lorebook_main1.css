@@ -157,6 +157,7 @@ a.retour,
     align-items: stretch;
     width: 100%;
     justify-content:flex-start;
+    margin-right:-5px;
 }
 
 /*ADDED CODE TO SEPARATE*/
