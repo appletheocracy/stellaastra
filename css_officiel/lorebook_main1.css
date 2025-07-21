@@ -8,10 +8,8 @@
 html {
     background: none;
     scroll-behavior: smooth;    
-    overflow-y: auto;
-    scrollbar-color: var(--cdeu) var(--c23);
-    scrollbar-width: thin;
     height: 100%;
+    width:100%;
 }
 
 body{
@@ -21,11 +19,12 @@ body{
     background-attachment: fixed!important;
     background-color:var(--cfond);
     overflow-y: auto;
-    scrollbar-color: var(--cdeu) var(--c23);
+    scrollbar-color: #141414 #3a72e2;
     scrollbar-width: thin;
     font-family: arial;
     font-size:14px;
     height: 100%;
+    width:100%;
 }
 
 
