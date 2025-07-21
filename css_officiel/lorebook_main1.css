@@ -27,6 +27,15 @@ body{
     width:100%;
 }
 
+.wrap_lorebook,
+.content_menu,
+.rules,
+.rules-ctn,
+.the_rule {
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
 
 /**----------- ROOT ------------------------**/
 :root {
