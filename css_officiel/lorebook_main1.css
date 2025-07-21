@@ -155,7 +155,7 @@ a.retour,
     height:auto;
     display:flex;
     flex-direction:column;
-    align-items:flex-start;
+    align-items: stretch;
     justify-content:flex-start;
 }
 
