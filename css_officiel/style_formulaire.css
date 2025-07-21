@@ -94,6 +94,12 @@ body{
     top:19px;
 }
 
+.titre_de_fiche .label_italique{
+    color:var(--cff)!important;
+    position:relative;
+    top:-14px;
+}
+
 .sous-titre{
     font-size:60px;
     text-align:center;
