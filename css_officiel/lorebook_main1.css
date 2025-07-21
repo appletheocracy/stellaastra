@@ -20,7 +20,6 @@ body{
     background-color:var(--cfond);
     overflow-y: auto;
     scrollbar-color: #3a72e2 #141414;
-    scrollbar-width: thin!important;
     font-family: arial;
     font-size:14px;
     height: 100%;
