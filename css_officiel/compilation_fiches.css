@@ -30,6 +30,8 @@
     border-right:6px solid var(--cvam)!important;
 }
 
+.fiche_vampire .ink_wrap,
+.fiche_bampire .hide,
 .fiche_vampire .bloc_entete,
 .fiche_vampire .block_feats,
 .fiche_vampire .qd_reply,
@@ -102,6 +104,8 @@
     border-right:6px solid var(--chyb)!important;
 }
 
+.fiche_hybride .ink_wrap,
+.fiche_hybride .hide,
 .fiche_hybride .bloc_entete,
 .fiche_hybride .block_feats,
 .fiche_hybride .qd_reply,
@@ -174,6 +178,8 @@
     border-right:6px solid var(--chim)!important;
 }
 
+.fiche_chimere .ink_wrap,
+.fiche_chimere .hide,
 .fiche_chimere .bloc_entete,
 .fiche_chimere .block_feats,
 .fiche_chimere .qd_reply,
@@ -247,6 +253,8 @@
     border-right:6px solid var(--chum)!important;
 }
 
+.fiche_humain .ink_wrap,
+.fiche_humain .hide,
 .fiche_humain .bloc_entete,
 .fiche_humain .block_feats,
 .fiche_humain .psychee,
