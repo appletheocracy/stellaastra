@@ -146,15 +146,15 @@ a.retour,
 }
 
 .content_menu{
+    overflow-y: auto;
     grid-column:2;
     position:relative;
-    height:auto;
+    height:100%
     display:flex;
     flex-direction:column;
     align-items: stretch;
     width: 100%;
     justify-content:flex-start;
-    margin-right:-5px;
 }
 
 /*ADDED CODE TO SEPARATE*/
