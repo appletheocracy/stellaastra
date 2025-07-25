@@ -1,0 +1,295 @@
+/*COULEURS*/
+/*Vampires*/
+.fiche_vampire .titre_de_fiche,
+.fiche_vampire .bloc_sub_ftitre{
+    text-shadow: 0px 4px 2px var(--cvam)!important;
+}
+
+.fiche_vampire .bloc_sub_ftitre.qd_titre{
+    text-shadow: none!important;
+}
+
+.fiche_vampire .titre_groupe,
+.fiche_vampire .soustitre_fiche,
+.fiche_vampire .fiche_f-mois{
+    color:var(--cvam)!important;
+}
+
+.fiche_vampire .fiche_prenom_nom1{
+    color:var(--vam5)!important;
+}
+
+.fiche_vampire .fiche_entete,
+.fiche_vampire .fiche_caractere,
+.fiche_vampire .fiche_irl{
+    border-left:6px solid var(--cvam)!important;
+}
+
+.fiche_vampire .fiche_faits,
+.fiche_vampire .fiche_lore_joueur{
+    border-right:6px solid var(--cvam)!important;
+}
+
+.fiche_vampire .ink_wrap,
+.fiche_bampire .hide,
+.fiche_vampire .bloc_entete,
+.fiche_vampire .block_feats,
+.fiche_vampire .qd_reply,
+.fiche_vampire .psychee,
+.fiche_vampire .f-irl-ctn,
+.fiche_vampire .fiche_politique,
+.fiche_vampire .qd_reply,
+.fiche_vampire .f-timeline_contour,
+.fiche_vampire .bloc_titre_fiche,
+.fiche_vampire .fiche_featuring_ca{
+	border-color:var(--cvam)!important;
+}
+
+.fiche_vampire .f-pol_info:before{
+    border-right: 30px solid var(--cvam);
+}
+
+.fiche_vampire .f-irl-info,
+.fiche_vampire .f-irl-avatar,
+.fiche_vampire .faits_img .bloc_rep_fiche,
+.fiche_vampire .img_color2f,
+.fiche_vampire .f-timeline .f-anne-mois:after,
+.fiche_vampire .f-pol_info,
+.fiche_vampire .f-pol_img{
+	background-color:var(--cvam)!important;
+}
+
+.fiche_vampire .img_color1f{
+	background-color:var(--vam5)!important;
+}
+
+.fiche_vampire .histoire_texte,
+.fiche_vampire .fiche_facts .bloc_rep_fiche,
+.fiche_vampire .fiche_signes .bloc_rep_fiche,
+.fiche_vampire .mot_doux .bloc_rep_fiche,
+.fiche_vampire .f-pol_reponse,
+.fiche_vampire .f-timeline_ctn,
+.fiche_vampire .psychee_texte{
+    scrollbar-color: var(--cvam) var(--cfond)!important;
+}
+
+/*Hybrides*/
+.fiche_hybride .titre_de_fiche,
+.fiche_hybride .bloc_sub_ftitre{
+    text-shadow: 0px 4px 2px var(--chyb)!important;
+}
+
+.fiche_hybride .bloc_sub_ftitre.qd_titre{
+    text-shadow: none!important;
+}
+
+.fiche_hybride .titre_groupe,
+.fiche_hybride .soustitre_fiche,
+.fiche_hybride .fiche_f-mois{
+    color:var(--chyb)!important;
+}
+
+.fiche_hybride .fiche_prenom_nom1{
+    color:var(--hyb5)!important;
+}
+
+.fiche_hybride .fiche_entete,
+.fiche_hybride .fiche_caractere,
+.fiche_hybride .fiche_irl{
+    border-left:6px solid var(--chyb)!important;
+}
+
+.fiche_hybride .fiche_faits,
+.fiche_hybride .fiche_lore_joueur{
+    border-right:6px solid var(--chyb)!important;
+}
+
+.fiche_hybride .ink_wrap,
+.fiche_hybride .hide,
+.fiche_hybride .bloc_entete,
+.fiche_hybride .block_feats,
+.fiche_hybride .qd_reply,
+.fiche_hybride .psychee,
+.fiche_hybride .f-irl-ctn,
+.fiche_hybride .fiche_politique,
+.fiche_hybride .qd_reply,
+.fiche_hybride .f-timeline_contour,
+.fiche_hybride .bloc_titre_fiche,
+.fiche_hybride .fiche_featuring_ca{
+	border-color:var(--chyb)!important;
+}
+
+.fiche_hybride .f-pol_info:before{
+    border-right: 30px solid var(--chyb);
+}
+
+.fiche_hybride .f-irl-info,
+.fiche_hybride .f-irl-avatar,
+.fiche_hybride .faits_img .bloc_rep_fiche,
+.fiche_hybride .img_color2f,
+.fiche_hybride .f-timeline .f-anne-mois:after,
+.fiche_hybride .f-pol_info,
+.fiche_hybride .f-pol_img{
+	background-color:var(--chyb)!important;
+}
+
+.fiche_hybride .img_color1f{
+	background-color:var(--hyb5)!important;
+}
+
+.fiche_hybride .histoire_texte,
+.fiche_hybride .fiche_facts .bloc_rep_fiche,
+.fiche_hybride .fiche_signes .bloc_rep_fiche,
+.fiche_hybride .mot_doux .bloc_rep_fiche,
+.fiche_hybride .f-pol_reponse,
+.fiche_hybride .f-timeline_ctn,
+.fiche_hybride .psychee_texte{
+    scrollbar-color: var(--chyb) var(--cfond)!important;
+}
+
+/*Chimères*/
+.fiche_chimere .titre_de_fiche,
+.fiche_chimere .bloc_sub_ftitre{
+    text-shadow: 0px 4px 2px var(--chim)!important;
+}
+
+.fiche_chimere .bloc_sub_ftitre.qd_titre{
+    text-shadow: none!important;
+}
+
+.fiche_chimere .titre_groupe,
+.fiche_chimere .soustitre_fiche,
+.fiche_chimere .fiche_f-mois{
+    color:var(--chim)!important;
+}
+
+.fiche_chimere .fiche_prenom_nom1{
+    color:var(--chi5)!important;
+}
+
+.fiche_chimere .fiche_entete,
+.fiche_chimere .fiche_caractere,
+.fiche_chimere .fiche_irl{
+    border-left:6px solid var(--chim)!important;
+}
+
+.fiche_chimere .fiche_faits,
+.fiche_chimere .fiche_lore_joueur{
+    border-right:6px solid var(--chim)!important;
+}
+
+.fiche_chimere .ink_wrap,
+.fiche_chimere .hide,
+.fiche_chimere .bloc_entete,
+.fiche_chimere .block_feats,
+.fiche_chimere .qd_reply,
+.fiche_chimere .psychee,
+.fiche_chimere .f-irl-ctn,
+.fiche_chimere .fiche_politique,
+.fiche_chimere .qd_reply,
+.fiche_chimere .f-timeline_contour,
+.fiche_chimere .bloc_titre_fiche,
+.fiche_chimere .fiche_featuring_ca{
+	border-color:var(--chim)!important;
+}
+
+
+.fiche_chimere .f-pol_info:before{
+    border-right: 30px solid var(--chim);
+}
+
+.fiche_chimere .f-irl-info,
+.fiche_chimere .f-irl-avatar,
+.fiche_chimere .faits_img .bloc_rep_fiche,
+.fiche_chimere .img_color2f,
+.fiche_chimere .f-timeline .f-anne-mois:after,
+.fiche_chimere .f-pol_info,
+.fiche_chimere .f-pol_img{
+	background-color:var(--chim)!important;
+}
+
+.fiche_chimere .img_color1f{
+	background-color:var(--chi5)!important;
+}
+
+.fiche_chimere .histoire_texte,
+.fiche_chimere .fiche_facts .bloc_rep_fiche,
+.fiche_chimere .fiche_signes .bloc_rep_fiche,
+.fiche_chimere .mot_doux .bloc_rep_fiche,
+.fiche_chimere .f-pol_reponse,
+.fiche_chimere .f-timeline_ctn,
+.fiche_chimere .psychee_texte{
+    scrollbar-color: var(--chim) var(--cfond)!important;
+}
+
+/*Humains*/
+.fiche_humain .titre_de_fiche,
+.fiche_humain .bloc_sub_ftitre{
+    text-shadow: 0px 4px 2px var(--chum)!important;
+}
+
+.fiche_humain .bloc_sub_ftitre.qd_titre{
+    text-shadow: none!important;
+}
+
+.fiche_humain .titre_groupe,
+.fiche_humain .soustitre_fiche,
+.fiche_humain .fiche_f-mois{
+    color:var(--chum)!important;
+}
+
+.fiche_humain .fiche_prenom_nom1{
+    color:var(--chu5)!important;
+}
+
+.fiche_humain .fiche_entete,
+.fiche_humain .fiche_caractere,
+.fiche_humain .fiche_irl{
+    border-left:6px solid var(--chum)!important;
+}
+
+.fiche_humain .fiche_faits,
+.fiche_humain .fiche_lore_joueur{
+    border-right:6px solid var(--chum)!important;
+}
+
+.fiche_humain .ink_wrap,
+.fiche_humain .hide,
+.fiche_humain .bloc_entete,
+.fiche_humain .block_feats,
+.fiche_humain .psychee,
+.fiche_humain .f-irl-ctn,
+.fiche_humain .fiche_politique,
+.fiche_humain .qd_reply,
+.fiche_humain .f-timeline_contour,
+.fiche_humain .bloc_titre_fiche,
+.fiche_humain .fiche_featuring_ca{
+	border-color:var(--chum)!important;
+}
+.fiche_humain .f-pol_info:before{
+    border-right: 30px solid var(--chum);
+}
+
+.fiche_humain .f-irl-info,
+.fiche_humain .f-irl-avatar,
+.fiche_humain .faits_img .bloc_rep_fiche,
+.fiche_humain .img_color2f,
+.fiche_humain .f-timeline .f-anne-mois:after,
+.fiche_humain .f-pol_info,
+.fiche_humain .f-pol_img{
+	background-color:var(--chum)!important;
+}
+
+.fiche_humain .img_color1f{
+	background-color:var(--chu5)!important;
+}
+
+.fiche_humain .histoire_texte,
+.fiche_humain .fiche_facts .bloc_rep_fiche,
+.fiche_humain .fiche_signes .bloc_rep_fiche,
+.fiche_humain .mot_doux .bloc_rep_fiche,
+.fiche_humain .f-pol_reponse,
+.fiche_humain .f-timeline_ctn,
+.fiche_humain .psychee_texte{
+    scrollbar-color: var(--chum) var(--cfond)!important;
+}
