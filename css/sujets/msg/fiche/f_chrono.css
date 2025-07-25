@@ -1,0 +1,80 @@
+/* f-timelinelogie */
+/* Conteneur de la f-timelinelogie */
+.f-timeline {
+    width: 716px; /* Largeur */
+    display: grid;
+    grid-template-columns: 100px 1fr; /* Permet de créer deux colonnes. 100px = premier colonne, 1fr = deuxième colonne qui comble l'espace restant */
+    grid-auto-rows: auto;
+    row-gap: 20px; /* Espace entre les lignes */
+    column-gap: 60px; /* Espace entre les colonnes */
+    position: relative;
+    box-sizing: border-box;
+    margin: 0 auto; /* Centre le conteneur */
+}
+
+/* Permet d'utiliser des sauts de ligne dans le HTML pour que le code soit plus lisible à remplir */
+.f-timeline > br {
+    display: none;
+}
+
+/*Description*/
+.f-timeline desc {
+    grid-column: 2; /* Positionne la description dans la deuxième colonne */
+    display: block;
+}
+
+/*TEST*/
+
+.fiche_f-annee,
+.fiche_f-mois{
+    font-weight: 700;
+    text-align: right;
+    color: var(--cfond);
+}
+
+.fiche_f-mois{
+    font-style:italic;
+}
+
+.f-timeline .f-anne-mois {
+    grid-column: 1; /* Positionne la date dans la première colonne */
+    position: relative;
+    display: block;
+    /* Personnalisation esthétique */
+
+}
+
+
+.f-timeline .f-anne-mois:not(:last-of-type):before {
+    content: "";
+    position: absolute;
+    right: -31px; /* Positionne la ligne au centre de l'espace entre les colonnes. L'espace était 60px, on divise par deux pour être au centre */
+    top: 5px; /* Petite marge en haut pour que la ligne commence qu'à partir du point */
+    bottom: -20px; /* Force la ligne à s'étendre jusqu'à la fin de la description. 20px = espace entre chaque ligne */
+    width: 1px; /* Largeur de la ligne */
+    background: var(--cfond);
+}
+
+.f-timeline .f-anne-mois.last-timeline-block:before{
+    background-color:rgba(50, 50, 50, 0)!important;
+}
+
+.f-timeline .f-anne-mois:after {
+    content: "";
+    position: absolute;
+    z-index: 99;
+    top: 2px; /* Petite marge en haut pour aligner le point à la première ligne de texte */
+    right: -38px; /* Positionne le point au centre de l'espace entre les colonnes */
+    width: 15px; /* Largeur du point */
+    height: 15px;
+    /* Personnalisation esthétique */
+    background-color: var(--cdeu);
+    border:3px solid var(--cofwhite);
+    border-radius: 14px;
+}
+
+
+.f-timeline .fiche_f-desc{
+    grid-column: 2; /* Positionne la description dans la deuxième colonne */
+    display: block;
+}
