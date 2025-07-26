@@ -1,0 +1,154 @@
+.mainmenu_lorebook{
+    width:302px;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    position:fixed;
+    background-color:var(--cfond);
+    border-image: linear-gradient(var(--cdeu) 0%, var(--cacc) 100%) 1;
+    border-width:2px;
+    border-style:solid;
+    border-left:none;
+    border-top:none;
+    border-bottom:none;
+}
+
+.bouton_retour{
+    border-image: linear-gradient(to right, var(--cacc) 0%, var(--cdeu) 100%) 1;
+    border-width:2px;
+    padding:10px 0px;
+    border-style:solid;
+    border-left:none;
+    border-right:none;
+    border-top:none;
+}
+
+
+a.retour ion-icon{
+    color:var(--cdeu);
+    font-size:40px;
+    position:relative;
+    top:0px!important;
+    margin:0px!important;
+    
+}
+
+a.retour:hover ion-icon{
+    color:var(--chim)!important;
+    
+}
+
+a.retour{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    font-size:22px;
+    color:var(--cfondpale)!important;
+    letter-spacing:0px!important;
+}
+
+a.retour div{
+    position:relative;
+    top:6px;
+}
+
+a.retour span.f-name{
+    color:var(--cdeu);
+}
+
+a.retour:hover{
+    color:var(--cff);
+}
+
+a.retour:hover span{
+    color:var(--chim);
+    letter-spacing:0px!important;
+}
+
+.titre-menu{
+    color:var(--cofwhite);
+    font-size:50px;
+    margin:10px 15px -11px 30px;
+    text-shadow: 0px 4px 0px var(--cdeu);
+}
+
+a.mainmenu{
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight:300;
+    width:300px;
+    padding:0px 30px;
+    text-align:left;
+    font-size:20px;
+    height:41px;
+    display: grid; 
+    grid-template-columns: 20px 40px 1fr; 
+    grid-template-rows: 100%; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    ". ."; 
+    justify-content: start; 
+    align-content: start; 
+    justify-items: start; 
+    align-items: center; 
+}
+
+
+
+a.mainmenu ion-icon{
+    position:relative;
+    top:2px;
+    margin:0px 10px;
+}
+
+
+
+a.mainmenu .ligne-menu{
+    width:20px;
+    height:30px;
+}
+
+a.mainmenu .ligne{
+    margin:15px 0 0 auto;
+    width:2px;
+    height:2px;
+    background-color:var(--cff);
+}
+
+.mainmenu:hover{
+    letter-spacing:.5px;
+    background-color:rgba(18, 18, 18, .7);
+}
+
+a.mainmenu:hover .ligne{
+    width:20px;
+}
+
+
+a.mainmenu.select{
+    color:var(--cff);    
+    background-color: var(--cdeu)
+}
+a.mainmenu.select .ligne{
+    background-color:var(--cff)!important;
+    width:10px!important;
+}
+
+a.mainmenu.select:hover{
+    background-color:rgba(58, 114, 226, 0.5);
+}
+
+a.mainmenu.select:hover .ligne{
+    background-color:var(--cff)!important;
+    width:20px!important;
+}
+
+.rules{
+    max-width:875px;
+    min-width:500px;
+    height:100vh;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+}
