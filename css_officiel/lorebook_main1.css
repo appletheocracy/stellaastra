@@ -31,7 +31,7 @@ body{
 .rules-ctn,
 .the_rule {
   max-width: 100%;
-  overflow-x: hidden;
+  -x: hidden;
   box-sizing: border-box;
 }
 
@@ -146,7 +146,6 @@ a.retour,
 }
 
 .content_menu{
-    overflow-y: auto;
     grid-column:2;
     position:relative;
     height:100%
