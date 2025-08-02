@@ -1,6 +1,6 @@
-.catego_titre, .c-focat_titre,
+.catego_titre h2, .c-focat_titre,
 .c-for_last-info a, .c-sub-for a.gensmall,
-.cs-sub-titre{
+.cs-sub-titre, .c-focat_titre a.forumtitle{
     font-family: "Staatliches", sans-serif!important;
     font-weight: 400!important;
     font-style: normal!important;
@@ -18,10 +18,11 @@
     background-repeat:no-repeat;
     background-position: center top;
     padding:15px;
+    margin-bottom:30px;
 }
 
 
-.catego_titre{
+.catego_titre h2{
     width:100%;
     font-size:65px;
     text-align:center;
@@ -89,7 +90,7 @@
 
 .c-for_last{
     margin:5px;display: grid;
-    grid-template-columns: 70px 190px 215px;
+    grid-template-columns: 70px 210px 195px;
     grid-template-rows: 70px;
     gap: 0px 10px;
     grid-auto-flow: row;
@@ -98,7 +99,7 @@
     justify-items: start;
     align-items: start;
     grid-template-areas:
-        ". . .";
+        "a b c";
     width: 495px;
     height: 70px;
 }
@@ -111,16 +112,27 @@
 
 .c-for_last-info{
     height:70px;
-    width:190px;
+    width:210px!important;
     color:var(--cff);
-    width:190px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    grid-area:b;
+    display:flex;
+    flex-direction:column;
+    text-transform:uppercase;
 }
+
+.c-for_last-info a.last-post-icon{
+    display:none;
+}
+
 
 .c-for_last-info a{
     font-size:19px;
+    width:210px!important;
+
+}
+
+.c-for_last-info a strong{
+    font-weight:400!important;
 }
 
 .c-for_last-info a:hover{
@@ -133,7 +145,7 @@
 }
 
 .c-sub-for{
-    width:215px;
+    width:195px;
     height:70px;
     background-color: var(--rg18);
     text-align:right;
@@ -141,14 +153,19 @@
     flex-direction:column;
     padding:5px 10px;
     justify-content: center;
+    grid-area:c;
+    gap:2.5px;
 }
+
 
 .c-sub-for a{
     line-height:95%;
-    width:195;    
+    width:175px;    
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size:13px;
+    height:15px;
 }
 
 .c-sub-for a:hover{
@@ -191,9 +208,15 @@
     flex-direction:column;
     color:var(--c69);
     width:125px;
+    line-height:95%;
+    margin-top:5px;
 }
 
 .c-focat_titre a.forumtitle{
     color:var(--cdeu)!important;
-    margin-left:10px;
+    margin:0px 10px;
+    font-size:35px;
 }
+
+
+/**END**/
