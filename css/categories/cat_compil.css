@@ -1,0 +1,50 @@
+.c-for_info.c-deus{
+    background: var(--cdeu);
+    background: linear-gradient(90deg, var(--cdeu) 0%, rgba(103, 103, 103, 0) 75%)!important;
+}
+
+.c-for_info.c-pnj{
+    background: var(--cpnj);
+    background: linear-gradient(90deg, var(--cpnj) 0%, rgba(103, 103, 103, 0) 75%)!important;
+}
+
+.c-for_info.c-vamp{
+    background: var(--cvam);
+    background: linear-gradient(90deg, var(--cvam) 0%, rgba(103, 103, 103, 0) 75%)!important;
+}
+
+.c-for_info.c-huma{
+    background: var(--chum);
+    background: linear-gradient(90deg, var(--chum) 0%, rgba(103, 103, 103, 0) 75%)!important;
+}
+
+.c-for_info.c-hybr{
+    background: var(--chyb);
+    background: linear-gradient(90deg, var(--chyb) 0%, rgba(103, 103, 103, 0) 75%)!important;
+}
+
+.c-for_info.c-chim{
+    background: var(--chim);
+    background: linear-gradient(90deg, var(--chim) 0%, rgba(103, 103, 103, 0) 75%)!important;
+}
+
+a.c-vamp{
+    border-color:var(--cvam)!important;
+    color:var(--cvam)!important;
+}
+
+a.c-hybr{
+    border-color:var(--chyb)!important;
+    color:var(--chyb)!important;
+}
+
+a.c-chim{
+    border-color:var(--chim)!important;
+    color:var(--chim)!important;
+}
+
+
+a.c-huma{
+    border-color:var(--chum)!important;
+    color:var(--chum)!important;
+}
