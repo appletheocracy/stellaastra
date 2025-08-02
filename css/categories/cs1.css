@@ -1,0 +1,48 @@
+#c1 .cat_list{
+    grid-template-columns: 565px 535px;
+    grid-template-rows: 230px 230px;
+    grid-template-areas:
+        "a b"
+        "a c";
+}
+
+#c-lorebook{
+    grid-area:a;
+    border-radius:4px 0px 0px 4px; 
+    background-image:url('https://i.imgur.com/FWs5y5L.png');
+}
+
+.lorelinks{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:470px;
+    padding-top:210px;
+}
+
+.lorelinks a{
+    border:1px solid #f02938;
+    background-color:rgba(18, 18, 18, .7);
+    padding:10px;
+    text-transform: uppercase;
+    margin:5px;
+    font-weight:bold;
+    
+}
+
+
+.lorelinks a:hover{
+    color: #f02938;
+    background-color:rgba(18, 18, 18, 1);
+}
+
+.lorelinks .spacer-a{
+    margin-right:300px;
+}
+.lorelinks .spacer-b{
+    margin-right:200px;
+}
+
+.lorelinks .spacer-c{
+    margin-right:100px;
+}
