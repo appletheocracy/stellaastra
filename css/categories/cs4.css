@@ -1,0 +1,57 @@
+#c4 .cat_list{
+    grid-template-columns: 535px 565px;
+    grid-template-rows: 230px 230px;
+    grid-template-areas:
+        "a c"
+        "b c";
+}
+
+#c-pres{
+    grid-area:c!important;
+    border-radius:0px 4px 4px 0px;
+    background-image:url('https://i.imgur.com/2Uu9lcE.png');
+}
+
+.cpres{    
+    width:481px;
+    margin:300px 0px 5px 84px;
+    text-align:center;
+}
+
+.cpres a{
+    padding:10px;
+    text-transform: uppercase;
+    margin:5px;
+    font-weight:bold;
+    background-color:rgba(18, 18, 18, .7);
+    border:1px solid var(--cff);
+}
+
+.cpres a:hover{
+    color:var(--cff)!important;
+}
+
+.cpres .uppera, .cpres .lowera{
+    width:100%;
+    padding:0px 6px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cpres .uppera a:hover{
+    border-color:var(--cpnj)!important;
+    color:var(--cpnj)!important;
+}
+
+.cpres .lowera a{
+    width:107px!important;
+    background-color:rgba(18, 18, 18, .9)!important;
+}
+
+.cpres .cs-sub-titre{
+    font-size:70px;
+    color: var(--rg18);
+    margin:-5px 0px -20px;
+}
