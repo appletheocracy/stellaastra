@@ -13,7 +13,7 @@
     color:var(--cff);
 }
 
-#c1.category,#c4 .category{
+#c1.category, #c4.category{
     width:100%;
     border-radius:4px;
     background-color: var(--c14);
