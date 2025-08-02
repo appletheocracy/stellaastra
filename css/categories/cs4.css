@@ -53,5 +53,5 @@
 .cpres .cs-sub-titre{
     font-size:70px;
     color: var(--rg18);
-    margin:-5px 0px -20px;
+    height:83px!important;
 }
