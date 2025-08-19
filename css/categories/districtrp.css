@@ -1,0 +1,344 @@
+.cat-district_rp .rpmenu_titre, .cat-district_rp .subtitre,
+.cat-district_rp .cat-ctn_desc .sub_titre, .cat-district_rp .cat-news-not,
+.cat-district_rp .c-sub-forrp a, .cat-district_rp .cfuserinfo,
+.cat-district_rp .cfuserinfo a, .district_titre,
+.cat-district_rp .uname span, .cat-district_rp .uname a,
+.cat-district_rp .ulinks a, .cat-district_rp .cflastmsglink{
+    font-family: "Staatliches", sans-serif!important;
+    font-weight: 400!important;
+    font-style: normal!important;
+}
+
+.cat-district_rp{
+    background-image:url('https://i.imgur.com/mNDEWh2.png');
+    width: 1140px;
+    height: 617px;
+    border-radius:4px;
+    overflow:hidden;
+    display: grid;
+    grid-template-columns: 270px 855px;
+    grid-template-rows: 82px 505px;
+    gap: 15px 0px;
+    grid-auto-flow: row;
+    justify-content: start;
+    align-content: start;
+    justify-items: start;
+    align-items: start;
+    grid-template-areas:
+        "a a"
+        "b c";
+}
+
+.cat-district_rp .category{
+    background-image:none!important;
+    background-color:transparent!important;
+    width: 855px!important;
+    height: 505px!important;
+    grid-area:c;
+}
+
+.district_titre{
+    width:100%;
+    font-size:65px;
+    text-align:center;
+    color:var(--cff);
+    text-shadow: var(--c98) 3px 0px 0px, var(--c98) 2.83487px 0.981584px 0px, var(--c98) 2.35766px 1.85511px 0px, var(--c98) 1.62091px 2.52441px 0px, var(--c98) 0.705713px 2.91581px 0px, var(--c98) -0.287171px 2.98622px 0px, var(--c98) -1.24844px 2.72789px 0px, var(--c98) -2.07227px 2.16926px 0px, var(--c98) -2.66798px 1.37182px 0px, var(--c98) -2.96998px 0.42336px 0px, var(--c98) -2.94502px -0.571704px 0px, var(--c98) -2.59586px -1.50383px 0px, var(--c98) -1.96093px -2.27041px 0px, var(--c98) -1.11013px -2.78704px 0px, var(--c98) -0.137119px -2.99686px 0px, var(--c98) 0.850987px -2.87677px 0px, var(--c98) 1.74541px -2.43999px 0px, var(--c98) 2.44769px -1.73459px 0px, var(--c98) 2.88051px -0.838247px 0px;
+    grid-area:a;
+}
+
+.cat-district_rp .c-focat_list{    
+    grid-area:c;
+    height:505px;
+    width:855px;
+    border-radius:0px 4px 4px 0px;
+    overflow:hidden;
+    background-color: var(--cfond);
+}
+
+.cat-district_rp .inner-c-focat{
+    border-radius:0px 4px 4px 0px;
+    background-color: var(--cfond);    
+    overflow:hidden;
+    display: grid!important; 
+    grid-template-columns: 570px 255px; 
+    grid-template-rows: 60px 160px 45px 180px; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+    "a e"
+    "b e"
+    "c e"
+    "d e"; 
+    justify-content: start; 
+    align-content: start; 
+    justify-items: center; 
+    align-items: start; 
+    width: 855px; 
+    height: 505px;
+}
+
+/*SCRIPT UPLOAD*/
+.cat-district_rp .focat_mainmenu_ctn{
+    grid-area:b;
+    width:255px;
+    height:505px;
+    border-radius:4px 0px 0px 4px;
+    background-color:var(--c14);
+    display:flex;
+    flex-direction: column;
+    margin-left:15px;
+
+}
+
+
+.cat-district_rp .bouton_rp_menu{
+    display: grid; 
+    grid-template-columns: 175px 80px; 
+    grid-template-rows: 101px; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    ". ."; 
+    justify-content: start; 
+    align-content: start; 
+    justify-items: start; 
+    align-items: start; 
+    width: 255px; 
+    height: 101px;
+    padding:23px 0px;
+}
+
+.cat-district_rp .namedesc_rpmenu{
+    display:flex;
+    flex-direction:column;
+    color:var(--cff);
+}
+
+.cat-district_rp .rpmenu_titre{
+    grid-area:a;
+    font-size:25px;
+    width:155px;
+    text-align:right;
+    margin-top:2px;
+}
+
+.cat-district_rp .rpmenu_subdesc{
+    grid-area:c;
+    font-size:16px;
+    width:155px;
+    text-align:right;
+}
+
+
+.cat-district_rp .subtitre{
+    color:var(--cff);
+    font-size:50px;
+    grid-area:a;
+}
+
+.cat-district_rp .fcimage {
+    grid-area:e;
+    padding-top:10px;
+}
+
+.cat-district_rp .fcimage img{
+    width:255px;
+    height:475px;
+    border-radius:0px 4px 4px 0px;
+}
+
+.cat-district_rp .cat-ctn_desc{    
+    grid-area:b;
+    width:570px;
+    height:160px;
+    margin-left:5px;
+    padding:0px 10px 10px 10px;
+    background-color:var(--cfondpale);
+}
+
+.cat-district_rp .cat-ctn_desc .sub_titre{
+    font-size:35px;
+    display: grid;
+    grid-template-columns: 1fr 125px;
+    grid-template-rows: 45px;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    justify-content: start;
+    align-content: start;
+    justify-items: start;
+    align-items: start;
+    grid-template-areas:
+    ". .";
+    width: 550px;
+    height: 45px;
+}
+
+.cat-district_rp .sub_titre a{
+    color:var(--cdeu)!important;
+}
+
+
+
+
+.cat-district_rp .c-for_desc{
+    height:105px;
+    padding:10px;
+}
+
+.cat-district_rp .cat-news-not{
+    grid-area:c;
+    font-size:30px;
+    height:45px;
+    width:570px;
+    margin-left:5px;
+    background-color:var(--c14);
+    color:var(--cfond);
+    padding:5px 10px;
+    white-space: nowrap;
+    overflow:hidden;
+}
+
+.cat-district_rp .no-new-msg .cat-wsup{
+    position:relative;
+    left:-195px;
+}
+
+.cat-district_rp .lock-msg .cat-wsup{
+    position:relative;
+    left:-115px;
+}
+.cat-district_rp .new-msg .cat-wsup{
+    position:relative;
+    left:-175px;
+}
+
+.cat-district_rp .no-new-msg .cat-wsup span{
+    color:var(--c50);
+}
+
+.cat-district_rp .c13-subforum-last{
+    width:570px;
+    height:190px;
+    display: grid; 
+    grid-template-columns: 250px 305px; 
+    grid-template-rows: 190px;
+    gap: 0px 10px; 
+    grid-template-areas: 
+    "a b"; 
+    justify-content: start; 
+    align-content: start; 
+    justify-items: start; 
+    align-items: start;
+    margin-left:5px;
+}
+
+.cat-district_rp .c-sub-forrp{
+    width:250px;
+    height:190px;
+    background-color:transparent;
+    display:flex;
+    flex-direction: column;
+    gap:10px!important;
+    padding:0px!important;
+    justify-content: flex-start; 
+
+}
+
+.cat-district_rp .c-sub-forrp a{    
+    width:250px;
+    height:40px;
+    background-color:var(--c14);
+    text-align:left;
+    padding:10px 10px;
+    font-size:18px;
+}
+
+.cat-district_rp .c-for_last-info{
+    border:1px solid var(--c69);
+    background-image:url('https://i.imgur.com/aGA1ZP3.png');
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 90px 214px;
+    grid-template-rows: 90px 100px;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    justify-content: start;
+    align-content: start;
+    justify-items: start;
+    align-items: start;
+    grid-template-areas:
+    "a b"
+    "c c";
+    width: 305px;
+    height: 190px;
+}
+
+.cat-district_rp .cfavatar{
+    grid-area:a;
+    border:5px solid var(--c69);
+    margin:10px 0px 0px 10px;
+}
+
+.cat-district_rp .cfavatar img{
+    width:70px;
+    height:70px;
+    filter: grayscale(1);
+}
+
+.cat-district_rp .cfuserinfo{
+    width:194px;
+    height:80px;
+    margin:10px 10px 0px 0px;
+    grid-area:b;
+}
+
+.cat-district_rp .uname{
+    width:194px;
+    font-size:20px;
+    padding:10px 10px 5px 10px;
+    text-align:center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cat-district_rp .ulinks{
+    display:flex;
+    flex-direction: row;
+    gap:10px;
+    justify-content: center;
+}
+
+.cat-district_rp .ulinks a{
+    padding:5px 10px;
+    border-radius:4px;
+    background-color:var(--c14);
+}
+
+.cat-district_rp a.groupe_ulinks{    
+    display:none;
+}
+
+.cat-district_rp .cflastmsglink{
+    margin:0px 9px 10px 9px;
+    height:80px;
+    width:285px;
+    background-color:var(--c14);
+    grid-area:c;
+    display:flex;
+    flex-direction: column;
+    
+}
+
+.cat-district_rp .cflastmsglink a{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height:25px!important;
+    margin:15px 10px 10px 10px;
+}
+
+.cat-district_rp .cflastmsglink span{
+    font-family: Arial, Helvetica, sans-serif!important;
+    text-transform: uppercase;
+    height:25px!important;
+    margin:0px 10px 10px 10px;
+}
