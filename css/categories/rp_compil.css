@@ -1,0 +1,205 @@
+/*INDRE BY*/
+#c8 .sub_titre a.forumtitle{
+    color:var(--cdeu)!important;
+}
+
+#c8 .subtitre{
+    text-shadow: 0px 4px 1px var(--cdeu);
+}
+
+
+#c8 .new-msg .cat-wsup span{
+    color:var(--cdeu)!important;
+}
+
+#c8 .c-lect{
+    background-color:var(--cdeu)!important;
+}
+
+#c9 .subtitre{
+    text-shadow: 0px 4px 1px var(--cvam);
+}
+
+
+#c9 .new-msg .cat-wsup span{
+    color:var(--cvam)!important;
+}
+
+#c9 .sub_titre a{
+    color:var(--cvam)!important;
+}
+
+#c9 .c-lect{
+    background-color:var(--cvam)!important;
+}
+
+#c10 .sub_titre a{
+    color:var(--chim);
+}
+
+#c10 .subtitre{
+    text-shadow: 0px 4px 1px var(--chim);
+}
+#c10 .c-lect{
+    background-color:var(--chim)!important;
+}
+
+#c10 .new-msg .cat-wsup span{
+    color:var(--chim)!important;
+}
+
+#c11 .sub_titre a{
+    color:var(--chyb);
+}
+
+#c11 .subtitre{
+    text-shadow: 0px 4px 1px var(--chyb);
+}
+
+#c11 .c-lect{
+    background-color:var(--chyb)!important;
+}
+
+#c11 .new-msg .cat-wsup span{
+    color:var(--chyb)!important;
+}
+
+#c12 .sub_titre a{
+    color:var(--chum);
+}
+
+#c12 .subtitre{
+    text-shadow: 0px 4px 1px var(--chum);
+}
+
+#c12 .c-lect{
+    background-color:var(--chum)!important;
+}
+
+#c12 .new-msg .cat-wsup span{
+    color:var(--chum)!important;
+}
+
+.indreby.bouton_rp_menu.cat-selected{
+    background-color:var(--cdeu);
+}
+
+.nyhavn.bouton_rp_menu.cat-selected{
+    background-color:var(--cvam);
+}
+
+.vesterbro.bouton_rp_menu.cat-selected{
+    background-color:var(--chim);
+}
+
+.norrebro.bouton_rp_menu.cat-selected{
+    background-color:var(--chyb);
+}
+
+.ailleurs.bouton_rp_menu.cat-selected{
+    background-color:var(--chum);
+}
+
+.indreby.bouton_rp_menu:hover{
+    background-color:var(--cdeu);
+}
+
+.nyhavn.bouton_rp_menu:hover{
+    background-color:var(--cvam);
+}
+
+.vesterbro.bouton_rp_menu:hover{
+    background-color:var(--chim);
+}
+
+.norrebro.bouton_rp_menu:hover{
+    background-color:var(--chyb);
+}
+
+.ailleurs.bouton_rp_menu:hover{
+    background-color:var(--chum);
+}
+
+.cat-district_rp .c-for_last-info.c-deu .ulinks a{
+    background-color:var(--cdeu)!important;
+}
+
+.cat-district_rp .c-for_last-info.c-pnj .ulinks a{
+    background-color:var(--cpnj)!important;
+}
+
+.cat-district_rp .c-for_last-info.c-vamp .ulinks a{
+    background-color:var(--cvam)!important;
+}
+
+.cat-district_rp .c-for_last-info.c-chim .ulinks a{
+    background-color:var(--chim)!important;
+}
+
+.cat-district_rp .c-for_last-info.c-huma .ulinks a{
+    background-color:var(--chum)!important;
+}
+
+.cat-district_rp .c-for_last-info.c-hybr .ulinks a{
+    background-color:var(--chyb)!important;
+}
+
+.cat-district_rp .c-for_last-info.c-deu {
+    border-color:var(--cdeu)!important;
+    background-image:url('https://i.imgur.com/5UpSh8B.png')!important;
+}
+
+.cat-district_rp .c-for_last-info.c-pnj {
+    border-color:var(--cpnj)!important;
+    background-image:url('https://i.imgur.com/2IoqzC7.png')!important;
+}
+
+.cat-district_rp .c-for_last-info.c-vamp {
+    border-color:var(--cvam)!important;
+    background-image:url('https://i.imgur.com/FpcD0mi.png')!important;
+}
+
+.cat-district_rp .c-for_last-info.c-chim {
+    border-color:var(--chim)!important;
+    background-image:url('https://i.imgur.com/W1d4yPd.png')!important;
+}
+
+.cat-district_rp .c-for_last-info.c-huma {
+    border-color:var(--chum)!important;
+    background-image:url('https://i.imgur.com/spXTnbt.png')!important;
+}
+
+.cat-district_rp .c-for_last-info.c-hybr {
+    border-color:var(--chyb)!important;
+    background-image:url('https://i.imgur.com/3vxW4mN.png')!important;
+}
+
+.cat-district_rp .c-deu .cfavatar{
+    border-color:var(--cdeu)!important;
+}
+
+.cat-district_rp .c-pnj .cfavatar{
+    border-color:var(--cpnj)!important;
+}
+
+.cat-district_rp .c-vamp .cfavatar{
+    border-color:var(--cvam)!important;
+}
+
+.cat-district_rp .c-chim .cfavatar{
+    border-color:var(--chim)!important;
+}
+
+.cat-district_rp .c-huma .cfavatar{
+    border-color:var(--chum)!important;
+}
+
+.cat-district_rp .c-hybr .cfavatar{
+    border-color:var(--chyb)!important;
+}
+
+.cat-district_rp .c-for_last-info.c-deu img, .cat-district_rp .c-for_last-info.c-pnj img,
+.cat-district_rp .c-for_last-info.c-vamp img, .cat-district_rp .c-for_last-info.c-chim img,
+.cat-district_rp .c-for_last-info.c-huma img, .cat-district_rp .c-for_last-info.c-hybr img{
+    filter: grayscale(0)!important;
+}
