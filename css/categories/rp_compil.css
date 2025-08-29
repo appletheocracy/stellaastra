@@ -65,7 +65,7 @@
 }
 
 #c12 .sub_titre a{
-    color:var(--chum);
+    color:var(--chum)!important;
 }
 
 #c12 .subtitre{
