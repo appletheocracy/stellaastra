@@ -34,7 +34,7 @@
 }
 
 #c10 .sub_titre a{
-    color:var(--chim);
+    color:var(--chim)!important;
 }
 
 #c10 .subtitre{
@@ -49,7 +49,7 @@
 }
 
 #c11 .sub_titre a{
-    color:var(--chyb);
+    color:var(--chyb)!important;
 }
 
 #c11 .subtitre{
