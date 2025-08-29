@@ -12,12 +12,12 @@
 .cat-district_rp{
     background-image:url('https://i.imgur.com/mNDEWh2.png');
     width: 1140px;
-    height: 617px;
+    height: 631px;
     border-radius:4px;
     overflow:hidden;
     display: grid;
     grid-template-columns: 270px 855px;
-    grid-template-rows: 82px 505px;
+    grid-template-rows: 99.19px 505px;
     gap: 15px 0px;
     grid-auto-flow: row;
     justify-content: start;
