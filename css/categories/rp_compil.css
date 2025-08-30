@@ -204,18 +204,3 @@
     filter: grayscale(0)!important;
 }
 
-#c8 .ulinks a:hover{
-	color:var(--cdeu)!important;
-}
-#c9 .ulinks a:hover{
-	color:var(--cvam)!important;
-}
-#c10 .ulinks a:hover{
-	color:var(--chim)!important;
-}
-#c11 .ulinks a:hover{
-	color:var(--chyb)!important;
-}
-#c12 .ulink a:hover{
-  	color:var(--chum)!important;
-}
