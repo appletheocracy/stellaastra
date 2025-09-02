@@ -6,7 +6,7 @@
     grid-template-rows: 230px!important;
     grid-template-areas:
         "a b";
-    gap: 0px 30px!important;
+    gap: 0px 35px!important;
     height:230px!important;
   
 }
