@@ -1,0 +1,23 @@
+#c6, #c7{
+  height:359px!important;
+}
+#c6 .cat_list, #c7 .cat_list{
+    grid-template-columns: 535px 535px!important;
+    grid-template-rows: 230px!important;
+    grid-template-areas:
+        "a b";
+    gap: 0px 30px!important;
+    height:230px!important;
+}
+
+#c7 .cat_list .insertc7{
+    height:230px;
+    width:535px;
+    background-repeat:no-repeat;
+    background-image:url('https://i.imgur.com/w3rwUse.png');
+    border-radius:0px 4px 4px 0px;
+}
+
+#c7 .c-focat_list{
+  border-radius:4px 0px 0px 4px;
+}
