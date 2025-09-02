@@ -6,9 +6,9 @@
     grid-template-rows: 230px!important;
     grid-template-areas:
         "a b";
-    gap: 0px 35px!important;
+    gap: 0px 40px!important;
     height:230px!important;
-  
+    width:1110!important;
 }
 
 #c7 .cat_list .insertc7{
@@ -21,4 +21,12 @@
 
 #c7 .c-focat_list{
   border-radius:4px 0px 0px 4px;
+}
+
+#c6 .topl{
+  border-radius:4px 0px 0px 4px!important;
+}
+
+#c6 .topr{
+  border-radius:0px 4px 4px 0px;
 }
