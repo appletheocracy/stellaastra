@@ -194,21 +194,23 @@
     padding:5px 10px;
     white-space: nowrap;
     overflow:hidden;
+    position:relative;
+}
+
+.cat-district_rp .cat-wsup{
+    position:absolute;
 }
 
 .cat-district_rp .no-new-msg .cat-wsup{
-    position:relative;
     left:-195px;
     width:745px!important;
 }
 
 .cat-district_rp .lock-msg .cat-wsup{
-    position:relative;
     left:-115px;
     width:665px!important;
 }
 .cat-district_rp .new-msg .cat-wsup{
-    position:relative;
     left:-175px;
     width:725px!important;
 }
