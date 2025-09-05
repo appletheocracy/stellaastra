@@ -199,20 +199,21 @@
 
 .cat-district_rp .cat-wsup{
     position:absolute;
+    top:-35px;
 }
 
 .cat-district_rp .no-new-msg .cat-wsup{
     left:-195px;
-    width:745px!important;
+    width:765px!important;
 }
 
 .cat-district_rp .lock-msg .cat-wsup{
     left:-115px;
-    width:665px!important;
+    width:685px!important;
 }
 .cat-district_rp .new-msg .cat-wsup{
     left:-175px;
-    width:725px!important;
+    width:745px!important;
 }
 
 .cat-district_rp .no-new-msg .cat-wsup span{
