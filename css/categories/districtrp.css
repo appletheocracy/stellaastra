@@ -1,3 +1,264 @@
+.c-deus a.cfprofil[href=""], .c-deus a.cfmp[href=""],
+.c-pnj a.cfprofil[href=""], .c-pnj a.cfmp[href=""],
+.c-chim a.cfprofil[href=""], .c-chim a.cfmp[href=""],
+.c-huma a.cfprofil[href=""], .c-huma a.cfmp[href=""],
+.c-hybr a.cfprofil[href=""], .c-hybr a.cfmp[href=""],
+.c-vamp a.cfprofil[href=""], .c-vamp a.cfmp[href=""],
+a.cfprofil[href=""], a.cfmp[href=""]{
+  display:none!important;
+}
+
+#c2 .district8-12{
+  display:none!important;
+}
+
+#district-rp .c-for_last-info .cfavatar,
+#district-rp .c-for_last-info .cfuserinfo .cfprofil,
+#district-rp .c-for_last-info .cfuserinfo .cfmp,
+#district-rp .c-for_last-info .cfuserinfo .cffiche,
+#district-rp .c-for_last-info .cflastmsglink{
+	display:none;
+}
+
+#district-rp .c-for_last-info .groupe_ulinks,
+#district-rp .c-for_last-info.c-deus .groupe_ulinks,
+#district-rp .c-for_last-info.c-pnj .groupe_ulinks,
+#district-rp .c-for_last-info.c-vamp .groupe_ulinks,
+#district-rp .c-for_last-info.c-hybr .groupe_ulinks,
+#district-rp .c-for_last-info.c-huma .groupe_ulinks,
+#district-rp .c-for_last-info.c-chim .groupe_ulinks{
+	display:none!important;
+}
+
+#distric-rp .c-for-last-info.c-memb .cfprofil,
+#distric-rp .c-for-last-info.c-memb .cfmp{
+	display:none!important;
+}
+
+#distric-rp .c-for-last-info.c-memb .groupe_ulinks{
+	display:inline-block!important;
+}
+
+#district-rp .c-for_last-info.c-deus .cfavatar,
+#district-rp .c-for_last-info.c-deus .cfprofil,
+#district-rp .c-for_last-info.c-deus .cfmp{
+	display:block;
+}
+
+#district-rp .c-for_last-info.c-pnj .cfavatar,
+#district-rp .c-for_last-info.c-pnj .cfprofil,
+#district-rp .c-for_last-info.c-pnj .cfmp{
+	display:block;
+}
+
+#district-rp .c-for_last-info.c-vamp .cfavatar,
+#district-rp .c-for_last-info.c-vamp .cfprofil,
+#district-rp .c-for_last-info.c-vamp .cfmp{
+	display:block;
+}
+
+#district-rp .c-for_last-info.c-hybr .cfavatar,
+#district-rp .c-for_last-info.c-hybr .cfprofil,
+#district-rp .c-for_last-info.c-hybr .cfmp{
+	display:block;
+}
+
+#district-rp .c-for_last-info.c-huma .cfavatar,
+#district-rp .c-for_last-info.c-huma .cfprofil,
+#district-rp .c-for_last-info.c-huma .cfmp{
+	display:block;
+}
+
+#district-rp .c-for_last-info.c-chim .cfavatar,
+#district-rp .c-for_last-info.c-chim .cfprofil,
+#district-rp .c-for_last-info.c-chim .cfmp{
+	display:block;
+}
+
+#district-rp .c-for_last-info.c-deus .cflastmsglink,
+#district-rp .c-for_last-info.c-pnj .cflastmsglink,
+#district-rp .c-for_last-info.c-memb .cflastmsglink,
+#district-rp .c-for_last-info.c-vamp .cflastmsglink,
+#district-rp .c-for_last-info.c-hybr .cflastmsglink,
+#district-rp .c-for_last-info.c-huma .cflastmsglink,
+#district-rp .c-for_last-info.c-chim .cflastmsglink{
+	display:flex!important;
+}
+
+#district-rp .c-for_last-info.c-deus .ulinks,
+#district-rp .c-for_last-info.c-pnj .ulinks,
+#district-rp .c-for_last-info.c-memb .ulinks,
+#district-rp .c-for_last-info.c-vamp .ulinks,
+#district-rp .c-for_last-info.c-hybr .ulinks,
+#district-rp .c-for_last-info.c-huma .ulinks,
+#district-rp .c-for_last-info.c-chim .ulinks{
+	display:flex!important;
+}
+
+.ulinks a{
+	text-align:center;
+}
+
+.ulinks a:hover{
+  letter-spacing:0px!important;
+	color:var(--c14);
+}
+
+#c4 .catzone1-2.botl .c-sub-for,
+#c6 .catzone1-2.topl .c-sub-for,
+#c7 .catzone1-2 .c-sub-for{
+	display:none!important;
+}
+
+
+
+#district-rp .district8-12 .sub_titre a.forumtitle{
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color:var(--cff);
+    font-size:35px;
+    margin-top:1px;
+}
+
+.focat_mainmenu_ctn{
+	position:relative;
+  	top:15px;
+}
+
+.district_titre{
+  margin-top:14px;
+}
+
+/* Container width */
+#district-rp .cflastmsglink strong{
+	display:none;
+}
+
+#district-rp .cflastmsglink{
+  width:285px;
+  padding:15px 10px 10px 10px;
+}
+
+#district-rp .cflastmsglink a{
+  display:block;
+  height:25px!important;
+  width:265px!important;
+  overflow:hidden!important;
+  padding:0px 0px 30px 0px;
+  margin:0px!important;
+}
+
+.catzone1-2 .c-for_last-info{
+  position:relative;
+}
+
+.catzone1-2 .c-for_last-info a:first-of-type{
+  overflow:hidden;    
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  display:block;
+  height:25px;
+  padding:0px 0px 25px 0px;
+}
+
+.last-post-icon{
+	display:none;
+}
+
+.cfuserinfo strong span strong{
+	font-size:22px!important;
+}
+.cfuserinfo span.color-groups{
+	font-size:22px!important;
+}
+.cfuserinfo span.color-groups strong{
+	font-weight:400!important;
+}
+
+#district-rp .category{
+	position:relative;
+  	top:-10px;
+  	left:-25px;
+}
+#district-rp .c-for_last-info {
+  width:305px!important;
+}
+
+#district-rp{
+    background-image:url('https://i.imgur.com/mNDEWh2.png');
+    width: 1140px;
+    height: 632px;
+    border-radius:4px;
+    overflow:hidden;
+    display: grid;
+    grid-template-columns: 270px 855px;
+    grid-template-rows: 82px 505px;
+    gap: 15px 0px;
+    grid-auto-flow: row;
+    justify-content: start;
+    align-content: start;
+    justify-items: start;
+    align-items: start;
+    grid-template-areas:
+        "a a"
+        "b c";
+}
+
+#c1 .district8-12, #c1 .catzone6, #c1 .catzone7{
+	display:none!important;
+}
+
+#c4 .district8-12, #c4 .catzone6, #c4 .catzone7{
+	display:none!important;
+}
+
+#c6 .district8-12{
+	display:none!important;
+}
+
+#c7 .district8-12{
+  	display:none!important;
+}
+
+#district-rp .catzone1-2, #district-rp .catzone6,
+#district-rp .catzone7, #district-rp .catego_titre{
+	  display:none!important;
+}
+
+.cat-district_rp{
+  margin-bottom:30px;
+}
+
+
+.c-sub-for br{
+display:none!important;
+}
+
+
+
+.catego_titre h2, .catego_titre h1, .c-focat_titre,
+.c-for_last-info a, .c-sub-for a.gensmall,
+.cs-sub-titre, .c-focat_titre a.forumtitle{
+    font-family: "Staatliches", sans-serif!important;
+    font-weight: 400!important;
+    font-style: normal!important;
+}
+
+.category a{
+    color:var(--cff);
+}
+
+.catego_titre h1, .catego_titre h2, .catego_titre #h1-category{
+    width:100%;
+    font-size:65px;
+    text-align:center;
+    color:var(--cff);
+    text-shadow: var(--c98) 3px 0px 0px, var(--c98) 2.83487px 0.981584px 0px, var(--c98) 2.35766px 1.85511px 0px, var(--c98) 1.62091px 2.52441px 0px, var(--c98) 0.705713px 2.91581px 0px, var(--c98) -0.287171px 2.98622px 0px, var(--c98) -1.24844px 2.72789px 0px, var(--c98) -2.07227px 2.16926px 0px, var(--c98) -2.66798px 1.37182px 0px, var(--c98) -2.96998px 0.42336px 0px, var(--c98) -2.94502px -0.571704px 0px, var(--c98) -2.59586px -1.50383px 0px, var(--c98) -1.96093px -2.27041px 0px, var(--c98) -1.11013px -2.78704px 0px, var(--c98) -0.137119px -2.99686px 0px, var(--c98) 0.850987px -2.87677px 0px, var(--c98) 1.74541px -2.43999px 0px, var(--c98) 2.44769px -1.73459px 0px, var(--c98) 2.88051px -0.838247px 0px;
+
+}
+
+
 .cat-district_rp .rpmenu_titre, .cat-district_rp .subtitre,
 .cat-district_rp .cat-ctn_desc .sub_titre, .cat-district_rp .cat-news-not,
 .cat-district_rp .c-sub-forrp a, .cat-district_rp .cfuserinfo,
