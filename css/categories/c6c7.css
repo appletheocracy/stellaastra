@@ -1,7 +1,7 @@
-#c6, #c7{
+#c5, #c6, #c7{
   height:359px!important;
 }
-#c6 .cat_list, #c7 .cat_list{
+#c5 .cat_list, #c6 .cat_list, #c7 .cat_list{
     grid-template-rows: 230px!important;
     grid-template-areas:
         "a b";
