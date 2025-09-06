@@ -12,8 +12,9 @@
 
 #c7 .cat_list .insertc7{
     height:230px;
-    width:535px;
+    width:547.5px;
     background-repeat:no-repeat;
+    background-size: cover;
     background-image:url('https://i.imgur.com/w3rwUse.png');
     border-radius:0px 4px 4px 0px;
 }
