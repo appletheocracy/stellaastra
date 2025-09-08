@@ -16,7 +16,6 @@ a.accpreslink1{
     margin:0px!important;
 }
 a.accpreslink2{
-    grid-area:b;
     width:481px;
     height:290px;    
     background-color:transparent!important;
@@ -34,7 +33,7 @@ a.accpreslink2{
 .cpres{   
     display: grid;
     grid-template-columns: 84px 481px;
-    grid-template-rows: 290px 180px;
+    grid-template-rows: 565px;
     gap: 0px 0px;
     grid-auto-flow: row;
     justify-content: start;
@@ -69,7 +68,6 @@ a.accpreslink2{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    grid-area:c;
 }
 
 .cpres .uppera a:hover{
@@ -87,5 +85,4 @@ a.accpreslink2{
     color: var(--rg18);
     height:83px!important;
     margin-top:-15px;
-    grid-area:c;
 }
