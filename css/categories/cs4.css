@@ -67,7 +67,6 @@ a.accpreslink2{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    grid-area:b;
 }
 
 .cpres .uppera a:hover{
@@ -85,7 +84,6 @@ a.accpreslink2{
     color: var(--rg18);
     height:83px!important;
     margin-top:-15px;
-    grid-area:b;
 }
 
 .cpres .accpreslink2{
