@@ -41,8 +41,7 @@ a.accpreslink2{
     justify-items: center;
     align-items: start;
     grid-template-areas:
-    "a b"
-    "a c";
+    "a b";
     width: 565px;
     height: 470px;
     text-align:center;
@@ -68,6 +67,7 @@ a.accpreslink2{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    grid-area:b;
 }
 
 .cpres .uppera a:hover{
@@ -85,4 +85,10 @@ a.accpreslink2{
     color: var(--rg18);
     height:83px!important;
     margin-top:-15px;
+    grid-area:b;
+}
+
+.cpres .accpreslink2{
+    grid-area:b;
+    
 }
