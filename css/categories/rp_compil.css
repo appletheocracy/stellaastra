@@ -1,3 +1,19 @@
+#c8 .c-for_desc{
+	scrollbar-color: #3a72e2 #323232!important;
+}
+#c9 .c-for_desc{
+	scrollbar-color: #D31141 #323232!important;
+}
+#c10 .c-for_desc{
+	scrollbar-color: #FFCD61 #323232!important;
+}
+#c11 .c-for_desc{
+	scrollbar-color: #C083CF #323232!important;
+}
+#c12 .c-for_desc{
+	scrollbar-color: #6D9C72 #323232!important;
+}
+
 /*INDRE BY*/
 #c8 .sub_titre a.forumtitle{
     color:var(--cdeu)!important;
