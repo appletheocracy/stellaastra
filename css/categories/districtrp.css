@@ -290,6 +290,10 @@ display:none!important;
         "b c";
 }
 
+#district-rp .cat-stat{
+  width:125px!important;
+}
+
 .cat-district_rp .category{
     background-image:none!important;
     background-color:transparent!important;
