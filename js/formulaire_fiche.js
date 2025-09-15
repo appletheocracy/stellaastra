@@ -45,8 +45,9 @@ $(document).ready(function () {
 
   /* ===========================
    * QUALI_DEF LOGIC (min 4, up to 10)
-   * Each block always has "+"; when total >=5 every block also has "−".
-   * Never let total drop below 4.
+   * Each block always has "+" when total < 10
+   * When total >= 5, every block also has "−"
+   * At total == 10, hide all "+"
    * =========================== */
   $(document).on('click', '.quali_def .add_quali_def', function () {
     const $blocks = $('.quali_def');
@@ -68,10 +69,8 @@ $(document).ready(function () {
   });
 
   function updateQualiButtons() {
-    const $blocks = $('.quali_def');
-    const total = $blocks.length;
-
     // enforce minimum 4
+    let total = $('.quali_def').length;
     if (total < 4) {
       for (let i = total; i < 4; i++) {
         const $clone = $('.quali_def').first().clone(true, true);
@@ -81,6 +80,11 @@ $(document).ready(function () {
     }
 
     const $all = $('.quali_def'); // refresh
+    total = $all.length;
+
+    const showPlus  = total < maxQuali;    // hide all "+" when at max
+    const showMinus = total >= 5;          // allow removing any when >= 5
+
     $all.each(function (index) {
       const $wrap = $(this);
 
@@ -96,17 +100,16 @@ $(document).ready(function () {
         $inp.attr({ id: 'quali_def' + index, name: 'quali_def_' + index });
       }
 
-      // rebuild buttons: always "+"; add "−" only if total >= 5
+      // rebuild buttons per rules
       $wrap.find('.add_quali_def, .remove_quali_def').remove();
-      $wrap.append('<div class="btn add_quali_def">+</div>');
-      if ($all.length >= 5) {
-        $wrap.append('<div class="btn remove_quali_def">-</div>');
-      }
+      if (showPlus)  { $wrap.append('<div class="btn add_quali_def">+</div>'); }
+      if (showMinus) { $wrap.append('<div class="btn remove_quali_def">-</div>'); }
     });
   }
 
   /* ===========================
    * CHRONO LOGIC (unlimited)
+   * First non-final block can't be removed
    * =========================== */
   $(document).on('click', '.chrono .add_chrono', function () {
     const $currentBlock = $(this).closest('.chrono');
@@ -124,7 +127,7 @@ $(document).ready(function () {
       $newBlock.append('<div class="btn remove_chrono"> - </div>');
     }
 
-    // CRITICAL: normalize visibility (avoid cloning display:none from the first block)
+    // Normalize visibility (avoid cloning display:none from the first block)
     $newBlock.find('.remove_chrono').css('display', '');
 
     // Insert before the final chrono block
@@ -172,11 +175,11 @@ $(document).ready(function () {
         $this.append('<div class="btn remove_chrono"> - </div>');
       }
 
-      // CRITICAL: normalize visibility per index
+      // First non-final cannot be removed; others can
       if (index === 0) {
-        $this.find('.remove_chrono').hide();   // first cannot be removed
+        $this.find('.remove_chrono').hide();
       } else {
-        $this.find('.remove_chrono').show();   // all others must be visible
+        $this.find('.remove_chrono').show();
       }
     });
 
@@ -278,13 +281,13 @@ $(document).ready(function () {
   updateFactsButtons();
   updateSignesButtons();
 
-  // Expose updaters so the hydration script can call them:
+  // Expose updaters for hydration script
   window.updateQualiButtons  = updateQualiButtons;
   window.updateChronoButtons = updateChronoButtons;
   window.updateFactsButtons  = updateFactsButtons;
   window.updateSignesButtons = updateSignesButtons;
 
-  // Also listen for a custom event fired after hydration
+  // Custom event hook used by hydration script
   $(document).on('form:rehydrated', function(){
     updateQualiButtons();
     updateChronoButtons();
