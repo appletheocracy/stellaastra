@@ -112,9 +112,11 @@ $(document).ready(function () {
     const $currentBlock = $(this).closest('.chrono');
     const $newBlock = $currentBlock.clone(true, true);
 
+    // Clear values in the clone
     $newBlock.find('input').val('');
     $newBlock.find('textarea').val('');
 
+    // Ensure "+" and "−" exist
     if ($newBlock.find('.add_chrono').length === 0) {
       $newBlock.append('<div class="btn add_chrono"> + </div>');
     }
@@ -122,7 +124,12 @@ $(document).ready(function () {
       $newBlock.append('<div class="btn remove_chrono"> - </div>');
     }
 
+    // CRITICAL: normalize visibility (avoid cloning display:none from the first block)
+    $newBlock.find('.remove_chrono').css('display', '');
+
+    // Insert before the final chrono block
     $('.chrono_final').before($newBlock);
+
     updateChronoButtons();
   });
 
@@ -141,6 +148,7 @@ $(document).ready(function () {
     $blocks.each(function (index) {
       const $this = $(this);
 
+      // Re-index fields
       $this.find('input[name^="date_annee"], input[id^="date_annee"]').attr({
         id: 'date_annee_' + index,
         name: 'date_annee_' + index
@@ -156,17 +164,22 @@ $(document).ready(function () {
         name: 'chrono_' + index
       });
 
-      // ensure buttons exist
+      // Ensure buttons exist
       if ($this.find('.add_chrono').length === 0) {
         $this.append('<div class="btn add_chrono"> + </div>');
       }
       if ($this.find('.remove_chrono').length === 0) {
         $this.append('<div class="btn remove_chrono"> - </div>');
       }
+
+      // CRITICAL: normalize visibility per index
+      if (index === 0) {
+        $this.find('.remove_chrono').hide();   // first cannot be removed
+      } else {
+        $this.find('.remove_chrono').show();   // all others must be visible
+      }
     });
 
-    // First non-final block can't be removed
-    $blocks.first().find('.remove_chrono').hide();
     // Final block never shows buttons
     $('.chrono_final .add_chrono, .chrono_final .remove_chrono').hide();
   }
