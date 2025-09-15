@@ -4,23 +4,21 @@ $(document).ready(function () {
   const $groupeInput = $('#groupe');
   const $groupe2Input = $('#groupe2');
 
-  // ===== CONFIG =====
   const maxQuali = 10;
 
-  // ===========================
-  // INITIAL QUALI_DEF (ensure 4)
-  // ===========================
+  /* ===========================
+   * INITIAL QUALI_DEF (ensure 4)
+   * =========================== */
   const $qualiTemplate = $('.quali_def').first();
   for (let i = $('.quali_def').length; i < 4; i++) {
     const $clone = $qualiTemplate.clone(true, true);
     $clone.find('input').val('');
     $clone.insertAfter($('.quali_def').last());
   }
-  updateQualiButtons();
 
-  // ===========================
-  // GROUP BUTTONS
-  // ===========================
+  /* ===========================
+   * GROUP BUTTONS
+   * =========================== */
   $('.entete_groupe input[type="button"]').on('click', function () {
     $('.entete_groupe input[type="button"]').removeClass('selected');
     $formWrapper.removeClass('vampire chimere hybride humain groupe_large');
@@ -45,11 +43,11 @@ $(document).ready(function () {
     }
   });
 
-  // ===========================
-  // QUALI_DEF LOGIC (min 4, up to 10)
-  // Full wrapper cloned; each has "+"
-  // When total >= 5, every block also has "−"
-  // ===========================
+  /* ===========================
+   * QUALI_DEF LOGIC (min 4, up to 10)
+   * Each block always has "+"; when total >=5 every block also has "−".
+   * Never let total drop below 4.
+   * =========================== */
   $(document).on('click', '.quali_def .add_quali_def', function () {
     const $blocks = $('.quali_def');
     if ($blocks.length >= maxQuali) return;
@@ -64,8 +62,7 @@ $(document).ready(function () {
 
   $(document).on('click', '.quali_def .remove_quali_def', function () {
     const $blocks = $('.quali_def');
-    if ($blocks.length <= 4) return; // never drop below 4
-
+    if ($blocks.length <= 4) return; // keep min 4
     $(this).closest('.quali_def').remove();
     updateQualiButtons();
   });
@@ -74,7 +71,7 @@ $(document).ready(function () {
     const $blocks = $('.quali_def');
     const total = $blocks.length;
 
-    // enforce minimum of 4 (safety)
+    // enforce minimum 4
     if (total < 4) {
       for (let i = total; i < 4; i++) {
         const $clone = $('.quali_def').first().clone(true, true);
@@ -87,19 +84,19 @@ $(document).ready(function () {
     $all.each(function (index) {
       const $wrap = $(this);
 
-      // strip any old fiche_qualiteX classes
+      // strip old fiche_qualiteX classes
       $wrap.removeClass(function (i, cn) {
         return (cn.match(/(^|\s)fiche_qualite\d+/g) || []).join(' ');
       });
       $wrap.addClass('fiche_qualite' + index);
 
-      // ensure 1 input, rename it
+      // ensure 1 input, re-id/name
       const $inp = $wrap.find('input[type="text"]').first();
       if ($inp.length) {
         $inp.attr({ id: 'quali_def' + index, name: 'quali_def_' + index });
       }
 
-      // rebuild buttons: always +; add − only if total >= 5
+      // rebuild buttons: always "+"; add "−" only if total >= 5
       $wrap.find('.add_quali_def, .remove_quali_def').remove();
       $wrap.append('<div class="btn add_quali_def">+</div>');
       if ($all.length >= 5) {
@@ -108,9 +105,9 @@ $(document).ready(function () {
     });
   }
 
-  // ===========================
-  // CHRONO LOGIC (unlimited)
-  // ===========================
+  /* ===========================
+   * CHRONO LOGIC (unlimited)
+   * =========================== */
   $(document).on('click', '.chrono .add_chrono', function () {
     const $currentBlock = $(this).closest('.chrono');
     const $newBlock = $currentBlock.clone(true, true);
@@ -159,6 +156,7 @@ $(document).ready(function () {
         name: 'chrono_' + index
       });
 
+      // ensure buttons exist
       if ($this.find('.add_chrono').length === 0) {
         $this.append('<div class="btn add_chrono"> + </div>');
       }
@@ -169,15 +167,14 @@ $(document).ready(function () {
 
     // First non-final block can't be removed
     $blocks.first().find('.remove_chrono').hide();
+    // Final block never shows buttons
     $('.chrono_final .add_chrono, .chrono_final .remove_chrono').hide();
   }
 
-  updateChronoButtons();
-
-  // ===========================
-  // COMPILATION_FACTS (unlimited)
-  // Always show "+"; show "−" on all but the first
-  // ===========================
+  /* ===========================
+   * COMPILATION_FACTS (unlimited)
+   * Always show "+"; show "−" on all but the first
+   * =========================== */
   $(document).on('click', '.compilation_facts .add_fact', function () {
     const $currentBlock = $(this).closest('.compilation_facts');
     const $newBlock = $currentBlock.clone(true, true);
@@ -217,12 +214,10 @@ $(document).ready(function () {
     });
   }
 
-  updateFactsButtons();
-
-  // ===========================
-  // COMPILATION_SIGNES (unlimited)
-  // Always show "+"; show "−" on all but the first
-  // ===========================
+  /* ===========================
+   * COMPILATION_SIGNES (unlimited)
+   * Always show "+"; show "−" on all but the first
+   * =========================== */
   $(document).on('click', '.compilation_signes .add_signe', function () {
     const $currentBlock = $(this).closest('.compilation_signes');
     const $newBlock = $currentBlock.clone(true, true);
@@ -262,5 +257,25 @@ $(document).ready(function () {
     });
   }
 
+  /* ===========================
+   * INITIAL & GLOBAL RECOMPUTE
+   * =========================== */
+  updateQualiButtons();
+  updateChronoButtons();
+  updateFactsButtons();
   updateSignesButtons();
+
+  // Expose updaters so the hydration script can call them:
+  window.updateQualiButtons  = updateQualiButtons;
+  window.updateChronoButtons = updateChronoButtons;
+  window.updateFactsButtons  = updateFactsButtons;
+  window.updateSignesButtons = updateSignesButtons;
+
+  // Also listen for a custom event fired after hydration
+  $(document).on('form:rehydrated', function(){
+    updateQualiButtons();
+    updateChronoButtons();
+    updateFactsButtons();
+    updateSignesButtons();
+  });
 });
