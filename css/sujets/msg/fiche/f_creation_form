@@ -3,6 +3,7 @@
     --cbl: #000;
     --cff: #fff;
 
+    --c14: #141414;
     --c98: #989898;
     --c69: #696969;
     --c50: #505050;
@@ -591,7 +592,7 @@ textarea.chrono_size{
 input[type="button"]:hover,
 .btn:hover {
     cursor: pointer;
-    background-color: var(--cff);
+    background-color: var(--c14);
     color: #656565;
 }
 
