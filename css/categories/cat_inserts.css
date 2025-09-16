@@ -69,7 +69,11 @@ a.accpreslink1{
 #c-pres{
     grid-area:c!important;
     border-radius:0px 4px 4px 0px;
-    background-image:url('https://i.imgur.com/2Uu9lcE.png');
+    background-image:url('https://i.imgur.com/tIvXBIv.png');
+}
+
+#c-pres:hover{
+    background-image:url('https://i.imgur.com/TV6idxb.png');
 }
 
 .cpres{   
@@ -148,16 +152,16 @@ a.accpreslink1{
 .cpres .accpreslink2 .presbtnacc{
 	padding-top:90px;
   	font-size:60px;
-	opacity:0;
+	opacity:1;
   	height:290px!important;
   	margin-top:1px;
   	margin-left:-.5px;
   	transition: .5s;
   	animation-timing-function:ease-in-out;
-  	background-image:url('https://i.imgur.com/sdyWADt.png');
-  	background-repeat:no-repeat;
+  	/*background-image:url('https://i.imgur.com/sdyWADt.png');
+  	background-repeat:no-repeat;*/
 }
 
-#c-pres:hover .presbtnacc{
+/*#c-pres:hover .presbtnacc{
   	opacity:1;
-}
+}*/
