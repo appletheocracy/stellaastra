@@ -160,6 +160,7 @@ body{
 
 .entete_groupe input[type="button"]#g_vampires:hover{
     border-color:var(--cvam);
+    background-color:var(--c14)!important;
 }
 
 .entete_groupe input[type="button"]#g_chimeres{
@@ -169,6 +170,7 @@ body{
 
 .entete_groupe input[type="button"]#g_chimeres:hover{
     border-color:var(--chim);
+    background-color:var(--c14)!important;
 }
 
 .entete_groupe input[type="button"]#g_humains{
@@ -179,6 +181,7 @@ body{
 
 .entete_groupe input[type="button"]#g_humains:hover{
     border-color:var(--chum);
+    background-color:var(--c14)!important;
 }
 
 .entete_groupe input[type="button"]#g_hybrides{
@@ -188,6 +191,7 @@ body{
 }
 .entete_groupe input[type="button"]#g_hybrides:hover{
     border-color:var(--chyb);
+    background-color:var(--c14)!important;
 }
 
 .label_title_desc{
@@ -591,7 +595,7 @@ textarea.chrono_size{
 input[type="button"]:hover,
 .btn:hover {
     cursor: pointer;
-    background-color: var(--cff);
+    background-color: var(--c14);
     color: #656565;
 }
 
