@@ -11,14 +11,9 @@
 }
 
 #c1, #c2, #c3, #c4, #c5, #c6, #c7, #district-rp{
-    width:100%;
-    border-radius:4px;
-    background-color: var(--c14);
-    background-image:url('https://i.imgur.com/5LV0NBa.png');
-    background-repeat:no-repeat;
-    background-position: center top;
-    padding:15px;
-    margin-bottom:30px;
+    background-image:url('https://i.imgur.com/5LV0NBa.png')!important;
+    background-repeat:no-repeat!important;
+    background-position: center top!important;
 }
 
 .category{
