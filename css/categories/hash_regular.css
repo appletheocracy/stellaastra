@@ -13,7 +13,9 @@
 #c1, #c2, #c3, #c4, #c5, #c6, #c7, #district-rp{
     background-image:url('https://i.imgur.com/5LV0NBa.png')!important;
     background-repeat:no-repeat!important;
+	background-color:transparent!important;
     background-position: center top!important;
+	
 }
 
 .category{
