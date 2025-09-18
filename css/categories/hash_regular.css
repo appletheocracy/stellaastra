@@ -10,11 +10,17 @@
     color:var(--cff);
 }
 
+#c1, #c2, #c3, #c4, #c5, #c6, #c7, #district-rp{
+    background-image:url('https://i.imgur.com/5LV0NBa.png')!important;
+    background-repeat:no-repeat!important;
+    background-position: center top!important;
+}
+
 .category{
     width:100%;
     border-radius:4px;
     background-color: var(--c14);
-    background-image:url('https://i.imgur.com/OB4VLpM.png');
+    background-image:none!important;
     background-repeat:no-repeat;
     background-position: center top;
     padding:15px;
