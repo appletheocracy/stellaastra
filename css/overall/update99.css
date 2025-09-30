@@ -1,0 +1,127 @@
+#c1{
+  margin-top:27px!important;
+}
+
+#f7, .topic-actions, forumbg{
+  margin-bottom:0px!important;
+}
+
+.e9, .e10, .e11{
+  background-color:var(--chum)!important;
+}
+
+.e9:hover, .e10:hover, .e11:hover{
+  background-color:var(--cfond)!important;
+}
+
+.parent_etiq div{
+  height:30px!important;
+}
+
+.etiquettes:hover, .etiquettes.e0:hover{
+  background-color:var(--cfond)!important;
+}
+
+.etiquettes{
+  color:var(--cff);
+  background-color:var(--cdeu);
+  padding:6px 10px 5px 5px;
+  margin:10px;
+  height:30px;
+  border-radius:4px;
+  transition: 0.5s;
+  animation-timing-function:ease-in-out;
+  text-decoration:none;
+}
+
+.etiquettes.e_checked{
+  background-color:var(--cvam)!important;
+}
+
+a.btn_suj_formulaire{
+  color:var(--cff);
+  height:38.3px;
+  background-color:var(--cdeu);
+  padding:10px;
+  border-radius:4px;
+  display:flex;
+  flex-direction:row;
+  text-align:center;
+  width:165px;
+  font-size:16px;
+}
+
+a.btn_suj_formulaire:hover{
+  background-color:var(--chim);
+}
+
+a.btn_suj_formulaire ion-icon{
+  font-size:18px;
+  align-self: center;
+}
+
+#f38 .c-focat_list:first-of-type{
+  border-radius:4px 0px 0px 4px!important;
+}
+
+#f38 .c-focat_list{
+  border-radius:0px 4px 4px 0px;
+}
+
+.sujTree a.nav{
+  margin:6px 0px 0px 0px;
+}
+
+.mainBGN{
+  background-color:var(--c14);
+  border-radius:4px!important;
+  margin:30px 0px;
+  padding-bottom:15px;
+  padding-top:-3px;
+  background-image:url('https://i.imgur.com/5LV0NBa.png');
+  background-repeat:no-repeat;
+}
+
+.b_cat_radius{
+  border-radius:4px 4px 0px 0px!important;
+}
+
+.cs-sub-titre{
+  color:var(--rg255)!important;
+}
+
+.post-head .infos-posteur.field_mesure{
+  width:100px!important;
+}
+
+a.accpreslink2{
+  border:none!important;
+  background-color:transparent!important;
+  margin:0px!important;
+  padding:0px!important;
+}
+
+#c2 .c-focat_list, #c5 .c-focat_list, #c6 .c-focat_list, #c7 .c-focat_list, #c13 .c-focat_list{
+  width:547.5!important; 	
+}
+
+#c2 .c-focat_titre, #c6 .c-focat_titre, #c6 .c-focat_titre, #c7 .c-focat_titre, #c13 .c-focat_titre,
+#c2 .c-for-suj, #c5 .c-for-suj, #c6 .c-for-suj, #c7 .c-for-suj, #c13 .c-for-suj {
+  width:537.5!important; 	
+}
+
+#c2 .c-for_desc, #c5 .c-for_desc, #c6 .c-for_desc, #c7 .c-for_desc, #c13 .c-for_desc,
+#c2 .c-for_info, #c5 .c-for_info, #c6 .c-for_info, #c7 .c-for_info, #c13 .c-for_info{
+  width:517.5!important; 	
+}
+
+#c2 .c-for_last, #c5 .c-for_last, #c6 .c-for_last, #c7 .c-for_last, #c13 .c-for_last{
+  width:507.5!important; 	
+}
+
+#c3 .c-focat_titre{
+  width:350px!important;
+  display:flex!important;
+  flex-direction:row!important;
+  gap:10px!important;
+}
