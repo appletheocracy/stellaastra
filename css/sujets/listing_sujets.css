@@ -1,0 +1,323 @@
+.sub-header-path a.nav,
+.sub-header-buttons,
+.page-title a,
+.a-title-page,
+.color-groups,
+.l_quand,
+.l-ttle, .l_s-create,
+.catego_titre h2{
+	font-family: "Staatliches", sans-serif!important;
+	font-weight: 400!important;
+	font-style: normal!important;
+}
+
+.page-title, .catego_titre h2{
+  width:100%;
+  font-size:65px;
+  text-align:center;
+  color:var(--cff);
+  text-shadow: var(--c98) 3px 0px 0px, var(--c98) 2.83487px 0.981584px 0px, var(--c98) 2.35766px 1.85511px 0px, var(--c98) 1.62091px 2.52441px 0px, var(--c98) 0.705713px 2.91581px 0px, var(--c98) -0.287171px 2.98622px 0px, var(--c98) -1.24844px 2.72789px 0px, var(--c98) -2.07227px 2.16926px 0px, var(--c98) -2.66798px 1.37182px 0px, var(--c98) -2.96998px 0.42336px 0px, var(--c98) -2.94502px -0.571704px 0px, var(--c98) -2.59586px -1.50383px 0px, var(--c98) -1.96093px -2.27041px 0px, var(--c98) -1.11013px -2.78704px 0px, var(--c98) -0.137119px -2.99686px 0px, var(--c98) 0.850987px -2.87677px 0px, var(--c98) 1.74541px -2.43999px 0px, var(--c98) 2.44769px -1.73459px 0px, var(--c98) 2.88051px -0.838247px 0px;
+  margin-top:25px;
+}
+
+.page-title a{
+  color:var(--cff);
+}
+
+#wrap{
+  padding-top:30px;
+}
+
+.mainBGN{
+  background-color:var(--c14);
+  border-radius:4px!important;
+  background-image:url('https://i.imgur.com/5LV0NBa.png');
+  background-repeat:no-repeat;
+  width:1140px;
+  height:auto;
+  display: flow-root;
+  margin:0 auto;
+}
+
+.l_sujet-subtitre{
+  display:flex;
+  flex-direction:row;
+  padding:10px 15px;
+  height:58.3px;
+  background-color:var(--cfond);
+  background-image:url('https://i.imgur.com/K04pvSF.png');
+}
+
+.sub-header-path{
+  color:var(--cff)!important;
+  align-self: center;
+  width:925px;
+}
+
+.sub-header-path a.nav{
+    color:var(--cff)!important;
+    font-size:20px;
+}
+
+.l_sujet-subtitre a{
+  color:var(--cff)!important;
+}
+
+.sub-header-buttons{
+  align-self: center;
+  background-color:var(--cdeu);
+  border-radius:4px;
+  height:38.3px;
+  width:185px;
+  padding:10px 5px;
+}
+
+.a-title-page{
+  font-size:45px;
+  width:1110px;
+  margin:0 auto;
+  color:var(--cofwhite);
+  margin-bottom:-14px;
+}
+
+.l_sujets_blocs{
+  width:1110px;
+  display:flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  margin:15px;
+  gap:15px;
+}
+
+.l_sujets_blocs .forum_row{
+  background-color:var(--cfondpale);
+  background: linear-gradient(0deg,rgba(248, 248, 248, 0) 0%, rgba(248, 248, 248, 1) 20%);
+  width:1110px;
+  height:110px;
+  border-radius:4px;
+  display: grid; 
+  grid-template-columns: 803px 292px; 
+  grid-template-rows: 39px 21px 50px; 
+  gap: 0px 5px; 
+  grid-template-areas: 
+    "a b"
+    "a c"
+    "d d"; 
+  justify-content: start; 
+  align-content: start; 
+  justify-items: start; 
+  align-items: center; 
+}
+
+.dterm{
+  width:292px;
+  height:39px;
+}
+
+.l_s-post{
+  background-color:var(--cmem);
+  height:50px;
+  width:1110px;
+  border-radius:0px 0px 4px 4px;
+  grid-area:d;
+  color:var(--cff);
+  padding:5px 10px;
+  display:flex;
+  flex-direction: row;
+}
+
+.l_posteur{
+  width:930px;
+}
+
+.color-groups{
+  font-size:18px;
+
+}
+
+.deus{
+  color:var(--cdeu);
+}
+
+.l_time-views{
+  display:flex;
+  gap:10px;
+}
+
+.pagitop{
+  width:160px;
+  padding:5px;
+}
+
+.pagitop span{
+  display:flex;
+  flex-direction:row;
+  gap:5px;
+  width:160px;
+  align-content: flex-end
+}
+
+.pagitop a .l_pagi{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width:30px;
+  height:30px;
+  color:var(--c14);
+  background-color:rgba(255,255,255,.7);  
+  font-weight:bold;
+  border-radius: 4px;
+}
+
+.l_s-ttle{
+  grid-area:a;
+  height:60px;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  width:803x;
+  margin-left:10px;
+}
+
+.dterm{
+  width:292px;
+  height:39px;
+  margin-right:10px;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.l_s-create{
+  width:292px;
+  text-align:right;
+  grid-area:c;
+}
+
+.topic-author strong,
+.l_lastmsg strong{
+  font-weight:400;
+}
+
+.l_s-post.c-deus{
+  background-color:var(--cdeu)!important;
+}
+
+.l_s-post.c-pnj{
+  background-color:var(--cpnj);
+}
+
+.l_s-post.c-memb{
+  background-color:var(--cmem);
+}
+
+.l_s-post.c-vamp{
+  background-color:var(--cvam);
+}
+
+.l_s-post.c-chim{
+  background-color:var(--chim);
+}
+
+.c-chim .l_lastmsg{
+  color:var(--c14);
+}
+
+.c-chim .l_time-views{
+  color:var(--c14);
+}
+
+.l_s-post.c-huma{
+  background-color:var(--chum);
+}
+
+.l_s-post.c-hybr{
+  background-color:var(--chyb);
+}
+
+.forum_row[data-idforum^="/t51-"],
+.forum_row[data-idforum^="/t2-"]{
+  width:547.25px;
+  grid-template-columns: 332.25px 200px; 
+  grid-template-rows: 39px 21px 50px;
+}
+
+.forum_row[data-idforum^="/t51-"] .l_s-post,
+.forum_row[data-idforum^="/t2-"] .l_s-post{
+  width:547.25px!important;
+}
+.forum_row[data-idforum^="/t51-"] .l_posteur,
+.forum_row[data-idforum^="/t2-"] .l_posteur{
+  width:547.25px;
+}
+
+
+.forum_row[data-idforum^="/t51-"] .dterm,
+.forum_row[data-idforum^="/t2-"] .dterm{
+  width:200px!important;
+}
+
+.forum_row[data-idforum^="/t51-"] .l_s-create,
+.forum_row[data-idforum^="/t2-"] .l_s-create{
+  width:200px!important;
+}
+
+.forum_row[data-idforum^="/t51-"] .l_s-create,
+.forum_row[data-idforum^="/t2-"] .l_s-create{
+  width:200px!important;
+}
+
+.forum_row[data-idforum^="/t51-"] .l_link_ttle,
+.forum_row[data-idforum^="/t2-"] .l_link_ttle,
+.forum_row[data-idforum^="/t51-"] .l-desc,
+.forum_row[data-idforum^="/t2-"] .l-desc{
+  width:312.25!important;
+}
+
+.forum_row[data-idforum^="/t51-"] .l_lastmsg,
+.forum_row[data-idforum^="/t51-"] .l_quand,
+.forum_row[data-idforum^="/t51-"] .l_stat span:last-of-type{
+  display:none;
+}
+
+.l_stat{
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  gap:10px;
+}
+
+.l_stat ion-icon{
+  position:relative;
+  top:2px;
+}
+
+.l_link_ttle, .l-desc{
+  width:783px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.l-ttle{
+  font-size:25px;
+  display:flex;
+  flex-direction:row;
+}
+
+.l-ttle a .l_link_ttle{
+  color:var(--c14);
+}
+
+.l-ttle a:hover .l_link_ttle{
+  color:var(--cvam);
+}
+
+.l-ttle .icon{
+  width:22px;
+  height:27px;
+  background-repeat:no-repeat;
+  background-size: cover;
+  margin-right:5px;
+}
+
+
