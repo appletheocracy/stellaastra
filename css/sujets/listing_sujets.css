@@ -1,17 +1,4 @@
-.sub-header-path a.nav,
-.sub-header-buttons,
-.page-title a,
-.a-title-page,
-.color-groups,
-.l_quand,
-.l-ttle, .l_s-create,
-.catego_titre h2{
-	font-family: "Staatliches", sans-serif!important;
-	font-weight: 400!important;
-	font-style: normal!important;
-}
-
-.page-title, .catego_titre h2{
+.page-title a, .catego_titre h2{
   width:100%;
   font-size:65px;
   text-align:center;
@@ -61,15 +48,6 @@
 
 .l_sujet-subtitre a{
   color:var(--cff)!important;
-}
-
-.sub-header-buttons{
-  align-self: center;
-  background-color:var(--cdeu);
-  border-radius:4px;
-  height:38.3px;
-  width:185px;
-  padding:10px 5px;
 }
 
 .a-title-page{
