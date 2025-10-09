@@ -1,0 +1,69 @@
+.overall-menu-ctn{
+    width:281px;
+    max-height:calc(100vh - 2rem);
+    position:sticky;
+    top:30px;
+    flex-shrink: 0;
+    z-index:10;
+    margin-top:30px;
+}
+
+.overall-sub-menu{
+    border-image: linear-gradient(var(--cdeu) 0%, var(--cacc) 100%) 1!important;
+    border-width:1px;
+    border-style:solid;
+}
+
+.overall_menu{
+    display: grid; 
+    grid-template-columns: 1fr 6px; 
+    grid-template-rows: 100%; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    ". ."; 
+    justify-content: start; 
+    align-content: start; 
+    justify-items: start; 
+    align-items: flex-start; 
+    align-self: flex-start;
+    height:auto;
+    width: 281px;
+    background-color:var(--cfond);
+}
+
+.overall-sub-titre{
+    display:flex;
+    flex-direction: row;
+    align-content: center;
+    padding:5px 10px;
+    color:var(--cff);
+    font-size:16px;
+    font-weight: 600;
+}
+
+.overall-sub-titre ion-icon{
+    margin:0px 5px 0px 3px;
+    color:var(--cff);
+    font-size:18px;
+}
+
+.overall-sub-titre.m-select{
+    color:var(--cff);    
+    background-color: var(--cdeu)
+}
+.overall-sub-titre.r-select ion-icon{
+    color:var(--cff);
+}
+
+.overall-sub-titre:hover{
+    letter-spacing:.5px;
+    background-color:rgba(18, 18, 18, .7);
+}
+
+.overall-sub-titre.m-select:hover{
+    background-color:rgba(58, 114, 226, 0.5)
+}
+
+.overall-sub-titre.m-select:hover ion-icon{
+    color:var(--cff)!important;
+}
