@@ -93,16 +93,11 @@ a.mainmenu{
     justify-items: start; 
     align-items: center; 
 }
-
-
-
 a.mainmenu ion-icon{
     position:relative;
     top:2px;
     margin:0px 10px;
 }
-
-
 
 a.mainmenu .ligne-menu{
     width:20px;
@@ -125,7 +120,6 @@ a.mainmenu:hover .ligne{
     width:20px;
 }
 
-
 a.mainmenu.select{
     color:var(--cff);    
     background-color: var(--cdeu)
@@ -142,13 +136,4 @@ a.mainmenu.select:hover{
 a.mainmenu.select:hover .ligne{
     background-color:var(--cff)!important;
     width:20px!important;
-}
-
-.rules{
-    max-width:875px;
-    min-width:500px;
-    height:100vh;
-    margin:0 auto;
-    display:flex;
-    align-items:center;
 }
