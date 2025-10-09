@@ -1,3 +1,12 @@
+.rules{
+    width:100%;
+    height:100vh;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+}
+
 .rule-entete{
     background: #3A72E2;
     background: linear-gradient(0deg, rgba(58, 114, 226, 1) 0%, rgba(0, 222, 185, 1) 100%);
@@ -105,16 +114,6 @@
     border-bottom-right-radius: 4px;
     background: var(--cdeu);
     background: linear-gradient(0deg, rgba(58, 114, 226, 1) 0%, rgba(0, 222, 185, 1) 100%);
-}
-
-.rules{
-    align-self: stretch; /* Ensures flex child fills parent */
-    margin-left:0px;
-    margin-right:0px;
-    width: 100%;
-    max-width: none;
-    flex-direction:column;
-    display:flex;
 }
 
 .rules-ctn{
