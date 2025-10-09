@@ -28,7 +28,7 @@
     border-top-left-radius: 4px;
 }
 
-.r-sub-titre{
+/*.r-sub-titre{
     display:flex;
     flex-direction: row;
     align-content: center;
@@ -96,7 +96,7 @@
     border-image: linear-gradient(var(--cdeu) 0%, var(--cacc) 100%) 1!important;
     border-width:1px;
     border-style:solid;
-}
+}*/
 
 .bande_d-inner{
     width:6px;
