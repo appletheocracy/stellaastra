@@ -1,0 +1,104 @@
+.gen-msg-ctn{    
+    width:820px;
+    border-radius:4px;
+    margin:0 auto;
+    background: #3A72E2;
+    background: linear-gradient(0deg, rgba(58, 114, 226, 1) 0%, rgba(0, 222, 185, 1) 100%);
+}
+
+.gen-msg-cover{
+    width:820px;
+    border-radius:4px;
+    margin:0 auto;
+    display:flex;
+    flex-direction: column;
+}
+
+.gen-msg-title{
+    font-size:35px;
+    padding:0px 10px;
+    justify-content:flex-end;
+    color:var(--cofwhite);
+    display:flex;
+    margin:10px 10px 2px 10px;
+    gap:10px;
+    flex-direction: row;
+    height:50px;
+    align-items: center;
+    border-radius:4px;
+    align-self:flex-end;
+}
+
+.gen-msg-title span{
+    font-family: "Staatliches", sans-serif!important;
+	font-weight: 400!important;
+	font-style: normal!important;
+    font-size:40px;
+    align-self:center;
+}
+
+.gen-msg-title ion-icon{
+    align-self:center;
+}
+
+.gen-msg{
+    width:820px;
+    padding:0px 10px 10px 10px;    
+    display:flex;
+    flex-direction:row;
+    border-radius:4px;
+}
+.gen-msg-empty{
+    width:0px;
+    height:100%;
+}
+
+.gen-msg-text{
+    border-radius:4px;
+    width:800px;
+    background-color:var(--cofwhite);
+    padding:15px 10px;
+}
+
+.valide .gen-msg-cover{
+    background-image:url('https://i.imgur.com/CmClLjR.png');
+}
+
+.quepassa .gen-msg-cover{
+    background-image:url('https://i.imgur.com/JVzVRA4.png');
+}
+
+.refuse .gen-msg-cover{
+    background-image:url('https://i.imgur.com/SOAhjpa.png');
+}
+
+.archive .gen-msg-cover{
+    background-image:url('https://i.imgur.com/8LzDVWl.png');
+}
+
+.gen-msg-ctn.quepassa{
+    background: #3A72E2;
+    background: linear-gradient(0deg, rgba(58, 114, 226, 1) 0%, rgba(20, 20, 20, 1) 100%);
+}
+
+.gen-msg-ctn.refuse, .gen-msg-ctn.archive{
+    background: #828282;
+    background: linear-gradient(0deg, rgba(130, 130, 130, 1) 0%, rgba(20, 20, 20, 1) 100%);
+}
+
+.refuse .gen-msg-title, .archive .gen-msg-title, .valide .gen-msg-title, .quepassa .gen-msg-title{
+    background-color:var(--cofwhite);
+    color:var(--cfond);
+    border-radius:4px 4px 0px 0px;
+}
+
+.refuse .gen-msg-text, .archive .gen-msg-text, .valide .gen-msg-text, .quepassa .gen-msg-text{
+    border-radius:4px 4px 0px 0px;
+    width:790px;
+}
+
+.refuse .gen-msg-empty, .archive .gen-msg-empty, .valide .gen-msg-empty, .quepassa .gen-msg-empty{
+    width:100px;
+    height:100%;
+}
+
