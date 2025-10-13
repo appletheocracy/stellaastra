@@ -93,7 +93,7 @@
 }
 
 .refuse .gen-msg-text, .archive .gen-msg-text, .valide .gen-msg-text, .quepassa .gen-msg-text{
-    border-radius:4px 4px 0px 0px;
+    border-radius:4px 0px 4px 4px;
     width:790px;
 }
 
