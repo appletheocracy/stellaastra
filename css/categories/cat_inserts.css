@@ -21,7 +21,7 @@
 }
 
 .lorelinks a{
-    border:1px solid #f02938;
+    border:1px solid #3d79e5;
     background-color:rgba(18, 18, 18, .7);
     padding:10px;
     text-transform: uppercase;
@@ -32,7 +32,7 @@
 
 
 .lorelinks a:hover{
-    color: #f02938;
+    color: var(--chim);
     background-color:rgba(18, 18, 18, 1);
 }
 
