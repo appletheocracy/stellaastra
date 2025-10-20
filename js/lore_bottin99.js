@@ -1,6 +1,6 @@
 /* === Lorebook data builders: Avatars (#b-ava) & Jobs (#b-job) =================
  * No creation/wrapping of .the_overall. We render directly into the existing
- * #b-ava .the_overall and #b-job .the_overall.
+ * #b-ava.the_overall and #b-job.the_overall.
  * ============================================================================ */
 
 (function ($) {
@@ -110,7 +110,7 @@
       });
 
       // ----- AVATAR SECTION -----
-      const $mountAva = $('#b-ava .the_overall');
+      const $mountAva = $('#b-ava.the_overall');
       if ($mountAva.length) {
         const avatarEntries = results
           .filter(r => r.featOg && r.artistOg)
@@ -119,7 +119,7 @@
       }
 
       // ----- JOB SECTION -----
-      const $mountJob = $('#b-job .the_overall');
+      const $mountJob = $('#b-job.the_overall');
       if ($mountJob.length) {
         const jobEntries = results
           .filter(r => r.jobOg)
