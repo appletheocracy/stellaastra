@@ -1,9 +1,9 @@
-#b-ava .avatarlisting{
+avatarlisting{
   display:flex;
   flex-direction:row;
 }
 
-#b-ava .avatarlisting span{
+.avatarlisting span{
   font-weight:400;
   text-transform:uppercase;
 }
