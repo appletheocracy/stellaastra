@@ -116,6 +116,11 @@ a.mainmenu .ligne{
     background-color:rgba(18, 18, 18, .7);
 }
 
+.mainmenu.diff:hover{
+    letter-spacing:.2px;
+    background-color:rgba(18, 18, 18, .7);
+}
+
 a.mainmenu:hover .ligne{
     width:20px;
 }
