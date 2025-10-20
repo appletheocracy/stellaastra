@@ -1,9 +1,9 @@
-avatarlisting{
+.avatarlisting, .joblisting{
   display:flex;
   flex-direction:row;
 }
 
-.avatarlisting span{
+.avatarlisting span, .joblisting span{
   font-weight:400;
   text-transform:uppercase;
 }
