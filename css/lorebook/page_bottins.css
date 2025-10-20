@@ -1,9 +1,14 @@
 .avatarlisting, .joblisting{
   display:flex;
   flex-direction:row;
+  gap:10px;
 }
 
 .avatarlisting span, .joblisting span{
-  font-weight:400;
+  font-weight:bold;
   text-transform:uppercase;
+}
+
+.feat-by{
+    font-weight:bold;
 }
