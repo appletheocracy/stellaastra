@@ -1,16 +1,17 @@
-/* === Lorebook data builders: Avatars (#b-ava) & Jobs (#b-job) ================
+/* === Lorebook builders: Avatars (#b-ava) & Jobs (#b-job) ======================
  * Page: https://stella-cinis.forumactif.com/h3-lorebook
  *
- * Builds alphabetical listings using data from /u# profiles (except u1,u2,u3)
- *   - field_id-8 → feat
- *   - field_id1  → artist
- *   - field_id-11 → job
- *   - h1 span → username
+ * Collects user info from /u# (except u1,u2,u3)
+ *   - #field_id-8   → Feat
+ *   - #field_id1    → Artist
+ *   - #field_id-11  → Job
+ *   - h1 span       → Username (with color)
  *
- * Avatars:  in #b-ava .the_overall
- * Jobs:     in #b-job .the_overall
+ * Builds alphabetical lists:
+ *   - Avatars → inside #b-ava .the_overall (after .overall-ent.r-droite)
+ *   - Jobs    → inside #b-job  .the_overall (after .overall-ent)
  *
- * NO creation of .the_overall — assumes it already exists in the HTML.
+ * NO creation or wrapping of .the_overall — uses existing HTML.
  * ============================================================================ */
 
 (function ($) {
@@ -40,7 +41,7 @@
       return $el;
     };
 
-    /* ===== Profile Parser ===== */
+    /* ===== Parse Each Profile ===== */
     function parseProfile(html) {
       const $dom = $('<div>').append($.parseHTML(html));
       const $cp = $dom.find('#cp-main');
@@ -50,9 +51,9 @@
       if (!$h1Span.length) return null;
       stripStrongKeepContent($h1Span);
 
-      const featOg = $cp.find('#field_id-8 .field_uneditable').first().text().trim();
+      const featOg   = $cp.find('#field_id-8 .field_uneditable').first().text().trim();
       const artistOg = $cp.find('#field_id1 .field_uneditable').first().text().trim();
-      const jobOg = $cp.find('#field_id-11 .field_uneditable').first().text().trim();
+      const jobOg    = $cp.find('#field_id-11 .field_uneditable').first().text().trim();
 
       if (!featOg && !artistOg && !jobOg) return null;
 
@@ -110,7 +111,7 @@
       return $c[0];
     }
 
-    /* ===== Fetch Loop ===== */
+    /* ===== Fetch & Process ===== */
     const results = [];
     let nextId = START_ID;
     let active = 0;
@@ -123,20 +124,20 @@
         r._jobKey = norm(r.jobOg || '');
       });
 
-      // ===== AVATARS =====
-      const $mountAva = $('#b-ava .the_overall');
-      if ($mountAva.length) {
+      /* === AVATARS === */
+      const $avaOverall = $('#b-ava .the_overall');
+      if ($avaOverall.length) {
         const avatarEntries = results.filter(r => r.featOg && r.artistOg);
         avatarEntries.sort((a, b) => a._featKey.localeCompare(b._featKey));
-        renderGrouped(avatarEntries, e => e.featOg, makeAvatarCard, $mountAva);
+        renderGrouped(avatarEntries, e => e.featOg, makeAvatarCard, $avaOverall);
       }
 
-      // ===== JOBS =====
-      const $mountJob = $('#b-job .the_overall');
-      if ($mountJob.length) {
+      /* === JOBS === */
+      const $jobOverall = $('#b-job .the_overall');
+      if ($jobOverall.length) {
         const jobEntries = results.filter(r => r.jobOg);
         jobEntries.sort((a, b) => a._jobKey.localeCompare(b._jobKey));
-        renderGrouped(jobEntries, e => e.jobOg, makeJobCard, $mountJob);
+        renderGrouped(jobEntries, e => e.jobOg, makeJobCard, $jobOverall);
       }
     }
 
