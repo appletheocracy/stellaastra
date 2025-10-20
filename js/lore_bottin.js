@@ -1,28 +1,29 @@
-/* === Lorebook data builders: Avatars (#b-ava) & Jobs (#b-job) =================
+/* === Lorebook data builders: Avatars (#b-ava) & Jobs (#b-job) ================
  * Page: https://stella-cinis.forumactif.com/h3-lorebook
  *
- * Collects user data from /u# profiles (except u1,u2,u3):
- *   - field_id-8 (feat)
- *   - field_id1  (artist)
- *   - field_id-11 (job)
- *   - h1 span (username)
+ * Builds alphabetical listings using data from /u# profiles (except u1,u2,u3)
+ *   - field_id-8 → feat
+ *   - field_id1  → artist
+ *   - field_id-11 → job
+ *   - h1 span → username
  *
- * Builds two alphabetical lists:
- *   1) In #b-ava → avatar/artist/user (grouped by feat)
- *   2) In #b-job → job + username (grouped by job)
+ * Avatars:  in #b-ava .the_overall
+ * Jobs:     in #b-job .the_overall
+ *
+ * NO creation of .the_overall — assumes it already exists in the HTML.
  * ============================================================================ */
 
 (function ($) {
   $(function () {
 
-    /* ===================== CONFIG ===================== */
+    /* ===== Config ===== */
     const EXCLUDE = new Set([1, 2, 3]);
     const MAX_U = 500;
     const START_ID = 1;
     const CONCURRENCY = 4;
     const STOP_AFTER_MISSES = 50;
 
-    /* ===================== UTILS ===================== */
+    /* ===== Utils ===== */
     const norm = (s) => (s || '').toString().trim().normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '').toLowerCase();
 
@@ -39,18 +40,7 @@
       return $el;
     };
 
-    function ensureMount($container) {
-      const $ent = $container.find('.overall-ent.r-droite').first();
-      let $the = $container.find('.the_overall').first();
-      if (!$the.length) {
-        $the = $('<div class="the_overall"></div>');
-        if ($ent.length) $ent.after($the);
-        else $container.append($the);
-      }
-      return $the;
-    }
-
-    /* ===================== PARSER ===================== */
+    /* ===== Profile Parser ===== */
     function parseProfile(html) {
       const $dom = $('<div>').append($.parseHTML(html));
       const $cp = $dom.find('#cp-main');
@@ -64,7 +54,6 @@
       const artistOg = $cp.find('#field_id1 .field_uneditable').first().text().trim();
       const jobOg = $cp.find('#field_id-11 .field_uneditable').first().text().trim();
 
-      // Accept entry only if we have username + at least one data field
       if (!featOg && !artistOg && !jobOg) return null;
 
       return {
@@ -75,7 +64,7 @@
       };
     }
 
-    /* ===================== RENDERERS ===================== */
+    /* ===== Render Helpers ===== */
     function renderGrouped(entries, groupKey, builderFn, $mount) {
       const groups = new Map();
       entries.forEach(e => {
@@ -121,7 +110,7 @@
       return $c[0];
     }
 
-    /* ===================== FETCH + PROCESS ===================== */
+    /* ===== Fetch Loop ===== */
     const results = [];
     let nextId = START_ID;
     let active = 0;
@@ -134,19 +123,17 @@
         r._jobKey = norm(r.jobOg || '');
       });
 
-      // ----- AVATAR SECTION -----
-      const $bAva = $('#b-ava');
-      if ($bAva.length) {
-        const $mountAva = ensureMount($bAva);
+      // ===== AVATARS =====
+      const $mountAva = $('#b-ava .the_overall');
+      if ($mountAva.length) {
         const avatarEntries = results.filter(r => r.featOg && r.artistOg);
         avatarEntries.sort((a, b) => a._featKey.localeCompare(b._featKey));
         renderGrouped(avatarEntries, e => e.featOg, makeAvatarCard, $mountAva);
       }
 
-      // ----- JOB SECTION -----
-      const $bJob = $('#b-job');
-      if ($bJob.length) {
-        const $mountJob = ensureMount($bJob);
+      // ===== JOBS =====
+      const $mountJob = $('#b-job .the_overall');
+      if ($mountJob.length) {
         const jobEntries = results.filter(r => r.jobOg);
         jobEntries.sort((a, b) => a._jobKey.localeCompare(b._jobKey));
         renderGrouped(jobEntries, e => e.jobOg, makeJobCard, $mountJob);
