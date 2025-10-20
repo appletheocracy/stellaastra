@@ -1,6 +1,8 @@
 /* === Lorebook data builders: Avatars (#b-ava) & Jobs (#b-job) =================
- * No creation/wrapping of .the_overall. We render directly into the existing
- * #b-ava.the_overall and #b-job.the_overall.
+ * Put generated groups INSIDE:
+ *   - #b-ava .overall_content  → inserted right AFTER div.overall-ent
+ *   - #b-job .overall_content  → inserted right AFTER div.overall-ent
+ * We do NOT create or use .the_overall anymore.
  * ============================================================================ */
 
 (function ($) {
@@ -22,16 +24,14 @@
     };
 
     const stripStrongKeepContent = ($el) => {
-      $el.find('strong').each(function () {
-        $(this).replaceWith($(this).contents());
-      });
+      $el.find('strong').each(function () { $(this).replaceWith($(this).contents()); });
       return $el;
     };
 
     /* ===================== PARSER ===================== */
     function parseProfile(html) {
       const $dom = $('<div>').append($.parseHTML(html));
-      const $cp = $dom.find('#cp-main');
+      const $cp  = $dom.find('#cp-main');
       if (!$cp.length) return null;
 
       const $h1Span = $cp.find('h1 span').first().clone();
@@ -53,33 +53,6 @@
     }
 
     /* ===================== RENDERERS ===================== */
-    function renderGrouped(entries, groupKey, builderFn, $mount) {
-      const groups = new Map();
-      entries.forEach(e => {
-        const key = firstLetter(groupKey(e));
-        if (!groups.has(key)) groups.set(key, []);
-        groups.get(key).push(e);
-      });
-
-      const letters = Array.from(groups.keys()).sort((a, b) => {
-        if (a === '#') return 1;
-        if (b === '#') return -1;
-        return a.localeCompare(b);
-      });
-
-      const frag = document.createDocumentFragment();
-      letters.forEach(L => {
-        const $section = $('<div class="text_overall"></div>');
-        $section.append(
-          `<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`
-        );
-        groups.get(L).forEach(e => $section.append(builderFn(e)));
-        frag.appendChild($section[0]);
-      });
-
-      $mount.empty().append(frag);
-    }
-
     function makeAvatarCard(e) {
       const $c = $('<div class="avatarlisting"></div>');
       $('<div class="feat-og"></div>').text(e.featOg).appendTo($c);
@@ -96,12 +69,53 @@
       return $c[0];
     }
 
+    // Build a fragment of grouped <div class="text_overall" data-kind="..."> sections
+    function buildGroupedSections(entries, groupKey, cardBuilder, kind) {
+      const groups = new Map();
+      entries.forEach(e => {
+        const key = firstLetter(groupKey(e));
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(e);
+      });
+
+      const letters = Array.from(groups.keys()).sort((a, b) => {
+        if (a === '#') return 1;
+        if (b === '#') return -1;
+        return a.localeCompare(b);
+      });
+
+      const frag = document.createDocumentFragment();
+      letters.forEach(L => {
+        const $section = $('<div class="text_overall"></div>').attr('data-kind', kind);
+        $section.append(
+          `<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`
+        );
+        groups.get(L).forEach(e => $section.append(cardBuilder(e)));
+        frag.appendChild($section[0]);
+      });
+      return frag;
+    }
+
+    // Insert a fragment right AFTER .overall-ent inside .overall_content
+    function insertAfterOverallEnt($rootBox, frag, kind) {
+      const $content = $rootBox.find('.overall_content').first();
+      if (!$content.length) return;
+
+      // Remove previously injected sections of the same kind (idempotent on re-run)
+      $content.find(`.text_overall[data-kind="${kind}"]`).remove();
+
+      const $ent = $content.find('.overall-ent').first();
+      if ($ent.length) {
+        $ent.after(frag);
+      } else {
+        // Fallback: append at start of .overall_content
+        $content.prepend(frag);
+      }
+    }
+
     /* ===================== FETCH + PROCESS ===================== */
     const results = [];
-    let nextId = START_ID;
-    let active = 0;
-    let misses = 0;
-    let stopped = false;
+    let nextId = START_ID, active = 0, misses = 0, stopped = false;
 
     function finalize() {
       results.forEach(r => {
@@ -110,21 +124,23 @@
       });
 
       // ----- AVATAR SECTION -----
-      const $mountAva = $('#b-ava.the_overall');
-      if ($mountAva.length) {
+      const $avaBox = $('#b-ava');
+      if ($avaBox.length) {
         const avatarEntries = results
           .filter(r => r.featOg && r.artistOg)
           .sort((a, b) => a._featKey.localeCompare(b._featKey));
-        renderGrouped(avatarEntries, e => e.featOg, makeAvatarCard, $mountAva);
+        const fragAva = buildGroupedSections(avatarEntries, e => e.featOg, makeAvatarCard, 'ava');
+        insertAfterOverallEnt($avaBox, fragAva, 'ava');
       }
 
       // ----- JOB SECTION -----
-      const $mountJob = $('#b-job.the_overall');
-      if ($mountJob.length) {
+      const $jobBox = $('#b-job');
+      if ($jobBox.length) {
         const jobEntries = results
           .filter(r => r.jobOg)
           .sort((a, b) => a._jobKey.localeCompare(b._jobKey));
-        renderGrouped(jobEntries, e => e.jobOg, makeJobCard, $mountJob);
+        const fragJob = buildGroupedSections(jobEntries, e => e.jobOg, makeJobCard, 'job');
+        insertAfterOverallEnt($jobBox, fragJob, 'job');
       }
     }
 
