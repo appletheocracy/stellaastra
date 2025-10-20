@@ -193,6 +193,10 @@
     text-align:right!important;
 }
 
+.overall-ent.r-droite{
+    text-align:right!important;
+}
+
 .text_overall{
     background-color: var(--cofwhite);
     padding:15px;
