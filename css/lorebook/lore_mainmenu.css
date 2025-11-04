@@ -81,7 +81,7 @@ a.mainmenu{
     padding:0px 30px;
     text-align:left;
     font-size:20px;
-    height:41px;
+    height:31px;
     display: grid; 
     grid-template-columns: 20px 40px 1fr; 
     grid-template-rows: 100%; 
