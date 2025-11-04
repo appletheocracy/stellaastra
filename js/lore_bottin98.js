@@ -1,8 +1,8 @@
-/* === Lorebook data builders: Avatars (#b-ava) & Jobs (#b-job) =================
- * Put generated groups INSIDE:
- *   - #b-ava .overall_content  → inserted right AFTER div.overall-ent
- *   - #b-job .overall_content  → inserted right AFTER div.overall-ent
- * We do NOT create or use .the_overall anymore.
+/* === Lorebook builders with caching (Avatars #b-ava, Jobs #b-job, Accounts #b-account) ===
+ * Adds a third section (#b-account):
+ *   <div class="accountlisting"><div class="user-og">Firstname Lastname</div></div>
+ * Grouped alphabetically (separate sections per first letter) and inserted
+ * inside each box’s .overall_content right AFTER .overall-ent.
  * ============================================================================ */
 
 (function ($) {
@@ -13,6 +13,13 @@
     const START_ID = 1;
     const CONCURRENCY = 4;
     const STOP_AFTER_MISSES = 50;
+
+    // Cache settings
+    const CACHE_KEY = 'lorebook_cache_v1_data';
+    const CACHE_AT  = 'lorebook_cache_v1_time';
+    const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24h
+    const COOKIE_NAME = 'lorebook_cache_v1';
+    const COOKIE_MAX_AGE = 24 * 60 * 60; // 24h, seconds
 
     /* ===================== UTILS ===================== */
     const norm = (s) => (s || '').toString().trim()
@@ -27,6 +34,47 @@
       $el.find('strong').each(function () { $(this).replaceWith($(this).contents()); });
       return $el;
     };
+
+    const spanHTMLtoText = (html) => $('<div>').html(html || '').text().trim();
+
+    // Tiny cookie helpers (flag only — actual data lives in localStorage)
+    function setFlagCookie() {
+      document.cookie = `${COOKIE_NAME}=1; Max-Age=${COOKIE_MAX_AGE}; Path=/; SameSite=Lax`;
+    }
+    function clearFlagCookie() {
+      document.cookie = `${COOKIE_NAME}=; Max-Age=0; Path=/; SameSite=Lax`;
+    }
+
+    // Cache helpers
+    function saveCache(results) {
+      try {
+        localStorage.setItem(CACHE_KEY, JSON.stringify(results));
+        localStorage.setItem(CACHE_AT, String(Date.now()));
+        setFlagCookie();
+      } catch (e) {
+        try {
+          localStorage.removeItem(CACHE_KEY);
+          localStorage.removeItem(CACHE_AT);
+        } catch(_) {}
+        clearFlagCookie();
+      }
+    }
+
+    function loadCache() {
+      try {
+        const raw = localStorage.getItem(CACHE_KEY);
+        const at  = Number(localStorage.getItem(CACHE_AT) || '0');
+        if (!raw || !at) return null;
+        if (Date.now() - at > CACHE_TTL_MS) return null; // stale
+        const data = JSON.parse(raw);
+        if (!Array.isArray(data)) return null;
+        return data;
+      } catch (_) { return null; }
+    }
+
+    function hasRefreshParam() {
+      return /(?:\?|&)refresh=1(?:&|$)/.test(location.search);
+    }
 
     /* ===================== PARSER ===================== */
     function parseProfile(html) {
@@ -44,11 +92,15 @@
 
       if (!featOg && !artistOg && !jobOg) return null;
 
+      const userSpanHTML = $('<div>').append($h1Span).html();
+      const userTextPlain = $h1Span.text().trim();
+
       return {
         featOg,
         artistOg,
         jobOg,
-        userSpanHTML: $('<div>').append($h1Span).html()
+        userSpanHTML,
+        userTextPlain
       };
     }
 
@@ -71,7 +123,12 @@
       return $c[0];
     }
 
-    // Build a fragment of grouped <div class="text_overall" data-kind="..."> sections
+    function makeAccountCard(e) {
+      const $c = $('<div class="accountlisting"></div>');
+      $('<div class="user-og"></div>').text(e.userTextPlain || spanHTMLtoText(e.userSpanHTML)).appendTo($c);
+      return $c[0];
+    }
+
     function buildGroupedSections(entries, groupKey, cardBuilder, kind) {
       const groups = new Map();
       entries.forEach(e => {
@@ -89,43 +146,33 @@
       const frag = document.createDocumentFragment();
       letters.forEach(L => {
         const $section = $('<div class="text_overall"></div>').attr('data-kind', kind);
-        $section.append(
-          `<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`
-        );
+        $section.append(`<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`);
         groups.get(L).forEach(e => $section.append(cardBuilder(e)));
         frag.appendChild($section[0]);
       });
       return frag;
     }
 
-    // Insert a fragment right AFTER .overall-ent inside .overall_content
     function insertAfterOverallEnt($rootBox, frag, kind) {
       const $content = $rootBox.find('.overall_content').first();
       if (!$content.length) return;
-
-      // Remove previously injected sections of the same kind (idempotent on re-run)
       $content.find(`.text_overall[data-kind="${kind}"]`).remove();
-
       const $ent = $content.find('.overall-ent').first();
-      if ($ent.length) {
-        $ent.after(frag);
-      } else {
-        // Fallback: append at start of .overall_content
-        $content.prepend(frag);
-      }
+      if ($ent.length) $ent.after(frag);
+      else $content.prepend(frag);
     }
 
-    /* ===================== FETCH + PROCESS ===================== */
-    const results = [];
-    let nextId = START_ID, active = 0, misses = 0, stopped = false;
-
-    function finalize() {
+    function renderResults(results) {
+      // derive sort keys once (feat, job, user)
       results.forEach(r => {
+        const userText = r.userTextPlain || spanHTMLtoText(r.userSpanHTML);
         r._featKey = norm(r.featOg || '');
         r._jobKey  = norm(r.jobOg  || '');
+        r._userKey = norm(userText   || '');
+        r._userText = userText;
       });
 
-      // ----- AVATAR SECTION -----
+      // AVATARS
       const $avaBox = $('#b-ava');
       if ($avaBox.length) {
         const avatarEntries = results
@@ -135,7 +182,7 @@
         insertAfterOverallEnt($avaBox, fragAva, 'ava');
       }
 
-      // ----- JOB SECTION -----
+      // JOBS
       const $jobBox = $('#b-job');
       if ($jobBox.length) {
         const jobEntries = results
@@ -144,13 +191,36 @@
         const fragJob = buildGroupedSections(jobEntries, e => e.jobOg, makeJobCard, 'job');
         insertAfterOverallEnt($jobBox, fragJob, 'job');
       }
+
+      // ACCOUNTS (plain text names)
+      const $accBox = $('#b-account');
+      if ($accBox.length) {
+        const accEntries = results
+          .filter(r => r._userText) // must have a name
+          .sort((a, b) => a._userKey.localeCompare(b._userKey));
+        const fragAcc = buildGroupedSections(accEntries, e => e._userText, makeAccountCard, 'acc');
+        insertAfterOverallEnt($accBox, fragAcc, 'acc');
+      }
     }
+
+    /* ===================== FLOW ===================== */
+    const useFresh = hasRefreshParam();
+    if (!useFresh) {
+      const cached = loadCache();
+      if (cached) { renderResults(cached); return; }
+    }
+
+    // Crawl → cache → render
+    const results = [];
+    let nextId = START_ID, active = 0, misses = 0, stopped = false;
+
+    function finalizeAndRender() { saveCache(results); renderResults(results); }
 
     function doneIfFinished() {
       if (stopped) return;
       if (active > 0) return;
       if (nextId > MAX_U || misses >= STOP_AFTER_MISSES) {
-        finalize();
+        finalizeAndRender();
         stopped = true;
       }
     }
