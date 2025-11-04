@@ -67,7 +67,8 @@ body{
 .wrap li,
 .wrap ink,
 .wrap hide,
-.wrap ion-icon{
+.wrap ion-icon,
+.wrap note{
     transition: 0.5s;
     animation-timing-function:ease-in-out;
     text-decoration:none;
@@ -124,6 +125,18 @@ a.retour,
     background: linear-gradient(0deg, rgba(58, 114, 226, 1) 0%, rgba(0, 222, 185, 1) 100%);
 }
 
+note{
+    color:var(--cff);
+    background-color:var(--cfond);
+    border-radius:4px;
+    padding:3px;
+    content:'note: ';
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:22px;
+    letter-spacing:2px;
+}
 
 .header{
     width:100%;
