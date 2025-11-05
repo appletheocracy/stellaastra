@@ -215,6 +215,20 @@
     border-color:var(--cvam);
 }
 
+.text_overall.creditor a{
+    color:var(--c14)!important;
+    font-family:arial!important;
+    font-weight:bold;
+    border-bottom:1px solid transparent;
+    text-transform: uppercase;
+}
+
+.text_overall.creditor a:hover{
+    color:var(--cvam)!important;
+    font-weight:bold;
+    border-color:var(--cvam);
+}
+
 .overall-mini-t{
     font-size:25px;
     color:var(--cdeu);
