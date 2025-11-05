@@ -219,6 +219,7 @@
     color:var(--c14)!important;
     font-family:arial!important;
     font-weight:bold;
+    text-transform: none!important;
     border-bottom:1px solid transparent;
 }
 
