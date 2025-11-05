@@ -65,7 +65,9 @@ a.retour:hover span{
     letter-spacing:0px!important;
 }
 
-.titre-menu{
+.titre-menu{    
+    width:300px;
+    height:63px;
     color:var(--cofwhite);
     font-size:50px;
     padding:-11px 15px 0px 30px;
