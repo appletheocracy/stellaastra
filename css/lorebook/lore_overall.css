@@ -119,9 +119,7 @@
 .overall-ctn{
     width: 100%;
     max-width: none;
-    display:flex;
-    flex-direction:column;
-    gap:30px;
+    margin:30px;
     max-height: 100%;
     overflow-y: auto;
     position: relative;
