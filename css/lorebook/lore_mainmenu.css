@@ -68,7 +68,8 @@ a.retour:hover span{
 .titre-menu{
     color:var(--cofwhite);
     font-size:50px;
-    margin:10px 15px -11px 30px;
+    margin-top:-11px;
+    padding:10px 15px 0px 30px;
     text-shadow: 0px 4px 0px var(--cdeu);
     background-color:var(--c14);
 }
