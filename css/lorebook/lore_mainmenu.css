@@ -75,7 +75,6 @@ a.retour:hover span{
     background-color:var(--c14);
     border-image: linear-gradient(to right, var(--cacc) 0%, var(--cdeu) 100%) 1;
     border-width:2px;
-    padding:10px 0px;
     border-style:solid;
     border-top:none;
     border-left:none;
@@ -92,7 +91,6 @@ a.retour:hover span{
     background-color:var(--c14);
     border-image: linear-gradient(to right, var(--cacc) 0%, var(--cdeu) 100%) 1;
     border-width:2px;
-    padding:10px 0px;
     border-style:solid;
     border-left:none;
     border-right:none;
