@@ -16,6 +16,7 @@
 .bouton_retour{
     border-image: linear-gradient(to right, var(--cacc) 0%, var(--cdeu) 100%) 1;
     border-width:2px;
+    padding:0px 5px;
     border-style:solid;
     border-left:none;
     border-right:none;
