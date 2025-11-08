@@ -104,7 +104,7 @@ a.mainmenu{
     width:300px;
     padding:0px 30px;
     text-align:left;
-    font-size:20px;
+    font-size:18px;
     height:31px;
     display: grid; 
     grid-template-columns: 20px 40px 1fr; 
