@@ -25,11 +25,15 @@ body{
     width:100%;
 }
 
-code{
+.codex{
   background-color:var(--cfondpale);
   border-radius:4px;
   padding:5px;
   margin:10px;
+}
+
+.text_rules code {
+  white-space: pre-wrap;
 }
 
 .wrap_lorebook,
