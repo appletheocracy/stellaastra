@@ -25,7 +25,7 @@ body{
     width:100%;
 }
 
-.codex{
+div.codex{
     background-color:var(--cfondpale);
     border-radius:4px;
     padding:5px;
@@ -37,9 +37,14 @@ body{
 
 .text_rules code {
     white-space: pre-wrap;          /* preserves spaces and newlines exactly */
+}
+
+.text_rules codex {
+    white-space: pre-wrap;          /* preserves spaces and newlines exactly */
     display: block;            /* optional — makes each code block full width */
     font-family: monospace;    /* standard code look */
 }
+
 
 .wrap_lorebook,
 .content_menu,
