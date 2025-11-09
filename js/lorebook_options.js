@@ -1,25 +1,57 @@
 $(document).ready(function () {
 
-  // Submenu click scroll
+  /* =========================================
+     Helper: activate section/link by a hash
+     ========================================= */
+  function activateByHash(hash, doScroll) {
+    if (!hash) return;
+
+    const $target = $(hash);
+    if (!$target.length) return;
+
+    // All submenu links
+    const $links = $('.rules-sub-menu .r-sub-titre');
+
+    // Build a jQuery selector of all targetable sections from links' href="#id"
+    const ids = $links
+      .map(function () { return $(this).attr('href'); })
+      .get()
+      .filter(h => h && h.startsWith('#'));
+
+    const $sections = ids.length ? $(ids.join(',')) : $();
+
+    // 1) Link highlight
+    $links.removeClass('r-select');
+    $links.filter('[href="' + hash + '"]').addClass('r-select');
+
+    // 2) Section highlight (as requested)
+    $sections.removeClass('r-select');
+    $target.addClass('r-select');
+
+    if (doScroll) {
+      $target[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // Submenu click scroll + URL hash update
   $('.rules-sub-menu').on('click', '.r-sub-titre', function (e) {
     e.preventDefault();
 
-    const $this = $(this);
-    const targetId = $this.attr('href');
-    const $target = $(targetId);
+    const targetId = $(this).attr('href');
 
-    $('.rules-sub-menu .r-sub-titre').removeClass('r-select');
-    $this.addClass('r-select');
+    // Switch highlight + scroll
+    activateByHash(targetId, true);
 
-    if ($target.length) {
-      $target[0].scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+    // Update URL hash without reloading / jumping
+    if (history.replaceState) {
+      history.replaceState(null, '', targetId);
+    } else {
+      // Fallback (older browsers)
+      window.location.hash = targetId;
     }
   });
 
-  // Dropdowns
+  // Dropdowns (unchanged)
   $('.listing-comptes').each(function () {
     const $compte = $(this);
     const $toggleBtn = $compte.find('.listing_t');
@@ -74,23 +106,16 @@ $(document).ready(function () {
   });
 
   /* ===============================
-     If URL has a hash (e.g. #contact)
-     highlight corresponding submenu
+     On load, honor existing hash
   =============================== */
-  const hash = window.location.hash;
-  if (hash) {
-    const $target = $(hash);
-    const $link = $('.rules-sub-menu .r-sub-titre[href="' + hash + '"]');
-
-    $('.rules-sub-menu .r-sub-titre').removeClass('r-select');
-    $link.addClass('r-select');
-
-    if ($target.length) {
-      // Optional: smooth scroll on load
-      setTimeout(() => {
-        $target[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 200);
-    }
+  if (window.location.hash) {
+    activateByHash(window.location.hash, true);
   }
 
+  /* ===============================
+     Back/forward support
+  =============================== */
+  window.addEventListener('hashchange', function () {
+    activateByHash(window.location.hash, true);
+  });
 });
