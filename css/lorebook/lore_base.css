@@ -36,7 +36,9 @@ body{
 }
 
 .text_rules code {
-    white-space: pre-wrap;
+    white-space: pre;          /* preserves spaces and newlines exactly */
+    display: block;            /* optional — makes each code block full width */
+    font-family: monospace;    /* standard code look */
 }
 
 .wrap_lorebook,
