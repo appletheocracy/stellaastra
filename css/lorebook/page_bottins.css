@@ -1,4 +1,4 @@
-.avatarlisting, .joblisting, reservation_listing{
+.avatarlisting, .joblisting, .reservation_listing{
   display:flex;
   flex-direction:row;
   gap:5px;
