@@ -2,7 +2,7 @@
 #pa_menu_haut {
 	display: grid; 
         grid-auto-columns: 1fr; 
-        grid-template-columns: 118px 87px 146px 76px 91px 94px 142px 1fr 80px; 
+        grid-template-columns: 118px 87px 146px 76px 91px 142px 1fr 80px; 
         grid-template-rows: 58px; 
         gap: 0px 10px; 
         grid-template-areas: 
