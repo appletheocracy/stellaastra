@@ -1,4 +1,4 @@
-.avatarlisting, .joblisting{
+.avatarlisting, .joblisting, reservation_listing{
   display:flex;
   flex-direction:row;
   gap:5px;
@@ -6,11 +6,11 @@
   margin:5px 0px;
 }
 
-.avatarlisting span, .joblisting span{
+.avatarlisting span, .joblisting span, .reservation_listing span{
   font-weight:bold;
   text-transform:uppercase;
 }
 
-.feat-by{
+.avatarlisting .feat-by, .joblisting .feat-by, reservation_listing .feat-by{
     font-weight:bold;
 }
