@@ -26,17 +26,17 @@ body{
 }
 
 .codex{
-  background-color:var(--cfondpale);
-  border-radius:4px;
-  padding:5px;
-  margin:10px;
+    background-color:var(--cfondpale);
+    border-radius:4px;
+    padding:5px;
+    margin:10px;
+    min-width:398px;
+    max-width:590px;
+    margin:0 auto;
 }
 
 .text_rules code {
     white-space: pre-wrap;
-    min-width:398px;
-    max-width:590px;
-    margin:0 auto;
 }
 
 .wrap_lorebook,
