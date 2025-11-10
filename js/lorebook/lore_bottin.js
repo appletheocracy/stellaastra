@@ -1,8 +1,11 @@
-/* === Lorebook builders with caching (Avatars #b-ava, Jobs #b-job, Accounts #b-account) ===
- * Adds a third section (#b-account):
- *   <div class="accountlisting"><div class="user-og">Firstname Lastname</div></div>
- * Grouped alphabetically (separate sections per first letter) and inserted
- * inside each box’s .overall_content right AFTER .overall-ent.
+/* === Lorebook builders with caching (Avatars #b-ava, Jobs #b-job) ============
+ * Builds two dynamic sections from user profiles:
+ *   - #b-ava: avatars list (feat + artist + username)
+ *   - #b-job: jobs list (job + username)
+ *
+ * Plus: imports static lists from forum topics into:
+ *   - #b-reservation → .avatars-reserves-list
+ *   - #b-noms-prenoms → .nomslisting / .prenomslisting
  * ============================================================================ */
 
 (function ($) {
@@ -93,14 +96,12 @@
       if (!featOg && !artistOg && !jobOg) return null;
 
       const userSpanHTML = $('<div>').append($h1Span).html();
-      const userTextPlain = $h1Span.text().trim();
 
       return {
         featOg,
         artistOg,
         jobOg,
-        userSpanHTML,
-        userTextPlain
+        userSpanHTML
       };
     }
 
@@ -120,12 +121,6 @@
       $('<div class="job-og"></div>').text(e.jobOg).appendTo($c);
       $('<div class="feat-by">-</div>').appendTo($c);
       $('<div class="user-og"></div>').html(' ' + e.userSpanHTML).appendTo($c);
-      return $c[0];
-    }
-
-    function makeAccountCard(e) {
-      const $c = $('<div class="accountlisting"></div>');
-      $('<div class="user-og"></div>').text(e.userTextPlain || spanHTMLtoText(e.userSpanHTML)).appendTo($c);
       return $c[0];
     }
 
@@ -163,13 +158,10 @@
     }
 
     function renderResults(results) {
-      // derive sort keys once (feat, job, user)
+      // derive sort keys once (feat, job)
       results.forEach(r => {
-        const userText = r.userTextPlain || spanHTMLtoText(r.userSpanHTML);
         r._featKey = norm(r.featOg || '');
         r._jobKey  = norm(r.jobOg  || '');
-        r._userKey = norm(userText   || '');
-        r._userText = userText;
       });
 
       // AVATARS
@@ -191,26 +183,94 @@
         const fragJob = buildGroupedSections(jobEntries, e => e.jobOg, makeJobCard, 'job');
         insertAfterOverallEnt($jobBox, fragJob, 'job');
       }
+    }
 
-      // ACCOUNTS (plain text names)
-      const $accBox = $('#b-account');
-      if ($accBox.length) {
-        const accEntries = results
-          .filter(r => r._userText) // must have a name
-          .sort((a, b) => a._userKey.localeCompare(b._userKey));
-        const fragAcc = buildGroupedSections(accEntries, e => e._userText, makeAccountCard, 'acc');
-        insertAfterOverallEnt($accBox, fragAcc, 'acc');
-      }
+    /* ===================== STATIC LIST IMPORTS ===================== */
+    /**
+     * Copies three lists from two topic pages into the current page:
+     *  - #b-reservation  → .avatars-reserves-list  (from /t12-reservations-d-avatar)
+     *  - #b-noms-prenoms → .nomslisting/.prenomslisting (from /t55-bottin-des-nom-prenoms#91)
+     *
+     * If a source block is empty, writes "Information à venir."
+     */
+    function loadReservationsAndNames() {
+      const URL_RESERVATIONS = 'https://stella-cinis.forumactif.com/t12-reservations-d-avatar';
+      const URL_NOMS_PRENOMS = 'https://stella-cinis.forumactif.com/t55-bottin-des-nom-prenoms#91';
+
+      /* ---------- #b-reservation ---------- */
+      $.ajax({
+        url: URL_RESERVATIONS,
+        dataType: 'html',
+        timeout: 20000
+      }).done(function (html) {
+        const $dom = $('<div>').append($.parseHTML(html));
+
+        const $box = $('#b-reservation');
+        if (!$box.length) return;
+
+        const $sink = $box.find('.avatars-reserves-list').first();
+        if (!$sink.length) return;
+
+        const $srcReservations = $dom.find('#les_reservations .reservationlisting');
+        if ($srcReservations.length) {
+          $sink.empty().append($srcReservations.clone(true, true));
+        } else {
+          $sink.text('Information à venir.');
+        }
+      }).fail(function () {
+        /* ignore; leave page as-is */
+      });
+
+      /* ---------- #b-noms-prenoms ---------- */
+      $.ajax({
+        url: URL_NOMS_PRENOMS,
+        dataType: 'html',
+        timeout: 20000
+      }).done(function (html) {
+        const $dom = $('<div>').append($.parseHTML(html));
+        const $box = $('#b-noms-prenoms');
+        if (!$box.length) return;
+
+        const $sinkNoms = $box.find('.nomslisting').first();
+        const $sinkPrenoms = $box.find('.prenomslisting').first();
+
+        if ($sinkNoms && $sinkNoms.length) {
+          const $srcNoms = $dom.find('#noms_liste .nomslisting > div');
+          if ($srcNoms.length) {
+            $sinkNoms.empty().append($srcNoms.clone(true, true));
+          } else {
+            $sinkNoms.text('Information à venir.');
+          }
+        }
+
+        if ($sinkPrenoms && $sinkPrenoms.length) {
+          // Try #prenonoms_liste first; fallback to #prenoms_liste
+          let $srcPrenoms = $dom.find('#prenonoms_liste .prenomslisting > div');
+          if (!$srcPrenoms.length) {
+            $srcPrenoms = $dom.find('#prenoms_liste .prenomslisting > div');
+          }
+          if ($srcPrenoms.length) {
+            $sinkPrenoms.empty().append($srcPrenoms.clone(true, true));
+          } else {
+            $sinkPrenoms.text('Information à venir.');
+          }
+        }
+      }).fail(function () {
+        /* ignore; leave page as-is */
+      });
     }
 
     /* ===================== FLOW ===================== */
+    // Kick off static imports immediately
+    loadReservationsAndNames();
+
     const useFresh = hasRefreshParam();
     if (!useFresh) {
       const cached = loadCache();
       if (cached) { renderResults(cached); return; }
     }
 
-    // Crawl → cache → render
+    // Crawl → cache → render (for avatars & jobs)
     const results = [];
     let nextId = START_ID, active = 0, misses = 0, stopped = false;
 
