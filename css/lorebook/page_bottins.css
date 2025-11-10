@@ -25,3 +25,18 @@
 #les_reservations .artist-og a:hover{
   color:var(--cvam);
 }
+
+.text_overall.nom-prenom-liste{
+	background-color:none!important;
+	padding:none!important;
+	display:flex!imporant;
+	flex-direction:row!important;
+	gap:10px!important;
+}
+
+.text_overall .nomslisting, .text_overall .prenomslisting{
+	background-color:none!important;
+	padding:15px;
+	min-width:19px;
+	max-width:305px;
+}
