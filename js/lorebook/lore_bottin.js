@@ -148,13 +148,26 @@
       return frag;
     }
 
+    // Insert AFTER the existing .text_overall (marker) if present,
+    // otherwise fallback to previous behavior.
     function insertAfterOverallEnt($rootBox, frag, kind) {
       const $content = $rootBox.find('.overall_content').first();
       if (!$content.length) return;
+
+      // Remove any previously rendered blocks for this kind to avoid duplicates
       $content.find(`.text_overall[data-kind="${kind}"]`).remove();
+
+      // Preferred marker: an existing .text_overall already in the DOM
+      const $marker = $content.find('.text_overall').first();
+      if ($marker.length) {
+        $marker.after(frag);
+        return;
+      }
+
+      // Fallbacks
       const $ent = $content.find('.overall-ent').first();
-      if ($ent.length) $ent.after(frag);
-      else $content.prepend(frag);
+      if ($ent.length) { $ent.after(frag); }
+      else { $content.prepend(frag); }
     }
 
     function renderResults(results) {
@@ -164,7 +177,7 @@
         r._jobKey  = norm(r.jobOg  || '');
       });
 
-      // AVATARS
+      // AVATARS → insert after existing .text_overall
       const $avaBox = $('#b-ava');
       if ($avaBox.length) {
         const avatarEntries = results
@@ -174,7 +187,7 @@
         insertAfterOverallEnt($avaBox, fragAva, 'ava');
       }
 
-      // JOBS
+      // JOBS → insert after existing .text_overall
       const $jobBox = $('#b-job');
       if ($jobBox.length) {
         const jobEntries = results
