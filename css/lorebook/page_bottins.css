@@ -28,17 +28,18 @@
 
 .nom-prenom-liste{
 	background-color:none!important;
-	padding:none!important;
-	display:flex!imporant;
-	flex-direction:row!important;
-	gap:10px!important;
+	display: grid; 
+	grid-template-columns: 1fr 1fr; 
+	grid-template-rows: auto; 
+	gap: 0px 10px; 
+	grid-template-areas: 
+	". ."; 
 }
 
 .nomslisting, .prenomslisting{
 	background-color:none!important;
 	padding:15px;
-	min-width:19px;
-	max-width:305px;
+	width:100%;
 }
 
 .nomslisting #noms_liste, .prenomslisting #prenoms_liste{
