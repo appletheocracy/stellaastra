@@ -37,13 +37,14 @@
 }
 
 .nomslisting, .prenomslisting{
-	background-color:none!important;
+	background-color:var(--cofwhite);
 	padding:15px;
 	width:100%;
 }
 
 .nomslisting #noms_liste, .prenomslisting #prenoms_liste{
 	width:100%!important;
+	
 }
 
 .nomslisting #noms_liste br, .prenomslisting #prenoms_liste br{
