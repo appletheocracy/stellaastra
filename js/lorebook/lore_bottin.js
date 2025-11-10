@@ -195,7 +195,7 @@
      */
     function loadReservationsAndNames() {
       const URL_RESERVATIONS = 'https://stella-cinis.forumactif.com/t12-reservations-d-avatar';
-      const URL_NOMS_PRENOMS = 'https://stella-cinis.forumactif.com/t55-bottin-des-nom-prenoms#91';
+      const URL_NOMS_PRENOMS = 'https://stella-cinis.forumactif.com/t55-bottin-des-nom-prenoms';
 
       /* ---------- #b-reservation ---------- */
       $.ajax({
