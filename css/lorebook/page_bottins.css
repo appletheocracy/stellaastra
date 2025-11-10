@@ -15,9 +15,6 @@
     font-weight:bold;
 }
 
-.reservationlisting{
-  display:flex;
-  flex-direction:row;
-  gap:5px;
+#les_reservations .reservationlisting{
   margin:-15px 0px 5px 0px!important;
 }
