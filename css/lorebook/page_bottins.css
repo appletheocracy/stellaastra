@@ -6,12 +6,12 @@
   margin:5px 0px;
 }
 
-.avatarlisting span, .joblisting span, .reservation_listing span{
+.avatarlisting span, .joblisting span, .reservationlisting span{
   font-weight:bold;
   text-transform:uppercase;
 }
 
-.avatarlisting .feat-by, .joblisting .feat-by, .reservation_listing .feat-by{
+.avatarlisting .feat-by, .joblisting .feat-by, .reservationlisting .feat-by{
     font-weight:bold;
 }
 
