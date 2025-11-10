@@ -1,4 +1,4 @@
-.avatarlisting, .joblisting{
+.avatarlisting, .joblisting, .reservationlisting{
   display:flex;
   flex-direction:row;
   gap:5px;
@@ -6,26 +6,18 @@
   margin:5px 0px;
 }
 
-.avatarlisting span, .joblisting span{
+.avatarlisting span, .joblisting span, .reservation_listing span{
   font-weight:bold;
   text-transform:uppercase;
 }
 
-.avatarlisting .feat-by, .joblisting .feat-by{
+.avatarlisting .feat-by, .joblisting .feat-by, .reservation_listing .feat-by{
     font-weight:bold;
 }
 
-.reservation_listing{
+.reservationlisting{
   display:flex;
   flex-direction:row;
   gap:5px;
-}
-
-.reservation_listing span{
-  font-weight:bold;
-  text-transform:uppercase;
-}
-
-.reservation_listing .feat-by{
-    font-weight:bold;
+  margin:-15px 0px 5px 0px!important;
 }
