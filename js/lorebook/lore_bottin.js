@@ -235,7 +235,7 @@
         const $sinkPrenoms = $box.find('.prenomslisting').first();
 
         if ($sinkNoms && $sinkNoms.length) {
-          const $srcNoms = $dom.find('#noms_liste .nomslisting > div');
+          const $srcNoms = $dom.find('#noms_liste');
           if ($srcNoms.length) {
             $sinkNoms.empty().append($srcNoms.clone(true, true));
           } else {
@@ -245,9 +245,9 @@
 
         if ($sinkPrenoms && $sinkPrenoms.length) {
           // Try #prenonoms_liste first; fallback to #prenoms_liste
-          let $srcPrenoms = $dom.find('#prenonoms_liste .prenomslisting > div');
+          let $srcPrenoms = $dom.find('#prenoms_liste');
           if (!$srcPrenoms.length) {
-            $srcPrenoms = $dom.find('#prenoms_liste .prenomslisting > div');
+            $srcPrenoms = $dom.find('#prenoms_liste');
           }
           if ($srcPrenoms.length) {
             $sinkPrenoms.empty().append($srcPrenoms.clone(true, true));
