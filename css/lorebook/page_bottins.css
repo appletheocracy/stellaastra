@@ -22,3 +22,6 @@
 #les_reservations .artist-og a{
   color:var(--cdeu);
 }
+#les_reservations .artist-og a:hover{
+  color:var(--cvam);
+}
