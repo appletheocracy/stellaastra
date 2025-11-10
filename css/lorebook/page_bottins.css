@@ -26,7 +26,7 @@
   color:var(--cvam);
 }
 
-.text_overall.nom-prenom-liste{
+.nom-prenom-liste{
 	background-color:none!important;
 	padding:none!important;
 	display:flex!imporant;
@@ -34,9 +34,17 @@
 	gap:10px!important;
 }
 
-.text_overall .nomslisting, .text_overall .prenomslisting{
+.nomslisting, .prenomslisting{
 	background-color:none!important;
 	padding:15px;
 	min-width:19px;
 	max-width:305px;
+}
+
+.nomslisting #noms_liste, .prenomslisting #prenoms_liste{
+	width:100%!important;
+}
+
+.nomslisting #noms_liste br, .prenomslisting #prenoms_liste br{
+	display:none!important;
 }
