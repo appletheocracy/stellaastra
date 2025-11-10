@@ -16,5 +16,9 @@
 }
 
 #les_reservations .reservationlisting{
-  margin:-15px 0px 5px 0px!important;
+  margin:-15px 0px 5px 30px!important;
+  width:720px!important;
+}
+#les_reservations .artist-og a{
+  color:var(--cdeu);
 }
