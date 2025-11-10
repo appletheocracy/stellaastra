@@ -212,6 +212,8 @@
         } else {
           $sink.find('.rule-mini-t').after('<div>Information à venir.</div>');
         }
+      }).fail(function () {
+        /* ignore; leave page as-is */
       });
 
       /* ---------- #b-noms-prenoms ---------- */
@@ -233,8 +235,8 @@
           if ($srcNoms.length) {
             if ($marker.length) $marker.after($srcNoms.clone(true, true));
             else $sinkNoms.append($srcNoms.clone(true, true));
-          } else {
-            if ($marker.length) $marker.after('<div>Information à venir.</div>');
+          } else if ($marker.length) {
+            $marker.after('<div>Information à venir.</div>');
           }
         }
 
@@ -247,14 +249,17 @@
           if ($srcPrenoms.length) {
             if ($marker.length) $marker.after($srcPrenoms.clone(true, true));
             else $sinkPrenoms.append($srcPrenoms.clone(true, true));
-          } else {
-            if ($marker.length) $marker.after('<div>Information à venir.</div>');
+          } else if ($marker.length) {
+            $marker.after('<div>Information à venir.</div>');
           }
         }
+      }).fail(function () {
+        /* ignore; leave page as-is */
       });
     }
 
     /* ===================== FLOW ===================== */
+    // Kick off static imports immediately
     loadReservationsAndNames();
 
     const useFresh = hasRefreshParam();
@@ -263,6 +268,7 @@
       if (cached) { renderResults(cached); return; }
     }
 
+    // Crawl → cache → render (for avatars & jobs)
     const results = [];
     let nextId = START_ID, active = 0, misses = 0, stopped = false;
 
