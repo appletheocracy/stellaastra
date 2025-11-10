@@ -91,6 +91,7 @@
 
       const featOg   = $cp.find('#field_id-8  .field_uneditable').first().text().trim();
       const artistOg = $cp.find('#field_id1   .field_uneditable').first().text().trim();
+      const artistLink = $cp.find('#field_id11   .field_uneditable').first().text().trim();
       const jobOg    = $cp.find('#field_id-11 .field_uneditable').first().text().trim();
 
       if (!featOg && !artistOg && !jobOg) return null;
@@ -100,6 +101,7 @@
       return {
         featOg,
         artistOg,
+        artistLink,
         jobOg,
         userSpanHTML
       };
@@ -110,9 +112,23 @@
       const $c = $('<div class="avatarlisting"></div>');
       $('<div class="feat-og"></div>').text(e.featOg).appendTo($c);
       $('<div class="feat-by">par</div>').appendTo($c);
-      $('<div class="artist-og"></div>').text(e.artistOg).appendTo($c);
+    
+      // Create <a> wrapper for artist
+      const $link = $('<a>', {
+        href: e.artistLink || '#',
+        class: 'artist-link',
+        target: '_blank'
+      });
+    
+      // Add artist name inside the <a>
+      $('<div class="artist-og"></div>').text(e.artistOg).appendTo($link);
+    
+      // Append the full link to the container
+      $link.appendTo($c);
+    
       $('<div class="feat-by">-</div>').appendTo($c);
       $('<div class="user-og"></div>').html(' ' + e.userSpanHTML).appendTo($c);
+    
       return $c[0];
     }
 
