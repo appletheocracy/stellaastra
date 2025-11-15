@@ -25,19 +25,19 @@
     margin-bottom:10px;
 }
 
-.the_rule.vamp{
+.the_rule.vamp .immo_desc{
    border-color:var(--cvam)!important;
 }
 
-.the_rule.chim{
+.the_rule.chim .immo_desc{
   border-color:var(--chim)!important;
 }
 
-.the_rule.huma{
+.the_rule.huma .immo_desc{
   border-color:var(--huma)!important;
 }
 
-.the_rule.hybr{
+.the_rule.hybr .immo_desc{
   border-color:var(--chyb)!important;
 }
 
