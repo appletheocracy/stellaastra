@@ -87,6 +87,13 @@ $(function () {
       <ion-icon name="calendar-outline"></ion-icon>
       <span>Chronologie</span>
     </a>
+     <a href="/h26-virus-vampire" class="mainmenu">
+      <div class="ligne-menu">
+        <div class="ligne"></div>
+      </div>
+      <ion-icon name="warning-outline"></ion-icon>
+      <span>Virus Necrosis</span>
+    </a>
     <a href="/h20-necrosis" class="mainmenu">
       <div class="ligne-menu">
         <div class="ligne"></div>
