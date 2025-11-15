@@ -1,0 +1,62 @@
+.the_rule .rule-mini-t2{   
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:20px;
+    text-align:left;
+    display: flex;
+    flex-direction: row;
+    gap:5px;
+    margin-left:15px;
+    margin-bottom:-6px;
+}
+
+.text_rules .rule-mini-t2 ion-icon{
+    margin-top:2px;
+}
+
+.mini-t2-num{
+    width:20px;
+}
+
+.immo_desc{
+    border:1px solid var(--cfond);
+    padding:10px;
+    margin-bottom:10px;
+}
+
+.the_rule.vamp{
+   border-color:var(--cvam)!important;
+}
+
+.the_rule.chim{
+  border-color:var(--chim)!important;
+}
+
+.the_rule.huma{
+  border-color:var(--huma)!important;
+}
+
+.the_rule.hybr{
+  border-color:var(--chyb)!important;
+}
+
+.the_rule.vamp .rule-mini-t2,.the_rule.vamp .rule-mini-t, .the_rule.vamp a{
+    color:var(--cvam)!important;
+}
+.the_rule.chim .rule-mini-t2, .the_rule.chim .rule-mini-t, .the_rule.chim a{
+    color:var(--chim)!important;
+}
+.the_rule.huma .rule-mini-t2,.the_rule.huma .rule-mini-t, .the_rule.huma a{
+    color:var(--huma)!important;
+}
+.the_rule.hybr .rule-mini-t2, .the_rule.hybr .rule-mini-t, .the_rule.hybr a{
+    color:var(--chyb)!important;
+}
+
+.the_rule.vamp a:hover,
+.the_rule.chim a:hover,
+.the_rule.huma a:hover,
+.the_rule.hybr a:hover{
+    color:var(--cfond)!important;
+}
