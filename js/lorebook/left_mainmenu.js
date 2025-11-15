@@ -92,7 +92,7 @@ $(function () {
         <div class="ligne"></div>
       </div>
       <ion-icon name="warning-outline"></ion-icon>
-      <span>Virus Necrosis</span>
+      <span>Virus Vampire</span>
     </a>
     <a href="/h20-necrosis" class="mainmenu">
       <div class="ligne-menu">
