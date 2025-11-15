@@ -6,6 +6,7 @@
     text-align:left;
     display: flex;
     flex-direction: row;
+    color:var(--cdeu);
     gap:5px;
     margin-left:15px;
     margin-bottom:-6px;
@@ -20,7 +21,7 @@
 }
 
 .immo_desc{
-    border:1px solid var(--cfond);
+    border:1px solid var(--cdeu);
     padding:10px;
     margin-bottom:10px;
 }
