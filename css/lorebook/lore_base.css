@@ -72,13 +72,14 @@ div.codex{
     --cfond: #323232;
 
     --cacc: #00DEB9;
-
-    --cdeu: #3a72e2;
-    --cpnj: #91B6FF;
-    --chum: #6D9C72;
-    --cvam: #D31141;
-    --chyb: #C083CF;
-    --chim: #FFCD61;
+    
+	--cdeu: #3a72e2;
+	--cpnj: #91B6FF;
+	--chum: #6D9C72;
+	--cvam: #D31141;
+	--chyb: #C083CF;
+	--chim: #FFCD61;
+    --cmem: #676767;
 }
 .wrap div,
 .wrap span,
