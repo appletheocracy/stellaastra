@@ -159,7 +159,7 @@ a.retour,
 }
 
 img.carte-lore{
-    width:666px;
+    max-width:666px;
 }
 
 .sous-titre{
