@@ -135,7 +135,7 @@ $(function () {
       <div class="ligne-menu">
         <div class="ligne"></div>
       </div>
-      <ion-icon name="earth-outline"></ion-icon>
+      <ion-icon name="flag-outline"></ion-icon>
       <span>La FEPS</span>
     </a>                            
     <a href="/h21-forces-armees" class="mainmenu diff">
