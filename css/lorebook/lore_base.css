@@ -27,6 +27,20 @@ body{
     scrollbar-width: thin;
 }
 
+::-webkit-scrollbar{
+	background-color:rgba(50, 50, 50, 0);
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+	background-color:var(--cdeu);
+    border-radius:4px;
+}
+
+::-webkit-scrollbar-track{
+	background-color:rgba(50, 50, 50, 0);
+}
+
 div.codex{
     background-color:var(--cfondpale);
     border-radius:4px;
@@ -181,4 +195,31 @@ img.carte-lore{
     align-items: stretch;
     width: 100%;
     justify-content:flex-start;
+}
+
+.structure-feps-img{
+    width:98vw;
+    height:90vh;
+    display:flex;
+    flex-direction:row;
+}
+
+.structure-feps-img img{
+    width:88%;
+    margin:30px 15px;
+}
+
+.close_lore_image{
+    padding:5px;
+    font-size:25;
+    border-radius:50%;
+    margin:30px 0px;
+    background-color:var(--cofwhite);
+    color:var(--cfond);
+    transition: .3s;
+    animation-timing-function:ease-in-out;
+}
+.close_lore_image:hover{
+    background-color:var(--cdeu);
+    color:var(--cofwhite);
 }
