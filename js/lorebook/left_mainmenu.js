@@ -30,7 +30,7 @@ $(function () {
       <div class="ligne-menu">
         <div class="ligne"></div>
       </div>
-      <ion-icon name="newspaper-outline"></ion-icon>
+      <ion-icon name="shield-half-outline"></ion-icon>
       <span>Règlement</span>
     </a>
     <a href="/h5-staff" class="mainmenu">
