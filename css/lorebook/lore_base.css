@@ -158,6 +158,10 @@ a.retour,
     color:var(--cff);
 }
 
+img.carte-lore{
+    width:666px;
+}
+
 .sous-titre{
     font-weight: 700;
     font-style:italic;
