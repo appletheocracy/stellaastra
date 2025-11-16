@@ -28,6 +28,11 @@
 }
 
 .the_rule.vamp .immo_desc{
+   border-color:var(--cdeu)!important;
+}
+
+
+.the_rule.vamp .immo_desc{
    border-color:var(--cvam)!important;
 }
 
@@ -41,6 +46,10 @@
 
 .the_rule.hybr .immo_desc{
   border-color:var(--chyb)!important;
+}
+
+.the_rule.deus.rule-mini-t2,.the_rule.deus .rule-mini-t, .the_rule.deus a{
+    color:var(--cdeu)!important;
 }
 
 .the_rule.vamp .rule-mini-t2,.the_rule.vamp .rule-mini-t, .the_rule.vamp a{
