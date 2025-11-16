@@ -23,6 +23,8 @@ body{
     font-size:14px;
     height: 100%;
     width:100%;
+    scrollbar-color: #3a72e2 #323232;
+    scrollbar-width: thin;
 }
 
 div.codex{
