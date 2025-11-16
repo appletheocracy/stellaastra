@@ -38,11 +38,10 @@ $(function () {
 
     #imgOverlay .imgOverlay-img {
       max-width: 80%;
-      max-height: 80%;
+      max-height: 75%;
       object-fit: contain;     /* critical for tall images */
       border-radius: 6px;
       box-shadow: 0 0 20px rgba(0,0,0,.4);
-      
     }
 
     #imgOverlay .imgOverlay-close {
