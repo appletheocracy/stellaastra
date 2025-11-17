@@ -268,6 +268,6 @@ $(function () {
     } else {
         $icon.attr('name', 'chevron-down-outline');
     }
-}
+  }
 
 });
