@@ -261,5 +261,13 @@ $(function () {
       });
     }
   });
+  function updateChevron($section) {
+    var $icon = $section.find('.titre-menu ion-icon, .titre-menu2 ion-icon');
+    if ($section.hasClass('menu_unfolded')) {
+        $icon.attr('name', 'chevron-up-outline');
+    } else {
+        $icon.attr('name', 'chevron-down-outline');
+    }
+}
 
 });
