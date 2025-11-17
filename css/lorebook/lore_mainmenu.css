@@ -183,3 +183,26 @@ a.mainmenu.select:hover .ligne{
     background-color:var(--cff)!important;
     width:20px!important;
 }
+
+.mainmenu_pliables{
+    overflow:hidden;
+    height:36px;
+}
+
+.mainmenu_pliables.intro.menu_unfolded{
+    height:193px!important;
+}
+
+.mainmenu_pliables.guides.menu_unfolded{
+    height:162px;
+}
+
+.mainmenu_pliables.general.menu_unfolded{
+    height:224px;
+}
+.mainmenu_pliables.feps.menu_unfolded{
+    height:286px;
+}
+.mainmenu_pliables.feps{
+    height:38px;
+}
