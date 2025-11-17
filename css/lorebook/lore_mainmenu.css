@@ -127,6 +127,12 @@ a.mainmenu{
     justify-items: start; 
     align-items: center; 
 }
+
+.titre-menu ion-icon,.titre-menu2 ion-icon{
+    position:relative;
+    top:8px; 
+}
+
 a.mainmenu ion-icon{
     position:relative;
     top:2px;
