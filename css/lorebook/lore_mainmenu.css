@@ -208,7 +208,7 @@ a.mainmenu.select:hover .ligne{
 }
 
 .mainmenu_pliables.menu_has_select .titre-menu ion-icon, .mainmenu_pliables.menu_has_select .titre-menu2 ion-icon{
-    display:none;
+    opacity:0;
 }
 
 .mainmenu_pliables .titre-menu ion-icon.chevron-up, .mainmenu_pliables .titre-menu ion-icon.chevron-up{
