@@ -10,7 +10,7 @@ $(function () {
       </a>                        
     </div>
 
-    <div class="titre-menu">Introduction</div>
+    <div class="titre-menu"><span>Introduction</span><ion-icon name="chevron-down-outline"></ion-icon></div>
 
     <a href="/h3-intro" class="mainmenu">
       <div class="ligne-menu">
@@ -48,7 +48,7 @@ $(function () {
       <span>Remerciements&nbsp;&amp;&nbsp;crédits</span>
     </a>
     
-    <div class="titre-menu2">Guides</div>
+    <div class="titre-menu2"><span>Guides</span><ion-icon name="chevron-down-outline"></ion-icon></div>
 
     <a href="/h7-en-arrivant" class="mainmenu">
       <div class="ligne-menu">
@@ -79,7 +79,7 @@ $(function () {
       <span>Mises en pages</span>
     </a>
 
-    <div class="titre-menu2">Contexte Général</div>
+    <div class="titre-menu2"><span>Contexte Général</span><ion-icon name="chevron-down-outline"></ion-icon></div>
     <a href="/h12-chronologie" class="mainmenu">
       <div class="ligne-menu">
         <div class="ligne"></div>
@@ -123,7 +123,7 @@ $(function () {
       <span>Contexte International</span>
     </a>  
 
-    <div class="titre-menu2">CONTEXTE DE LA FEPS</div>
+    <div class="titre-menu2"><span>CONTEXTE DE LA FEPS</span><ion-icon name="chevron-down-outline"></ion-icon></div>
     <a href="/h18-copenhague" class="mainmenu diff">
       <div class="ligne-menu">
         <div class="ligne"></div>
