@@ -10,7 +10,7 @@ $(function () {
     </a>                        
 </div>
 <div class="mainmenu_pliables intro">
-    <div class="titre-menu"><span>Introduction</span><ion-icon name="chevron-down-outline"></ion-icon></div>
+    <div class="titre-menu"><span>Introduction</span><ion-icon class="chevron-down" name="chevron-down-outline"></ion-icon><ion-icon class="chevron-up" name="chevron-up-outline"></ion-icon></div>
     <a href="/h3-intro" class="mainmenu">
         <div class="ligne-menu">
         <div class="ligne"></div>
@@ -48,7 +48,7 @@ $(function () {
     </a>
 </div>
 <div class="mainmenu_pliables guides">
-    <div class="titre-menu2"><span>Guides</span><ion-icon name="chevron-down-outline"></ion-icon></div>
+    <div class="titre-menu2"><span>Guides</span><ion-icon class="chevron-down" name="chevron-down-outline"></ion-icon><ion-icon class="chevron-up" name="chevron-up-outline"></ion-icon></div>
     <a href="/h7-en-arrivant" class="mainmenu">
         <div class="ligne-menu">
         <div class="ligne"></div>
@@ -79,7 +79,7 @@ $(function () {
     </a>
 </div>
 <div class="mainmenu_pliables general">
-    <div class="titre-menu2"><span>Contexte Général</span><ion-icon name="chevron-down-outline"></ion-icon></div>
+    <div class="titre-menu2"><span>Contexte Général</span><ion-icon class="chevron-down" name="chevron-down-outline"></ion-icon><ion-icon class="chevron-up" name="chevron-up-outline"></ion-icon></div>
     <a href="/h12-chronologie" class="mainmenu">
         <div class="ligne-menu">
         <div class="ligne"></div>
@@ -124,7 +124,7 @@ $(function () {
     </a>
 </div>  
 <div class="mainmenu_pliables feps">
-    <div class="titre-menu2"><span>CONTEXTE DE LA FEPS</span><ion-icon name="chevron-down-outline"></ion-icon></div>
+    <div class="titre-menu2"><span>CONTEXTE DE LA FEPS</span><ion-icon class="chevron-down" name="chevron-down-outline"></ion-icon><ion-icon class="chevron-up" name="chevron-up-outline"></ion-icon></div>
     <a href="/h18-copenhague" class="mainmenu diff">
         <div class="ligne-menu">
         <div class="ligne"></div>
@@ -261,13 +261,6 @@ $(function () {
       });
     }
   });
-  function updateChevron($section) {
-    var $icon = $section.find('.titre-menu ion-icon, .titre-menu2 ion-icon');
-    if ($section.hasClass('menu_unfolded')) {
-        $icon.attr('name', 'chevron-up-outline');
-    } else {
-        $icon.attr('name', 'chevron-down-outline');
-    }
-  }
+  
 
 });
