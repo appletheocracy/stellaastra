@@ -77,6 +77,12 @@ a.retour:hover span{
     border-top:none;
     border-left:none;
     border-right:none;
+    display: grid; 
+    grid-template-columns: 260fr 30px; 
+    grid-template-rows: 38px; 
+    gap: 0px 10px; 
+    grid-template-areas: 
+    ". ."; 
 }
 
 .titre-menu2{
@@ -92,6 +98,12 @@ a.retour:hover span{
     border-style:solid;
     border-left:none;
     border-right:none;
+    display: grid; 
+    grid-template-columns: 260fr 30px; 
+    grid-template-rows: 38px; 
+    gap: 0px 10px; 
+    grid-template-areas: 
+    ". .";
 }
 
 a.mainmenu{
