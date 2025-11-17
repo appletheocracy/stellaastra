@@ -206,3 +206,19 @@ a.mainmenu.select:hover .ligne{
 .mainmenu_pliables.feps{
     height:38px;
 }
+
+.mainmenu_pliables.menu_has_select .titre-menu ion-icon, .mainmenu_pliables.menu_has_select .titre-menu2 ion-icon{
+    display:none;
+}
+
+.mainmenu_pliables .titre-menu ion-icon.chevron-up, .mainmenu_pliables .titre-menu ion-icon.chevron-up{
+    display:none;
+}
+
+.mainmenu_pliables.menu_unfolded .titre-menu ion-icon.chevron-down, .mainmenu_pliables.menu_unfolded .titre-menu2 ion-icon.chevron-down{
+    display:none;
+}
+
+.mainmenu_pliables.menu_unfolded .titre-menu ion-icon.chevron-up, .mainmenu_pliables.menu_unfolded .titre-menu2 ion-icon.chevron-up{
+    display:block!important;
+}
