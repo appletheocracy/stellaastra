@@ -18,6 +18,8 @@ $(function () {
     }
   });
 
+  $(function () {
+
   /* ==========================================
      1) Wrap contents for smooth height toggle
      ========================================== */
@@ -26,44 +28,53 @@ $(function () {
     const $title = $menu.children('.r-titre');
     const $rest  = $menu.children().not($title);
 
-    // Wrap all content except the title ONCE
     if (!$menu.children('.r-menu-body').length && $rest.length) {
       $rest.wrapAll('<div class="r-menu-body"></div>');
     }
   });
 
   /* ==========================================
-     2) Function to update .has-select + .deplie
+     2) Function to manage .has-select and .deplie
      ========================================== */
   function updateHasSelect() {
-    // Remove marker from all menus
-    $('.menu-droite-pliable').removeClass('has-select');
 
-    // Take the first .r-select (there should be only one)
+    // Identify the NEW selected link
     const $select = $('.r-sub-titre.r-select').first();
 
+    // Track which menu had .has-select BEFORE update
+    const $oldPinned = $('.menu-droite-pliable.has-select');
+
+    // Remove .has-select from all
+    $('.menu-droite-pliable').removeClass('has-select');
+
     if ($select.length) {
-      const $parent = $select.closest('.menu-droite-pliable');
-      // This menu is "pinned" open
-      $parent.addClass('has-select deplie');
+      const $newPinned = $select.closest('.menu-droite-pliable');
+
+      // Assign .has-select + ensure open
+      $newPinned.addClass('has-select deplie');
+
+      // Any OLD pinned menus that LOST the select must CLOSE
+      $oldPinned.not($newPinned).each(function () {
+        $(this).removeClass('deplie'); // auto-close since no longer pinned
+      });
     }
   }
 
   /* ====================================================
-     3) On load: if no .r-select, auto-select the first
+     3) On load: Ensure one .r-select exists
      ==================================================== */
   if (!$('.r-sub-titre.r-select').length) {
     $('.menu-droite-pliable').each(function () {
       const $first = $(this).find('.r-sub-titre').first();
       if ($first.length) {
         $first.addClass('r-select');
-        return false; // stop after the first found on the page
+        return false;
       }
     });
   }
 
-  // Now sync .has-select / .deplie with the current .r-select
   updateHasSelect();
+
 
   /* ==========================================
      4) Click on .r-titre (accordion behavior)
@@ -72,9 +83,9 @@ $(function () {
     e.preventDefault();
 
     const $menu     = $(this).closest('.menu-droite-pliable');
-    const hasSelect = $menu.hasClass('has-select');
+    const isPinned  = $menu.hasClass('has-select');
 
-    // Close other open menus that are not pinned
+    // Close other menus unless pinned
     $('.menu-droite-pliable.deplie').not($menu).each(function () {
       const $other = $(this);
       if (!$other.hasClass('has-select')) {
@@ -84,8 +95,7 @@ $(function () {
 
     // Toggle current menu
     if ($menu.hasClass('deplie')) {
-      // If it has .has-select (i.e. contains .r-select), it cannot be closed
-      if (!hasSelect) {
+      if (!isPinned) {
         $menu.removeClass('deplie');
       }
     } else {
@@ -93,17 +103,16 @@ $(function () {
     }
   });
 
+
   /* ==================================================
-     5) Click on .r-sub-titre (move .r-select + pin)
+     5) Click on .r-sub-titre (switch r-select)
      ================================================== */
   $(document).on('click', '.r-sub-titre', function () {
-    // Let the anchor do its normal behavior (scroll), so no preventDefault
-
-    // Move .r-select to the clicked link
+    // Move r-select
     $('.r-sub-titre').removeClass('r-select');
     $(this).addClass('r-select');
 
-    // Recompute which menu is pinned
+    // Update pinned menu + auto-close old one
     updateHasSelect();
   });
 
