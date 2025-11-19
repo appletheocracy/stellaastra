@@ -32,7 +32,7 @@
     background-color:rgba(18, 18, 18, .7);
     width:275px;
     border-top:1px solid var(--cdeu);
-    border-bottom:1px solid var(--cacc);
+    border-bottom:1px solid var(--cdeu);
 }
 
 .r-titre.topper{
