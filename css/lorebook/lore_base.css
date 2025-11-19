@@ -111,6 +111,14 @@ div.codex{
     text-decoration:none;
 }
 
+.lorelist{
+	margin:5px 20px;
+	color:var(--cofwhite);
+	background-color:var(--cfond);
+	border-radius:4px;
+	padding:10px;
+	font-size:16px;
+}
 
 .wrap{ 
     display: flex;
