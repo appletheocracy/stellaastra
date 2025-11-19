@@ -1,0 +1,125 @@
+.menu-droite-pliable{
+    height:36px;
+    overflow:hidden;
+    transition: .5s;
+    animation-timing-function:ease-in-out;
+}
+
+.menu-droite-pliable.has-select ion-icon{
+    display:none!important;
+}
+
+.menu-droite-pliable.large-m{
+    height:62px;
+    overflow:hidden;
+}
+
+.menu-droite-pliable.deplie ion-icon.chevron-open{
+    display:none;
+}
+
+.menu-droite-pliable.deplie ion-icon.chevron-close{
+    display:block;
+}
+
+.menu-droite-pliable ion-icon.chevron-close{
+    display:none;
+}
+
+.menu-droite-pliable ion-icon.chevron-open{
+    display:block;
+}
+
+.r-titre{
+    display:flex;
+    flex-direction:row;
+    width:275px;
+}
+
+.r-titre span{
+    width:260px;
+}
+
+.r-titre ion-icon{
+    position: relative;
+    top:3px;
+}
+
+.menu-droite-pliable .r-menu-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.5s ease;
+}
+
+/* When open */
+.menu-droite-pliable.deplie .r-menu-body {
+  max-height: 500px; /* big enough for your content */
+}
+
+/*1 unité*/
+.deplie.l1{
+    height:64px!important;
+}
+/*1 unité large*/
+.deplie.l1-l{
+    height:90px!important;
+}
+/*2 unités*/
+.deplie.l2{
+    height:92px!important;
+}
+/*2 unités large*/
+.deplie.l2-l{
+    height:118px!important;
+}
+/*3 unités*/
+.deplie.l3{
+    height:120px!important;
+}
+/*3 unités large*/
+.deplie.l3-l{
+    height:146px!important;
+}
+/*4 unités*/
+.deplie.l4{
+    height:148px!important;
+}
+/*4 unités large*/
+.deplie.l4-l{
+    height:174px!important;
+}
+/*5 unités*/
+.deplie.l5{
+    height:176px!important;
+}
+/*5 unités large*/
+.deplie.l5-l{
+    height: 202px!important;
+}
+/*6 unités*/
+.deplie.l6{
+    height:204px!important;
+}
+/*6 unités large*/
+.deplie.l6-l{
+    height:230px!important;
+}
+/*7 unités*/
+.deplie.l7{
+    height:232px!important;
+}
+/*7 unités large*/
+.deplie.l7-l{
+    height:258px!important;
+}
+
+
+.menu-droite-pliable.l1-l,
+.menu-droite-pliable.l2-l,
+.menu-droite-pliable.l3-l,
+.menu-droite-pliable.l4-l,
+.menu-droite-pliable.l5-l,
+.menu-droite-pliable.l6-l,
+.menu-droite-pliable.l7-l{
+    height:62px;
+}
