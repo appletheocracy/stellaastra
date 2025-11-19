@@ -31,10 +31,13 @@
     text-shadow: 0px 4px 0px var(--cdeu);
     background-color:rgba(18, 18, 18, .7);
     width:275px;
+    border-top:1px solid var(--cacc);
+    border-bottom:1px solid var(--cdeu);
 }
 
 .r-titre.topper{
     border-top-left-radius: 4px;
+    border-top:none!important;
 }
 
 .r-sub-titre{
