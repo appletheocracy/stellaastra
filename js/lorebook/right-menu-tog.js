@@ -16,9 +16,7 @@ $(function () {
     if (!$t.find('.chevron-close').length) {
       $t.append('<ion-icon class="chevron-close" name="chevron-up-outline"></ion-icon>');
     }
-  });
-
-  $(function () {
+  });   
 
   /* ==========================================
      1) Wrap contents for smooth height toggle
