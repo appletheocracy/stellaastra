@@ -5,7 +5,7 @@
     animation-timing-function:ease-in-out;
 }
 
-.menu-droite-pliable.has-select ion-icon{
+.menu-droite-pliable.has-select ion-icon.chevron-close,.menu-droite-pliable.has-select ion-icon.chevron-open{
     display:none!important;
 }
 
