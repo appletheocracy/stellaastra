@@ -11,7 +11,7 @@ $(function () {
 </div>
 <div class="mainmenu_pliables intro">
     <div class="titre-menu"><span>Introduction</span><ion-icon class="chevron-down" name="chevron-down-outline"></ion-icon><ion-icon class="chevron-up" name="chevron-up-outline"></ion-icon></div>
-    <a href="/h3-intro" class="mainmenu">
+    <a href="/h3-lorebook" class="mainmenu">
         <div class="ligne-menu">
         <div class="ligne"></div>
         </div>
