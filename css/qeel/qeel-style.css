@@ -162,11 +162,9 @@ a .qeel-groupe, .qeel-content-right{
     width:100%;
     font-size:30px;
     color:var(--cmem);
-    text-shadow: 2px 2px 0 rgba(255,255,255,.5), 2px -2px 0 rgba(255,255,255,.5), -2px 2px 0 rgba(255,255,255,.5), -2px -2px 0 rgba(255,255,255,.5), 2px 0px 0 rgba(255,255,255,.5), 0px 2px 0 rgba(255,255,255,.5), -2px 0px 0 rgba(255,255,255,.5), 0px -2px 0 rgba(255,255,255,.5);
 }
 .qeel-welc .qeel-who a{
     font-size:30px;
-    text-shadow: 2px 2px 0 rgba(255,255,255,.5), 2px -2px 0 rgba(255,255,255,.5), -2px 2px 0 rgba(255,255,255,.5), -2px -2px 0 rgba(255,255,255,.5), 2px 0px 0 rgba(255,255,255,.5), 0px 2px 0 rgba(255,255,255,.5), -2px 0px 0 rgba(255,255,255,.5), 0px -2px 0 rgba(255,255,255,.5);
 }
 
 .qeel-row1{
