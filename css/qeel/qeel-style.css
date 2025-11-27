@@ -98,6 +98,10 @@ a .qeel-groupe, .qeel-content-right{
    color:var(--cff);
 }
 
+.qeel-who strong{
+    font-weight:400!important;
+}
+
 .qeel-who a:hover{
    letter-spacing:.5px;
 }
