@@ -22,8 +22,6 @@ a .qeel-groupe, .qeel-content-right{
     height:360px;
 }
 
-
-
 .qeel-col{
     height:283px;
     display:flex;
@@ -76,7 +74,7 @@ a .qeel-groupe, .qeel-content-right{
     width:400px;
     text-align:center;
     font-size:40px;
-    height:29px;
+    height:34px;
     overflow:hidden;
 }
 
