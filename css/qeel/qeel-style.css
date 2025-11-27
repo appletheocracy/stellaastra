@@ -16,13 +16,11 @@ a .qeel-groupe, .qeel-content-right{
     grid-template-rows: 360px; 
     gap: 0px 15px;
 }
-.qeel-conteneur strong, .qeel-conteneur strong a, .qeel-conteneur strong a span, .qeel-conteneur strong a span strong, .qeel-conteneur strong span strong{
+.qeel-enligne .qeel-who strong, .qeel-enligne .qeel-who strong a, .qeel-enligne .qeel-who strong a span, .qeel-enligne .qeel-who strong a span strong, .qeel-enligne .qeel-who strong span strong,
+.qeel-welc .qeel-who strong, .qeel-welc .qeel-who strong a, .qeel-welc .qeel-who strong a span, .qeel-welc .qeel-who strong a span strong, .qeel-welc .qeel-who strong span strong{
     font-weight:400!important;
 }
 
-.qeel-48h .qeel-who strong, .qeel-48h .qeel-who a, .qeel-48h .qeel-who strong a span, .qeel-48h .qeel-who strong a span strong, .qeel-48h .qeel-who strong span strong{
-    font-weight:700!important;
-}
 
 .qeel-image-left{
     width:495px;
