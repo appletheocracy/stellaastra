@@ -1,0 +1,238 @@
+
+.wrap{
+    background-color:var(--cfondpale)!important;
+    width:1200px!important;
+    margin:0 auto!important;
+    padding:30px!important;
+    
+}
+
+a .qeel-groupe, .qeel-content-right{
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.qeel-conteneur{
+    width:1140px;
+    height:360px;
+    border-radius:4px;
+    overflow:hidden;
+    background-image:url('https://i.imgur.com/4Mvdr9H.png');
+    background-repeat: no-repeat;
+    display: grid; 
+    grid-template-columns: 495px 630px; 
+    grid-template-rows: 360px; 
+    gap: 0px 15px;
+}
+
+.qeel-image-left{
+    width:495px;
+    height:360px;
+}
+
+
+
+.qeel-col{
+    height:283px;
+    display:flex;
+    flex-direction: row;
+    gap:15px;
+}
+
+.qeel-col1{
+    height:253px;
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    margin-top:15px;
+}
+
+.qeel-stats{
+    display: flex;
+    flex-direction: row;
+    gap:25px;
+}
+
+.qeel-stats .number{
+    color:var(--cdeu);
+    font-size:70px;
+    font-family: Arial, Helvetica, sans-serif!important;
+    font-weight:bold;
+    letter-spacing: -7px;
+    height:60px;
+}
+.qeel-stats .sub{
+    color:var(--cff);
+    font-size:30px;
+    padding-left:10px;
+    height:30px;
+}
+
+.qeel-enligne{
+    border-radius:4px;
+    width:292px;
+    height:155px;
+    background-color:rgba(104,147,182, .3);
+    border:1px solid white;    
+    overflow-x:hidden;
+}
+
+.qeel-enligne .qeel-title{
+    color:rgba(58,114,226,.5);
+    width:400px;
+    text-align:center;
+    font-size:40px;
+    height:29px;
+    overflow:hidden;
+}
+
+.qeel-enligne .qeel-title span{
+    color:var(--cdeu);
+}
+
+.qeel-enligne .qeel-title div{
+    position:relative;
+    top:-10px;
+    left:-50px;
+    height:29px;
+}
+
+.qeel-enligne .qeel-who{
+   width:100%;
+   height:120px;
+   padding:10px;
+   font-size:18px;
+   overflow-y:auto;
+   color:white;
+}
+
+.qeel-who a:hover{
+   letter-spacing:.5px;
+}
+
+.qeel-who::-webkit-scrollbar {
+    width:5px;
+}
+.qeel-who::-webkit-scrollbar-track {
+    background:var(--cfond);
+}
+.qeel-who::-webkit-scrollbar-thumb {
+    background:var(--cdeu1);
+}
+
+.qeel-col2{
+    width:308px;
+    height:253px;
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    margin-top:20px;
+
+}
+
+.qeel-48h .qeel-title{
+    color:var(--cff);
+    width:100%;
+    text-align:center;
+    font-size:40px;
+    height:38px;
+    overflow:hidden;
+}
+
+.qeel-48h .qeel-who{
+    border-radius:4px;
+    width:308px;
+    height:135px;
+    background-color:rgba(104,147,182, .3);
+    border:1px solid white;
+    padding:10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    color:white;
+}
+
+.qeel-welc .qeel-title{
+    color:var(--cdeu);
+    width:100%;
+    text-align:center;
+    font-size:50px;
+    height:35px;
+}
+
+.qeel-welc .qeel-title div{
+    position:relative;
+    top:-13px;
+    
+}
+
+.qeel-welc .qeel-who{
+    text-align:center;
+    width:100%;
+    font-size:30px;
+    color:var(--cmem);
+    text-shadow: 2px 2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, -2px -2px 0 #fff, 2px 0px 0 #fff, 0px 2px 0 #fff, -2px 0px 0 #fff, 0px -2px 0 #fff;
+}
+.qeel-welc .qeel-who a{
+    font-size:30px;
+    text-shadow: 2px 2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, -2px -2px 0 #fff, 2px 0px 0 #fff, 0px 2px 0 #fff, -2px 0px 0 #fff, 0px -2px 0 #fff;
+}
+
+.qeel-row1{
+    margin-top:5px;
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+
+.qeel-group-spacer{
+    width:76px;
+    height:60px;
+}
+
+a.qeel-group-link{
+    text-decoration: none;
+}
+
+a.qeel-group-link:hover{
+    letter-spacing:0.5px;
+}
+
+a .qeel-groupe{
+    height:60px;
+    width:125px;
+    border:1px solid var(--cff);
+    text-align:center;
+    font-size:20px;
+    padding-top:16px;
+}
+
+a .qeel-groupe.vamp{
+    background-color:rgba(211,17,65,.8);
+}
+
+a .qeel-groupe.huma{
+    background-color:rgba(109,156,114,.8);
+}
+
+a .qeel-groupe.hybr{
+    background-color:rgba(192,131,207,.8);
+}
+
+a .qeel-groupe.chim{
+    background-color:rgba(255,205,97,.8);
+}
+
+a.qeel-group-link:hover .qeel-groupe.vamp{
+    background-color:var(--cvam);
+}
+
+a.qeel-group-link:hover .qeel-groupe.huma{
+    background-color:var(--chum);
+}
+a.qeel-group-link:hover .qeel-groupe.hybr{
+    background-color:var(--chyb);
+}
+a.qeel-group-link:hover .qeel-groupe.chim{
+    background-color:var(--chim);
+}
