@@ -20,6 +20,10 @@ a .qeel-groupe, .qeel-content-right{
     font-weight:400!important;
 }
 
+.qeel-48h .qeel-who strong, .qeel-48h .qeel-who a, .qeel-48h .qeel-who strong a span, .qeel-48h .qeel-who strong a span strong, .qeel-48h .qeel-who strong span strong{
+    font-weight:700!important;
+}
+
 .qeel-image-left{
     width:495px;
     height:360px;
