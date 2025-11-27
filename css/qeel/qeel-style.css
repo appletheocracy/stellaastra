@@ -52,6 +52,8 @@ a .qeel-groupe, .qeel-content-right{
     font-weight:bold;
     letter-spacing: -7px;
     height:60px;
+    position:relative;
+    top:-10px;
 }
 .qeel-stats .sub{
     color:var(--cff);
@@ -91,7 +93,7 @@ a .qeel-groupe, .qeel-content-right{
 
 .qeel-enligne .qeel-who{
    width:100%;
-   height:120px;
+   height:117px;
    padding:10px;
    font-size:18px;
    overflow-y:auto;
@@ -118,7 +120,7 @@ a .qeel-groupe, .qeel-content-right{
     display:flex;
     flex-direction: column;
     gap:10px;
-    margin-top:20px;
+    margin-top:15px;
 
 }
 
@@ -127,7 +129,7 @@ a .qeel-groupe, .qeel-content-right{
     width:100%;
     text-align:center;
     font-size:40px;
-    height:38px;
+    height:43px;
     overflow:hidden;
 }
 
