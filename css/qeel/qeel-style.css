@@ -16,6 +16,9 @@ a .qeel-groupe, .qeel-content-right{
     grid-template-rows: 360px; 
     gap: 0px 15px;
 }
+.qeel-conteneur strong, .qeel-conteneur strong a, .qeel-conteneur strong a span, .qeel-conteneur strong a span strong, .qeel-conteneur strong span strong{
+    font-weight:400!important;
+}
 
 .qeel-image-left{
     width:495px;
@@ -96,10 +99,6 @@ a .qeel-groupe, .qeel-content-right{
    font-size:18px;
    overflow-y:auto;
    color:var(--cff);
-}
-
-.qeel-who strong{
-    font-weight:400!important;
 }
 
 .qeel-who a:hover{
