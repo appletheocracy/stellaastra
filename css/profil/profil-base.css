@@ -11,9 +11,10 @@
 }
 
 .profil-page-ttle{
+    margin-top:10px;
     font-size:55px;
     text-align:center;
-    height:52px;
+    height:55px;
     position:relative;
     z-index:1001;
 }
@@ -51,7 +52,7 @@
 }
 
 .profil-subtitre.topper{
-    margin-top:23px;
+    margin-top:27px;
 }
 
 .prof-flex{
