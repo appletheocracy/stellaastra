@@ -1,0 +1,9 @@
+.post-head  .field___00e2ge .label,
+.post-head  .field_taille .label,
+.post-head  .field_emploi .label,
+.post-head  .field_feat-__002d-origine,
+.post-head  .field_feat-__002d-nom-artiste,
+.post-head  .field_jou__00e9-par,
+.post-head  .field_hide-consenti{
+	display:none!important;
+}
