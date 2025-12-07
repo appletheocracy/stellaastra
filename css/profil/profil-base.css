@@ -69,7 +69,7 @@
 .prof-list-info{
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
 }
 
 .prof-label-col{
