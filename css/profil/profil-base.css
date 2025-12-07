@@ -69,14 +69,14 @@
 .prof-list-info{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
 }
 
 .prof-label-col{
     color:var(--cfondpale);
     font-size:24px;
     padding-left:4px;
-    height:23px;
+    height:27px;
 }
 
 .profil-rep-col{
