@@ -77,7 +77,7 @@ $(function () {
    *    <div class="infos-posteur field_rps">9999 RPS</div>
    *    (handles both field___rps & field_rps just in case)
    * ============================================================ */
-  $('.infos-posteur_globale .field___rps, .infos-posteur_globale .field_rps').each(function () {
+  $('.infos-posteur_globale .field_rps').each(function () {
     var $el  = $(this);
     var text = $.trim($el.text());
     if (text && !/RPS$/i.test(text)) {
