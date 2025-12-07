@@ -181,6 +181,10 @@ a.d_bouton_profil.ava_carnet{
     font-style: normal;
 }
 
+.post-head .label{
+	display:none;
+}
+
 .post-head .infos-posteur_globale{
 	display:flex;
 	flex-direction:row;
@@ -188,6 +192,7 @@ a.d_bouton_profil.ava_carnet{
 	font-family: "Staatliches", sans-serif;
 	font-weight: 400;
 	font-style: normal;
+	gap:15px;
 }
 
 .post-head .posterName{
@@ -471,21 +476,11 @@ div.sliderinfobase{
     background-color:rgba(50,50,50,.8);    
 }
 
-.sliderinfo .field_facts{
-    overflow-y: auto;
-    scrollbar-color: var(--cfond) var(--cfondpale);
-    scrollbar-width: thin;
-    height:85px!important;
-    text-align:left;
-    overflow:auto;
-    padding:5px;
-    font-size:13px;
-}
-
 .factcheck_title span{
     position:relative;
     top:-19px;
 }
+
 .factcheck_title{
     color:var(--cff)!important;
     font-size:50px;
@@ -498,25 +493,6 @@ div.sliderinfobase{
     font-family: "Staatliches", sans-serif!important;
     font-weight: 400!important;
     font-style: normal!important;
-}
-
-.field_image-profil{
-    position:relative;
-    overflow:hidden;
-    width:238px!important;
-    height:100px!important;
-    background-color:var(--cff);
-    clip-path: polygon(50% 100%, 100% 75%, 100% 0%, 0% 0%, 0% 75%);
-    margin:0px!important;
-    border-top:2px solid var(--cff);
-    padding:0px!important;
-    border-left:0px solid!important;
-}
-
-.field_image-profil img{
-    width:240px!important;
-    height:96px!important;
-    clip-path: polygon(50% 100%, 100% 75%, 100% 0%, 0% 0%, 0% 75%);
 }
 
 .slider_subtitle{
@@ -536,19 +512,14 @@ div.sliderinfobase{
 .contact_avatar{
     margin-top:5px!important;
 }
+
 .contact_avatar .infos-posteur_globale{
-    display: grid;
-    grid-template-columns: 45px 204px;
-    grid-template-rows: 38px 38px;
-    gap: 5px 5px;
-    grid-auto-flow: row;
-    justify-items: start;
-    align-items: start;
-    grid-template-areas:
-      "a b"
-      "c c";
+    display: flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+    gap: 10px;
     width: 254px;
-    height: auto;
+    height: 86px;
 }
 
 .contact_avatar a.profile-icon{
@@ -564,6 +535,7 @@ div.sliderinfobase{
     font-weight: 400!important;
     font-style: normal!important;
 }
+
 .contact_avatar .infos-posteur a{
     color:var(--cff)!important;
     font-size:16px;
