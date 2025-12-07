@@ -133,7 +133,8 @@
 .profile-groupe-memb{
     color:#6e6e6e;
     font-size:40px;
-    padding-top:8px;
+    padding-top:5px;
+    height:60px;
 }
 
 .prof-memb, .prof-deus, .prof-pnj, .prof-vamp, .prof-huma, .prof-hybr, .prof-chim{
