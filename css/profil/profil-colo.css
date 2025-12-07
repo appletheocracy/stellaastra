@@ -1,0 +1,238 @@
+.profil_membre .prof-memb{
+    display:inline-block;
+}
+
+.profil_deus .prof-memb, .profil_pnj .prof-memb, .profil_vampire .prof-memb, .profil_humain .prof-memb, .profil_hybride .prof-memb, .profil_chimere .prof-memb{
+    display:none;
+}
+
+.profil_membre .profil-rep-col a:hover, .profil_deus .profil-rep-col a:hover, .profil_pnj .profil-rep-col a:hover, .profil_vampire .profil-rep-col a:hover, .profil_humain .profil-rep-col a:hover, .profil_hybride .profil-rep-col a:hover, .profil_chimere .profil-rep-col a:hover{
+    color:var(--cvam)!important;
+}
+
+.profil_membre a:hover .profil-rep-col.plink, .profil_deus a:hover .profil-rep-col.plink, .profil_pnj a:hover .profil-rep-col.plink, .profil_vampire a:hover .profil-rep-col.plink, .profil_humain a:hover .profil-rep-col.plink, .profil_hybride a:hover .profil-rep-col.plink, .profil_chimere a:hover .profil-rep-col.plink{
+    background-color:var(--c14)!important;
+}
+
+.profil_deus .prof-deus{
+    display:inline-block;
+    color:var(--cdeu);
+}
+
+.profil_deus .prof-label-col, .profil_deus .profile-groupe-memb{
+    color: var(--cdeu);
+}
+
+.profil_deus .profil-rep, .profil_deus .profil-rep-col{
+    border-color:var(--cdeu);
+}
+
+.profil_deus .profil-rep-col a{
+    color:var(--cdeu)!important;
+}
+
+.profil_deus a .profil-rep-col, .profil_deus .profil-grp-bar{
+    background-color:var(--cdeu)!important;
+}
+
+.profil_deus .profil-page-ttle span{
+    color:var(--cfond)!important;
+    text-shadow: 0px -4px 1px var(--cdeu);
+}
+
+.profil_deus .profil-disp-ava{
+    background: #3A72E2;
+    background: linear-gradient(0deg, rgba(58, 114, 226, 1) 0%, rgba(50, 50, 50, 0.5) 100%);
+}
+
+.profil_deus .rep-textarea{
+    scrollbar-color: #3a72e2 #323232!important;
+}
+
+.profil_pnj .prof-pnj{
+    display:inline-block;
+    color:var(--cpnj);
+}
+
+.profil_pnj .prof-label-col, .profil_pnj .profile-groupe-memb{
+    color: var(--cpnj);
+}
+
+.profil_pnj .profil-rep, .profil_pnj .profil-rep-col{
+    border-color:var(--cpnj);
+}
+
+.profil_pnj .profil-rep-col a{
+    color:var(--cpnj)!important;
+}
+
+.profil_pnj a .profil-rep-col, .profil_pnj .profil-grp-bar{
+    background-color:var(--cpnj)!important;
+}
+
+.profil_pnj .profil-page-ttle span{
+    color:var(--cfond)!important;
+    text-shadow: 0px -4px 1px var(--cpnj);
+}
+
+.profil_pnj .profil-disp-ava{
+    background: #91B6FF;
+    background: linear-gradient(0deg, rgba(145, 182, 255, 1) 0%, rgba(50, 50, 50, 0.5) 100%);
+}
+
+.profil_pnj .rep-textarea{
+    scrollbar-color: #91B6FF #323232!important;
+}
+
+.profil_vampire .prof-vamp{
+    display:inline-block;
+    color:var(--cvam);
+}
+
+.profil_vampire .prof-label-col, .profil_vampire .profile-groupe-memb{
+    color: var(--cvam);
+}
+
+.profil_vampire .profil-rep, .profil_vampire .profil-rep-col{
+    border-color:var(--cvam);
+}
+
+.profil_vampire .profil-rep-col a{
+    color:var(--cvam)!important;
+}
+
+.profil_vampire a .profil-rep-col, .profil_vampire .profil-grp-bar{
+    background-color:var(--cvam)!important;
+}
+
+.profil_vampire .profil-page-ttle span{
+    color:var(--cfond)!important;
+    text-shadow: 0px -4px 1px var(--cvam);
+}
+
+.profil_vampire .profil-disp-ava{
+    background: #D31141;
+    background: linear-gradient(0deg, rgba(211, 17, 65, 1) 0%, rgba(50, 50, 50, 0.5) 100%);
+}
+
+.profil_vampire .rep-textarea{
+    scrollbar-color: #D31141 #323232!important;
+}
+
+.profil_vampire .profil-rep-col a:hover{
+    color:var(--chyb)!important;
+}
+
+.profil_humain .prof-huma{
+    display:inline-block;
+    color:var(--chum);
+}
+
+.profil_humain .prof-label-col, .profil_humain .profile-groupe-memb{
+    color: var(--chum);
+}
+
+.profil_humain .profil-rep, .profil_humain .profil-rep-col{
+    border-color:var(--chum);
+}
+
+.profil_humain .profil-rep-col a{
+    color:var(--chum)!important;
+}
+
+.profil_humain a .profil-rep-col, .profil_humain .profil-grp-bar{
+    background-color:var(--chum)!important;
+}
+
+.profil_humain .profil-page-ttle span{
+    color:var(--cfond)!important;
+    text-shadow: 0px -4px 1px var(--chum);
+}
+
+.profil_humain .profil-disp-ava{
+    background: #6D9C72;
+    background: linear-gradient(0deg, rgba(109, 156, 114, 1) 0%, rgba(50, 50, 50, 0.5) 100%);
+}
+
+.profil_humain .rep-textarea{
+    scrollbar-color: #6D9C72 #323232!important;
+}
+
+.profil_hybride .prof-hybr{
+    display:inline-block;
+    color:var(--chyb);
+}
+
+.profil_hybride .prof-label-col, .profil_hybride .profile-groupe-memb{
+    color: var(--chyb);
+}
+
+.profil_hybride .profil-rep, .profil_hybride .profil-rep-col{
+    border-color:var(--chyb);
+}
+
+.profil_hybride .profil-rep-col a{
+    color:var(--chyb)!important;
+}
+
+.profil_hybride a .profil-rep-col, .profil_hybride .profil-grp-bar{
+    background-color:var(--chyb)!important;
+}
+
+.profil_hybride .profil-page-ttle span{
+    color:var(--cfond)!important;
+    text-shadow: 0px -4px 1px var(--chyb);
+}
+
+.profil_hybride .profil-disp-ava{
+    background: #C083CF;
+    background: linear-gradient(0deg, rgba(192, 131, 207, 1) 0%, rgba(50, 50, 50, 0.5) 100%);
+}
+
+.profil_hybride .rep-textarea{
+    scrollbar-color: #C083CF #323232!important;
+}
+
+.profil_chimere .prof-chim{
+    display:inline-block;
+    color:var(--chim);
+}
+
+.profil_chimere .prof-label-col, .profil_chimere .profile-groupe-memb{
+    color: var(--chim);
+}
+
+.profil_chimere .profil-rep, .profil_chimere .profil-rep-col{
+    border-color:var(--chim);
+}
+
+.profil_chimere .profil-rep-col a{
+    color:var(--chim)!important;
+}
+
+.profil_chimere a .profil-rep-col, .profil_chimere .profil-grp-bar{
+    background-color:var(--chim)!important;
+}
+
+.profil_chimere .profil-page-ttle span{
+    color:var(--cfond)!important;
+    text-shadow: 0px -4px 1px var(--chim);
+}
+
+.profil_chimere .profil-disp-ava{
+    background: #FFCD61;
+    background: linear-gradient(0deg,rgba(255, 205, 97, 1) 0%, rgba(50, 50, 50, 0.5) 100%);
+}
+
+.profil_chimere .rep-textarea{
+    scrollbar-color: #FFCD61 #323232!important;
+}
+
+.profil_chimere .profil-subtitre.topper, .profil_chimere .prof-sub-label, .profil_chimere a .profil-rep-col{
+    color:var(--cfond)!important;
+}
+
+.profil_chimere a:hover .profil-rep-col{
+    color:var(--cofwhite)!important;
+}
+
