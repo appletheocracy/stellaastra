@@ -1,87 +1,70 @@
 $(function () {
 
-  /* ============================================================
-   * 1) Insert group label based on parent .post class
-   * ============================================================ */
+  /* ============================================
+   * 1) Insert group title based on .post class
+   * ============================================ */
   $('.post-head .infos-posteur_globale').each(function () {
-    var $bloc = $(this);
-    var $post = $bloc.closest('.post');
-    var label = null;
+    const $globale = $(this);
+    const $post = $globale.closest('.post');
+    let groupText = '';
 
-    if ($post.hasClass('message_deus')) {
-      label = 'Compte Fondateur';
-    } else if ($post.hasClass('message_pnj')) {
-      label = 'Compte PNJ';
-    } else if ($post.hasClass('message_membre')) {
-      label = 'Membre';
-    } else if ($post.hasClass('message_vampire')) {
-      label = 'Vampire';
-    } else if ($post.hasClass('message_humain')) {
-      label = 'Humain-e';
-    } else if ($post.hasClass('message_hybride')) {
-      label = 'Hybride';
-    } else if ($post.hasClass('message_chimere')) {
-      label = 'Chimère';
-    }
+    if ($post.hasClass('message_deus')) groupText = 'Compte Fondateur';
+    else if ($post.hasClass('message_pnj')) groupText = 'Compte PNJ';
+    else if ($post.hasClass('message_membre')) groupText = 'Membre';
+    else if ($post.hasClass('message_vampire')) groupText = 'Vampire';
+    else if ($post.hasClass('message_humain')) groupText = 'Humain-e';
+    else if ($post.hasClass('message_hybride')) groupText = 'Hybride';
+    else if ($post.hasClass('message_chimere')) groupText = 'Chimère';
 
-    if (label) {
-      var $insert = $('<div class="infos-posteur group-insert"></div>').text(label);
-      var $firstInfo = $bloc.find('.infos-posteur').first();
+    if (groupText !== '') {
+      const $newDiv = $('<div class="infos-posteur group-insert"></div>').text(groupText);
+      const $first = $globale.find('.infos-posteur').first();
 
-      if ($firstInfo.length) {
-        $insert.insertBefore($firstInfo);
+      if ($first.length) {
+        $newDiv.insertBefore($first);
       } else {
-        $insert.prependTo($bloc);
+        $globale.prepend($newDiv);
       }
     }
   });
 
-  /* ============================================================
-   * 2) Age → add " ans" at the end
-   *    <div class="infos-posteur field___00e2ge">9999 ans</div>
-   * ============================================================ */
+  /* ============================================
+   * 2) .field___00e2ge → add " ans" at end
+   * ============================================ */
   $('.infos-posteur_globale .field___00e2ge').each(function () {
-    var $el  = $(this);
-    var text = $.trim($el.text());
-    if (text && !/ans$/i.test(text)) {
-      $el.text(text + ' ans');
+    const t = $.trim($(this).text());
+    if (t && !t.endsWith('ans')) {
+      $(this).text(t + ' ans');
     }
   });
 
-  /* ============================================================
-   * 3) Taille → add "mesure " before the content
-   *    <div class="infos-posteur field_taille">mesure 9999</div>
-   * ============================================================ */
+  /* ============================================
+   * 3) .field_taille → add "mesure " before content
+   * ============================================ */
   $('.infos-posteur_globale .field_taille').each(function () {
-    var $el  = $(this);
-    var text = $.trim($el.text());
-    if (text && !/^mesure\b/i.test(text)) {
-      $el.text('mesure ' + text);
+    const t = $.trim($(this).text());
+    if (t && !t.toLowerCase().startsWith('mesure ')) {
+      $(this).text('mesure ' + t);
     }
   });
 
-  /* ============================================================
-   * 4) Corpulence → add "de corpulence " before the content
-   *    <div class="infos-posteur field_corpulence">de corpulence 9999</div>
-   * ============================================================ */
+  /* ============================================
+   * 4) .field_corpulence → add "de corpulence " before content
+   * ============================================ */
   $('.infos-posteur_globale .field_corpulence').each(function () {
-    var $el  = $(this);
-    var text = $.trim($el.text());
-    if (text && !/^de corpulence\b/i.test(text)) {
-      $el.text('de corpulence ' + text);
+    const t = $.trim($(this).text());
+    if (t && !t.toLowerCase().startsWith('de corpulence')) {
+      $(this).text('de corpulence ' + t);
     }
   });
 
-  /* ============================================================
-   * 5) RPS → add " RPS" at the end
-   *    <div class="infos-posteur field_rps">9999 RPS</div>
-   *    (handles both field___rps & field_rps just in case)
-   * ============================================================ */
+  /* ============================================
+   * 5) .field_rps / .field___rps → add " RPS"
+   * ============================================ */
   $('.infos-posteur_globale .field_rps').each(function () {
-    var $el  = $(this);
-    var text = $.trim($el.text());
-    if (text && !/RPS$/i.test(text)) {
-      $el.text(text + ' RPS');
+    const t = $.trim($(this).text());
+    if (t && !t.toLowerCase().endsWith('rps')) {
+      $(this).text(t + ' RPS');
     }
   });
 
