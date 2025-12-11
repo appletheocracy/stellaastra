@@ -314,7 +314,7 @@
 
     /* ===================== DCS IMPORT ===================== */
     function loadDCs() {
-      const URL_DCS = 'https://stella-cinis.forumactif.com/t59-demandes-de-multicomptes-reboots#95';
+      const URL_DCS = 'https://stella-cinis.forumactif.com/t59-demandes-de-multicomptes-reboots';
 
       $.ajax({
         url: URL_DCS,
