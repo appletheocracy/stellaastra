@@ -1,6 +1,6 @@
 /* === Lorebook builders with caching (Avatars #b-ava, Jobs #b-job) ============
  * Builds two dynamic sections from user profiles:
- *   - #b-ava: avatars list (feat + artist + username)
+ *   - #b-ava: avatars list (feat + bottin_tar + username)
  *   - #b-job: jobs list (job + username)
  *
  * Plus: imports static lists from forum topics into:
@@ -78,54 +78,67 @@
       return /(?:\?|&)refresh=1(?:&|$)/.test(location.search);
     }
 
-    /* ===================== PARSER ===================== */
+    /* ===================== PARSER (UPDATED FOR NEW TEMPLATE) ===================== */
     function parseProfile(html) {
       const $dom = $('<div>').append($.parseHTML(html));
-      const $cp  = $dom.find('#cp-main');
+
+      // New main container
+      const $cp = $dom.find('.profil-wrap').first();
       if (!$cp.length) return null;
 
-      const $h1Span = $cp.find('h1 span').first().clone();
-      if (!$h1Span.length) return null;
-      stripStrongKeepContent($h1Span);
+      // User name from profil-page-ttle span strong
+      const $nameStrong = $cp.find('.profil-page-ttle span strong').first();
+      if (!$nameStrong.length) return null;
+      // keep HTML (e.g. color spans) as userSpanHTML
+      const userSpanHTML = $nameStrong.parent().html() || $nameStrong.html() || '';
 
-      const featOg     = $cp.find('#field_id31 .field_uneditable').first().text().trim();
-      const artistOg   = $cp.find('#field_id27 .field_uneditable').first().text().trim();
-      const artistLink = $cp.find('#field_id11 .field_uneditable').first().text().trim();
-      const jobOg      = $cp.find('#field_id27 .field_uneditable').first().text().trim();
+      // Feat from .rep-id31
+      const featOg = $cp.find('.rep-id31').first().text().trim();
 
-      if (!featOg && !artistOg && !jobOg) return null;
+      // feat-by HTML from #bottin_tar
+      const featByHTML = ($cp.find('#bottin_tar').first().html() || '').trim();
 
-      const userSpanHTML = $('<div>').append($h1Span).html();
+      // Job from .rep-id27
+      const jobOg = $cp.find('.rep-id27').first().text().trim();
 
-      return { featOg, artistOg, artistLink, jobOg, userSpanHTML };
+      // If nothing at all, skip this profile
+      if (!featOg && !featByHTML && !jobOg) return null;
+
+      return {
+        featOg,
+        featByHTML,
+        jobOg,
+        userSpanHTML
+      };
     }
 
-    /* ===================== RENDERERS ===================== */
+    /* ===================== RENDERERS (UPDATED) ===================== */
     function makeAvatarCard(e) {
       const $c = $('<div class="avatarlisting"></div>');
+
+      // FEAT
       $('<div class="feat-og"></div>').text(e.featOg).appendTo($c);
-      $('<div class="feat-by">par</div>').appendTo($c);
 
-      const $link = $('<a>', {
-        href: e.artistLink || '#',
-        class: 'artist-link',
-        target: '_blank'
-      });
+      // FEAT-BY (uses HTML from #bottin_tar, already formatted)
+      if (e.featByHTML) {
+        $('<div class="feat-by"></div>').html(e.featByHTML).appendTo($c);
+      }
 
-      $('<div class="artist-og"></div>').text(e.artistOg).appendTo($link);
-      $link.appendTo($c);
-
-      $('<div class="feat-by">-</div>').appendTo($c);
-      $('<div class="user-og"></div>').html(' ' + e.userSpanHTML).appendTo($c);
+      // USER NAME
+      $('<div class="user-og"></div>').html(e.userSpanHTML).appendTo($c);
 
       return $c[0];
     }
 
     function makeJobCard(e) {
       const $c = $('<div class="joblisting"></div>');
+
+      // JOB
       $('<div class="job-og"></div>').text(e.jobOg).appendTo($c);
-      $('<div class="feat-by">-</div>').appendTo($c);
-      $('<div class="user-og"></div>').html(' ' + e.userSpanHTML).appendTo($c);
+
+      // USER NAME
+      $('<div class="user-og"></div>').html(e.userSpanHTML).appendTo($c);
+
       return $c[0];
     }
 
@@ -158,17 +171,17 @@
     }
 
     /* =====================================================
-       PATCHED INSERT FUNCTION (OPTION B)
+       INSERT FUNCTION (OPTION B)
        Ignores any .text_overall without data-kind
     ====================================================== */
     function insertAfterOverallEnt($rootBox, frag, kind) {
       const $content = $rootBox.find('.overall_content').first();
       if (!$content.length) return;
 
-      // Remove previously generated blocks
+      // Remove previously generated blocks of this kind
       $content.find(`.text_overall[data-kind="${kind}"]`).remove();
 
-      // NEW: Only count script-generated .text_overall as markers
+      // Use only script-generated .text_overall (with data-kind) as markers
       const $marker = $content.find('.text_overall[data-kind]').first();
 
       if ($marker.length) {
@@ -176,7 +189,7 @@
         return;
       }
 
-      // FIRST INSERTION: place after .overall-ent
+      // First insertion → place after .overall-ent if possible
       const $ent = $content.find('.overall-ent').first();
       if ($ent.length) {
         $ent.after(frag);
@@ -191,21 +204,33 @@
         r._jobKey  = norm(r.jobOg  || '');
       });
 
+      // AVATARS
       const $avaBox = $('#b-ava');
       if ($avaBox.length) {
         const avatarEntries = results
-          .filter(r => r.featOg && r.artistOg)
+          .filter(r => r.featOg) // require feat for avatar listing
           .sort((a, b) => a._featKey.localeCompare(b._featKey));
-        const fragAva = buildGroupedSections(avatarEntries, e => e.featOg, makeAvatarCard, 'ava');
+        const fragAva = buildGroupedSections(
+          avatarEntries,
+          e => e.featOg,
+          makeAvatarCard,
+          'ava'
+        );
         insertAfterOverallEnt($avaBox, fragAva, 'ava');
       }
 
+      // JOBS
       const $jobBox = $('#b-job');
       if ($jobBox.length) {
         const jobEntries = results
           .filter(r => r.jobOg)
           .sort((a, b) => a._jobKey.localeCompare(b._jobKey));
-        const fragJob = buildGroupedSections(jobEntries, e => e.jobOg, makeJobCard, 'job');
+        const fragJob = buildGroupedSections(
+          jobEntries,
+          e => e.jobOg,
+          makeJobCard,
+          'job'
+        );
         insertAfterOverallEnt($jobBox, fragJob, 'job');
       }
     }
@@ -215,6 +240,7 @@
       const URL_RESERVATIONS = 'https://stella-cinis.forumactif.com/t12-reservations-d-avatar';
       const URL_NOMS_PRENOMS = 'https://stella-cinis.forumactif.com/t55-bottin-des-nom-prenoms';
 
+      /* ---------- #b-reservation ---------- */
       $.ajax({
         url: URL_RESERVATIONS,
         dataType: 'html',
@@ -235,12 +261,13 @@
           if ($marker.length) $marker.after($srcReservations.clone(true, true));
           else $sink.append($srcReservations.clone(true, true));
         } else {
-          if ($marker.length) $marker.after('<div>Information à venir.</div>');
-          else $sink.append('<div>Information à venir.</div>');
+          const msg = '<div>Information à venir.</div>';
+          if ($marker.length) $marker.after(msg);
+          else $sink.append(msg);
         }
-
       }).fail(function () {});
 
+      /* ---------- #b-noms-prenoms ---------- */
       $.ajax({
         url: URL_NOMS_PRENOMS,
         dataType: 'html',
@@ -260,10 +287,10 @@
           if ($srcNoms.length) {
             if ($marker.length) $marker.after($srcNoms.clone(true, true));
             else $sinkNoms.append($srcNoms.clone(true, true));
-          } else if ($marker.length) {
-            $marker.after('<div>Information à venir.</div>');
           } else {
-            $sinkNoms.append('<div>Information à venir.</div>');
+            const msg = '<div>Information à venir.</div>';
+            if ($marker.length) $marker.after(msg);
+            else $sinkNoms.append(msg);
           }
         }
 
@@ -276,13 +303,12 @@
           if ($srcPrenoms.length) {
             if ($marker.length) $marker.after($srcPrenoms.clone(true, true));
             else $sinkPrenoms.append($srcPrenoms.clone(true, true));
-          } else if ($marker.length) {
-            $marker.after('<div>Information à venir.</div>');
           } else {
-            $sinkPrenoms.append('<div>Information à venir.</div>');
+            const msg = '<div>Information à venir.</div>';
+            if ($marker.length) $marker.after(msg);
+            else $sinkPrenoms.append(msg);
           }
         }
-
       }).fail(function () {});
     }
 
@@ -312,14 +338,15 @@
             if ($marker.length) $marker.after(inner);
             else $sink.append(inner);
           } else {
-            if ($marker.length) $marker.after('<div>Information à venir.</div>');
-            else $sink.append('<div>Information à venir.</div>');
+            const msg = '<div>Information à venir.</div>';
+            if ($marker.length) $marker.after(msg);
+            else $sink.append(msg);
           }
         } else {
-          if ($marker.length) $marker.after('<div>Information à venir.</div>');
-          else $sink.append('<div>Information à venir.</div>');
+          const msg = '<div>Information à venir.</div>';
+          if ($marker.length) $marker.after(msg);
+          else $sink.append(msg);
         }
-
       }).fail(function () {});
     }
 
