@@ -80,37 +80,35 @@
 
     /* ===================== PARSER (UPDATED FOR NEW TEMPLATE) ===================== */
     function parseProfile(html) {
-      const $dom = $('<div>').append($.parseHTML(html));
+  const $dom = $('<div>').append($.parseHTML(html));
 
-      // New main container
-      const $cp = $dom.find('#profil-info-tar').first();
-      if (!$cp.length) return null;
+  // Find the main wrapper
+  const $cp = $dom.find('#profil-info-tar').first();
+  if (!$cp.length) return null;
 
-      // User name from profil-page-ttle span strong
-      const $nameStrong = $cp.find('.profil-page-ttle span strong').first();
-      if (!$nameStrong.length) return null;
-      // keep HTML (e.g. color spans) as userSpanHTML
-      const userSpanHTML = $nameStrong.parent().html() || $nameStrong.html() || '';
+  // Username (HTML allowed)
+  const userSpanHTML = ($cp.find('.profil-page-ttle').first().html() || "").trim();
+  if (!userSpanHTML) return null;
 
-      // Feat from .rep-id31
-      const featOg = $cp.find('.rep-id31').first().text().trim();
+  // Feat
+  const featOg = ($cp.find('.rep-id31').first().text() || "").trim();
 
-      // feat-by HTML from #bottin_tar
-      const featByHTML = ($cp.find('#bottin_tar').first().html() || '').trim();
+  // Artist / feat-by (HTML)
+  const featByHTML = ($cp.find('#bottin_tar').first().html() || "").trim();
 
-      // Job from .rep-id27
-      const jobOg = $cp.find('.rep-id27').first().text().trim();
+  // Job
+  const jobOg = ($cp.find('.rep-id27').first().text() || "").trim();
 
-      // If nothing at all, skip this profile
-      if (!featOg && !featByHTML && !jobOg) return null;
+  // If nothing useful is found, skip user
+  if (!featOg && !featByHTML && !jobOg) return null;
 
-      return {
-        featOg,
-        featByHTML,
-        jobOg,
-        userSpanHTML
-      };
-    }
+  return {
+    featOg,
+    featByHTML,
+    jobOg,
+    userSpanHTML
+  };
+}
 
     /* ===================== RENDERERS (UPDATED) ===================== */
     function makeAvatarCard(e) {
