@@ -6,6 +6,7 @@
  * Plus: imports static lists from forum topics into:
  *   - #b-reservation → .avatars-reserves-list
  *   - #b-noms-prenoms → .nomslisting / .prenomslisting
+ *   - #b-les-dcs → .dcslisting (NEW)
  * ============================================================================ */
 
 (function ($) {
@@ -40,7 +41,7 @@
 
     const spanHTMLtoText = (html) => $('<div>').html(html || '').text().trim();
 
-    // Tiny cookie helpers (flag only — actual data lives in localStorage)
+    // Tiny cookie helpers
     function setFlagCookie() {
       document.cookie = `${COOKIE_NAME}=1; Max-Age=${COOKIE_MAX_AGE}; Path=/; SameSite=Lax`;
     }
@@ -68,7 +69,7 @@
         const raw = localStorage.getItem(CACHE_KEY);
         const at  = Number(localStorage.getItem(CACHE_AT) || '0');
         if (!raw || !at) return null;
-        if (Date.now() - at > CACHE_TTL_MS) return null; // stale
+        if (Date.now() - at > CACHE_TTL_MS) return null;
         const data = JSON.parse(raw);
         if (!Array.isArray(data)) return null;
         return data;
@@ -89,10 +90,10 @@
       if (!$h1Span.length) return null;
       stripStrongKeepContent($h1Span);
 
-      const featOg   = $cp.find('#field_id-8  .field_uneditable').first().text().trim();
-      const artistOg = $cp.find('#field_id1   .field_uneditable').first().text().trim();
-      const artistLink = $cp.find('#field_id11   .field_uneditable').first().text().trim();
-      const jobOg    = $cp.find('#field_id-11 .field_uneditable').first().text().trim();
+      const featOg   = $cp.find('#field_id31  .field_uneditable').first().text().trim();
+      const artistOg = $cp.find('#field_id27   .field_uneditable').first().text().trim();
+      const artistLink = $cp.find('#field_id11  .field_uneditable').first().text().trim();
+      const jobOg    = $cp.find('#field_id27 .field_uneditable').first().text().trim();
 
       if (!featOg && !artistOg && !jobOg) return null;
 
@@ -164,36 +165,29 @@
       return frag;
     }
 
-    // Insert AFTER the existing .text_overall (marker) if present,
-    // otherwise fallback to previous behavior.
     function insertAfterOverallEnt($rootBox, frag, kind) {
       const $content = $rootBox.find('.overall_content').first();
       if (!$content.length) return;
 
-      // Remove any previously rendered blocks for this kind to avoid duplicates
       $content.find(`.text_overall[data-kind="${kind}"]`).remove();
 
-      // Preferred marker: an existing .text_overall already in the DOM
       const $marker = $content.find('.text_overall').first();
       if ($marker.length) {
         $marker.after(frag);
         return;
       }
 
-      // Fallbacks
       const $ent = $content.find('.overall-ent').first();
       if ($ent.length) { $ent.after(frag); }
       else { $content.prepend(frag); }
     }
 
     function renderResults(results) {
-      // derive sort keys once (feat, job)
       results.forEach(r => {
         r._featKey = norm(r.featOg || '');
         r._jobKey  = norm(r.jobOg  || '');
       });
 
-      // AVATARS → insert after existing .text_overall
       const $avaBox = $('#b-ava');
       if ($avaBox.length) {
         const avatarEntries = results
@@ -203,7 +197,6 @@
         insertAfterOverallEnt($avaBox, fragAva, 'ava');
       }
 
-      // JOBS → insert after existing .text_overall
       const $jobBox = $('#b-job');
       if ($jobBox.length) {
         const jobEntries = results
@@ -218,6 +211,7 @@
     function loadReservationsAndNames() {
       const URL_RESERVATIONS = 'https://stella-cinis.forumactif.com/t12-reservations-d-avatar';
       const URL_NOMS_PRENOMS = 'https://stella-cinis.forumactif.com/t55-bottin-des-nom-prenoms';
+      
 
       /* ---------- #b-reservation ---------- */
       $.ajax({
@@ -241,9 +235,7 @@
         } else {
           $sink.find('.rule-mini-t').after('<div>Information à venir.</div>');
         }
-      }).fail(function () {
-        /* ignore; leave page as-is */
-      });
+      }).fail(function () {});
 
       /* ---------- #b-noms-prenoms ---------- */
       $.ajax({
@@ -282,14 +274,51 @@
             $marker.after('<div>Information à venir.</div>');
           }
         }
-      }).fail(function () {
-        /* ignore; leave page as-is */
-      });
+      }).fail(function () {});
+    }
+
+    /* ---------- NEW: #b-les-dcs → copies ONLY innerHTML of #les_dc_a_copier ---------- */
+    function loadDCs() {
+      const URL_DCS = 'https://stella-cinis.forumactif.com/t59-demandes-de-multicomptes-reboots#95';
+
+      $.ajax({
+        url: URL_DCS,
+        dataType: 'html',
+        timeout: 20000
+      })
+      .done(function (html) {
+        const $dom = $('<div>').append($.parseHTML(html));
+
+        const $box = $('#b-les-dcs');
+        if (!$box.length) return;
+
+        const $sink = $box.find('.dcslisting').first();
+        if (!$sink.length) return;
+
+        const $src = $dom.find('#les_dc_a_copier').first();
+        const $marker = $sink.find('.rule-mini-t').first();
+
+        if ($src.length) {
+          const inner = $src.html().trim();
+
+          if (inner) {
+            if ($marker.length) $marker.after(inner);
+            else $sink.append(inner);
+          } else {
+            if ($marker.length) $marker.after('<div>Information à venir.</div>');
+            else $sink.append('<div>Information à venir.</div>');
+          }
+        } else {
+          if ($marker.length) $marker.after('<div>Information à venir.</div>');
+          else $sink.append('<div>Information à venir.</div>');
+        }
+      })
+      .fail(function () {});
     }
 
     /* ===================== FLOW ===================== */
-    // Kick off static imports immediately
     loadReservationsAndNames();
+    loadDCs(); // <-- NEW STATIC IMPORT
 
     const useFresh = hasRefreshParam();
     if (!useFresh) {
@@ -297,7 +326,7 @@
       if (cached) { renderResults(cached); return; }
     }
 
-    // Crawl → cache → render (for avatars & jobs)
+    // Crawl → cache → render
     const results = [];
     let nextId = START_ID, active = 0, misses = 0, stopped = false;
 
