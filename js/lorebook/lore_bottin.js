@@ -4,9 +4,9 @@
  *   - #b-job: jobs list (job + username)
  *
  * Plus: imports static lists from forum topics into:
- *   - #b-reservation → .avatars-reserves-list
- *   - #b-noms-prenoms → .nomslisting / .prenomslisting
- *   - #b-les-dcs → .dcslisting (NEW)
+ *   - #b-reservation   → .avatars-reserves-list
+ *   - #b-noms-prenoms  → .nomslisting / .prenomslisting
+ *   - #b-les-dcs       → .dcslisting      (les_dc_a_copier innerHTML)
  * ============================================================================ */
 
 (function ($) {
@@ -39,9 +39,7 @@
       return $el;
     };
 
-    const spanHTMLtoText = (html) => $('<div>').html(html || '').text().trim();
-
-    // Tiny cookie helpers
+    // Tiny cookie helpers (flag only — actual data lives in localStorage)
     function setFlagCookie() {
       document.cookie = `${COOKIE_NAME}=1; Max-Age=${COOKIE_MAX_AGE}; Path=/; SameSite=Lax`;
     }
@@ -69,7 +67,7 @@
         const raw = localStorage.getItem(CACHE_KEY);
         const at  = Number(localStorage.getItem(CACHE_AT) || '0');
         if (!raw || !at) return null;
-        if (Date.now() - at > CACHE_TTL_MS) return null;
+        if (Date.now() - at > CACHE_TTL_MS) return null; // stale
         const data = JSON.parse(raw);
         if (!Array.isArray(data)) return null;
         return data;
@@ -90,10 +88,10 @@
       if (!$h1Span.length) return null;
       stripStrongKeepContent($h1Span);
 
-      const featOg   = $cp.find('#field_id31  .field_uneditable').first().text().trim();
-      const artistOg = $cp.find('#field_id27   .field_uneditable').first().text().trim();
-      const artistLink = $cp.find('#field_id11  .field_uneditable').first().text().trim();
-      const jobOg    = $cp.find('#field_id27 .field_uneditable').first().text().trim();
+      const featOg     = $cp.find('#field_id31 .field_uneditable').first().text().trim();
+      const artistOg   = $cp.find('#field_id27 .field_uneditable').first().text().trim();
+      const artistLink = $cp.find('#field_id11 .field_uneditable').first().text().trim();
+      const jobOg      = $cp.find('#field_id27 .field_uneditable').first().text().trim();
 
       if (!featOg && !artistOg && !jobOg) return null;
 
@@ -113,23 +111,20 @@
       const $c = $('<div class="avatarlisting"></div>');
       $('<div class="feat-og"></div>').text(e.featOg).appendTo($c);
       $('<div class="feat-by">par</div>').appendTo($c);
-    
-      // Create <a> wrapper for artist
+
+      // <a> wrapper for the artist
       const $link = $('<a>', {
         href: e.artistLink || '#',
         class: 'artist-link',
         target: '_blank'
       });
-    
-      // Add artist name inside the <a>
+
       $('<div class="artist-og"></div>').text(e.artistOg).appendTo($link);
-    
-      // Append the full link to the container
       $link.appendTo($c);
-    
+
       $('<div class="feat-by">-</div>').appendTo($c);
       $('<div class="user-og"></div>').html(' ' + e.userSpanHTML).appendTo($c);
-    
+
       return $c[0];
     }
 
@@ -165,29 +160,36 @@
       return frag;
     }
 
+    // Insert AFTER the existing .text_overall (marker) if present,
+    // otherwise fallback to previous behavior.
     function insertAfterOverallEnt($rootBox, frag, kind) {
       const $content = $rootBox.find('.overall_content').first();
       if (!$content.length) return;
 
+      // Remove any previously rendered blocks for this kind to avoid duplicates
       $content.find(`.text_overall[data-kind="${kind}"]`).remove();
 
+      // Preferred marker: an existing .text_overall already in the DOM
       const $marker = $content.find('.text_overall').first();
       if ($marker.length) {
         $marker.after(frag);
         return;
       }
 
+      // Fallbacks
       const $ent = $content.find('.overall-ent').first();
       if ($ent.length) { $ent.after(frag); }
       else { $content.prepend(frag); }
     }
 
     function renderResults(results) {
+      // derive sort keys once (feat, job)
       results.forEach(r => {
         r._featKey = norm(r.featOg || '');
         r._jobKey  = norm(r.jobOg  || '');
       });
 
+      // AVATARS → insert after existing .text_overall
       const $avaBox = $('#b-ava');
       if ($avaBox.length) {
         const avatarEntries = results
@@ -197,6 +199,7 @@
         insertAfterOverallEnt($avaBox, fragAva, 'ava');
       }
 
+      // JOBS → insert after existing .text_overall
       const $jobBox = $('#b-job');
       if ($jobBox.length) {
         const jobEntries = results
@@ -211,7 +214,6 @@
     function loadReservationsAndNames() {
       const URL_RESERVATIONS = 'https://stella-cinis.forumactif.com/t12-reservations-d-avatar';
       const URL_NOMS_PRENOMS = 'https://stella-cinis.forumactif.com/t55-bottin-des-nom-prenoms';
-      
 
       /* ---------- #b-reservation ---------- */
       $.ajax({
@@ -233,9 +235,13 @@
           if ($marker.length) $marker.after($srcReservations.clone(true, true));
           else $sink.append($srcReservations.clone(true, true));
         } else {
-          $sink.find('.rule-mini-t').after('<div>Information à venir.</div>');
+          const $marker = $sink.find('.rule-mini-t').first();
+          if ($marker.length) $marker.after('<div>Information à venir.</div>');
+          else $sink.append('<div>Information à venir.</div>');
         }
-      }).fail(function () {});
+      }).fail(function () {
+        /* ignore; leave page as-is */
+      });
 
       /* ---------- #b-noms-prenoms ---------- */
       $.ajax({
@@ -258,6 +264,8 @@
             else $sinkNoms.append($srcNoms.clone(true, true));
           } else if ($marker.length) {
             $marker.after('<div>Information à venir.</div>');
+          } else {
+            $sinkNoms.append('<div>Information à venir.</div>');
           }
         }
 
@@ -272,12 +280,16 @@
             else $sinkPrenoms.append($srcPrenoms.clone(true, true));
           } else if ($marker.length) {
             $marker.after('<div>Information à venir.</div>');
+          } else {
+            $sinkPrenoms.append('<div>Information à venir.</div>');
           }
         }
-      }).fail(function () {});
+      }).fail(function () {
+        /* ignore; leave page as-is */
+      });
     }
 
-    /* ---------- NEW: #b-les-dcs → copies ONLY innerHTML of #les_dc_a_copier ---------- */
+    /* ---------- #b-les-dcs  (copies innerHTML of #les_dc_a_copier) ---------- */
     function loadDCs() {
       const URL_DCS = 'https://stella-cinis.forumactif.com/t59-demandes-de-multicomptes-reboots#95';
 
@@ -285,8 +297,7 @@
         url: URL_DCS,
         dataType: 'html',
         timeout: 20000
-      })
-      .done(function (html) {
+      }).done(function (html) {
         const $dom = $('<div>').append($.parseHTML(html));
 
         const $box = $('#b-les-dcs');
@@ -299,26 +310,34 @@
         const $marker = $sink.find('.rule-mini-t').first();
 
         if ($src.length) {
-          const inner = $src.html().trim();
+          const inner = $src.html(); // INNER HTML ONLY
+          const trimmed = (inner || '').trim();
 
-          if (inner) {
-            if ($marker.length) $marker.after(inner);
-            else $sink.append(inner);
+          if (trimmed) {
+            if ($marker.length) {
+              $marker.after(trimmed);
+            } else {
+              $sink.append(trimmed);
+            }
           } else {
-            if ($marker.length) $marker.after('<div>Information à venir.</div>');
-            else $sink.append('<div>Information à venir.</div>');
+            const msg = '<div>Information à venir.</div>';
+            if ($marker.length) $marker.after(msg);
+            else $sink.append(msg);
           }
         } else {
-          if ($marker.length) $marker.after('<div>Information à venir.</div>');
-          else $sink.append('<div>Information à venir.</div>');
+          const msg = '<div>Information à venir.</div>';
+          if ($marker.length) $marker.after(msg);
+          else $sink.append(msg);
         }
-      })
-      .fail(function () {});
+      }).fail(function () {
+        /* ignore; leave page as-is */
+      });
     }
 
     /* ===================== FLOW ===================== */
+    // Static imports first
     loadReservationsAndNames();
-    loadDCs(); // <-- NEW STATIC IMPORT
+    loadDCs();
 
     const useFresh = hasRefreshParam();
     if (!useFresh) {
@@ -326,7 +345,7 @@
       if (cached) { renderResults(cached); return; }
     }
 
-    // Crawl → cache → render
+    // Crawl → cache → render (for avatars & jobs)
     const results = [];
     let nextId = START_ID, active = 0, misses = 0, stopped = false;
 
