@@ -1,3 +1,7 @@
+.dcslisting ion-icon{
+    color:#ffac33;
+}
+
 .avatarlisting, .joblisting, .reservationlisting{
   display:flex;
   flex-direction:row;
