@@ -1,5 +1,7 @@
 .dcslisting ion-icon{
     color:#ffac33;
+	position:relative;
+	top:1.5px;
 }
 
 .avatarlisting, .joblisting, .reservationlisting{
