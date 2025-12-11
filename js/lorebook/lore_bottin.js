@@ -6,11 +6,12 @@
  * Plus: imports static lists from forum topics into:
  *   - #b-reservation   → .avatars-reserves-list
  *   - #b-noms-prenoms  → .nomslisting / .prenomslisting
- *   - #b-les-dcs       → .dcslisting      (les_dc_a_copier innerHTML)
+ *   - #b-les-dcs       → .dcslisting
  * ============================================================================ */
 
 (function ($) {
   $(function () {
+
     /* ===================== CONFIG ===================== */
     const EXCLUDE = new Set([1, 2, 3]);
     const MAX_U = 500;
@@ -23,7 +24,7 @@
     const CACHE_AT  = 'lorebook_cache_v1_time';
     const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24h
     const COOKIE_NAME = 'lorebook_cache_v1';
-    const COOKIE_MAX_AGE = 24 * 60 * 60; // 24h, seconds
+    const COOKIE_MAX_AGE = 24 * 60 * 60; // 24h
 
     /* ===================== UTILS ===================== */
     const norm = (s) => (s || '').toString().trim()
@@ -35,11 +36,12 @@
     };
 
     const stripStrongKeepContent = ($el) => {
-      $el.find('strong').each(function () { $(this).replaceWith($(this).contents()); });
+      $el.find('strong').each(function () {
+        $(this).replaceWith($(this).contents());
+      });
       return $el;
     };
 
-    // Tiny cookie helpers (flag only — actual data lives in localStorage)
     function setFlagCookie() {
       document.cookie = `${COOKIE_NAME}=1; Max-Age=${COOKIE_MAX_AGE}; Path=/; SameSite=Lax`;
     }
@@ -47,7 +49,6 @@
       document.cookie = `${COOKIE_NAME}=; Max-Age=0; Path=/; SameSite=Lax`;
     }
 
-    // Cache helpers
     function saveCache(results) {
       try {
         localStorage.setItem(CACHE_KEY, JSON.stringify(results));
@@ -57,7 +58,7 @@
         try {
           localStorage.removeItem(CACHE_KEY);
           localStorage.removeItem(CACHE_AT);
-        } catch(_) {}
+        } catch (_) {}
         clearFlagCookie();
       }
     }
@@ -67,10 +68,9 @@
         const raw = localStorage.getItem(CACHE_KEY);
         const at  = Number(localStorage.getItem(CACHE_AT) || '0');
         if (!raw || !at) return null;
-        if (Date.now() - at > CACHE_TTL_MS) return null; // stale
+        if (Date.now() - at > CACHE_TTL_MS) return null;
         const data = JSON.parse(raw);
-        if (!Array.isArray(data)) return null;
-        return data;
+        return Array.isArray(data) ? data : null;
       } catch (_) { return null; }
     }
 
@@ -97,13 +97,7 @@
 
       const userSpanHTML = $('<div>').append($h1Span).html();
 
-      return {
-        featOg,
-        artistOg,
-        artistLink,
-        jobOg,
-        userSpanHTML
-      };
+      return { featOg, artistOg, artistLink, jobOg, userSpanHTML };
     }
 
     /* ===================== RENDERERS ===================== */
@@ -112,7 +106,6 @@
       $('<div class="feat-og"></div>').text(e.featOg).appendTo($c);
       $('<div class="feat-by">par</div>').appendTo($c);
 
-      // <a> wrapper for the artist
       const $link = $('<a>', {
         href: e.artistLink || '#',
         class: 'artist-link',
@@ -152,44 +145,52 @@
 
       const frag = document.createDocumentFragment();
       letters.forEach(L => {
-        const $section = $('<div class="text_overall"></div>').attr('data-kind', kind);
-        $section.append(`<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`);
+        const $section = $('<div class="text_overall"></div>')
+          .attr('data-kind', kind);
+        $section.append(
+          `<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`
+        );
         groups.get(L).forEach(e => $section.append(cardBuilder(e)));
         frag.appendChild($section[0]);
       });
+
       return frag;
     }
 
-    // Insert AFTER the existing .text_overall (marker) if present,
-    // otherwise fallback to previous behavior.
+    /* =====================================================
+       PATCHED INSERT FUNCTION (OPTION B)
+       Ignores any .text_overall without data-kind
+    ====================================================== */
     function insertAfterOverallEnt($rootBox, frag, kind) {
       const $content = $rootBox.find('.overall_content').first();
       if (!$content.length) return;
 
-      // Remove any previously rendered blocks for this kind to avoid duplicates
+      // Remove previously generated blocks
       $content.find(`.text_overall[data-kind="${kind}"]`).remove();
 
-      // Preferred marker: an existing .text_overall already in the DOM
-      const $marker = $content.find('.text_overall').first();
+      // NEW: Only count script-generated .text_overall as markers
+      const $marker = $content.find('.text_overall[data-kind]').first();
+
       if ($marker.length) {
         $marker.after(frag);
         return;
       }
 
-      // Fallbacks
+      // FIRST INSERTION: place after .overall-ent
       const $ent = $content.find('.overall-ent').first();
-      if ($ent.length) { $ent.after(frag); }
-      else { $content.prepend(frag); }
+      if ($ent.length) {
+        $ent.after(frag);
+      } else {
+        $content.append(frag);
+      }
     }
 
     function renderResults(results) {
-      // derive sort keys once (feat, job)
       results.forEach(r => {
         r._featKey = norm(r.featOg || '');
         r._jobKey  = norm(r.jobOg  || '');
       });
 
-      // AVATARS → insert after existing .text_overall
       const $avaBox = $('#b-ava');
       if ($avaBox.length) {
         const avatarEntries = results
@@ -199,7 +200,6 @@
         insertAfterOverallEnt($avaBox, fragAva, 'ava');
       }
 
-      // JOBS → insert after existing .text_overall
       const $jobBox = $('#b-job');
       if ($jobBox.length) {
         const jobEntries = results
@@ -215,7 +215,6 @@
       const URL_RESERVATIONS = 'https://stella-cinis.forumactif.com/t12-reservations-d-avatar';
       const URL_NOMS_PRENOMS = 'https://stella-cinis.forumactif.com/t55-bottin-des-nom-prenoms';
 
-      /* ---------- #b-reservation ---------- */
       $.ajax({
         url: URL_RESERVATIONS,
         dataType: 'html',
@@ -230,26 +229,25 @@
         if (!$sink.length) return;
 
         const $srcReservations = $dom.find('#les_reservations .reservationlisting');
+        const $marker = $sink.find('.rule-mini-t').first();
+
         if ($srcReservations.length) {
-          const $marker = $sink.find('.rule-mini-t').first();
           if ($marker.length) $marker.after($srcReservations.clone(true, true));
           else $sink.append($srcReservations.clone(true, true));
         } else {
-          const $marker = $sink.find('.rule-mini-t').first();
           if ($marker.length) $marker.after('<div>Information à venir.</div>');
           else $sink.append('<div>Information à venir.</div>');
         }
-      }).fail(function () {
-        /* ignore; leave page as-is */
-      });
 
-      /* ---------- #b-noms-prenoms ---------- */
+      }).fail(function () {});
+
       $.ajax({
         url: URL_NOMS_PRENOMS,
         dataType: 'html',
         timeout: 20000
       }).done(function (html) {
         const $dom = $('<div>').append($.parseHTML(html));
+
         const $box = $('#b-noms-prenoms');
         if (!$box.length) return;
 
@@ -284,12 +282,11 @@
             $sinkPrenoms.append('<div>Information à venir.</div>');
           }
         }
-      }).fail(function () {
-        /* ignore; leave page as-is */
-      });
+
+      }).fail(function () {});
     }
 
-    /* ---------- #b-les-dcs  (copies innerHTML of #les_dc_a_copier) ---------- */
+    /* ===================== DCS IMPORT ===================== */
     function loadDCs() {
       const URL_DCS = 'https://stella-cinis.forumactif.com/t59-demandes-de-multicomptes-reboots#95';
 
@@ -310,32 +307,23 @@
         const $marker = $sink.find('.rule-mini-t').first();
 
         if ($src.length) {
-          const inner = $src.html(); // INNER HTML ONLY
-          const trimmed = (inner || '').trim();
-
-          if (trimmed) {
-            if ($marker.length) {
-              $marker.after(trimmed);
-            } else {
-              $sink.append(trimmed);
-            }
+          const inner = ($src.html() || "").trim();
+          if (inner) {
+            if ($marker.length) $marker.after(inner);
+            else $sink.append(inner);
           } else {
-            const msg = '<div>Information à venir.</div>';
-            if ($marker.length) $marker.after(msg);
-            else $sink.append(msg);
+            if ($marker.length) $marker.after('<div>Information à venir.</div>');
+            else $sink.append('<div>Information à venir.</div>');
           }
         } else {
-          const msg = '<div>Information à venir.</div>';
-          if ($marker.length) $marker.after(msg);
-          else $sink.append(msg);
+          if ($marker.length) $marker.after('<div>Information à venir.</div>');
+          else $sink.append('<div>Information à venir.</div>');
         }
-      }).fail(function () {
-        /* ignore; leave page as-is */
-      });
+
+      }).fail(function () {});
     }
 
     /* ===================== FLOW ===================== */
-    // Static imports first
     loadReservationsAndNames();
     loadDCs();
 
@@ -345,18 +333,21 @@
       if (cached) { renderResults(cached); return; }
     }
 
-    // Crawl → cache → render (for avatars & jobs)
+    // Crawl → cache → render
     const results = [];
     let nextId = START_ID, active = 0, misses = 0, stopped = false;
 
-    function finalizeAndRender() { saveCache(results); renderResults(results); }
+    function finalizeAndRender() {
+      saveCache(results);
+      renderResults(results);
+    }
 
     function doneIfFinished() {
       if (stopped) return;
       if (active > 0) return;
       if (nextId > MAX_U || misses >= STOP_AFTER_MISSES) {
-        finalizeAndRender();
         stopped = true;
+        finalizeAndRender();
       }
     }
 
@@ -373,8 +364,12 @@
           timeout: 15000
         }).done(html => {
           const parsed = parseProfile(html);
-          if (parsed) { results.push(parsed); misses = 0; }
-          else { misses++; }
+          if (parsed) {
+            results.push(parsed);
+            misses = 0;
+          } else {
+            misses++;
+          }
         }).fail(() => { misses++; })
           .always(() => {
             active--;
@@ -386,5 +381,6 @@
     }
 
     pump();
+
   });
 })(window.jQuery);
