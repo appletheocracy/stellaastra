@@ -1,6 +1,6 @@
 $(function () {
 
-  const SOURCE_URL = 'https://stella-cinis.forumactif.com/t53-idees-de-personnages#89';
+  const SOURCE_URL = 'https://stella-cinis.forumactif.com/t53-idees-de-personnages';
 
   // Helper → copy innerHTML from src selector to dest selector
   function copySection($dom, srcSel, destSel) {
