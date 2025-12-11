@@ -232,7 +232,7 @@ img.carte-lore{
     color:var(--cofwhite);
 }
 
-#thema-recurrentes ion-icon, #thema-groupes ion-icon, #thema-pas-assez ion-icon{
+#thema-recurrentes ion-icon, #thema-groupes ion-icon, #thema-pas-assez ion-icon, .dcslisting ion-icon{
 	position:relative;
 	top:3px;
 }
