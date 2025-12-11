@@ -83,7 +83,7 @@
       const $dom = $('<div>').append($.parseHTML(html));
 
       // New main container
-      const $cp = $dom.find('.profil-wrap').first();
+      const $cp = $dom.find('#profil-info-tar').first();
       if (!$cp.length) return null;
 
       // User name from profil-page-ttle span strong
