@@ -323,9 +323,14 @@
           dataType: 'html',
           timeout: 15000
         }).done(html => {
-          const parsed = parseProfile(html);
-          if (parsed) { results.push(parsed); misses = 0; }
-          else { misses++; }
+        const parsed = parseProfile(html);
+        if (parsed) {
+            parsed.uid = id;       // ★ add UID for link building
+            results.push(parsed);
+            misses = 0;
+        } else {
+            misses++;
+        }
         }).fail(() => { misses++; })
           .always(() => {
             active--;
