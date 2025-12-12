@@ -82,33 +82,33 @@
     /* ===================== PARSER ===================== */
     function parseProfile(html) {
       const $dom = $('<div>').append($.parseHTML(html));
-      const $cp  = $dom.find('#profil-info-tar');
+      const $cp  = $dom.find('#cp-main');   // ← KEEP AS YOU HAD IT
       if (!$cp.length) return null;
     
-      const $h1Span = $cp.find('.profil-page-ttle').first().clone();
+      const $h1Span = $cp.find('.page-title span').first().clone();
       if (!$h1Span.length) return null;
       stripStrongKeepContent($h1Span);
     
-      // --- FEAT ---
-      const featOg = $cp.find('.rep-id31').first().text().trim();
+      const featOg   = $cp.find('#field_id31  .field_uneditable').first().text().trim();
     
-      // --- ARTIST FROM LINK INSIDE #bottin_tar ---
-      const $artistLinkTag = $cp.find('#bottin_tar a').first();
+      // ======================================================
+      // ONLY THIS PART CHANGED — everything else is the same
+      // Extract artist <a> tag text + link
+      // ======================================================
+      const $artistATag = $cp.find('#field_id1 .field_uneditable a').first();
     
-      const artistOg =
-        $artistLinkTag.length
-          ? $artistLinkTag.text().trim()
+      const artistOg = $artistATag.length
+          ? $artistATag.text().trim()
           : "";
     
-      const artistLink =
-        $artistLinkTag.length
-          ? ($artistLinkTag.attr('href') || "").trim()
+      const artistLink = $artistATag.length
+          ? ($artistATag.attr('href') || "").trim()
           : "";
     
-      // --- JOB ---
-      const jobOg = $cp.find('.rep-id27').first().text().trim();
+      // ======================================================
     
-      // Skip empty profiles
+      const jobOg    = $cp.find('#field_id27 .field_uneditable').first().text().trim();
+    
       if (!featOg && !artistOg && !jobOg) return null;
     
       const userSpanHTML = $('<div>').append($h1Span).html();
@@ -121,6 +121,7 @@
         userSpanHTML
       };
     }
+
 
 
     /* ===================== RENDERERS ===================== */
