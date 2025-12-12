@@ -82,29 +82,46 @@
     /* ===================== PARSER ===================== */
     function parseProfile(html) {
       const $dom = $('<div>').append($.parseHTML(html));
-      const $cp  = $dom.find('#cp-main');
+      const $cp  = $dom.find('#profil-info-tar');
       if (!$cp.length) return null;
-
-      const $h1Span = $cp.find('.page-title span').first().clone();
+    
+      const $h1Span = $cp.find('.profil-page-ttle').first().clone();
       if (!$h1Span.length) return null;
       stripStrongKeepContent($h1Span);
-
-      const featOg   = $cp.find('#field_id31  .field_uneditable').first().text().trim();
-      const artistOg = $cp.find('#field_id1   .field_uneditable').first().text().trim();
-      const artistLink = $cp.find('#field_id11 .field_uneditable').first().text().trim();
-      const jobOg    = $cp.find('#field_id27 .field_uneditable').first().text().trim();
-
+    
+      // --- FEAT ---
+      const featOg = $cp.find('.rep-id31').first().text().trim();
+    
+      // --- ARTIST FROM LINK INSIDE #bottin_tar ---
+      const $artistLinkTag = $cp.find('#bottin_tar a').first();
+    
+      const artistOg =
+        $artistLinkTag.length
+          ? $artistLinkTag.text().trim()
+          : "";
+    
+      const artistLink =
+        $artistLinkTag.length
+          ? ($artistLinkTag.attr('href') || "").trim()
+          : "";
+    
+      // --- JOB ---
+      const jobOg = $cp.find('.rep-id27').first().text().trim();
+    
+      // Skip empty profiles
       if (!featOg && !artistOg && !jobOg) return null;
-
+    
       const userSpanHTML = $('<div>').append($h1Span).html();
-
+    
       return {
         featOg,
         artistOg,
+        artistLink,
         jobOg,
         userSpanHTML
       };
     }
+
 
     /* ===================== RENDERERS ===================== */
 
