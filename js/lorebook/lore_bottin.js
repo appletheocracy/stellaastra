@@ -91,7 +91,8 @@
 
       const featOg   = $cp.find('#field_id31  .field_uneditable').first().text().trim();
       const artistOg = $cp.find('#field_id1   .field_uneditable').first().text().trim();
-      const jobOg    = $cp.find('#field_id11 .field_uneditable').first().text().trim();
+      const artistLink = $cp.find('#field_id11 .field_uneditable').first().text().trim();
+      const jobOg    = $cp.find('#field_id27 .field_uneditable').first().text().trim();
 
       if (!featOg && !artistOg && !jobOg) return null;
 
