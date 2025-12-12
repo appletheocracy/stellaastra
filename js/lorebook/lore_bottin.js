@@ -272,10 +272,9 @@
         active++;
 
         $.ajax({
-           url: '/u' + id,
-           dataType: 'html',
-           timeout: 15000
-         })
+           url: "/u1",
+           dataType: "html"
+         }).done(html => console.log("Contains profil-info-tar?", html.includes("profil-info-tar")));
 
         .done(html => {
           console.log("RAW FETCHED HTML FOR u" + id, html.substring(0, 200));
