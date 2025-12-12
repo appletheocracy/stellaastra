@@ -81,68 +81,64 @@
 
     /* ===================== PARSER ===================== */
     function parseProfile(html) {
-      const $dom = $('<div>').append($.parseHTML(html));
-      const $cp  = $dom.find('#cp-main');   // ← KEEP AS YOU HAD IT
-      if (!$cp.length) return null;
-    
-      const $h1Span = $cp.find('.page-title span').first().clone();
-      if (!$h1Span.length) return null;
-      stripStrongKeepContent($h1Span);
-    
-      const featOg   = $cp.find('#field_id31  .field_uneditable').first().text().trim();
-    
-      // ======================================================
-      // ONLY THIS PART CHANGED — everything else is the same
-      // Extract artist <a> tag text + link
-      // ======================================================
-      const $artistATag = $cp.find('#field_id1 .field_uneditable a').first();
-    
-      const artistOg = $artistATag.length
-          ? $artistATag.text().trim()
-          : "";
-    
-      const artistLink = $artistATag.length
-          ? ($artistATag.attr('href') || "").trim()
-          : "";
-    
-      // ======================================================
-    
-      const jobOg    = $cp.find('#field_id27 .field_uneditable').first().text().trim();
-    
-      if (!featOg && !artistOg && !jobOg) return null;
-    
-      const userSpanHTML = $('<div>').append($h1Span).html();
-    
-      return {
-        featOg,
-        artistOg,
-        artistLink,
-        jobOg,
-        userSpanHTML
-      };
+        const $dom = $('<div>').append($.parseHTML(html));
+        const $cp  = $dom.find('#cp-main');
+        if (!$cp.length) return null;
+      
+        // Username
+        const $h1Span = $cp.find('.page-title span').first().clone();
+        if (!$h1Span.length) return null;
+        stripStrongKeepContent($h1Span);
+        const userSpanHTML = $('<div>').append($h1Span).html();
+      
+        // Feat
+        const featOg = $cp.find('#field_id31 .field_uneditable').first().text().trim();
+      
+        // ARTIST NAME (inside <a> inside field_id1)
+        const artistOg = $cp.find('#field_id1 .field_uneditable a').first().text().trim();
+      
+        // ARTIST LINK (plain text inside field_id11)
+        const artistLink = $cp.find('#field_id11 .field_uneditable').first().text().trim();
+      
+        // Job
+        const jobOg = $cp.find('#field_id27 .field_uneditable').first().text().trim();
+      
+        // Skip empty profiles
+        if (!featOg && !artistOg && !jobOg) return null;
+      
+        return {
+          featOg,
+          artistOg,
+          artistLink,
+          jobOg,
+          userSpanHTML
+        };
     }
-
-
-
+    
     /* ===================== RENDERERS ===================== */
 
     function makeAvatarCard(e) {
       const $c = $('<div class="avatarlisting"></div>');
     
+      // FEAT
       $('<div class="feat-og"></div>').text(e.featOg).appendTo($c);
+    
+      // "par"
       $('<div class="feat-by">par</div>').appendTo($c);
-      $('<div class="artist-og"></div>').text(e.artistOg).appendTo($c);
+    
+      // ARTIST (wrapped in link)
+      const $artistDiv = $('<div class="artist-og"></div>');
+      const $artistLink = $('<a>')
+          .attr('href', e.artistLink || '#')
+          .attr('target', '_blank')
+          .text(e.artistOg || '');
+      $artistDiv.append($artistLink).appendTo($c);
+    
+      // Dash separator
       $('<div class="feat-by">-</div>').appendTo($c);
     
-      // --- WRAP USER IN A LINK ---
-      const $userLink = $('<a>')
-          .attr('href', '/u' + e.uid)
-          .attr('target', '_blank') 
-          .html(e.userSpanHTML);
-    
-      $('<div class="user-og"></div>')
-          .append($userLink)
-          .appendTo($c);
+      // USERNAME (already HTML)
+      $('<div class="user-og"></div>').html(' ' + e.userSpanHTML).appendTo($c);
     
       return $c[0];
     }
