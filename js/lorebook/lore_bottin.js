@@ -294,7 +294,7 @@
           console.log("FAIL u" + id);
           misses++;
         })
-        .always(() => {
+         .always(() => {
           active--;
           if (nextId > MAX_U || misses >= STOP_AFTER_MISSES) {
             doneIfFinished();
@@ -308,7 +308,7 @@
       doneIfFinished();
     } // END pump()
 
-    pump(); // launch crawler
+    pump(); // START crawler
 
   }); // END $(function)
 
