@@ -6,6 +6,12 @@
         "a c";
 }
 
+.insertf42{
+	width:547.5;
+	height:230px;
+	border-radius:0px 4px 4px 0px;
+}
+
 #c-lorebook{
     grid-area:a;
     border-radius:4px 0px 0px 4px; 
