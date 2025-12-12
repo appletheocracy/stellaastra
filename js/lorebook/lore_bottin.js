@@ -127,8 +127,7 @@
       // Dash separator
       $('<div class="feat-by">-</div>').appendTo($c);
     
-      // USERNAME (already HTML)
-      $('<div class="user-og"></div>').html(' ' + e.userSpanHTML).appendTo($c);
+      
       // --- WRAP USER IN A LINK ---
       const $userLink = $('<a>')
           .attr('href', '/u' + e.uid)
