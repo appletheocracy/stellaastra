@@ -249,15 +249,19 @@
     border-radius:0px 4px 4px 0px;
 }
 
-#c7 .c-focat_list, #c14 .c-focat_list{
-  border-radius:4px 0px 0px 4px;
+#c14 .c-focat_list{
+	border-radius:0px 4px 4px 0px;
 }
 
-#c6 .topl, #c14 .topl{
+#c7 .c-focat_list, #c14 .c-focat_list:first-of-type{
   border-radius:4px 0px 0px 4px!important;
 }
 
-#c6 .topr, #c14 .topr{
+#c6 .topl{
+  border-radius:4px 0px 0px 4px!important;
+}
+
+#c6 .topr{
   border-radius:0px 4px 4px 0px!important;
 }
 
