@@ -1,8 +1,14 @@
-/* === Lorebook builders with caching (Avatars #b-ava, Jobs #b-job) ============ */
+/* ======================================================================  
+   LOREBOOK BUILDER — FINAL FULL VERSION  
+   Avatars (#b-ava), Jobs (#b-job), + Full crawler + Debug hooks  
+   Compatible with: /u# template containing #profil-info-tar  
+   ====================================================================== */
 
 (function ($) {
   $(function () {
-  console.log("LOREBOOK SCRIPT LOADED!");
+
+    console.log("LOREBOOK SCRIPT LOADED!");
+
     /* ===================== CONFIG ===================== */
     const EXCLUDE = new Set([1, 2, 3]);
     const MAX_U = 500;
@@ -10,12 +16,11 @@
     const CONCURRENCY = 4;
     const STOP_AFTER_MISSES = 50;
 
-    // Cache settings
     const CACHE_KEY = 'lorebook_cache_v1_data';
     const CACHE_AT  = 'lorebook_cache_v1_time';
-    const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24h
+    const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
     const COOKIE_NAME = 'lorebook_cache_v1';
-    const COOKIE_MAX_AGE = 24 * 60 * 60; // 24h
+    const COOKIE_MAX_AGE = 24 * 60 * 60;
 
     /* ===================== UTILS ===================== */
     const norm = (s) => (s || '').toString().trim()
@@ -60,26 +65,55 @@
       return /(?:\?|&)refresh=1/.test(location.search);
     }
 
-    /* ===================== PARSER (UPDATED FOR NEW TEMPLATE) ===================== */
+    /* ========================================================================
+       PARSER — MATCHES YOUR REAL HTML EXACTLY
+       ======================================================================== */
+
     function parseProfile(html) {
       const $dom = $('<div>').append($.parseHTML(html));
 
       const $cp = $dom.find('#profil-info-tar').first();
-      if (!$cp.length) return null;
+      if (!$cp.length) {
+        console.log("Profile skipped — no #profil-info-tar");
+        return null;
+      }
 
-      const userSpanHTML = ($cp.find('.profil-page-ttle').first().html() || "").trim();
-      if (!userSpanHTML) return null;
+      const userSpanHTML =
+        ($cp.find('.profil-page-ttle').first().html() || "").trim();
 
-      const featOg = ($cp.find('.rep-id31').first().text() || "").trim();
-      const featByHTML = ($cp.find('#bottin_tar').first().html() || "").trim();
-      const jobOg = ($cp.find('.rep-id27').first().text() || "").trim();
+      if (!userSpanHTML) {
+        console.log("Profile skipped — no username");
+        return null;
+      }
 
-      if (!featOg && !featByHTML && !jobOg) return null;
+      const featOg =
+        ($cp.find('.rep-id31').first().text() || "").trim();
 
-      return { featOg, featByHTML, jobOg, userSpanHTML };
+      const featByHTML =
+        ($cp.find('#bottin_tar').first().html() || "").trim();
+
+      const jobOg =
+        ($cp.find('.rep-id27').first().text() || "").trim();
+
+      if (!featOg && !featByHTML && !jobOg) {
+        console.log("Profile skipped — no feat/job/bottin_tar data found");
+        return null;
+      }
+
+      console.log("Parsed profile OK:", { featOg, featByHTML, jobOg, userSpanHTML });
+
+      return {
+        featOg,
+        featByHTML,
+        jobOg,
+        userSpanHTML
+      };
     }
 
-    /* ===================== RENDERERS (UPDATED) ===================== */
+    /* ========================================================================
+       CARD BUILDERS
+       ======================================================================== */
+
     function makeAvatarCard(e) {
       const $c = $('<div class="avatarlisting"></div>');
       $('<div class="feat-og"></div>').text(e.featOg).appendTo($c);
@@ -94,6 +128,10 @@
       $('<div class="user-og"></div>').html(e.userSpanHTML).appendTo($c);
       return $c[0];
     }
+
+    /* ========================================================================
+       GROUP BUILDING + INSERTION (OPTION B SAFE MODE)
+       ======================================================================== */
 
     function buildGroupedSections(entries, groupKey, cardBuilder, kind) {
       const groups = new Map();
@@ -112,7 +150,9 @@
       const frag = document.createDocumentFragment();
       letters.forEach(L => {
         const $section = $('<div class="text_overall"></div>').attr('data-kind', kind);
-        $section.append(`<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`);
+        $section.append(
+          `<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`
+        );
         groups.get(L).forEach(e => $section.append(cardBuilder(e)));
         frag.appendChild($section[0]);
       });
@@ -120,7 +160,6 @@
       return frag;
     }
 
-    /* ===================== INSERT AFTER OVERALL (OPTION B) ===================== */
     function insertAfterOverallEnt($rootBox, frag, kind) {
       const $content = $rootBox.find('.overall_content').first();
       if (!$content.length) return;
@@ -134,11 +173,16 @@
       }
 
       const $ent = $content.find('.overall-ent').first();
-      if ($ent.length) $ent.after(frag);
-      else $content.append(frag);
+      if ($ent.length) {
+        $ent.after(frag);
+      } else {
+        $content.append(frag);
+      }
     }
 
     function renderResults(results) {
+      console.log("Rendering results:", results);
+
       results.forEach(r => {
         r._featKey = norm(r.featOg || '');
         r._jobKey  = norm(r.jobOg  || '');
@@ -146,31 +190,62 @@
 
       const $avaBox = $('#b-ava');
       if ($avaBox.length) {
-        const avatarEntries = results.filter(r => r.featOg).sort((a, b) => a._featKey.localeCompare(b._featKey));
-        const fragAva = buildGroupedSections(avatarEntries, e => e.featOg, makeAvatarCard, 'ava');
+        const avatarEntries = results
+          .filter(r => r.featOg)
+          .sort((a, b) => a._featKey.localeCompare(b._featKey));
+
+        const fragAva = buildGroupedSections(
+          avatarEntries,
+          e => e.featOg,
+          makeAvatarCard,
+          'ava'
+        );
         insertAfterOverallEnt($avaBox, fragAva, 'ava');
       }
 
       const $jobBox = $('#b-job');
       if ($jobBox.length) {
-        const jobEntries = results.filter(r => r.jobOg).sort((a, b) => a._jobKey.localeCompare(b._jobKey));
-        const fragJob = buildGroupedSections(jobEntries, e => e.jobOg, makeJobCard, 'job');
+        const jobEntries = results
+          .filter(r => r.jobOg)
+          .sort((a, b) => a._jobKey.localeCompare(b._jobKey));
+
+        const fragJob = buildGroupedSections(
+          jobEntries,
+          e => e.jobOg,
+          makeJobCard,
+          'job'
+        );
         insertAfterOverallEnt($jobBox, fragJob, 'job');
       }
     }
 
-    /* ===================== MAIN CRAWLER (MISSING BEFORE — NOW RESTORED) ===================== */
+    /* ========================================================================
+       GLOBAL DEBUG EXPORT
+       ======================================================================== */
+    window.parseProfile = parseProfile;
+    window.renderResults = renderResults;
+    window.makeAvatarCard = makeAvatarCard;
+    window.makeJobCard = makeJobCard;
+
+    /* ========================================================================
+       MAIN CRAWLER
+       ======================================================================== */
 
     const useFresh = hasRefreshParam();
     if (!useFresh) {
       const cached = loadCache();
-      if (cached) { renderResults(cached); return; }
+      if (cached) {
+        console.log("Loaded cached results", cached);
+        renderResults(cached);
+        return;
+      }
     }
 
     const results = [];
     let nextId = START_ID, active = 0, misses = 0, stopped = false;
 
     function finalizeAndRender() {
+      console.log("FINAL RENDER — results:", results);
       saveCache(results);
       renderResults(results);
     }
@@ -199,17 +274,21 @@
         }).done(html => {
           const parsed = parseProfile(html);
           if (parsed) {
+            console.log("ACCEPTED u" + id, parsed);
             results.push(parsed);
             misses = 0;
           } else {
+            console.log("SKIPPED u" + id);
             misses++;
           }
-        }).fail(() => { misses++; })
-          .always(() => {
-            active--;
-            if (nextId > MAX_U || misses >= STOP_AFTER_MISSES) doneIfFinished();
-            else pump();
-          });
+        }).fail(() => {
+          console.log("FAILED u" + id);
+          misses++;
+        }).always(() => {
+          active--;
+          if (nextId > MAX_U || misses >= STOP_AFTER_MISSES) doneIfFinished();
+          else pump();
+        });
       }
 
       doneIfFinished();
