@@ -250,6 +250,7 @@
     function loadReservationsAndNames() {
       const URL_RESERVATIONS = 'https://stella-cinis.forumactif.com/t12-reservations-d-avatar';
       const URL_NOMS_PRENOMS = 'https://stella-cinis.forumactif.com/t55-bottin-des-nom-prenoms';
+      const URL_DCS = 'https://stella-cinis.forumactif.com/t59-demandes-de-multicomptes-reboots';
 
       /* ---------- #b-reservation ---------- */
       $.ajax({
@@ -312,6 +313,31 @@
       }).fail(function () {
         /* ignore; leave page as-is */
       });
+
+      /* ---------- #b-les-dcs ---------- */
+      $.ajax({
+        url: URL_DCS,
+        dataType: 'html',
+        timeout: 20000
+      }).done(function (html) {
+        const $dom = $('<div>').append($.parseHTML(html));
+
+        const $box = $('#b-les-dcs');
+        if (!$box.length) return;
+
+        const $sink = $box.find('#les_dc_a_copier').first();
+        if (!$sink.length) return;
+
+        const $srcDoubleCompte = $dom.find('#b-les-dcs .dcslisting');
+        if ($srcDoubleCompte.length) {
+          $sink.empty().append($srcDoubleCompte.clone(true, true));
+        } else {
+          $sink.text('Information à venir.');
+        }
+      }).fail(function () {
+        /* ignore; leave page as-is */
+      });
+
     }
 
     /* ===================== FLOW ===================== */
