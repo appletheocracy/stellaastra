@@ -114,16 +114,35 @@
       $('<div class="artist-og"></div>').text(e.artistOg).appendTo($c);
       $('<div class="feat-by">-</div>').appendTo($c);
       $('<div class="user-og"></div>').html(' ' + e.userSpanHTML).appendTo($c);
-      return $c[0];
-    }
+
+      // --- WRAP USER IN A LINK ---
+      const $userLink = $('<a>')
+          .attr('href', '/u' + e.uid)
+          .html(e.userSpanHTML);
+    
+      $('<div class="user-og"></div>')
+          .append($userLink)
+          .appendTo($c);
+          return $c[0];
+      }
 
     function makeJobCard(e) {
       const $c = $('<div class="joblisting"></div>');
       $('<div class="job-og"></div>').text(e.jobOg).appendTo($c);
       $('<div class="feat-by">-</div>').appendTo($c);
       $('<div class="user-og"></div>').html(' ' + e.userSpanHTML).appendTo($c);
-      return $c[0];
-    }
+
+      // --- WRAP USER IN A LINK ---
+      const $userLink = $('<a>')
+          .attr('href', '/u' + e.uid)
+          .html(e.userSpanHTML);
+    
+      $('<div class="user-og"></div>')
+          .append($userLink)
+          .appendTo($c);
+          
+          return $c[0];
+      }
     
     window.makeAvatarCard = makeAvatarCard;
     window.makeJobCard = makeJobCard;
