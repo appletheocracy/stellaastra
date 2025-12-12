@@ -164,3 +164,152 @@
       });
 
       return frag;
+    }
+
+    function insertAfterOverallEnt($rootBox, frag, kind) {
+      let $content = $rootBox.find('.overall_content').first();
+      if (!$content.length) $content = $rootBox;
+
+      $content.find(`.text_overall[data-kind="${kind}"]`).remove();
+
+      const $marker = $content.find('.text_overall[data-kind]').first();
+      if ($marker.length) {
+        $marker.after(frag);
+        return;
+      }
+
+      const $ent = $content.find('.overall-ent').first();
+      if ($ent.length) {
+        $ent.after(frag);
+      } else {
+        $content.append(frag);
+      }
+    }
+
+    function renderResults(results) {
+      console.log("Rendering results:", results);
+
+      results.forEach(r => {
+        r._featKey = norm(r.featOg || '');
+        r._jobKey  = norm(r.jobOg  || '');
+      });
+
+      // AVATARS
+      const $avaBox = $('#b-ava');
+      if ($avaBox.length) {
+        const avatarEntries = results
+          .filter(r => r.featOg)
+          .sort((a, b) => a._featKey.localeCompare(b._featKey));
+
+        const fragAva = buildGroupedSections(
+          avatarEntries, e => e.featOg, makeAvatarCard, 'ava'
+        );
+        insertAfterOverallEnt($avaBox, fragAva, 'ava');
+      }
+
+      // JOBS
+      const $jobBox = $('#b-job');
+      if ($jobBox.length) {
+        const jobEntries = results
+          .filter(r => r.jobOg)
+          .sort((a, b) => a._jobKey.localeCompare(b._jobKey));
+
+        const fragJob = buildGroupedSections(
+          jobEntries, e => e.jobOg, makeJobCard, 'job'
+        );
+        insertAfterOverallEnt($jobBox, fragJob, 'job');
+      }
+    }
+
+    /* ======================================================================
+       DEBUG EXPORTS
+       ====================================================================== */
+
+    window.parseProfile = parseProfile;
+    window.renderResults = renderResults;
+    window.makeAvatarCard = makeAvatarCard;
+    window.makeJobCard = makeJobCard;
+
+    /* ======================================================================
+       CRAWLER  
+       ====================================================================== */
+
+    const useFresh = hasRefreshParam();
+    if (!useFresh) {
+      const cached = loadCache();
+      if (cached) {
+        console.log("Loaded cached results", cached);
+        renderResults(cached);
+        return;
+      }
+    }
+
+    const results = [];
+    let nextId = START_ID, active = 0, misses = 0, stopped = false;
+
+    function finalizeAndRender() {
+      console.log("FINAL RENDER — results:", results);
+      saveCache(results);
+      renderResults(results);
+    }
+
+    function doneIfFinished() {
+      if (stopped) return;
+      if (active > 0) return;
+      if (nextId > MAX_U || misses >= STOP_AFTER_MISSES) {
+        stopped = true;
+        finalizeAndRender();
+      }
+    }
+
+    function pump() {
+      if (stopped) return;
+
+      while (active < CONCURRENCY && nextId <= MAX_U && misses < STOP_AFTER_MISSES) {
+
+        const id = nextId++;
+        if (EXCLUDE.has(id)) continue;
+
+        active++;
+
+        $.ajax({
+          url: "/u" + id,
+          dataType: "html"
+        })
+        .done(html => {
+          console.log("Contains profil-info-tar?", html.includes("profil-info-tar"));
+          console.log("RAW FETCHED HTML FOR u" + id, html.substring(0, 200));
+
+          const parsed = parseProfile(html);
+          if (parsed) {
+            console.log("ACCEPTED u" + id, parsed);
+            results.push(parsed);
+            misses = 0;
+          } else {
+            console.log("SKIPPED u" + id);
+            misses++;
+          }
+        })
+        .fail(() => {
+          console.log("FAIL u" + id);
+          misses++;
+        })
+        .always(() => {
+          active--;
+          if (nextId > MAX_U || misses >= STOP_AFTER_MISSES) {
+            doneIfFinished();
+          } else {
+            pump();
+          }
+        });
+
+      } // END while loop
+
+      doneIfFinished();
+    } // END pump()
+
+    pump(); // launch crawler
+
+  }); // END $(function)
+
+})(window.jQuery); // END IIFE
