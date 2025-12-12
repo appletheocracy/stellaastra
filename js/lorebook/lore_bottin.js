@@ -272,7 +272,7 @@
         active++;
 
         $.ajax({
-           url: 'https://stella-cinis.forumactif.com/u' + id,
+           url: '/u' + id,
            dataType: 'html',
            timeout: 15000,
            xhrFields: { withCredentials: true },
