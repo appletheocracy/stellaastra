@@ -2,7 +2,7 @@
 
 (function ($) {
   $(function () {
-
+  console.log("LOREBOOK SCRIPT LOADED!");
     /* ===================== CONFIG ===================== */
     const EXCLUDE = new Set([1, 2, 3]);
     const MAX_U = 500;
