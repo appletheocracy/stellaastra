@@ -34,7 +34,6 @@
     function setFlagCookie() {
       document.cookie = `${COOKIE_NAME}=1; Max-Age=${COOKIE_MAX_AGE}; Path=/; SameSite=Lax`;
     }
-
     function clearFlagCookie() {
       document.cookie = `${COOKIE_NAME}=; Max-Age=0; Path=/; SameSite=Lax`;
     }
@@ -67,51 +66,46 @@
     }
 
     /* ======================================================================
-       PARSER — Strong, Guest-safe, Template-aware
+       PARSER — Guest-safe, template-aware
        ====================================================================== */
 
     function parseProfile(html) {
       const $dom = $('<div>').append($.parseHTML(html));
 
-      // Detect if FA returned a login or restricted page
+      // Detect FA login screens
       if (html.includes("loginform") || html.includes("Connexion")) {
         console.warn("Guest view restricted — skipping profile.");
         return null;
       }
 
-      // Find the new profile wrapper
+      // Main wrapper
       const $cp = $dom.find('#profil-info-tar').first();
       if (!$cp.length) {
         console.warn("No #profil-info-tar found → skipping");
         return null;
       }
 
-      // Username HTML
-      let userSpanHTML = ($cp.find('.profil-page-ttle').first().html() || "").trim();
+      const userSpanHTML = ($cp.find('.profil-page-ttle').first().html() || "").trim();
 
-      // Feat
+      // FEAT
       let featOg = ($cp.find('.rep-id31').first().text() || "").trim();
-
-      // Fallback feat from classic FA template
       const featFallback = ($dom.find('#field_id31 .field_uneditable').text() || "").trim();
       if (!featOg && featFallback) featOg = featFallback;
 
-      // Artist + link (HTML)
+      // ARTIST + LINK (HTML)
       let featByHTML = ($cp.find('#bottin_tar').first().html() || "").trim();
 
-      // Job
+      // JOB
       let jobOg = ($cp.find('.rep-id27').first().text() || "").trim();
-
-      // Fallback job
       const jobFallback = ($dom.find('#field_id27 .field_uneditable').text() || "").trim();
       if (!jobOg && jobFallback) jobOg = jobFallback;
 
       if (!userSpanHTML && !featOg && !jobOg) {
-        console.warn("Profile contains no usable data → skipping");
+        console.warn("Profile has no useful data → skipping");
         return null;
       }
 
-      console.log("Parsed profile OK:", { featOg, featByHTML, jobOg, userSpanHTML });
+      console.log("Parsed OK:", { featOg, featByHTML, jobOg, userSpanHTML });
 
       return {
         featOg,
@@ -141,7 +135,7 @@
     }
 
     /* ======================================================================
-       GROUP BUILDER + SAFE INSERTION (Works even without .overall_content)
+       GROUP BUILDER + SAFE INSERTION
        ====================================================================== */
 
     function buildGroupedSections(entries, groupKey, cardBuilder, kind) {
@@ -160,145 +154,13 @@
 
       const frag = document.createDocumentFragment();
       letters.forEach(L => {
-        const $section = $('<div class="text_overall"></div>').attr('data-kind', kind);
-        $section.append(`<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`);
+        const $section = $('<div class="text_overall"></div>')
+          .attr('data-kind', kind);
+        $section.append(
+          `<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`
+        );
         groups.get(L).forEach(e => $section.append(cardBuilder(e)));
         frag.appendChild($section[0]);
       });
 
       return frag;
-    }
-
-    function insertAfterOverallEnt($rootBox, frag, kind) {
-      let $content = $rootBox.find('.overall_content').first();
-      if (!$content.length) $content = $rootBox; // fallback insertion
-
-      // Remove previous generated blocks
-      $content.find(`.text_overall[data-kind="${kind}"]`).remove();
-
-      const $marker = $content.find('.text_overall[data-kind]').first();
-      if ($marker.length) {
-        $marker.after(frag);
-        return;
-      }
-
-      const $ent = $content.find('.overall-ent').first();
-      if ($ent.length) {
-        $ent.after(frag);
-      } else {
-        $content.append(frag);
-      }
-    }
-
-    function renderResults(results) {
-      console.log("Rendering results:", results);
-
-      results.forEach(r => {
-        r._featKey = norm(r.featOg || '');
-        r._jobKey  = norm(r.jobOg  || '');
-      });
-
-      // AVATARS
-      const $avaBox = $('#b-ava');
-      if ($avaBox.length) {
-        const avatarEntries = results
-          .filter(r => r.featOg)
-          .sort((a, b) => a._featKey.localeCompare(b._featKey));
-
-        const fragAva = buildGroupedSections(avatarEntries, e => e.featOg, makeAvatarCard, 'ava');
-        insertAfterOverallEnt($avaBox, fragAva, 'ava');
-      }
-
-      // JOBS
-      const $jobBox = $('#b-job');
-      if ($jobBox.length) {
-        const jobEntries = results
-          .filter(r => r.jobOg)
-          .sort((a, b) => a._jobKey.localeCompare(b._jobKey));
-
-        const fragJob = buildGroupedSections(jobEntries, e => e.jobOg, makeJobCard, 'job');
-        insertAfterOverallEnt($jobBox, fragJob, 'job');
-      }
-    }
-
-    /* ======================================================================
-       EXPORT DEBUG HOOKS
-       ====================================================================== */
-    window.parseProfile = parseProfile;
-    window.renderResults = renderResults;
-    window.makeAvatarCard = makeAvatarCard;
-    window.makeJobCard = makeJobCard;
-
-    /* ======================================================================
-       CRAWLER (ABSOLUTE URLs, FAILSAFE LOGGING)
-       ====================================================================== */
-
-    const useFresh = hasRefreshParam();
-    if (!useFresh) {
-      const cached = loadCache();
-      if (cached) {
-        console.log("Loaded cached results", cached);
-        renderResults(cached);
-        return;
-      }
-    }
-
-    const results = [];
-    let nextId = START_ID, active = 0, misses = 0, stopped = false;
-
-    function finalizeAndRender() {
-      console.log("FINAL RENDER — results:", results);
-      saveCache(results);
-      renderResults(results);
-    }
-
-    function doneIfFinished() {
-      if (stopped) return;
-      if (active > 0) return;
-      if (nextId > MAX_U || misses >= STOP_AFTER_MISSES) {
-        stopped = true;
-        finalizeAndRender();
-      }
-    }
-
-    function pump() {
-      if (stopped) return;
-
-      while (active < CONCURRENCY && nextId <= MAX_U && misses < STOP_AFTER_MISSES) {
-
-        const id = nextId++;
-        if (EXCLUDE.has(id)) continue;
-
-        active++;
-
-         $.ajax({
-  url: "/u" + id,
-  dataType: "html"
-})
-.done(html => {
-  console.log("Contains profil-info-tar?", html.includes("profil-info-tar"));
-  console.log("RAW FETCHED HTML FOR u" + id, html.substring(0, 200));
-
-  const parsed = parseProfile(html);
-  if (parsed) {
-    console.log("ACCEPTED u" + id, parsed);
-    results.push(parsed);
-    misses = 0;
-  } else {
-    console.log("SKIPPED u" + id);
-    misses++;
-  }
-})
-.fail(() => {
-  console.log("FAIL u" + id);
-  misses++;
-})
-.always(() => {
-  active--;
-  if (nextId > MAX_U || misses >= STOP_AFTER_MISSES) {
-    doneIfFinished();
-  } else {
-    pump();
-  }
-});
-
