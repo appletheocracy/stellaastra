@@ -1,165 +1,145 @@
-/* ======================================================================  
-   LOREBOOK BUILDER — FINAL PATCHED VERSION  
-   Avatars (#b-ava), Jobs (#b-job), full crawler, hardened extraction  
-   Compatible with: https://stella-cinis.forumactif.com/uX  
+/* ======================================================================
+   LOREBOOK BUILDER — SIMPLE, CRAWLER ONLY
+   - Builds:
+       #b-ava → avatarlisting cards
+       #b-job → joblisting cards
+   - Crawls public profiles as guest: /u1, /u2, ...
+   - Requires that guests can see:
+       #profil-info-tar
+       .profil-page-ttle
+       .rep-id31 (Feat)
+       .rep-id27 (Job)
+       #bottin_tar (Artist link block)
    ====================================================================== */
 
 (function ($) {
   $(function () {
 
-    console.log("LOREBOOK SCRIPT LOADED!");
+    console.log("[Lorebook] Bottin script loaded");
 
     /* ===================== CONFIG ===================== */
-    const EXCLUDE = new Set([1, 2, 3]); // ignored users
-    const MAX_U = 500;
-    const START_ID = 1;
-    const CONCURRENCY = 4;
-    const STOP_AFTER_MISSES = 50;
-
-    const CACHE_KEY = 'lorebook_cache_v1_data';
-    const CACHE_AT  = 'lorebook_cache_v1_time';
-    const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24h
-    const COOKIE_NAME = 'lorebook_cache_v1';
-    const COOKIE_MAX_AGE = 24 * 60 * 60;
+    const EXCLUDE          = new Set([1, 2, 3]); // user IDs to skip
+    const MAX_U            = 500;                // max user ID to try
+    const START_ID         = 1;
+    const CONCURRENCY      = 4;                  // parallel requests
+    const STOP_AFTER_MISSES = 50;                // consecutive empty profiles → stop
 
     /* ===================== UTILS ===================== */
-    const norm = s => (s || '').toString().trim()
-      .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    function norm(s) {
+      return (s || "")
+        .toString()
+        .trim()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+    }
 
-    const firstLetter = s => {
+    function firstLetter(s) {
       const c = norm(s).charAt(0).toUpperCase();
-      return /^[A-Z]$/.test(c) ? c : '#';
-    };
-
-    function setFlagCookie() {
-      document.cookie = `${COOKIE_NAME}=1; Max-Age=${COOKIE_MAX_AGE}; Path=/; SameSite=Lax`;
-    }
-    function clearFlagCookie() {
-      document.cookie = `${COOKIE_NAME}=; Max-Age=0; Path=/; SameSite=Lax`;
-    }
-
-    function saveCache(results) {
-      try {
-        localStorage.setItem(CACHE_KEY, JSON.stringify(results));
-        localStorage.setItem(CACHE_AT, String(Date.now()));
-        setFlagCookie();
-      } catch (_) {
-        localStorage.removeItem(CACHE_KEY);
-        localStorage.removeItem(CACHE_AT);
-        clearFlagCookie();
-      }
-    }
-
-    function loadCache() {
-      try {
-        const raw = localStorage.getItem(CACHE_KEY);
-        const at  = Number(localStorage.getItem(CACHE_AT) || '0');
-        if (!raw || !at) return null;
-        if (Date.now() - at > CACHE_TTL_MS) return null;
-        const data = JSON.parse(raw);
-        return Array.isArray(data) ? data : null;
-      } catch (_) { return null; }
-    }
-
-    function hasRefreshParam() {
-      return /(?:\?|&)refresh=1/.test(location.search);
+      return /^[A-Z]$/.test(c) ? c : "#";
     }
 
     /* ======================================================================
-       PARSER — Guest-safe, template-aware
+       PARSER — Reads /uX HTML and extracts data from #profil-info-tar
        ====================================================================== */
-
     function parseProfile(html) {
-      const $dom = $('<div>').append($.parseHTML(html));
+      var $dom = $("<div>").append($.parseHTML(html));
 
-      // Detect FA login screens
-      if (html.includes("loginform") || html.includes("Connexion")) {
-        console.warn("Guest view restricted — skipping profile.");
+      // If FA returned a login / restricted page, skip
+      if (html.indexOf("loginform") !== -1 || html.indexOf("Connexion") !== -1) {
+        console.warn("[Lorebook] Guest view restricted → skipping profile");
         return null;
       }
 
-      // Main wrapper
-      const $cp = $dom.find('#profil-info-tar').first();
+      // New template wrapper
+      var $cp = $dom.find("#profil-info-tar").first();
       if (!$cp.length) {
-        console.warn("No #profil-info-tar found → skipping");
+        console.warn("[Lorebook] No #profil-info-tar found → skipping");
         return null;
       }
 
-      const userSpanHTML = ($cp.find('.profil-page-ttle').first().html() || "").trim();
+      // Username (HTML)
+      var userSpanHTML = ($cp.find(".profil-page-ttle").first().html() || "").trim();
 
-      // FEAT
-      let featOg = ($cp.find('.rep-id31').first().text() || "").trim();
-      const featFallback = ($dom.find('#field_id31 .field_uneditable').text() || "").trim();
-      if (!featOg && featFallback) featOg = featFallback;
+      // Feat
+      var featOg = ($cp.find(".rep-id31").first().text() || "").trim();
 
-      // ARTIST + LINK (HTML)
-      let featByHTML = ($cp.find('#bottin_tar').first().html() || "").trim();
+      // Artist / bottin_tar block (HTML)
+      var featByHTML = ($cp.find("#bottin_tar").first().html() || "").trim();
 
-      // JOB
-      let jobOg = ($cp.find('.rep-id27').first().text() || "").trim();
-      const jobFallback = ($dom.find('#field_id27 .field_uneditable').text() || "").trim();
-      if (!jobOg && jobFallback) jobOg = jobFallback;
+      // Job
+      var jobOg = ($cp.find(".rep-id27").first().text() || "").trim();
 
-      if (!userSpanHTML && !featOg && !jobOg) {
-        console.warn("Profile has no useful data → skipping");
+      // If absolutely nothing, ignore profile
+      if (!userSpanHTML && !featOg && !jobOg && !featByHTML) {
+        console.warn("[Lorebook] Empty / useless profile → skipping");
         return null;
       }
-
-      console.log("Parsed OK:", { featOg, featByHTML, jobOg, userSpanHTML });
 
       return {
-        featOg,
-        featByHTML,
-        jobOg,
-        userSpanHTML
+        featOg:      featOg,
+        featByHTML:  featByHTML,
+        jobOg:       jobOg,
+        userSpanHTML: userSpanHTML
       };
     }
 
     /* ======================================================================
        CARD RENDERING
        ====================================================================== */
-
     function makeAvatarCard(e) {
-      const $c = $('<div class="avatarlisting"></div>');
+      var $c = $('<div class="avatarlisting"></div>');
       $('<div class="feat-og"></div>').text(e.featOg).appendTo($c);
-      $('<div class="feat-by"></div>').html(e.featByHTML).appendTo($c);
+
+      // Artist block from #bottin_tar (HTML already formatted)
+      if (e.featByHTML) {
+        $('<div class="feat-by"></div>').html(e.featByHTML).appendTo($c);
+      }
+
       $('<div class="user-og"></div>').html(e.userSpanHTML).appendTo($c);
+
       return $c[0];
     }
 
     function makeJobCard(e) {
-      const $c = $('<div class="joblisting"></div>');
+      var $c = $('<div class="joblisting"></div>');
       $('<div class="job-og"></div>').text(e.jobOg).appendTo($c);
       $('<div class="user-og"></div>').html(e.userSpanHTML).appendTo($c);
       return $c[0];
     }
 
     /* ======================================================================
-       GROUP BUILDER + SAFE INSERTION
+       GROUP BUILDER + INSERTION
        ====================================================================== */
+    function buildGroupedSections(entries, groupKeyFn, cardBuilder, kind) {
+      var groups = new Map();
 
-    function buildGroupedSections(entries, groupKey, cardBuilder, kind) {
-      const groups = new Map();
-      entries.forEach(e => {
-        const key = firstLetter(groupKey(e));
+      entries.forEach(function (e) {
+        var key = firstLetter(groupKeyFn(e));
         if (!groups.has(key)) groups.set(key, []);
         groups.get(key).push(e);
       });
 
-      const letters = Array.from(groups.keys()).sort((a, b) => {
-        if (a === '#') return 1;
-        if (b === '#') return -1;
+      var letters = Array.from(groups.keys()).sort(function (a, b) {
+        if (a === "#") return 1;
+        if (b === "#") return -1;
         return a.localeCompare(b);
       });
 
-      const frag = document.createDocumentFragment();
-      letters.forEach(L => {
-        const $section = $('<div class="text_overall"></div>')
-          .attr('data-kind', kind);
+      var frag = document.createDocumentFragment();
+
+      letters.forEach(function (L) {
+        var $section = $('<div class="text_overall"></div>').attr("data-kind", kind);
         $section.append(
-          `<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`
+          '<div class="rule-mini-t">' +
+            L +
+            ' <ion-icon name="arrow-redo-sharp"></ion-icon></div>'
         );
-        groups.get(L).forEach(e => $section.append(cardBuilder(e)));
+
+        groups.get(L).forEach(function (e) {
+          $section.append(cardBuilder(e));
+        });
+
         frag.appendChild($section[0]);
       });
 
@@ -167,18 +147,24 @@
     }
 
     function insertAfterOverallEnt($rootBox, frag, kind) {
-      let $content = $rootBox.find('.overall_content').first();
-      if (!$content.length) $content = $rootBox;
+      var $content = $rootBox.find(".overall_content").first();
+      if (!$content.length) {
+        // Fallback: insert directly in #b-ava / #b-job
+        $content = $rootBox;
+      }
 
-      $content.find(`.text_overall[data-kind="${kind}"]`).remove();
+      // Remove previously generated blocks of this kind
+      $content.find('.text_overall[data-kind="' + kind + '"]').remove();
 
-      const $marker = $content.find('.text_overall[data-kind]').first();
+      // If we already have script-generated .text_overall, insert after the first one
+      var $marker = $content.find(".text_overall[data-kind]").first();
       if ($marker.length) {
         $marker.after(frag);
         return;
       }
 
-      const $ent = $content.find('.overall-ent').first();
+      // Else, try to place after .overall-ent
+      var $ent = $content.find(".overall-ent").first();
       if ($ent.length) {
         $ent.after(frag);
       } else {
@@ -187,129 +173,133 @@
     }
 
     function renderResults(results) {
-      console.log("Rendering results:", results);
+      console.log("[Lorebook] Rendering", results.length, "profiles");
 
-      results.forEach(r => {
-        r._featKey = norm(r.featOg || '');
-        r._jobKey  = norm(r.jobOg  || '');
+      // Precompute keys
+      results.forEach(function (r) {
+        r._featKey = norm(r.featOg || "");
+        r._jobKey  = norm(r.jobOg  || "");
       });
 
       // AVATARS
-      const $avaBox = $('#b-ava');
+      var $avaBox = $("#b-ava");
       if ($avaBox.length) {
-        const avatarEntries = results
-          .filter(r => r.featOg)
-          .sort((a, b) => a._featKey.localeCompare(b._featKey));
+        var avatarEntries = results.filter(function (r) {
+          return r.featOg; // need a feat to appear in avatar list
+        }).sort(function (a, b) {
+          return a._featKey.localeCompare(b._featKey);
+        });
 
-        const fragAva = buildGroupedSections(
-          avatarEntries, e => e.featOg, makeAvatarCard, 'ava'
-        );
-        insertAfterOverallEnt($avaBox, fragAva, 'ava');
+        if (avatarEntries.length) {
+          var fragAva = buildGroupedSections(
+            avatarEntries,
+            function (e) { return e.featOg; },
+            makeAvatarCard,
+            "ava"
+          );
+          insertAfterOverallEnt($avaBox, fragAva, "ava");
+        }
       }
 
       // JOBS
-      const $jobBox = $('#b-job');
+      var $jobBox = $("#b-job");
       if ($jobBox.length) {
-        const jobEntries = results
-          .filter(r => r.jobOg)
-          .sort((a, b) => a._jobKey.localeCompare(b._jobKey));
+        var jobEntries = results.filter(function (r) {
+          return r.jobOg; // need a job for job listing
+        }).sort(function (a, b) {
+          return a._jobKey.localeCompare(b._jobKey);
+        });
 
-        const fragJob = buildGroupedSections(
-          jobEntries, e => e.jobOg, makeJobCard, 'job'
-        );
-        insertAfterOverallEnt($jobBox, fragJob, 'job');
+        if (jobEntries.length) {
+          var fragJob = buildGroupedSections(
+            jobEntries,
+            function (e) { return e.jobOg; },
+            makeJobCard,
+            "job"
+          );
+          insertAfterOverallEnt($jobBox, fragJob, "job");
+        }
       }
     }
 
-    /* ======================================================================
-       DEBUG EXPORTS
-       ====================================================================== */
-
-    window.parseProfile = parseProfile;
-    window.renderResults = renderResults;
-    window.makeAvatarCard = makeAvatarCard;
-    window.makeJobCard = makeJobCard;
+    // Expose parser & renderer for console debugging if needed
+    window.loreBottin = {
+      parseProfile:  parseProfile,
+      renderResults: renderResults
+    };
 
     /* ======================================================================
-       CRAWLER  
+       CRAWLER — /u1, /u2, … as guest
        ====================================================================== */
 
-    const useFresh = hasRefreshParam();
-    if (!useFresh) {
-      const cached = loadCache();
-      if (cached) {
-        console.log("Loaded cached results", cached);
-        renderResults(cached);
-        return;
-      }
+    // If neither target box is present, do nothing
+    if (!$("#b-ava").length && !$("#b-job").length) {
+      console.log("[Lorebook] No #b-ava / #b-job on this page → abort");
+      return;
     }
 
-    const results = [];
-    let nextId = START_ID, active = 0, misses = 0, stopped = false;
+    var results = [];
+    var nextId  = START_ID;
+    var active  = 0;
+    var misses  = 0;
+    var stopped = false;
 
-    function finalizeAndRender() {
-      console.log("FINAL RENDER — results:", results);
-      saveCache(results);
-      renderResults(results);
-    }
-
-    function doneIfFinished() {
+    function maybeFinish() {
       if (stopped) return;
       if (active > 0) return;
+
       if (nextId > MAX_U || misses >= STOP_AFTER_MISSES) {
         stopped = true;
-        finalizeAndRender();
+        console.log("[Lorebook] Crawl finished. Parsed:", results.length);
+        renderResults(results);
       }
     }
 
-    function pump() {
+    function launchMore() {
       if (stopped) return;
 
       while (active < CONCURRENCY && nextId <= MAX_U && misses < STOP_AFTER_MISSES) {
-
-        const id = nextId++;
-        if (EXCLUDE.has(id)) continue;
+        var id = nextId++;
+        if (EXCLUDE.has(id)) {
+          continue;
+        }
 
         active++;
 
         $.ajax({
           url: "/u" + id,
-          dataType: "html"
+          dataType: "html",
+          timeout: 15000
         })
-        .done(html => {
-          console.log("Contains profil-info-tar?", html.includes("profil-info-tar"));
-          console.log("RAW FETCHED HTML FOR u" + id, html.substring(0, 200));
-
-          const parsed = parseProfile(html);
+        .done(function (html) {
+          var parsed = parseProfile(html);
           if (parsed) {
-            console.log("ACCEPTED u" + id, parsed);
             results.push(parsed);
             misses = 0;
+            console.log("[Lorebook] Accepted u" + id);
           } else {
-            console.log("SKIPPED u" + id);
             misses++;
+            console.log("[Lorebook] Skipped u" + id, "(misses:", misses + ")");
           }
         })
-        .fail(() => {
-          console.log("FAIL u" + id);
+        .fail(function () {
           misses++;
+          console.warn("[Lorebook] AJAX fail on u" + id, "(misses:", misses + ")");
         })
-         .always(() => {
+        .always(function () {
           active--;
-          if (nextId > MAX_U || misses >= STOP_AFTER_MISSES) {
-            doneIfFinished();
-          } else {
-            pump();
-          }
+          maybeFinish();
+          launchMore();
         });
+      }
 
-      } // END while loop
+      // In case loop doesn't schedule anything (e.g., all EXCLUDE),
+      // check if we can finish.
+      maybeFinish();
+    }
 
-      doneIfFinished();
-    } // END pump()
+    console.log("[Lorebook] Starting crawl from u" + START_ID + " to u" + MAX_U);
+    launchMore();
 
-    pump(); // START crawler
-
-  }); // END $(function)
-
-})(window.jQuery); // END IIFE
+  });
+})(window.jQuery);
