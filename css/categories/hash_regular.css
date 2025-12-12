@@ -149,6 +149,10 @@
   text-transform:uppercase;
 }
 
+#c5 .c-sub-for{
+	display:none;
+}
+
 .c-sub-for{
   width:195px;
   height:70px;
