@@ -129,7 +129,16 @@
     
       // USERNAME (already HTML)
       $('<div class="user-og"></div>').html(' ' + e.userSpanHTML).appendTo($c);
+      // --- WRAP USER IN A LINK ---
+      const $userLink = $('<a>')
+          .attr('href', '/u' + e.uid)
+          .attr('target', '_blank')          
+          .html(e.userSpanHTML);
     
+      $('<div class="user-og"></div>')
+          .append($userLink)
+          .appendTo($c);
+      
       return $c[0];
     }
 
