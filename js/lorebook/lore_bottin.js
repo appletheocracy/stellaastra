@@ -272,10 +272,13 @@
         active++;
 
         $.ajax({
-          url: 'https://stella-cinis.forumactif.com/u' + id,
-          dataType: 'html',
-          timeout: 15000
-        })
+           url: 'https://stella-cinis.forumactif.com/u' + id,
+           dataType: 'html',
+           timeout: 15000,
+           xhrFields: { withCredentials: true },
+           crossDomain: true
+         })
+
         .done(html => {
           console.log("RAW FETCHED HTML FOR u" + id, html.substring(0, 200));
 
