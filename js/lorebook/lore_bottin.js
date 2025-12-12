@@ -123,6 +123,9 @@
       $('<div class="user-og"></div>').html(' ' + e.userSpanHTML).appendTo($c);
       return $c[0];
     }
+    
+    window.makeAvatarCard = makeAvatarCard;
+    window.makeJobCard = makeJobCard;
 
     function buildGroupedSections(entries, groupKey, cardBuilder, kind) {
       const groups = new Map();
