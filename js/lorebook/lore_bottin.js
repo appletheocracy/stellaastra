@@ -320,20 +320,27 @@
         dataType: 'html',
         timeout: 20000
       }).done(function (html) {
-        const $dom = $('<div>').append($.parseHTML(html));
 
+        // Parse the remote HTML
+        const $dom = $('<div>').append($.parseHTML(html));
+      
+        // Local containers
         const $box = $('#b-les-dcs');
         if (!$box.length) return;
-
-        const $sink = $box.find('#les_dc_a_copier').first();
-        if (!$sink.length) return;
-
-        const $srcDoubleCompte = $dom.find('#b-les-dcs .dcslisting');
-        if ($srcDoubleCompte.length) {
-          $sink.empty().append($srcDoubleCompte.clone(true, true));
+      
+        const $target = $box.find('.dcslisting').first();   // Where we want to insert
+        if (!$target.length) return;
+      
+        // Source inside the loaded page
+        const $source = $dom.find('#les_dc_a_copier').first();
+      
+        if ($source.length) {
+          // Insert the remote content into the target
+          $target.empty().append($source.clone(true, true).contents());
         } else {
-          $sink.text('Information à venir.');
+          $target.text('Information à venir.');
         }
+      
       }).fail(function () {
         /* ignore; leave page as-is */
       });
