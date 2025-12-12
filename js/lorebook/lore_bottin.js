@@ -119,6 +119,7 @@
       // --- WRAP USER IN A LINK ---
       const $userLink = $('<a>')
           .attr('href', '/u' + e.uid)
+          .attr('target', '_blank') 
           .html(e.userSpanHTML);
     
       $('<div class="user-og"></div>')
@@ -137,6 +138,7 @@
       // --- WRAP USER IN A LINK ---
       const $userLink = $('<a>')
           .attr('href', '/u' + e.uid)
+          .attr('target', '_blank')          
           .html(e.userSpanHTML);
     
       $('<div class="user-og"></div>')
