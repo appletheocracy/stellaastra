@@ -1,7 +1,7 @@
 /* ======================================================================  
-   LOREBOOK BUILDER — FINAL FULL VERSION  
-   Avatars (#b-ava), Jobs (#b-job), + Full crawler + Debug hooks  
-   Compatible with: /u# template containing #profil-info-tar  
+   LOREBOOK BUILDER — FINAL PATCHED VERSION  
+   Avatars (#b-ava), Jobs (#b-job), full crawler, hardened extraction  
+   Compatible with: https://stella-cinis.forumactif.com/uX  
    ====================================================================== */
 
 (function ($) {
@@ -10,7 +10,7 @@
     console.log("LOREBOOK SCRIPT LOADED!");
 
     /* ===================== CONFIG ===================== */
-    const EXCLUDE = new Set([1, 2, 3]);
+    const EXCLUDE = new Set([1, 2, 3]); // ignored users
     const MAX_U = 500;
     const START_ID = 1;
     const CONCURRENCY = 4;
@@ -18,15 +18,15 @@
 
     const CACHE_KEY = 'lorebook_cache_v1_data';
     const CACHE_AT  = 'lorebook_cache_v1_time';
-    const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+    const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24h
     const COOKIE_NAME = 'lorebook_cache_v1';
     const COOKIE_MAX_AGE = 24 * 60 * 60;
 
     /* ===================== UTILS ===================== */
-    const norm = (s) => (s || '').toString().trim()
+    const norm = s => (s || '').toString().trim()
       .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 
-    const firstLetter = (s) => {
+    const firstLetter = s => {
       const c = norm(s).charAt(0).toUpperCase();
       return /^[A-Z]$/.test(c) ? c : '#';
     };
@@ -34,6 +34,7 @@
     function setFlagCookie() {
       document.cookie = `${COOKIE_NAME}=1; Max-Age=${COOKIE_MAX_AGE}; Path=/; SameSite=Lax`;
     }
+
     function clearFlagCookie() {
       document.cookie = `${COOKIE_NAME}=; Max-Age=0; Path=/; SameSite=Lax`;
     }
@@ -65,38 +66,48 @@
       return /(?:\?|&)refresh=1/.test(location.search);
     }
 
-    /* ========================================================================
-       PARSER — MATCHES YOUR REAL HTML EXACTLY
-       ======================================================================== */
+    /* ======================================================================
+       PARSER — Strong, Guest-safe, Template-aware
+       ====================================================================== */
 
     function parseProfile(html) {
       const $dom = $('<div>').append($.parseHTML(html));
 
+      // Detect if FA returned a login or restricted page
+      if (html.includes("loginform") || html.includes("Connexion")) {
+        console.warn("Guest view restricted — skipping profile.");
+        return null;
+      }
+
+      // Find the new profile wrapper
       const $cp = $dom.find('#profil-info-tar').first();
       if (!$cp.length) {
-        console.log("Profile skipped — no #profil-info-tar");
+        console.warn("No #profil-info-tar found → skipping");
         return null;
       }
 
-      const userSpanHTML =
-        ($cp.find('.profil-page-ttle').first().html() || "").trim();
+      // Username HTML
+      let userSpanHTML = ($cp.find('.profil-page-ttle').first().html() || "").trim();
 
-      if (!userSpanHTML) {
-        console.log("Profile skipped — no username");
-        return null;
-      }
+      // Feat
+      let featOg = ($cp.find('.rep-id31').first().text() || "").trim();
 
-      const featOg =
-        ($cp.find('.rep-id31').first().text() || "").trim();
+      // Fallback feat from classic FA template
+      const featFallback = ($dom.find('#field_id31 .field_uneditable').text() || "").trim();
+      if (!featOg && featFallback) featOg = featFallback;
 
-      const featByHTML =
-        ($cp.find('#bottin_tar').first().html() || "").trim();
+      // Artist + link (HTML)
+      let featByHTML = ($cp.find('#bottin_tar').first().html() || "").trim();
 
-      const jobOg =
-        ($cp.find('.rep-id27').first().text() || "").trim();
+      // Job
+      let jobOg = ($cp.find('.rep-id27').first().text() || "").trim();
 
-      if (!featOg && !featByHTML && !jobOg) {
-        console.log("Profile skipped — no feat/job/bottin_tar data found");
+      // Fallback job
+      const jobFallback = ($dom.find('#field_id27 .field_uneditable').text() || "").trim();
+      if (!jobOg && jobFallback) jobOg = jobFallback;
+
+      if (!userSpanHTML && !featOg && !jobOg) {
+        console.warn("Profile contains no usable data → skipping");
         return null;
       }
 
@@ -110,9 +121,9 @@
       };
     }
 
-    /* ========================================================================
-       CARD BUILDERS
-       ======================================================================== */
+    /* ======================================================================
+       CARD RENDERING
+       ====================================================================== */
 
     function makeAvatarCard(e) {
       const $c = $('<div class="avatarlisting"></div>');
@@ -129,9 +140,9 @@
       return $c[0];
     }
 
-    /* ========================================================================
-       GROUP BUILDING + INSERTION (OPTION B SAFE MODE)
-       ======================================================================== */
+    /* ======================================================================
+       GROUP BUILDER + SAFE INSERTION (Works even without .overall_content)
+       ====================================================================== */
 
     function buildGroupedSections(entries, groupKey, cardBuilder, kind) {
       const groups = new Map();
@@ -150,9 +161,7 @@
       const frag = document.createDocumentFragment();
       letters.forEach(L => {
         const $section = $('<div class="text_overall"></div>').attr('data-kind', kind);
-        $section.append(
-          `<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`
-        );
+        $section.append(`<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`);
         groups.get(L).forEach(e => $section.append(cardBuilder(e)));
         frag.appendChild($section[0]);
       });
@@ -161,9 +170,10 @@
     }
 
     function insertAfterOverallEnt($rootBox, frag, kind) {
-      const $content = $rootBox.find('.overall_content').first();
-      if (!$content.length) return;
+      let $content = $rootBox.find('.overall_content').first();
+      if (!$content.length) $content = $rootBox; // fallback insertion
 
+      // Remove previous generated blocks
       $content.find(`.text_overall[data-kind="${kind}"]`).remove();
 
       const $marker = $content.find('.text_overall[data-kind]').first();
@@ -188,48 +198,40 @@
         r._jobKey  = norm(r.jobOg  || '');
       });
 
+      // AVATARS
       const $avaBox = $('#b-ava');
       if ($avaBox.length) {
         const avatarEntries = results
           .filter(r => r.featOg)
           .sort((a, b) => a._featKey.localeCompare(b._featKey));
 
-        const fragAva = buildGroupedSections(
-          avatarEntries,
-          e => e.featOg,
-          makeAvatarCard,
-          'ava'
-        );
+        const fragAva = buildGroupedSections(avatarEntries, e => e.featOg, makeAvatarCard, 'ava');
         insertAfterOverallEnt($avaBox, fragAva, 'ava');
       }
 
+      // JOBS
       const $jobBox = $('#b-job');
       if ($jobBox.length) {
         const jobEntries = results
           .filter(r => r.jobOg)
           .sort((a, b) => a._jobKey.localeCompare(b._jobKey));
 
-        const fragJob = buildGroupedSections(
-          jobEntries,
-          e => e.jobOg,
-          makeJobCard,
-          'job'
-        );
+        const fragJob = buildGroupedSections(jobEntries, e => e.jobOg, makeJobCard, 'job');
         insertAfterOverallEnt($jobBox, fragJob, 'job');
       }
     }
 
-    /* ========================================================================
-       GLOBAL DEBUG EXPORT
-       ======================================================================== */
+    /* ======================================================================
+       EXPORT DEBUG HOOKS
+       ====================================================================== */
     window.parseProfile = parseProfile;
     window.renderResults = renderResults;
     window.makeAvatarCard = makeAvatarCard;
     window.makeJobCard = makeJobCard;
 
-    /* ========================================================================
-       MAIN CRAWLER
-       ======================================================================== */
+    /* ======================================================================
+       CRAWLER (ABSOLUTE URLs, FAILSAFE LOGGING)
+       ====================================================================== */
 
     const useFresh = hasRefreshParam();
     if (!useFresh) {
@@ -263,15 +265,20 @@
       if (stopped) return;
 
       while (active < CONCURRENCY && nextId <= MAX_U && misses < STOP_AFTER_MISSES) {
+
         const id = nextId++;
         if (EXCLUDE.has(id)) continue;
 
         active++;
+
         $.ajax({
-          url: '/u' + id,
+          url: 'https://stella-cinis.forumactif.com/u' + id,
           dataType: 'html',
           timeout: 15000
-        }).done(html => {
+        })
+        .done(html => {
+          console.log("RAW FETCHED HTML FOR u" + id, html.substring(0, 200));
+
           const parsed = parseProfile(html);
           if (parsed) {
             console.log("ACCEPTED u" + id, parsed);
@@ -281,10 +288,12 @@
             console.log("SKIPPED u" + id);
             misses++;
           }
-        }).fail(() => {
+        })
+        .fail(() => {
           console.log("FAILED u" + id);
           misses++;
-        }).always(() => {
+        })
+        .always(() => {
           active--;
           if (nextId > MAX_U || misses >= STOP_AFTER_MISSES) doneIfFinished();
           else pump();
