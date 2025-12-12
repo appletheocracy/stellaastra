@@ -275,7 +275,6 @@
            url: '/u' + id,
            dataType: 'html',
            timeout: 15000,
-           xhrFields: { withCredentials: true },
            crossDomain: true
          })
 
