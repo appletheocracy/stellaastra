@@ -274,8 +274,7 @@
         $.ajax({
            url: '/u' + id,
            dataType: 'html',
-           timeout: 15000,
-           crossDomain: true
+           timeout: 15000
          })
 
         .done(html => {
