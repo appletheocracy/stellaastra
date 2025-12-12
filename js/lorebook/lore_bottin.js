@@ -177,13 +177,27 @@
     }
 
     function insertAfterOverallEnt($rootBox, frag, kind) {
+
       const $content = $rootBox.find('.overall_content').first();
       if (!$content.length) return;
+    
+      // Remove only PREVIOUS generated sections for this kind
       $content.find(`.text_overall[data-kind="${kind}"]`).remove();
-      const $ent = $content.find('.overall-ent').first();
-      if ($ent.length) $ent.after(frag);
-      else $content.prepend(frag);
+    
+      // Static blocks = .text_overall WITHOUT data-kind
+      const $staticBlocks = $content.find('.text_overall').filter(function () {
+        return !$(this).attr('data-kind');
+      });
+    
+      if ($staticBlocks.length) {
+        // Insert after the LAST static .text_overall
+        $staticBlocks.last().after(frag);
+      } else {
+        // Fallback: append if none exists
+        $content.append(frag);
+      }
     }
+
 
     function renderResults(results) {
       // derive sort keys once (feat, job)
