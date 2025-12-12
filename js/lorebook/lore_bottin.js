@@ -272,39 +272,33 @@
         active++;
 
          $.ajax({
-            url: "/u" + id,
-            dataType: "html"
-         })
-         .done(html => {
-            console.log("Contains profil-info-tar?", html.includes("profil-info-tar"));
-            console.log("RAW FETCHED HTML FOR u" + id, html.substring(0, 200));
-         
-         const parsed = parseProfile(html);
-         if (parsed) {
-            console.log("ACCEPTED u" + id, parsed);
-            results.push(parsed);
-            misses = 0;
-         } else {
-            console.log("SKIPPED u" + id);
-            misses++;
-         }
-         })
-         .fail(() => {
-            console.log("FAIL u" + id);
-            misses++;
-         });
+  url: "/u" + id,
+  dataType: "html"
+})
+.done(html => {
+  console.log("Contains profil-info-tar?", html.includes("profil-info-tar"));
+  console.log("RAW FETCHED HTML FOR u" + id, html.substring(0, 200));
 
-        .always(() => {
-          active--;
-          if (nextId > MAX_U || misses >= STOP_AFTER_MISSES) doneIfFinished();
-          else pump();
-        });
-      }
-
-      doneIfFinished();
-    }
-
+  const parsed = parseProfile(html);
+  if (parsed) {
+    console.log("ACCEPTED u" + id, parsed);
+    results.push(parsed);
+    misses = 0;
+  } else {
+    console.log("SKIPPED u" + id);
+    misses++;
+  }
+})
+.fail(() => {
+  console.log("FAIL u" + id);
+  misses++;
+})
+.always(() => {
+  active--;
+  if (nextId > MAX_U || misses >= STOP_AFTER_MISSES) {
+    doneIfFinished();
+  } else {
     pump();
+  }
+});
 
-  });
-})(window.jQuery);
