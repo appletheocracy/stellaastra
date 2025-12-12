@@ -1,13 +1,4 @@
-/* === Lorebook builders with caching (Avatars #b-ava, Jobs #b-job) ============
- * Builds two dynamic sections from user profiles:
- *   - #b-ava: avatars list (feat + bottin_tar + username)
- *   - #b-job: jobs list (job + username)
- *
- * Plus: imports static lists from forum topics into:
- *   - #b-reservation   → .avatars-reserves-list
- *   - #b-noms-prenoms  → .nomslisting / .prenomslisting
- *   - #b-les-dcs       → .dcslisting
- * ============================================================================ */
+/* === Lorebook builders with caching (Avatars #b-ava, Jobs #b-job) ============ */
 
 (function ($) {
   $(function () {
@@ -35,13 +26,6 @@
       return /^[A-Z]$/.test(c) ? c : '#';
     };
 
-    const stripStrongKeepContent = ($el) => {
-      $el.find('strong').each(function () {
-        $(this).replaceWith($(this).contents());
-      });
-      return $el;
-    };
-
     function setFlagCookie() {
       document.cookie = `${COOKIE_NAME}=1; Max-Age=${COOKIE_MAX_AGE}; Path=/; SameSite=Lax`;
     }
@@ -54,11 +38,9 @@
         localStorage.setItem(CACHE_KEY, JSON.stringify(results));
         localStorage.setItem(CACHE_AT, String(Date.now()));
         setFlagCookie();
-      } catch (e) {
-        try {
-          localStorage.removeItem(CACHE_KEY);
-          localStorage.removeItem(CACHE_AT);
-        } catch (_) {}
+      } catch (_) {
+        localStorage.removeItem(CACHE_KEY);
+        localStorage.removeItem(CACHE_AT);
         clearFlagCookie();
       }
     }
@@ -75,68 +57,41 @@
     }
 
     function hasRefreshParam() {
-      return /(?:\?|&)refresh=1(?:&|$)/.test(location.search);
+      return /(?:\?|&)refresh=1/.test(location.search);
     }
 
     /* ===================== PARSER (UPDATED FOR NEW TEMPLATE) ===================== */
     function parseProfile(html) {
-  const $dom = $('<div>').append($.parseHTML(html));
+      const $dom = $('<div>').append($.parseHTML(html));
 
-  // Find the main wrapper
-  const $cp = $dom.find('#profil-info-tar').first();
-  if (!$cp.length) return null;
+      const $cp = $dom.find('#profil-info-tar').first();
+      if (!$cp.length) return null;
 
-  // Username (HTML allowed)
-  const userSpanHTML = ($cp.find('.profil-page-ttle').first().html() || "").trim();
-  if (!userSpanHTML) return null;
+      const userSpanHTML = ($cp.find('.profil-page-ttle').first().html() || "").trim();
+      if (!userSpanHTML) return null;
 
-  // Feat
-  const featOg = ($cp.find('.rep-id31').first().text() || "").trim();
+      const featOg = ($cp.find('.rep-id31').first().text() || "").trim();
+      const featByHTML = ($cp.find('#bottin_tar').first().html() || "").trim();
+      const jobOg = ($cp.find('.rep-id27').first().text() || "").trim();
 
-  // Artist / feat-by (HTML)
-  const featByHTML = ($cp.find('#bottin_tar').first().html() || "").trim();
+      if (!featOg && !featByHTML && !jobOg) return null;
 
-  // Job
-  const jobOg = ($cp.find('.rep-id27').first().text() || "").trim();
-
-  // If nothing useful is found, skip user
-  if (!featOg && !featByHTML && !jobOg) return null;
-
-  return {
-    featOg,
-    featByHTML,
-    jobOg,
-    userSpanHTML
-  };
-}
+      return { featOg, featByHTML, jobOg, userSpanHTML };
+    }
 
     /* ===================== RENDERERS (UPDATED) ===================== */
     function makeAvatarCard(e) {
       const $c = $('<div class="avatarlisting"></div>');
-
-      // FEAT
       $('<div class="feat-og"></div>').text(e.featOg).appendTo($c);
-
-      // FEAT-BY (uses HTML from #bottin_tar, already formatted)
-      if (e.featByHTML) {
-        $('<div class="feat-by"></div>').html(e.featByHTML).appendTo($c);
-      }
-
-      // USER NAME
+      $('<div class="feat-by"></div>').html(e.featByHTML).appendTo($c);
       $('<div class="user-og"></div>').html(e.userSpanHTML).appendTo($c);
-
       return $c[0];
     }
 
     function makeJobCard(e) {
       const $c = $('<div class="joblisting"></div>');
-
-      // JOB
       $('<div class="job-og"></div>').text(e.jobOg).appendTo($c);
-
-      // USER NAME
       $('<div class="user-og"></div>').html(e.userSpanHTML).appendTo($c);
-
       return $c[0];
     }
 
@@ -156,11 +111,8 @@
 
       const frag = document.createDocumentFragment();
       letters.forEach(L => {
-        const $section = $('<div class="text_overall"></div>')
-          .attr('data-kind', kind);
-        $section.append(
-          `<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`
-        );
+        const $section = $('<div class="text_overall"></div>').attr('data-kind', kind);
+        $section.append(`<div class="rule-mini-t">${L} <ion-icon name="arrow-redo-sharp"></ion-icon></div>`);
         groups.get(L).forEach(e => $section.append(cardBuilder(e)));
         frag.appendChild($section[0]);
       });
@@ -168,32 +120,22 @@
       return frag;
     }
 
-    /* =====================================================
-       INSERT FUNCTION (OPTION B)
-       Ignores any .text_overall without data-kind
-    ====================================================== */
+    /* ===================== INSERT AFTER OVERALL (OPTION B) ===================== */
     function insertAfterOverallEnt($rootBox, frag, kind) {
       const $content = $rootBox.find('.overall_content').first();
       if (!$content.length) return;
 
-      // Remove previously generated blocks of this kind
       $content.find(`.text_overall[data-kind="${kind}"]`).remove();
 
-      // Use only script-generated .text_overall (with data-kind) as markers
       const $marker = $content.find('.text_overall[data-kind]').first();
-
       if ($marker.length) {
         $marker.after(frag);
         return;
       }
 
-      // First insertion → place after .overall-ent if possible
       const $ent = $content.find('.overall-ent').first();
-      if ($ent.length) {
-        $ent.after(frag);
-      } else {
-        $content.append(frag);
-      }
+      if ($ent.length) $ent.after(frag);
+      else $content.append(frag);
     }
 
     function renderResults(results) {
@@ -202,155 +144,22 @@
         r._jobKey  = norm(r.jobOg  || '');
       });
 
-      // AVATARS
       const $avaBox = $('#b-ava');
       if ($avaBox.length) {
-        const avatarEntries = results
-          .filter(r => r.featOg) // require feat for avatar listing
-          .sort((a, b) => a._featKey.localeCompare(b._featKey));
-        const fragAva = buildGroupedSections(
-          avatarEntries,
-          e => e.featOg,
-          makeAvatarCard,
-          'ava'
-        );
+        const avatarEntries = results.filter(r => r.featOg).sort((a, b) => a._featKey.localeCompare(b._featKey));
+        const fragAva = buildGroupedSections(avatarEntries, e => e.featOg, makeAvatarCard, 'ava');
         insertAfterOverallEnt($avaBox, fragAva, 'ava');
       }
 
-      // JOBS
       const $jobBox = $('#b-job');
       if ($jobBox.length) {
-        const jobEntries = results
-          .filter(r => r.jobOg)
-          .sort((a, b) => a._jobKey.localeCompare(b._jobKey));
-        const fragJob = buildGroupedSections(
-          jobEntries,
-          e => e.jobOg,
-          makeJobCard,
-          'job'
-        );
+        const jobEntries = results.filter(r => r.jobOg).sort((a, b) => a._jobKey.localeCompare(b._jobKey));
+        const fragJob = buildGroupedSections(jobEntries, e => e.jobOg, makeJobCard, 'job');
         insertAfterOverallEnt($jobBox, fragJob, 'job');
       }
     }
 
-    /* ===================== STATIC LIST IMPORTS ===================== */
-    function loadReservationsAndNames() {
-      const URL_RESERVATIONS = 'https://stella-cinis.forumactif.com/t12-reservations-d-avatar';
-      const URL_NOMS_PRENOMS = 'https://stella-cinis.forumactif.com/t55-bottin-des-nom-prenoms';
-
-      /* ---------- #b-reservation ---------- */
-      $.ajax({
-        url: URL_RESERVATIONS,
-        dataType: 'html',
-        timeout: 20000
-      }).done(function (html) {
-        const $dom = $('<div>').append($.parseHTML(html));
-
-        const $box = $('#b-reservation');
-        if (!$box.length) return;
-
-        const $sink = $box.find('.avatars-reserves-list').first();
-        if (!$sink.length) return;
-
-        const $srcReservations = $dom.find('#les_reservations .reservationlisting');
-        const $marker = $sink.find('.rule-mini-t').first();
-
-        if ($srcReservations.length) {
-          if ($marker.length) $marker.after($srcReservations.clone(true, true));
-          else $sink.append($srcReservations.clone(true, true));
-        } else {
-          const msg = '<div>Information à venir.</div>';
-          if ($marker.length) $marker.after(msg);
-          else $sink.append(msg);
-        }
-      }).fail(function () {});
-
-      /* ---------- #b-noms-prenoms ---------- */
-      $.ajax({
-        url: URL_NOMS_PRENOMS,
-        dataType: 'html',
-        timeout: 20000
-      }).done(function (html) {
-        const $dom = $('<div>').append($.parseHTML(html));
-
-        const $box = $('#b-noms-prenoms');
-        if (!$box.length) return;
-
-        const $sinkNoms = $box.find('.nomslisting').first();
-        const $sinkPrenoms = $box.find('.prenomslisting').first();
-
-        if ($sinkNoms && $sinkNoms.length) {
-          const $srcNoms = $dom.find('#noms_liste');
-          const $marker = $sinkNoms.find('.rule-mini-t').first();
-          if ($srcNoms.length) {
-            if ($marker.length) $marker.after($srcNoms.clone(true, true));
-            else $sinkNoms.append($srcNoms.clone(true, true));
-          } else {
-            const msg = '<div>Information à venir.</div>';
-            if ($marker.length) $marker.after(msg);
-            else $sinkNoms.append(msg);
-          }
-        }
-
-        if ($sinkPrenoms && $sinkPrenoms.length) {
-          let $srcPrenoms = $dom.find('#prenoms_liste');
-          if (!$srcPrenoms.length) {
-            $srcPrenoms = $dom.find('#prenonoms_liste');
-          }
-          const $marker = $sinkPrenoms.find('.rule-mini-t').first();
-          if ($srcPrenoms.length) {
-            if ($marker.length) $marker.after($srcPrenoms.clone(true, true));
-            else $sinkPrenoms.append($srcPrenoms.clone(true, true));
-          } else {
-            const msg = '<div>Information à venir.</div>';
-            if ($marker.length) $marker.after(msg);
-            else $sinkPrenoms.append(msg);
-          }
-        }
-      }).fail(function () {});
-    }
-
-    /* ===================== DCS IMPORT ===================== */
-    function loadDCs() {
-      const URL_DCS = 'https://stella-cinis.forumactif.com/t59-demandes-de-multicomptes-reboots';
-
-      $.ajax({
-        url: URL_DCS,
-        dataType: 'html',
-        timeout: 20000
-      }).done(function (html) {
-        const $dom = $('<div>').append($.parseHTML(html));
-
-        const $box = $('#b-les-dcs');
-        if (!$box.length) return;
-
-        const $sink = $box.find('.dcslisting').first();
-        if (!$sink.length) return;
-
-        const $src = $dom.find('#les_dc_a_copier').first();
-        const $marker = $sink.find('.rule-mini-t').first();
-
-        if ($src.length) {
-          const inner = ($src.html() || "").trim();
-          if (inner) {
-            if ($marker.length) $marker.after(inner);
-            else $sink.append(inner);
-          } else {
-            const msg = '<div>Information à venir.</div>';
-            if ($marker.length) $marker.after(msg);
-            else $sink.append(msg);
-          }
-        } else {
-          const msg = '<div>Information à venir.</div>';
-          if ($marker.length) $marker.after(msg);
-          else $sink.append(msg);
-        }
-      }).fail(function () {});
-    }
-
-    /* ===================== FLOW ===================== */
-    loadReservationsAndNames();
-    loadDCs();
+    /* ===================== MAIN CRAWLER (MISSING BEFORE — NOW RESTORED) ===================== */
 
     const useFresh = hasRefreshParam();
     if (!useFresh) {
@@ -358,7 +167,6 @@
       if (cached) { renderResults(cached); return; }
     }
 
-    // Crawl → cache → render
     const results = [];
     let nextId = START_ID, active = 0, misses = 0, stopped = false;
 
@@ -378,6 +186,7 @@
 
     function pump() {
       if (stopped) return;
+
       while (active < CONCURRENCY && nextId <= MAX_U && misses < STOP_AFTER_MISSES) {
         const id = nextId++;
         if (EXCLUDE.has(id)) continue;
@@ -402,6 +211,7 @@
             else pump();
           });
       }
+
       doneIfFinished();
     }
 
