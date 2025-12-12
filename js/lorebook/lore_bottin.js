@@ -1,4 +1,4 @@
-/* === Lorebook builders with caching (Avatars #b-ava, Jobs #b-job) ============
+/* === Lorebook builders with caching (Avatars #b-ava, Jobs #b-job) ============ 
  * Builds two dynamic sections from user profiles:
  *   - #b-ava: avatars list (feat + artist + username)
  *   - #b-job: jobs list (job + username)
@@ -80,7 +80,7 @@
     }
 
     /* ===================== PARSER ===================== */
-    function parseProfile(html) {
+    function parseProfile(html, uid) {
       const $dom = $('<div>').append($.parseHTML(html));
       const $cp  = $dom.find('#cp-main');
       if (!$cp.length) return null;
@@ -98,6 +98,7 @@
       const userSpanHTML = $('<div>').append($h1Span).html();
 
       return {
+        uid,          // ★ ADDED: store user ID
         featOg,
         artistOg,
         jobOg,
@@ -112,7 +113,12 @@
       $('<div class="feat-by">par</div>').appendTo($c);
       $('<div class="artist-og"></div>').text(e.artistOg).appendTo($c);
       $('<div class="feat-by">-</div>').appendTo($c);
-      $('<div class="user-og"></div>').html(' ' + e.userSpanHTML).appendTo($c);
+
+      // ★ USER LINK WRAP ADDED HERE
+      const $user = $('<div class="user-og"></div>');
+      $user.append(`<a href="/u${e.uid}">${e.userSpanHTML}</a>`);
+      $c.append($user);
+
       return $c[0];
     }
 
@@ -120,7 +126,12 @@
       const $c = $('<div class="joblisting"></div>');
       $('<div class="job-og"></div>').text(e.jobOg).appendTo($c);
       $('<div class="feat-by">-</div>').appendTo($c);
-      $('<div class="user-og"></div>').html(' ' + e.userSpanHTML).appendTo($c);
+
+      // ★ USER LINK WRAP ADDED HERE
+      const $user = $('<div class="user-og"></div>');
+      $user.append(`<a href="/u${e.uid}">${e.userSpanHTML}</a>`);
+      $c.append($user);
+
       return $c[0];
     }
 
@@ -186,13 +197,6 @@
     }
 
     /* ===================== STATIC LIST IMPORTS ===================== */
-    /**
-     * Copies three lists from two topic pages into the current page:
-     *  - #b-reservation  → .avatars-reserves-list  (from /t12-reservations-d-avatar)
-     *  - #b-noms-prenoms → .nomslisting/.prenomslisting (from /t55-bottin-des-nom-prenoms#91)
-     *
-     * If a source block is empty, writes "Information à venir."
-     */
     function loadReservationsAndNames() {
       const URL_RESERVATIONS = 'https://stella-cinis.forumactif.com/t12-reservations-d-avatar';
       const URL_NOMS_PRENOMS = 'https://stella-cinis.forumactif.com/t55-bottin-des-nom-prenoms';
@@ -217,8 +221,6 @@
         } else {
           $sink.text('Information à venir.');
         }
-      }).fail(function () {
-        /* ignore; leave page as-is */
       });
 
       /* ---------- #b-noms-prenoms ---------- */
@@ -244,7 +246,6 @@
         }
 
         if ($sinkPrenoms && $sinkPrenoms.length) {
-          // Try #prenonoms_liste first; fallback to #prenoms_liste
           let $srcPrenoms = $dom.find('#prenoms_liste');
           if (!$srcPrenoms.length) {
             $srcPrenoms = $dom.find('#prenoms_liste');
@@ -255,13 +256,10 @@
             $sinkPrenoms.text('Information à venir.');
           }
         }
-      }).fail(function () {
-        /* ignore; leave page as-is */
       });
     }
 
     /* ===================== FLOW ===================== */
-    // Kick off static imports immediately
     loadReservationsAndNames();
 
     const useFresh = hasRefreshParam();
@@ -270,7 +268,6 @@
       if (cached) { renderResults(cached); return; }
     }
 
-    // Crawl → cache → render (for avatars & jobs)
     const results = [];
     let nextId = START_ID, active = 0, misses = 0, stopped = false;
 
@@ -297,7 +294,7 @@
           dataType: 'html',
           timeout: 15000
         }).done(html => {
-          const parsed = parseProfile(html);
+          const parsed = parseProfile(html, id);   // ★ UID PASSED TO PARSER
           if (parsed) { results.push(parsed); misses = 0; }
           else { misses++; }
         }).fail(() => { misses++; })
