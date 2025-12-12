@@ -585,12 +585,12 @@ height: 44px;
     width:360px!important;
 }
 
-#c2 .catego_titre, #c3 .catego_titre, #c5 .catego_titre{
+#c2 .catego_titre, #c3 .catego_titre, #c5 .catego_titre, #c14 .catego_titre{
     height:99.19px!important;
 
 }
 
-#c2 #h1-category, #c3 #h1-category, #c5 #h1-category{
+#c2 #h1-category, #c3 #h1-category, #c5 #h1-category, #c14 #h1-category{
     height:65px!important;
     padding-top:41px;
 }
