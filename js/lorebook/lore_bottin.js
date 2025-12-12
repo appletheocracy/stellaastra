@@ -81,38 +81,28 @@
 
     /* ===================== PARSER ===================== */
     function parseProfile(html) {
-        const $dom = $('<div>').append($.parseHTML(html));
-        const $cp  = $dom.find('#cp-main');
-        if (!$cp.length) return null;
+      const $dom = $('<div>').append($.parseHTML(html));
+      const $cp = $dom.find('#cp-main');
+      if (!$cp.length) return null;
+    
+      const $h1Span = $cp.find('.page-title span').first().clone();
+      if (!$h1Span.length) return null;
+      stripStrongKeepContent($h1Span);
       
-        // Username
-        const $h1Span = $cp.find('.page-title span').first().clone();
-        if (!$h1Span.length) return null;
-        stripStrongKeepContent($h1Span);
-        const userSpanHTML = $('<div>').append($h1Span).html();
+      const featOg = $cp.find('#field_id31 .field_uneditable').first().text().trim();
+      const artistOg = $cp.find('#field_id1 .field_uneditable').first().text().trim();
+      const artistLink = $cp.find('#field_id11 .field_uneditable').first().text().trim();
+      const jobOg = $cp.find('#field_id27 .field_uneditable').first().text().trim();
       
-        // Feat
-        const featOg = $cp.find('#field_id31 .field_uneditable').first().text().trim();
-      
-        // ARTIST NAME (inside <a> inside field_id1)
-        const artistOg = $cp.find('#field_id1 .field_uneditable a').first().text().trim();
-      
-        // ARTIST LINK (plain text inside field_id11)
-        const artistLink = $cp.find('#field_id11 .field_uneditable').first().text().trim();
-      
-        // Job
-        const jobOg = $cp.find('#field_id27 .field_uneditable').first().text().trim();
-      
-        // Skip empty profiles
-        if (!featOg && !artistOg && !jobOg) return null;
-      
-        return {
-          featOg,
-          artistOg,
-          artistLink,
-          jobOg,
-          userSpanHTML
-        };
+      if (!featOg && !artistOg && !jobOg && !artistLink) return null;
+    
+      const userSpanHTML = $('<div>').append($h1Span).html();
+      return {
+        featOg,
+        artistOg,
+        artistLink,
+        jobOg,
+        userSpanHTML };
     }
     
     /* ===================== RENDERERS ===================== */
