@@ -261,12 +261,13 @@
     top:-20px;
 }
 
-.l-infos a, .msg_admin a{
+
+.l-infos a, .msg_admin .s-txt div a{
     color:var(--cacc)!important;
     font-weight:bold;
 }
 
-.l-infos a:hover, .msg_admin a:hover{
+.l-infos a:hover, .msg_admin .s-txt div a:hover{
     color:var(--cvam)!important;
 }
 
