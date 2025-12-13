@@ -31,7 +31,6 @@
     position:relative;
 }
 
-
 .block-staff.bottom{
     grid-template-rows: 304px 6px!important; 
 }
