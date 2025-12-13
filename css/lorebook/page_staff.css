@@ -493,7 +493,13 @@ a.s-compte{
     color:var(--cff);
 }
 
-.role-info .s-txt div.role{
+.s-txt.role-info{
+    height:56px;
+    padding:0px!important;
+    overflow:hidden;
+    border-radius:4px;
+}
+.s-txt.role-info div.role{
     height:56px;
     padding:5px 10px;
     overflow-y:auto;
