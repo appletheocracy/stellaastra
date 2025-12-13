@@ -1,4 +1,6 @@
-
+.block-staff.quinny, .block-staff.moonu{
+    display:none;
+}
 .s_contenu{
     display:flex;
     padding:30px;
