@@ -10,7 +10,7 @@
     display:flex!important;
     flex-direction:row;
     flex-wrap: wrap;
-    gap:28px;
+    gap:28px!important;
 	background-color:transparent;
 	box-shadow:none!important;
 }
