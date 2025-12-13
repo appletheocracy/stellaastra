@@ -261,12 +261,12 @@
     top:-20px;
 }
 
-.l-infos a{
+.l-infos a, .msg_admin a{
     color:var(--cacc)!important;
     font-weight:bold;
 }
 
-.l-infos a:hover{
+.l-infos a:hover, .msg_admin a:hover{
     color:var(--cvam)!important;
 }
 
@@ -490,7 +490,15 @@ a.s-compte{
     scrollbar-width: thin;
     scrollbar-color: var(--cacc) var(--c14);
     color:var(--cff);
+}
 
+.msg_admin .s-txt div.role{
+    height:56px;
+    padding:5px 10px;
+    overflow-y:auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--cacc) var(--c14);
+    color:var(--cff);
 }
 
 .squirk, .squirk .listing_t{
