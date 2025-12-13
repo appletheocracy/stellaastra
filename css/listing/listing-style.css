@@ -5,14 +5,14 @@
 }
 
 .forumbg{
-    width:1140px;
+    width:1140px!important;
     height:auto;
     display:flex!important;
     flex-direction:row;
     flex-wrap: wrap;
     gap:28px;
 	background-color:transparent;
-	box-shadown:none!important;
+	box-shadow:none!important;
 }
 
 .ttle-form{
