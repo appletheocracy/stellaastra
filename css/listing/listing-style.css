@@ -1,12 +1,10 @@
-
-
 .listing-top-ttle, .ttle-in-form, .form-min-ttle, input.btn-chercher, .liste-u-name, .u-data-ttle, .u-info-bloc span, .udata5 .u-info-bloc{
     font-family: "Staatliches", sans-serif!important;
 	font-weight: 400!important;
 	font-style: normal!important;
 }
 
-#wrapper-listing{
+.forumbg{
     width:1140px;
     height:auto;
     padding-top:30px;
@@ -18,6 +16,7 @@
 
 .ttle-form{
 	width:100%;
+	margin-bottom:30px;
 }
 
 .listing-top-ttle{
@@ -25,7 +24,7 @@
     text-align:center;
     font-size:75px;
 	color:var(--cfond);
-	height:70px;
+	height:75px;
 }
 
 form[action="/memberlist"] {
