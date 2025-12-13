@@ -4,17 +4,20 @@
 	font-style: normal!important;
 }
 
+.list-name-fl span strong{
+	font-weight:400!important;
+}
+
 .forumbg{
     width:1140px!important;
     height:auto;
     display:flex!important;
     flex-direction:row;
     flex-wrap: wrap;
-    gap:28px!important;
+    gap:27px!important;
 	background-color:transparent;
 	box-shadow:none!important;
 }
-
 .ttle-form{
 	width:100%;
 	margin-bottom:30px;
