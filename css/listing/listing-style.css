@@ -161,6 +161,9 @@ input.btn-chercher:focus{
     flex-direction: row;
     flex-wrap: nowrap; 
     gap:5px;
+	position:relative;
+	top:-3px;
+	margin-bottom:-3px;
 }
 
 .list-name-fl{
@@ -193,6 +196,9 @@ input.btn-chercher:focus{
     width:100%;
     font-size:24px;
     height:26px;
+	margin-bottom:-2px;
+	position:relative;
+	top:-2px;
 }
 
 .u-info-bloc{
