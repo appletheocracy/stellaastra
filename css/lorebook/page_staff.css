@@ -493,7 +493,7 @@ a.s-compte{
     color:var(--cff);
 }
 
-.msg_admin .s-txt div.role{
+.role-info .s-txt div.role{
     height:56px;
     padding:5px 10px;
     overflow-y:auto;
