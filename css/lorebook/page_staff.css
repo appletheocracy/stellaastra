@@ -169,6 +169,14 @@
     opacity:0;
 }
 
+.aki .img_cutter2{
+    background-image:url('https://i.imgur.com/JUfzBGY.png')!important;
+}
+
+.aki:hover img{
+    opacity:0;
+}
+
 
 
 .user-ntitle,
