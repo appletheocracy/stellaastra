@@ -102,8 +102,8 @@ $(document).ready(function () {
 
       // rebuild buttons per rules
       $wrap.find('.add_quali_def, .remove_quali_def').remove();
-      if (showPlus)  { $wrap.append('<div class="btn add_quali_def">+</div>'); }
-      if (showMinus) { $wrap.append('<div class="btn remove_quali_def">-</div>'); }
+      if (showPlus)  { $wrap.append('<div class="btn add_quali_def"><ion-icon name="add-outline"></ion-icon></div>'); }
+      if (showMinus) { $wrap.append('<div class="btn remove_quali_def"><ion-icon name="remove-outline"></ion-icon></div>'); }
     });
   }
 
@@ -121,10 +121,10 @@ $(document).ready(function () {
 
     // Ensure "+" and "−" exist
     if ($newBlock.find('.add_chrono').length === 0) {
-      $newBlock.append('<div class="btn add_chrono"> + </div>');
+      $newBlock.append('<div class="btn add_chrono"><ion-icon name="add-outline"></ion-icon></div>');
     }
     if ($newBlock.find('.remove_chrono').length === 0) {
-      $newBlock.append('<div class="btn remove_chrono"> - </div>');
+      $newBlock.append('<div class="btn remove_chrono"><ion-icon name="remove-outline"></ion-icon></div>');
     }
 
     // Normalize visibility (avoid cloning display:none from the first block)
@@ -169,10 +169,10 @@ $(document).ready(function () {
 
       // Ensure buttons exist
       if ($this.find('.add_chrono').length === 0) {
-        $this.append('<div class="btn add_chrono"> + </div>');
+        $this.append('<div class="btn add_chrono"><ion-icon name="add-outline"></ion-icon></div>');
       }
       if ($this.find('.remove_chrono').length === 0) {
-        $this.append('<div class="btn remove_chrono"> - </div>');
+        $this.append('<div class="btn remove_chrono"><ion-icon name="remove-outline"></ion-icon></div>');
       }
 
       // First non-final cannot be removed; others can
@@ -218,9 +218,9 @@ $(document).ready(function () {
       const $this = $(this);
       $this.find('.add_fact, .remove_fact').remove();
 
-      $this.append('<div class="btn add_fact"> + </div>');
+      $this.append('<div class="btn add_fact"><ion-icon name="add-outline"></ion-icon></div>');
       if (index > 0) {
-        $this.append('<div class="btn remove_fact"> - </div>');
+        $this.append('<div class="btn remove_fact"><ion-icon name="remove-outline"></ion-icon></div>');
       }
 
       $this.find('input').attr({
@@ -261,9 +261,9 @@ $(document).ready(function () {
       const $this = $(this);
       $this.find('.add_signe, .remove_signe').remove();
 
-      $this.append('<div class="btn add_signe"> + </div>');
+      $this.append('<div class="btn add_signe"><ion-icon name="add-outline"></ion-icon></div>');
       if (index > 0) {
-        $this.append('<div class="btn remove_signe"> - </div>');
+        $this.append('<div class="btn remove_signe"><ion-icon name="remove-outline"></ion-icon></div>');
       }
 
       $this.find('input').attr({
