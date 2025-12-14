@@ -103,3 +103,5 @@
   	text-align:right;
   	height:400px;
 }
+
+.coderp-1-contenu br:first-of-type, .coderp-1-contenu br:last-of-type{display: none!important;}
