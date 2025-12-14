@@ -259,6 +259,10 @@ body{
     height: auto;
 }
 
+.entete_info_part2 input{
+    width:507px;
+}
+
 .chimere .hybridation,
 .chimere .date_transfo,
 .chimere .age_apparent,
