@@ -223,6 +223,7 @@
 }
 
 .entete_info1 .bloc_rep_fiche,
+.entete_info1 .bloc_rep_fiche1,
 .entete_info2 .bloc_rep_fiche,
 .age_transfo .bloc_rep_fiche,
 .groupe_sanguin .bloc_rep_fiche,
@@ -233,7 +234,7 @@
 }
 
 
-.bloc_rep_fiche{
+.bloc_rep_fiche, .bloc_rep_fiche1{
     height:30px;
     font-size:16px;
     padding:7px 10px;
@@ -246,7 +247,7 @@
     border-top-left-radius: 0px!important;
 }
 
-.gauche .bloc_rep_fiche{
+.gauche .bloc_rep_fiche, .gauche .bloc_rep_fiche1{
     border-bottom-left-radius: 0px!important;
 }
 
