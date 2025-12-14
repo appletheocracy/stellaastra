@@ -53,9 +53,11 @@ textarea, select {
 }
 
 input[type="text"],
-input[type="number"]{
+input[type="number"],
+select{
     padding:0px 10px;
     font-size:14px;
+    
 }
 
 textarea{
@@ -143,7 +145,7 @@ body{
     margin-bottom:15px;
 }
 
-.entete_groupe input[type="button"]{
+.entete_groupe input[type="button"], select{
     width:200px;
     height:41px;
     background-color:var(--cfond);
@@ -429,7 +431,7 @@ input[type="number"]{
 
 input[type="text"]:focus,
 input[type="number"]:focus,
-textarea:focus{
+textarea:focus, select:focus{
     border-color:#b5b5b5!important;
     outline: none;
 }
@@ -509,7 +511,7 @@ textarea.size{
     margin-bottom:10px;
 }
 
-input[type="text"].date_size{
+input[type="text"].date_size, select{
     width:150px!important;
 }
 
