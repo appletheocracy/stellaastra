@@ -241,21 +241,22 @@ body{
 
 .entete_info{
     margin:15px;
-    display: grid; 
-    grid-template-columns: 510px 510px; 
-    grid-template-rows: 68px 92px 68px 68px;
-    gap: 3px 30px; 
-    grid-template-areas: 
-    "a b"
-    "c d"
-    "e f"
-    "g h";
-    justify-content: start; 
-    align-content: start; 
-    justify-items: start; 
-    align-items: center; 
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap:3px;    
     width: 1050px; 
-    height: 305px; 
+    height: auto;
+}
+
+.entete_info_part2{
+    margin:15px;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap:3px;    
+    width: 1050px; 
+    height: auto;
 }
 
 .chimere .hybridation,
