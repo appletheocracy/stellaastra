@@ -56,7 +56,7 @@
 .fiche_vampire .f-timeline .f-anne-mois:after,
 .fiche_vampire .f-pol_info,
 .fiche_vampire .f-pol_img,
-.fiche_vampire, .bloc_entete{
+.fiche_vampire .bloc_entete{
 	background-color:var(--cvam)!important;
 }
 
