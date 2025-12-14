@@ -5,19 +5,20 @@
     max-width:525px;
     color:var(--cofwhite);
     font-size:16px;
+    
 }
 
 .f-char{
-    margin:13px 0px 0px 15px ;
+    margin:0px 0px 0px 15px ;
 }
 
 
 .f-author{
-    margin:13px 15px 0px 4px;
+    margin:0px 15px 0px 4px;
 }
 
 .f-char, .f-author{
-    height:27px;
+    height:17px;
 }
 
 .f-char span{
@@ -132,7 +133,7 @@
 
 .fiche_prenom_nom{
     color:var(--cff);
-    margin:5px 15px;
+    margin:5px 15px 0px 15px;
     font-size:50px;
     width:400px;
     line-height: 90%;
