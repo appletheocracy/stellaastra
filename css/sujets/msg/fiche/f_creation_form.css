@@ -395,6 +395,8 @@ input[type="number"]{
     background-color:var(--cdeu);
     width:30px;
     height:30px;
+    text-align:center;
+    color:white;
 }
 .compilation_facts input[type="text"],
 .compilation_signes input[type="text"]{
