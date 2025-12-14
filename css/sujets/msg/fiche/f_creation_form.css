@@ -421,7 +421,7 @@ input[type="number"]{
 
 .remove_fact, .remove_signe, .remove_quali_def,
 .remove_chrono{
-    padding:3px 11px!important;
+    padding:5px 0px!important;
     background-color:var(--cvam);
 }
 
