@@ -73,6 +73,9 @@
     height:100px;
 }
 
+.fiche_cw .bloc_entete{
+    height:102px;
+}
 
 .fiche_cw .bloc_rep_fiche{
     margin-bottom:10px;
