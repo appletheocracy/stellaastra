@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
         '#C083CF': 'profil_hybride',
         '#6D9C72': 'profil_humain',
         '#FFCD61': 'profil_chimere',
-        '#6E6E6E': 'profil_membre'
+        '#6E6E6E': 'profil_membre',
+        '#D1D1D1': 'profil_inactif'
     };
     const profileWrapper = '.profil-wrap';
     const profilePseudo = '.profil-page-ttle';
