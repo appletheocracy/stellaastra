@@ -77,11 +77,11 @@
     height:102px;
 }
 
-.fiche_cw .bloc_rep_fiche{
+.fiche_cw .bloc_rep_fiche1{
     margin-bottom:10px;
-    height:69px;
     overflow-y:auto;
 }
+
 
 .soustitre_fiche{
     width:100%;
@@ -247,9 +247,15 @@
     text-overflow: ellipsis;
 }
 
+.bloc_rep_fiche{
+    height:30px;
+}
+
+.bloc_rep_fiche1{
+    height:69px;
+}
 
 .bloc_rep_fiche, .bloc_rep_fiche1{
-    height:68px;
     font-size:16px;
     padding:7px 10px;
     background-color:var(--cofwhite);
