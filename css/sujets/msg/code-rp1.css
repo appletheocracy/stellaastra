@@ -1,0 +1,105 @@
+.coderp-1{
+	display:flex;
+  	flex-direction:row;
+  	width:820px;
+  	border-radius:0px 0px 0px 4px;
+  	padding:10px;  	
+  	gap:10px;
+  	background-color:var(--cfond);
+}
+
+.coderp-cw-ctn{
+	background-color:rgba(0, 0, 0, 0.5);
+  	position:relative;
+  	top:-75px;
+}
+
+.cw-ctn-ttle{	
+  	padding:5px 5px 0px 5px;
+  	font-size:35px;
+  	line-height:25px;
+  	color:rgba(255, 255, 255, 0.8);  	
+  	text-align:right;
+}
+
+.coderp-1 .cw-ctn{
+	display:flex;
+  	flex-direction:row;
+  	flex-wrap:wrap;
+  	justify-content: flex-end;
+  	width:175px;
+  	text-align:right;
+}
+
+.coderp-1 br, .coderp-1-bande div br, .cw-ctn br{
+	display:none!important;
+}
+
+.message_deus .coderp-1-bande{
+  	background: var(--cdeu);
+  	max-height: 100%;
+}
+
+.coderp-date{
+	text-transform:uppercase;
+	font-weight:bold;
+}
+
+.coderp-feat, .coderp-date{
+  	margin-top:5px;
+  	padding-right:5px;
+}
+
+
+.coderp-username{
+	padding:0px 5px;
+  	
+}
+.coderp-username, .coderp-parto{
+	font-size:30px;
+  	border-radius:0px!important;
+  	width:175px;
+}
+
+.coderp-parto{
+  	background-color:rgba(0, 0, 0, 0.5);
+  	padding:4px 5px 2px 5px;
+}
+
+.coderp-cw-ctn{
+	width:175px;
+}
+
+.coderp-1-bande{
+	border-radius:0px 0px 0px 4px;
+  	background-color:var(--c14);
+	color:var(--cff);
+  	display:flex;
+  	flex-direction:column;
+}
+
+.coderp-1-bande .coderp-ctn-parent{
+  	border-radius:0px 0px 0px 4px;
+    	width:175px;
+  	display:flex;
+  	flex-direction:column;  	
+  	padding:200px 0px 0px 0px;
+}
+
+.coderp-1-contenu{
+	background-color:var(--cofwhite);
+  	width:615px;
+  	padding:10px;
+}
+
+.coderp-1-contenu br{
+	display:block!important;
+}
+
+.coderp-bgn{  	
+  	background-image: linear-gradient(0deg, rgba(58, 114, 226, 1), rgba(50, 50, 50, 0.1)), url('');
+    background-position: top center;
+  	background-repeat:no-repeat;
+  	text-align:right;
+  	height:400px;
+}
