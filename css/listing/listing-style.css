@@ -50,12 +50,17 @@
 	height:78px;
 }
 
-form[action="/memberlist"] {
-	box-shadow: none;
+.list-form-wrapper{	
 	border-radius: 4px;
 	background-color:var(--cfond);
-	height:118px;
+	height:103px;
 }
+form[action="/memberlist"] {
+	box-shadow: none;
+}
+
+
+
 .ttle-in-form{
     font-size:22px;
 	width:1080px;
@@ -71,7 +76,9 @@ form[action="/memberlist"] {
 	height:20px;
 	margin-left:5px;
 }
-
+input.form-username{
+	height:32px!important;
+}
 input.form-username, .form-ans-ctn select{
 	padding:5px;
 	border-radius:4px;
@@ -80,7 +87,7 @@ input.form-username, .form-ans-ctn select{
 	width:200px;
 }
 
-input.form-username:focus, .form-ans-ctn select:focus{
+input.:focus, .form-ans-ctn select:focus{
 	border-color:var(--cdeu)!important;
 	outline:none;
 }
