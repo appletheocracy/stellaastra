@@ -8,6 +8,25 @@
 	font-weight:400!important;
 }
 
+.list-name-fl a:hover span strong{
+	letter-spacing:1px;
+}
+.u-info-bloc{
+	display:flex;
+  	flex-direction:row;
+  	text-align: center; 
+	justify-content: center; 
+  	align-items: center;
+  	gap:5px;
+}
+
+.table1.flex-it{
+	display:flex;
+  	flex-direction:row;
+  	flex-wrap:wrap;
+  	gap:28px;
+}
+
 .forumbg{
     width:1140px!important;
     height:auto;
@@ -302,6 +321,10 @@ input.btn-chercher:focus{
 
 .linac .liste-u-name{
     color:var(--inac)!important;
+}
+
+.linac .udata5 .u-info-bloc a{
+	color:var(--cfond)!important;
 }
 
 .liste-ctn-rpt-col.lchim, .lchim .liste-u-data{
