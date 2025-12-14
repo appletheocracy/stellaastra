@@ -131,7 +131,7 @@
 .fiche_hybride .img_color2f,
 .fiche_hybride .f-timeline .f-anne-mois:after,
 .fiche_hybride .f-pol_info,
-.fiche_hybride .f-pol_img
+.fiche_hybride .f-pol_img,
 .fiche_hybride .bloc_entete{
 	background-color:var(--chyb)!important;
 }
@@ -270,6 +270,7 @@
 .fiche_humain .fiche_featuring_ca{
 	border-color:var(--chum)!important;
 }
+
 .fiche_humain .f-pol_info:before{
     border-right: 30px solid var(--chum);
 }
