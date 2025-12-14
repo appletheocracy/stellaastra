@@ -54,7 +54,7 @@ form[action="/memberlist"] {
 	box-shadow: none;
 	border-radius: 4px;
 	background-color:var(--cfond);
-	height:113px;
+	height:118px;
 }
 .ttle-in-form{
     font-size:22px;
