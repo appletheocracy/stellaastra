@@ -53,8 +53,9 @@
 .list-form-wrapper{	
 	border-radius: 4px;
 	background-color:var(--cfond);
-	height:103px;
+	padding:5px;
 }
+
 form[action="/memberlist"] {
 	box-shadow: none;
 }
@@ -66,7 +67,6 @@ form[action="/memberlist"] {
 	width:1080px;
 	border-bottom:2px solid var(--cdeu);
 	margin:0 auto;
-	padding:10px 0px 5px 0px;
 	color:var(--cdeu);
 }
 
