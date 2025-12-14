@@ -55,7 +55,8 @@
 .fiche_vampire .img_color2f,
 .fiche_vampire .f-timeline .f-anne-mois:after,
 .fiche_vampire .f-pol_info,
-.fiche_vampire .f-pol_img{
+.fiche_vampire .f-pol_img,
+.fiche_vampire, .bloc_entete{
 	background-color:var(--cvam)!important;
 }
 
@@ -64,6 +65,7 @@
 }
 
 .fiche_vampire .histoire_texte,
+.fiche_vampire .bloc_rep_fiche1,
 .fiche_vampire .fiche_facts .bloc_rep_fiche,
 .fiche_vampire .fiche_signes .bloc_rep_fiche,
 .fiche_vampire .mot_doux .bloc_rep_fiche,
@@ -129,7 +131,8 @@
 .fiche_hybride .img_color2f,
 .fiche_hybride .f-timeline .f-anne-mois:after,
 .fiche_hybride .f-pol_info,
-.fiche_hybride .f-pol_img{
+.fiche_hybride .f-pol_img
+.fiche_hybride .bloc_entete{
 	background-color:var(--chyb)!important;
 }
 
@@ -204,7 +207,8 @@
 .fiche_chimere .img_color2f,
 .fiche_chimere .f-timeline .f-anne-mois:after,
 .fiche_chimere .f-pol_info,
-.fiche_chimere .f-pol_img{
+.fiche_chimere .f-pol_img,
+.fiche_chimere .bloc_entete{
 	background-color:var(--chim)!important;
 }
 
@@ -276,7 +280,8 @@
 .fiche_humain .img_color2f,
 .fiche_humain .f-timeline .f-anne-mois:after,
 .fiche_humain .f-pol_info,
-.fiche_humain .f-pol_img{
+.fiche_humain .f-pol_img,
+.fiche_humain .bloc_entete{
 	background-color:var(--chum)!important;
 }
 
@@ -290,6 +295,7 @@
 .fiche_humain .mot_doux .bloc_rep_fiche,
 .fiche_humain .f-pol_reponse,
 .fiche_humain .f-timeline_ctn,
-.fiche_humain .psychee_texte{
+.fiche_humain .psychee_texte,
+.fiche_humain .bloc_rep_fiche1{
     scrollbar-color: var(--chum) var(--cfond)!important;
 }
