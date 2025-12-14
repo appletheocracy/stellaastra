@@ -67,7 +67,18 @@
     line-height:normal;
 }
 
+.fiche_cw{
+    width:480px;
+    margin-bottom:10px;
+    height:100px;
+}
 
+
+.fiche_cw .bloc_rep_fiche{
+    margin-bottom:10px;
+    height:69px;
+    overflow-y:auto;
+}
 
 .soustitre_fiche{
     width:100%;
