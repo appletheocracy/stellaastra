@@ -419,7 +419,7 @@
 }
 
 .poids .bloc_rep_fiche{
-    height:69px;
+    height:69px!important;
 }
 
 .bloc_entete.fiche_facts{
