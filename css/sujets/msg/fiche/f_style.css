@@ -343,7 +343,7 @@
     display: grid; 
     grid-auto-columns: 1fr; 
     grid-template-columns: 215px 100px 150px 281px; 
-    grid-template-rows: 63px 40px 146px; 
+    grid-template-rows: 63px 31px 146px; 
     gap: 10px 10px; 
     grid-template-areas: 
     "a b c d"
@@ -455,7 +455,7 @@
 
 .bloc_entete.faits_img{
     width:150px;
-    height:146px;
+    height:155px;
     grid-area:f;
 }
 
