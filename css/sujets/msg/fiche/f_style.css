@@ -343,7 +343,7 @@
     display: grid; 
     grid-auto-columns: 1fr; 
     grid-template-columns: 215px 100px 150px 281px; 
-    grid-template-rows: 63px 41px 146px; 
+    grid-template-rows: 63px 40px 146px; 
     gap: 10px 10px; 
     grid-template-areas: 
     "a b c d"
@@ -415,9 +415,12 @@
 
 .bloc_entete.poids{
     width:150px;
-    height:104px;
+    height:103px;
 }
 
+.poids .bloc_rep_fiche{
+    height:69px;
+}
 
 .bloc_entete.fiche_facts{
     width:325px;
