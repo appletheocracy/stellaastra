@@ -373,6 +373,7 @@
 .fiche_chimere .fiche_inner_margin{
     grid-template-areas: 
     "a b c d"
+    "e e c g"
     "e e f g"!important; 
 }
 
@@ -414,6 +415,7 @@
 
 .bloc_entete.poids{
     width:150px;
+    height:104px;
 }
 
 
