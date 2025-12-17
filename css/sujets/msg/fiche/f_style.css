@@ -343,11 +343,12 @@
     display: grid; 
     grid-auto-columns: 1fr; 
     grid-template-columns: 215px 100px 150px 281px; 
-    grid-template-rows: 63px 197px; 
+    grid-template-rows: 63px 41px 146px; 
     gap: 10px 10px; 
     grid-template-areas: 
     "a b c d"
-    "e e f d"; 
+    "e e c g"
+    "e e f g"; 
     justify-content: start; 
     align-content: start; 
     justify-items: start; 
@@ -449,7 +450,7 @@
 
 .bloc_entete.faits_img{
     width:150px;
-    height:197px;
+    height:146px;
     grid-area:f;
 }
 
@@ -461,7 +462,7 @@
 
 .faits_img .bloc_rep_fiche img{
     width:125px;
-    height:170px;    
+    height:125px;    
 }
 
 .bloc_entete.fiche_signes{
