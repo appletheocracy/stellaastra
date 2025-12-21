@@ -230,7 +230,7 @@
   height:359px!important;
 }
 
-#c5 .cat_list, #c6 .cat_list, #c7 .cat_list, # .cat_lis{
+#c5 .cat_list, #c6 .cat_list, #c7 .cat_list, #c14 .cat_list{
     grid-template-rows: 230px!important;
     grid-template-areas:
         "a b";
@@ -249,11 +249,11 @@
     border-radius:0px 4px 4px 0px;
 }
 
-# .c-focat_list{
+#c14 .c-focat_list{
 	border-radius:0px 4px 4px 0px;
 }
 
-#c7 .c-focat_list, # .c-focat_list:first-of-type{
+#c7 .c-focat_list, #c14 .c-focat_list:first-of-type{
   border-radius:4px 0px 0px 4px!important;
 }
 
@@ -302,7 +302,7 @@
 }
 
 .stack_div .cat_list{
-	display:flex;
+	display:flex!important;
   	flex-direction:row;
   	flex-wrap:wrap;
   	width:1110px!important;
