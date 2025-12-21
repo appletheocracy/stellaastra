@@ -5,7 +5,7 @@ $(function () {
     '/f8-vampires':  'f8',
     '/f15-chimeres':'f15',
     '/f10-hybrides':'f10',
-    '/f19-humains': 'f9'
+    '/f9-humains': 'f9'
   };
 
   $.each(map, function (path, cls) {
