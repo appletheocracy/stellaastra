@@ -65,7 +65,7 @@ a.pa_general_nav.pa_credits {
 	border-color: var(--chim)!important;
 	background-color: var(--chim)!important;
 	background-image: url('https://i.imgur.com/yyJkQcb.png');
-	width:330px;
+	width:330px!important;
 	background-position: center;
 }
 
