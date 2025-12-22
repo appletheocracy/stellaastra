@@ -44,6 +44,7 @@ button#bouton_plier_pa {
 	padding: 13px 10px !important;
 	font-size: 18px;
 	border: 1px solid var(--chim);
+	width:300px;
 }
 
 button#bouton_plier_pa:hover {
