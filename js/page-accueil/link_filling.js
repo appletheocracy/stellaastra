@@ -18,3 +18,4 @@ $(function(){
     $('a.pa_pro_msg').attr('href', '/spa/u'+userID);
     $('a.pa_pro_suj').attr('href', '/sta/u'+userID);
 });
+
