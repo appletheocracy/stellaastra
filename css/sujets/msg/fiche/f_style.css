@@ -5,7 +5,7 @@
     max-width:430px;
     color:var(--cofwhite);
     font-size:16px;
-    margin-bottom:5px;
+    margin-bottom:0px 0px 5px 15px;
     gap:10px;
 }
 
@@ -20,6 +20,10 @@
 
 .f-author{
     margin:0px 15px 0px 4px;
+	display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+	gap:5px;
 }
 
 .f-char, .f-author{
