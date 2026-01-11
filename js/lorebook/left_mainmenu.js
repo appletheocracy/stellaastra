@@ -63,13 +63,6 @@ $(function () {
         <ion-icon name="person-add-outline"></ion-icon>
         <span>Création de personnage</span>
     </a>
-    <a href="/h9-bottins-divers" class="mainmenu">
-        <div class="ligne-menu">
-        <div class="ligne"></div>
-        </div>
-        <ion-icon name="list-outline"></ion-icon>
-        <span>Bottins divers</span>
-    </a>
     <a href="/h10-mises-en-page" class="mainmenu">
         <div class="ligne-menu">
         <div class="ligne"></div>
