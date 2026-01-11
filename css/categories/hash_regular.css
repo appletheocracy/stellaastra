@@ -605,7 +605,7 @@ height: 44px;
     width:360px!important;
 }
 
-#c3 .c-focat_list:last-of-type, #c5 .c-focat_list:first-of-type, #c14 .c-focat_list:first-of-type{
+#c3 .c-focat_list.catzone1-2.zone-0, #c5 .c-focat_list.catzone1-2.zone-0, #c14 .c-focat_list.catzone1-2.zone-0{
 	border-radius:4px 0px 0px 4px!important;
 }
 
