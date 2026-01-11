@@ -231,7 +231,7 @@
   height:359px!important;
 }
 
-#c6 .cat_list, #c7 .cat_list, #c14 .cat_list{
+#c6 .cat_list, #c7 .cat_list{
     grid-template-rows: 230px!important;
     grid-template-areas:
         "a b";
@@ -250,24 +250,24 @@
     border-radius:0px 4px 4px 0px;
 }
 
-#c13 .c-focat_list, #c14 .c-focat_list{
+#c13 .c-focat_list{
 	border-radius:0px 4px 4px 0px;
 }
 
-#c7 .c-focat_list, #c14 .c-focat_list:first-of-type{
-  border-radius:4px 0px 0px 4px!important;
+#c7 .c-focat_list{
+  	border-radius:4px 0px 0px 4px!important;
 }
 
 #c6 .topl{
-  border-radius:4px 0px 0px 4px!important;
+ 	 border-radius:4px 0px 0px 4px!important;
 }
 
 #c6 .topr{
-  border-radius:0px 4px 4px 0px!important;
+ 	 border-radius:0px 4px 4px 0px!important;
 }
 
-#c1 .cat-stat, #c4 .cat-stat, #c6 .cat-stat, #c7 .cat-stat, #c13 .cat-stat, #c14 .cat-stat .stack_div .cat-stat{
-  width:125px!important;
+#c1 .cat-stat, #c4 .cat-stat, #c6 .cat-stat, #c7 .cat-stat, #c13 .cat-stat{
+  	width:125px!important;
 }
 
 .stack_div .district8-12{
@@ -275,10 +275,10 @@
 }
 
 .stack_div .c-sub-for > a:any-link , #c6 .c-sub-for > a:any-link {
-        display: flex;
-        align-items: center;      /* centers text vertically within each row */
-        padding: 8px 10px;
-        text-decoration: none;
+	display: flex;
+	align-items: center;      /* centers text vertically within each row */
+	padding: 8px 10px;
+	text-decoration: none;
 }
 
 .stack_div .c-sub-for, #c6 .c-sub-for{
@@ -505,21 +505,21 @@ height: 44px;
 	height:100px;
 }
 
-#c2 .c-focat_list, #c6 .c-focat_list, #c7 .c-focat_list, #c13 .c-focat_list, #c14 .c-focat_list{
+#c2 .c-focat_list, #c6 .c-focat_list, #c7 .c-focat_list, #c13 .c-focat_list{
   	width:547.5!important; 	
 }
 
-#c2 .c-focat_titre, #c6 .c-focat_titre, #c7 .c-focat_titre, #c13 .c-focat_titre, #c14 .c-focat_titre,
-#c2 .c-for-suj, #c6 .c-for-suj, #c7 .c-for-suj, #c13 .c-for-suj, #c14 .c-for-suj {
+#c2 .c-focat_titre, #c6 .c-focat_titre, #c7 .c-focat_titre, #c13 .c-focat_titre,
+#c2 .c-for-suj, #c6 .c-for-suj, #c7 .c-for-suj, #c13 .c-for-suj{
   	width:537.5!important; 	
 }
 
-#c2 .c-for_desc, #c6 .c-for_desc, #c7 .c-for_desc, #c13 .c-for_desc,  #c14 .c-for_desc,
-#c2 .c-for_info, #c6 .c-for_info, #c7 .c-for_info, #c13 .c-for_info, #c14 .c-for_info{
+#c2 .c-for_desc, #c6 .c-for_desc, #c7 .c-for_desc, #c13 .c-for_desc,
+#c2 .c-for_info, #c6 .c-for_info, #c7 .c-for_info, #c13 .c-for_info{
  	width:517.5!important; 	
 }
 
-#c2 .c-for_last, #c6 .c-for_last, #c7 .c-for_last, #c13 .c-for_last, #c14 .c-for_last{
+#c2 .c-for_last, #c6 .c-for_last, #c7 .c-for_last, #c13 .c-for_last{
   	width:507.5!important; 	
 }
 
@@ -527,17 +527,17 @@ height: 44px;
   width:100px!important;
 }
 
-#c2 .catego_titre, #c14 .catego_titre{
+#c2 .catego_titre{
     height:99.19px!important;
 
 }
 
-#c2 #h1-category, #c14 #h1-category{
+#c2 #h1-category{
     height:65px!important;
     padding-top:41px;
 }
 
-#c2, #c14{
+#c2{
     height:359px!important;
     margin-top:25px;
 }
@@ -561,41 +561,38 @@ height: 44px;
 
 /*TRIADE (ROW DE 3)*/
 
-#c3, #c5{
-    margin-top:25px;
-}
-
-#c3, #c5{
+#c3, #c5, #c14{
     height:359px!important;
+	margin-top:25px;
 }
 
-#c3 .c-focat_titre, #c5 .c-focat_titre{
+#c3 .c-focat_titre, #c5 .c-focat_titre, #c14 .c-focat_titre{
 	width:350px!important;
   	display:flex!important;
   	flex-direction:row!important;
   	gap:10px!important;
 }
 
-#c3 .c-for_info,#c5 .c-for_info{
+#c3 .c-for_info, #c5 .c-for_info, #c14 .c-for_info{
 	width:330px!important;
 }
 
-#c3 .c-for_last, #c5 .c-for_last{
+#c3 .c-for_last, #c5 .c-for_last, #c14 .c-for_last{
     width:310px!important;
     grid-template-columns: 70px 230px!important;
 }
 
-#c3 .c-for_last-info, #c5 .c-for_last-info{
+#c3 .c-for_last-info, #c5 .c-for_last-info, #c14 .c-for_last-info{
 	width:230px!important;
 }
 
-#c3 .c-focat_titre a.forumtitle, #c5 .c-focat_titre a.forumtitle{
+#c3 .c-focat_titre a.forumtitle, #c5 .c-focat_titre a.forumtitle, #c14 .c-focat_titre a.forumtitle{
 	font-size:25px!important;
   	width:250px!important;
   	white-space: nowrap;
 }
 
-#c3 .cat_list, #c5 .cat_list{
+#c3 .cat_list, #c5 .cat_list, #c14 .cat_list{
     display:flex!important;
     flex-direction:row!important;
     flex-wrap:wrap!important;
@@ -604,28 +601,28 @@ height: 44px;
     height:230px!important;
 }
 
-#c3 .catzone1-2, #c5 .catzone1-2{
+#c3 .catzone1-2, #c5 .catzone1-2, #c14 .catzone1-2{
     width:360px!important;
 }
 
-#c3 .c-focat_list:last-of-type, #c5 .c-focat_list:first-of-type{
+#c3 .c-focat_list:last-of-type, #c5 .c-focat_list:first-of-type, #c14 .c-focat_list:first-of-type{
 	border-radius:4px 0px 0px 4px!important;
 }
 
-#c3 .c-focat_list:last-of-type, #c5 .c-focat_list:last-of-type{
+#c3 .c-focat_list:last-of-type, #c5 .c-focat_list:last-of-type, #c14 .c-focat_list:last-of-type{
 	border-radius:0px 4px 4px 0px!important;
 }
 
-#c3 .c-sub-for, #c5 .c-sub-for{
+#c3 .c-sub-for, #c5 .c-sub-for, #c14 .c-sub-for{
 	display:none;
 }
 
-#c3 .catego_titre, #c5 .catego_titre{
+#c3 .catego_titre, #c5 .catego_titr, #c14 .catego_titre{
     height:99.19px!important;
 
 }
 
-#c3 #h1-category, #c5 #h1-category{
+#c3 #h1-category, #c5 #h1-category, #c14 #h1-category{
     height:65px!important;
     padding-top:41px;
 }
