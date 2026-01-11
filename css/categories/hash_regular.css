@@ -399,7 +399,7 @@
 #c5 a.forumtitle:hover,
 #c6 a.forumtitle:hover,
 #c7 a.forumtitle:hover,
-#c14 a.forumtitle:hover,
+ a.forumtitle:hover,
 .stack_div a.forumtitle:hover{
   	color:var(--cfond)!important;
 }
@@ -609,7 +609,7 @@ height: 44px;
 	border-radius:4px 0px 0px 4px!important;
 }
 
-#c3 .catzone1-2:last-of-type, #c5 .catzone1-2:last-of-type, #c14 .catzone1-2:last-of-type{
+#c3 .c-focat_list.catzone1-2.zone-2, #c5 .c-focat_list.catzone1-2.zone-2, #c14 .c-focat_list.catzone1-2.zone-2{
 	border-radius:0px 4px 4px 0px!important;
 }
 
