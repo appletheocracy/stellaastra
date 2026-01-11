@@ -609,7 +609,7 @@ height: 44px;
 	border-radius:4px 0px 0px 4px!important;
 }
 
-#c3 .c-focat_list:last-of-type, #c5 .c-focat_list:last-of-type, #c14 .c-focat_list.stack3{
+#c3 .c-focat_list:last-of-type, #c5 .c-focat_list:last-of-type, #c14 .c-focat_list:last-of-type{
 	border-radius:0px 4px 4px 0px!important;
 }
 
