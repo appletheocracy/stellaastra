@@ -381,12 +381,13 @@ display:none!important;
     flex-direction:column;
     color:var(--cff);
 	grid-area:b;
+	width:120px!important;
 }
 
 .cat-district_rp .rpmenu_titre{
     grid-area:a;
     font-size:25px;
-    width:155px;
+    width:120px;
     text-align:right;
     margin-top:25px;
 }
@@ -394,7 +395,7 @@ display:none!important;
 .cat-district_rp .rpmenu_subdesc{
     grid-area:c;
     font-size:16px;
-    width:155px;
+    width:120px;
     text-align:right;
 }
 
