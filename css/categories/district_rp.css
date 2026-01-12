@@ -350,30 +350,37 @@ display:none!important;
     display:flex;
     flex-direction: column;
     margin-left:15px;
-
 }
 
 
-.cat-district_rp .bouton_rp_menu{
+.cat-district_rp a.bouton_rp_menu{
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     display: grid; 
-    grid-template-columns: 175px 80px; 
+    grid-template-columns: 45px 115px 80px; 
     grid-template-rows: 101px; 
-    gap: 0px 0px; 
+    gap: 0px 10px; 
     grid-template-areas: 
-    ". ."; 
+    "a b c"; 
     justify-content: start; 
     align-content: start; 
     justify-items: start; 
     align-items: start; 
     width: 255px; 
     height: 101px;
-    padding:23px 0px;
+}
+
+.bouton_rp_menu img{
+    grid-area:c;
+    margin-top:25px;
 }
 
 .cat-district_rp .namedesc_rpmenu{
     display:flex;
     flex-direction:column;
     color:var(--cff);
+	grid-area:b;
 }
 
 .cat-district_rp .rpmenu_titre{
@@ -381,7 +388,7 @@ display:none!important;
     font-size:25px;
     width:155px;
     text-align:right;
-    margin-top:2px;
+    margin-top:25px;
 }
 
 .cat-district_rp .rpmenu_subdesc{
@@ -438,9 +445,6 @@ display:none!important;
 .cat-district_rp .sub_titre a{
     color:var(--cdeu)!important;
 }
-
-
-
 
 .cat-district_rp .c-for_desc{
     height:105px;
@@ -609,4 +613,92 @@ display:none!important;
     text-transform: uppercase;
     height:25px!important;
     margin:0px 10px 10px 10px;
+}
+
+.bouton_rp_menu .bell{
+    grid-area:a;
+    width:58px;
+    height:58px;
+    overflow:hidden;
+    border-top:3px solid #141414;
+    border-left:3px solid #141414;
+}
+
+.bouton_rp_menu .bell .bell-circle{
+    width:110px;
+    height:110px;
+    position:relative;
+    border-radius:50%;
+    top:-55px;
+    left:-55px;
+    background-color:#141414;
+    color:white;
+    font-size:35px;
+    padding:58px 15px 0px 0px;
+    text-align:right;
+    border:3px solid #141414;
+}
+
+a#indreby:hover, a#indreby.cat-selected{
+    background-color:#3a72e2!important;
+    border-radius:4px 0px 0px 0px;
+}
+a#indreby .bell{
+    border-radius:4px 0px 0px 0px;
+}
+a#indreby:hover .bell{
+    border-color:#3a72e2;
+}
+a#indreby:hover .bell .bell-circle, a#indreby.cat-selected .bell, a#indreby.cat-selected .bell-circle{
+    border-color:#3a72e2;
+    color:#3a72e2;
+}
+
+a#nyhavn:hover, a#nyhavn.cat-selected{
+    background-color:#D31141!important;
+}
+a#nyhavn:hover .bell{
+    border-color:#D31141;
+}
+a#nyhavn:hover .bell .bell-circle,  a#nyhavn.cat-selected .bell, a#nyhavn.cat-selected .bell-circle{
+    border-color:#D31141;
+	color:#D31141;
+}
+
+a#vesterbro:hover, a#vesterbro.cat-selected{
+    background-color:#FDBE43!important;
+}
+a#vesterbro:hover .bell{
+    border-color:#FDBE43;
+}
+
+a#vesterbro:hover .bell .bell-circle, a#vesterbro.cat-selected .bell, a#vesterbro.cat-selected .bell-circle{
+    border-color:#FDBE43;
+    color:#FDBE43;
+}
+
+a#norrebro:hover, a#norrebro.cat-selected{
+    background-color:#C083CF!important;
+}
+a#norrebro:hover .bell{
+    border-color:#C083CF;
+}
+a#norrebro:hover .bell .bell-circle, a#norrebro.cat-selected .bell, a#norrebro.cat-selected .bell-circle{
+    border-color:#C083CF;
+    color:#C083CF;
+}
+
+a#ailleurs:hover, a#ailleurs.cat-selected{
+    background-color:#6D9C72!important;
+    border-radius:0px 0px 0px 4px;
+}
+a#ailleurs .bell{
+    border-radius:0px 0px 0px 4px;
+}
+a#ailleurs:hover .bell{
+    border-color:#6D9C72;
+}
+a#ailleurs:hover .bell .bell-circle, a#ailleurs.cat-selected .bell, a#ailleurs.cat-selected .bell-circle{
+    border-color:#6D9C72;
+    color:#6D9C72;
 }
