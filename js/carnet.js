@@ -39,7 +39,7 @@ $(function () {
   $('div.carnet').each(function () {
 
 
-    $(['cw','rep', 'daterp', 'linkrp', 'titrerp', 'annuaire', 'entete', 'date-rp', 'titre-rp', 'en-cours', "termine", "repertoire"]).each(function (_, tag) {
+    $(['cw','rep', 'daterp', 'linkrp', 'titrerp', 'annuaire', 'date-rp', 'titre-rp', 'en-cours', "termine", "repertoire"]).each(function (_, tag) {
       $(tag).each(function () {
         var $el = $(this);
 
@@ -72,6 +72,13 @@ $(function () {
     $('dispo').replaceWith(function () {
       return $('<div>', {
         class: 'info disponi',
+        html: $(this).html()
+      });
+    });
+
+    $('entete').replaceWith(function () {
+      return $('<div>', {
+        class: 'entete-carnet',
         html: $(this).html()
       });
     });
@@ -187,7 +194,7 @@ $(function () {
 
     //ENTÊTE -----------------------------------------------------------------
     //Wrapper .info_entete
-    $('div.entete').each(function () {
+    $('div.entete-carnet').each(function () {
       var $entete = $(this);
 
 
@@ -231,9 +238,9 @@ $(function () {
         var $group = $subtitle.nextUntil('div.subtitle', 'div.carnet-cw').addBack();
 
         // avoid double wrapping
-        if ($subtitle.parent().hasClass('info_entete')) return;
+        if ($subtitle.parent().hasClass('info_entete-carnet')) return;
 
-        $group.wrapAll('<div class="info_entete"></div>');
+        $group.wrapAll('<div class="info_entete-carnet"></div>');
       });
 
       $('img').each(function () {
