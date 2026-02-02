@@ -78,7 +78,7 @@ $(function () {
 
     $('entete').replaceWith(function () {
       return $('<div>', {
-        class: 'entete-carnet',
+        class: 'entete',
         html: $(this).html()
       });
     });
@@ -194,7 +194,7 @@ $(function () {
 
     //ENTÊTE -----------------------------------------------------------------
     //Wrapper .info_entete
-    $('div.entete-carnet').each(function () {
+    $('div.entete').each(function () {
       var $entete = $(this);
 
 
@@ -238,9 +238,9 @@ $(function () {
         var $group = $subtitle.nextUntil('div.subtitle', 'div.carnet-cw').addBack();
 
         // avoid double wrapping
-        if ($subtitle.parent().hasClass('info_entete-carnet')) return;
+        if ($subtitle.parent().hasClass('info_entete')) return;
 
-        $group.wrapAll('<div class="info_entete-carnet"></div>');
+        $group.wrapAll('<div class="info_entete"></div>');
       });
 
       $('img').each(function () {
