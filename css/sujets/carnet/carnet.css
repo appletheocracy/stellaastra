@@ -68,7 +68,7 @@
   border-radius: 4px !important;
   padding: 0px 10px !important;
 }
-.carnet .contenu .entete-carnet {
+.carnet .contenu .entete {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -76,18 +76,18 @@
   justify-content: flex-end;
   padding: 15px;
 }
-.carnet .contenu .entete-carnet .info_entete-carnet {
+.carnet .contenu .entete .info_entete {
   color: #f6f6f6;
   width: 100%;
 }
-.carnet .contenu .entete-carnet .ttimg {
+.carnet .contenu .entete .ttimg {
   height: 150px;
   width: 150px;
   border-radius: 4px;
   background-color: #3a72e2;
   padding: 10px;
 }
-.carnet .contenu .entete-carnet .ttimg img {
+.carnet .contenu .entete .ttimg img {
   width: 130px;
   height: 130px;
 }
