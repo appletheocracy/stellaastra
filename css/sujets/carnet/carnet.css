@@ -11,7 +11,6 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
 }
-
 .carnet .title {
   font-family: "Staatliches", sans-serif;
   font-weight: 400;
@@ -69,7 +68,7 @@
   border-radius: 4px !important;
   padding: 0px 10px !important;
 }
-.carnet .contenu .entete {
+.carnet .contenu .entete-carnet {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -77,18 +76,18 @@
   justify-content: flex-end;
   padding: 15px;
 }
-.carnet .contenu .entete .info_entete {
+.carnet .contenu .entete-carnet .info_entete-carnet {
   color: #f6f6f6;
   width: 100%;
 }
-.carnet .contenu .entete .ttimg {
+.carnet .contenu .entete-carnet .ttimg {
   height: 150px;
   width: 150px;
   border-radius: 4px;
   background-color: #3a72e2;
   padding: 10px;
 }
-.carnet .contenu .entete .ttimg img {
+.carnet .contenu .entete-carnet .ttimg img {
   width: 130px;
   height: 130px;
 }
