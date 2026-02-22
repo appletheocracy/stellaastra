@@ -1,0 +1,167 @@
+/*file import*/
+html {
+  background: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #323232;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div,
+a {
+  transition: 0.5s;
+  animation-timing-function: ease-in-out;
+  text-decoration: none;
+}
+
+#partenariat-sc-v2 {
+  background-image: url("../../img/Stella_Cinis_Fiche_de_pub_Fond.png");
+  background-color: #141414;
+  width: 719px;
+  height: 645px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  margin: 0 auto;
+  border-width: 20px 2px 2px 2px;
+  border-style: solid;
+  border-color: #141414;
+}
+#partenariat-sc-v2 .entete-pscv2 {
+  width: 100%;
+  height: 255px;
+  font-family: "Staatliches", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  color: #f6f6f6;
+  padding: 95px 0px 0px;
+}
+#partenariat-sc-v2 .entete-pscv2 .titre-pscv2 {
+  font-size: 80px;
+  text-align: center;
+  line-height: 65px;
+  letter-spacing: 12px;
+  text-shadow: rgb(253, 190, 67) 1px 0 10px;
+}
+#partenariat-sc-v2 .entete-pscv2 .info-entete-pscv2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+  justify-content: center;
+  background-color: rgba(58, 114, 226, 0.5);
+}
+#partenariat-sc-v2 .description-pscv2 {
+  padding-top: 15px;
+}
+#partenariat-sc-v2 .description-pscv2 .descolo-bord-pscv2 {
+  height: 10px;
+  width: 100%;
+}
+#partenariat-sc-v2 .description-pscv2 .descolo-bord-pscv2.top {
+  background-color: rgba(253, 190, 67, 0.5);
+}
+#partenariat-sc-v2 .description-pscv2 .descolo-bord-pscv2.bottom {
+  background-color: rgba(58, 114, 226, 0.5);
+}
+#partenariat-sc-v2 .description-pscv2 .texte-description-pscv2 {
+  background-color: #f6f6f6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  padding: 15px;
+  border-width: 10px 0px 10px 0px;
+  border-style: solid;
+  border-bottom-color: #3a72e2;
+  border-top-color: #FDBE43;
+  line-height: 18px;
+}
+#partenariat-sc-v2 .description-pscv2 .texte-description-pscv2 a {
+  font-family: "Staatliches", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #3a72e2;
+}
+#partenariat-sc-v2 .description-pscv2 .texte-description-pscv2 a:hover {
+  color: #BD3154;
+}
+#partenariat-sc-v2 .flex-links-pscv2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  font-family: "Staatliches", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+  padding: 15px;
+}
+#partenariat-sc-v2 .flex-links-pscv2 a.discordlink-pscv2 {
+  color: #141414;
+  text-shadow: #FDBE43 1px 0 10px;
+}
+#partenariat-sc-v2 .flex-links-pscv2 a.discordlink-pscv2 .discord-links-pscv2 {
+  width: 207px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  justify-content: center;
+  text-align: center;
+}
+#partenariat-sc-v2 .flex-links-pscv2 a.discordlink-pscv2 .discord-links-pscv2 img {
+  width: 120px;
+  align-self: center;
+  margin-bottom: 10px;
+}
+#partenariat-sc-v2 .flex-links-pscv2 a.discordlink-pscv2 .discord-links-pscv2 .joinus-pscv2 {
+  letter-spacing: 7px;
+  font-size: 30px;
+}
+#partenariat-sc-v2 .flex-links-pscv2 a.discordlink-pscv2:hover .joinus-pscv2 {
+  letter-spacing: 10px;
+  color: #f6f6f6;
+}
+#partenariat-sc-v2 .flex-links-pscv2 .links-pscv2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  justify-content: center;
+  text-align: center;
+  color: #f6f6f6;
+  align-items: center;
+  justify-content: center;
+}
+#partenariat-sc-v2 .flex-links-pscv2 .links-pscv2 .linktitre-pscv2 {
+  letter-spacing: 8px;
+}
+#partenariat-sc-v2 .flex-links-pscv2 .links-pscv2 .info-div-pscv2 {
+  background-color: #3a72e2;
+  padding: 5px 15px 0px;
+  width: 220px;
+  margin-bottom: 5px;
+}
+#partenariat-sc-v2 .flex-links-pscv2 .links-pscv2 .info-div-pscv2:hover {
+  background-color: #FDBE43;
+}
+#partenariat-sc-v2 .flex-links-pscv2 .links-pscv2 a {
+  color: #f6f6f6;
+  background-color: #3a72e2;
+  padding: 5px 15px 0px;
+  width: 220px;
+  margin-bottom: 5px;
+}
+#partenariat-sc-v2 .flex-links-pscv2 .links-pscv2 a:hover {
+  background-color: #FDBE43;
+}
+
+/*# sourceMappingURL=style.css.map */
