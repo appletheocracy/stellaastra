@@ -107,7 +107,7 @@ a {
   padding: 15px;
 }
 #partenariat-sc-v2 .flex-links-pscv2 a.discordlink-pscv2 {
-  color: #141414;
+  color: #f6f6f6;
   text-shadow: #FDBE43 1px 0 10px;
 }
 #partenariat-sc-v2 .flex-links-pscv2 a.discordlink-pscv2 .discord-links-pscv2 {
@@ -129,7 +129,6 @@ a {
 }
 #partenariat-sc-v2 .flex-links-pscv2 a.discordlink-pscv2:hover .joinus-pscv2 {
   letter-spacing: 10px;
-  color: #f6f6f6;
 }
 #partenariat-sc-v2 .flex-links-pscv2 .links-pscv2 {
   display: flex;
