@@ -1,3 +1,187 @@
+.info_entete{
+	display:flex;
+  	flex-direction:column;
+  	gap:10px;
+  	max-width:450px;
+}
+
+.carnet .entete img{
+	width:130px!important;
+  	height:130px!important;
+}
+
+.rp2_img{height:188px!important;}
+
+a.mentiontag {
+  background-color: #323232!important;
+  color: #f6f6f6!important;
+  font-weight:400!important;
+}
+.message_vampire a.mentiontag:hover {
+  background-color: var(--cvam)!important;
+}
+.message_membre a.mentiontag:hover {
+  background-color: var(--cmem)!important;
+}
+.message_chimere a.mentiontag:hover {
+  background-color: var(--chim)!important;
+}
+.message_humain a.mentiontag:hover {
+  background-color: var(--chum)!important;
+}
+.message_humain a.mentiontag:hover {
+  background-color: var(--chyb)!important;
+}
+a.mentiontag:hover {
+  background-color: var(--cdeu)!important;
+}
+
+.message_pnj a.mentiontag:hover {
+  background-color: var(--cpnj)!important;
+}
+
+.category{
+	background-image:url('https://2img.net/i.imgur.com/OB4VLpM.png')!important;
+}
+
+#f16.category.stack_div.b_cat_radius, #f2.category.stack_div.b_cat_radius, #f42.category.stack_div.b_cat_radius{
+    	background-color:var(--c14);
+  	background-image:url('https://2img.net/i.imgur.com/OnQOfjI.png')!important;
+}
+
+#h1-category{line-height:65px;padding-top:0px!important;}
+div.c-sub-forrp a{
+	display:flex;
+  	flex-direction:row;
+  	flex-wrap:nowrap;
+  	justify-content:flex-end;
+  	align-items:center;
+  	gap:10px;
+  
+}
+
+div.c-sub-forrp a .d-rp-label{
+	width:100%;
+  	white-space: nowrap;
+}
+div.c-sub-forrp a .d-rp-ion{
+	width:30px;
+  	font-size:26px;
+  	text-align:right;
+}
+
+.pa_nom_admin2{
+        font-size: 22px;
+        width: 47px;
+        margin: 7px 0px;
+        position: relative;
+        z-index: 920;
+}
+
+.pa_nom_admin2 div{
+	line-height:22px;
+}
+
+.fiche_prenom_nom{
+	gap:10px;
+}
+.rolelisting{
+	display:flex;
+  	flex-direction:row!important;
+  	flex-wrap:wrap;
+}
+.post .postbody a{
+	color:var(--cdeu);
+  	font-weight:bold;
+}
+
+.post .postbody a:hover{
+	letter-spacing:0.5px;
+}
+
+#lore-static-avatar, #lore-static-role-p, #lore-static-role-r, #lore-static-job, .rolelisting br{
+	display:flex;
+  	flex-direction:column;
+  	width:780px;
+  	padding:0px 30px;
+}
+#lore-static-avatar br, #lore-static-role-p br, #lore-static-role-r br, #lore-static-job br{
+	display:none;
+}
+
+.footer-wrapper{
+	background-color:var(--cfondpale)!important;
+  	width:1200px!important;  	
+  	padding:5px 30px;
+}
+
+.mes-txt{margin-bottom:0px!important;}
+
+#wrapper.left-remover div#left{
+  	display:none!important;
+}
+
+#content-main.sujets-mod{
+	background-color:var(--cfondpale);
+  	width:1200px!important;
+  	position:relative;
+  	left:-193px;
+  	padding:0px 30px 10px 30px;
+  	transition:0s;
+}
+
+#page-footer{
+	background-color:transparent!important;
+  	position:relative;
+  	margin-top:-54px!important;
+}
+.pagination_boutons_top{
+	background-color:#e8e8e8!important;
+  	width:100%;
+  	height:45px;
+  	margin:0px!important;
+}
+
+.sub-header-buttons{
+	margin:5px 0px;
+}
+
+
+.rolelisting{
+	display:flex;
+  	flex-direction:column;
+  	flex-wrap:wrap;
+  	gap:10px;
+}
+.post-rest-wrapper.spacer-w{
+	padding:5px 30px 0px 30px;
+}
+
+.post-rest-wrapper{
+	background-color:var(--cfondpale);
+  	width:1200px!important;
+  	position:relative;
+  	left:-30px;
+  	margin-top:-14px;
+  	padding:0px 30px 10px 30px;
+}
+
+
+.postrow-wrapper{
+  	background-color: #E8E8E8!important;
+  	width:1200px!important;
+  	position:relative;
+  	left:-30px;
+  	padding:30px;
+  	display:flex;
+  	flex-direction:column;
+  	gap:10px;
+}
+
+.post{margin:0px 0px 20px 0px!important;}
+
+.sub-header{left:0px!important;}
+
 .l_sujets_blocs.mainBGN{
     background-image: none!important;
     background-color:transparent!important;
