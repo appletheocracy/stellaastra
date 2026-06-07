@@ -1,0 +1,134 @@
+#pub-stellacinis {
+  width: 620px;
+  height: 593px;
+  background-color: #141414;
+  border-radius: 4px;
+  background-repeat: no-repeat;
+  background-image: url("https://i.imgur.com/mwl87D9.png");
+  background-size: 620px 593px;
+  padding: 0px 15px 15px;
+}
+#pub-stellacinis .pstella-ban {
+  height: 235px;
+  width: 100%;
+  display: block;
+}
+#pub-stellacinis .pstella-texte {
+  border-radius: 4px;
+  padding: 10px;
+  background-color: rgba(53, 135, 129, 0.5);
+}
+#pub-stellacinis .pstella-texte .pstellat-paler {
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #F7F8F1;
+}
+#pub-stellacinis .pstella-texte .pstellat-paler a {
+  font-weight: bold;
+  color: #DEA727;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+}
+#pub-stellacinis .pstella-texte .pstellat-paler a:hover {
+  text-decoration-color: #DEA727;
+}
+#pub-stellacinis .pstella-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+#pub-stellacinis .pstella-links a.pstella-alink .pstella-inner span {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+}
+#pub-stellacinis .pstella-links a.pstella-alink:hover .pstella-inner span {
+  letter-spacing: 1px;
+  text-decoration-color: #F7F8F1;
+}
+#pub-stellacinis .pstella-links .pstella-alink {
+  color: #F7F8F1;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: rgba(53, 135, 129, 0.5);
+}
+#pub-stellacinis .pstella-links .pstella-alink .pstella-inner {
+  border-radius: 4px;
+  border: 1px solid #358781;
+  background-color: #292929;
+  font-family: "Staatliches", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 7px;
+  justify-content: center;
+}
+#pub-stellacinis .pstella-links .pstella-alink .pstella-inner a {
+  color: #F7F8F1;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+}
+#pub-stellacinis .pstella-links .pstella-alink .pstella-inner a:hover {
+  text-decoration-color: #F7F8F1;
+}
+#pub-stellacinis .pstella-links .pstella-subtitre {
+  font-family: "Staatliches", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  color: #F7F8F1;
+  width: 100%;
+  text-align: center;
+}
+#pub-stellacinis .pstella-links .pstella-infos, #pub-stellacinis .pstella-links .pstella-liens {
+  width: 225px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#pub-stellacinis .pstella-links .pstella-joinus {
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+#pub-stellacinis .pstella-links .pstella-joinus a.pstella-discord {
+  width: 100px;
+  height: 100px;
+  transition: all 0.5s;
+  animation-timing-function: ease-in-out;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+#pub-stellacinis .pstella-links .pstella-joinus a.pstella-discord:hover {
+  border-color: #358781;
+  background: #141414;
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+#pub-stellacinis .pstella-links .pstella-joinus a.pstella-discord img {
+  width: 100px;
+}
+#pub-stellacinis .pstella-links .pstella-joinus a.pstella-rejoins {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  font-family: "Staatliches", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  color: #DEA727;
+}
+#pub-stellacinis .pstella-links .pstella-joinus a.pstella-rejoins:hover {
+  color: #F7F8F1;
+}
